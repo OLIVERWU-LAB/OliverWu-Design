@@ -19,7 +19,7 @@ html:has(body.project-open), html:has(dialog[open]) { scroll-snap-type:none; }
 .experience-grid article .experience-organization { max-width:calc(100% - var(--experience-logo-column) - var(--experience-logo-gap)); margin-top:6px; color:#242424; font-size:13px; }
 .experience-grid article .experience-note { margin-top:4px; color:#777; font-size:11px; }
 /* Anchor every logo's centre to the first title line, not the varying article height. */
-.experience-grid .organization-logo { top:.6em; left:calc(100% - var(--experience-logo-column)); right:auto; max-width:var(--experience-logo-column); transform:translateY(-50%); }
+.experience-grid .organization-logo { top:.6em; left:calc(100% - var(--experience-logo-column)); right:auto; max-width:var(--experience-logo-column); transform:translateY(-50%); color:#383838; }
 .contact-panel { display:flex; flex-direction:column; min-height:calc(100svh - var(--outer-gap) - 1px); }
 .contact-panel > .contact-section { display:flex; flex:1; flex-direction:column; gap:28px; min-height:0; padding:36px 44px 30px; border:0; background:linear-gradient(140deg,rgba(255,220,204,.58),rgba(250,250,248,.98) 58%); }
 .contact-section > .contact-main,.contact-section > .contact-bottom { padding:0; display:grid; grid-template-columns:minmax(0,1.45fr) minmax(0,1fr); gap:52px; align-items:center; }
@@ -66,13 +66,6 @@ html:has(body.project-open), html:has(dialog[open]) { scroll-snap-type:none; }
 .contact-panel > .site-footer p[data-i18n="footerPractice"] { justify-self:center; text-align:center; }
 .contact-panel > .site-footer p:last-child { justify-self:end; text-align:right; }
 .contact-panel .site-footer .brand-mark { justify-self:start; font-size:clamp(11px,2.5vw,40px); white-space:nowrap; }
-.hero-tilt { position:absolute; bottom:12px; right:18px; z-index:6; max-width:180px; text-align:right; }
-.hero-tilt[hidden] { display:none; }
-.hero-tilt button { padding:7px 10px; border:1px solid var(--line); background:rgba(255,237,227,.88); color:var(--ink); font:11px var(--body,Arial,sans-serif); cursor:pointer; }
-.hero-tilt button[aria-pressed="true"] { background:#ffc8b7; }
-.hero-tilt button:focus-visible { outline:1px dashed var(--ink); outline-offset:3px; }
-.hero-tilt button:disabled { cursor:wait; }
-.hero-tilt [role="status"] { display:block; margin-top:4px; font-size:10px; color:#555; }
 /* Falling objects scale CONTINUOUSLY with width: one linear formula per object
    from the phone size at 390px to the existing PC size at 1440px. There is no
    size breakpoint, so narrowing a window never makes the stickers jump.

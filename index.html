@@ -9,6 +9,8 @@
     />
     <title>Oliver Wu — Experience Designer</title>
     <script>
+      try { document.documentElement.lang = localStorage.getItem('portfolio-language') === 'zh' ? 'zh-CN' : 'en'; } catch {}
+      window.portfolioRuntimeReady = new Promise(resolve => { window.portfolioResolveRuntime = resolve; });
       // Set before first paint; direct case-study links bypass the home greeting.
       if (!location.hash.startsWith('#project/')) {
         // Cancel native fragment jumps before the browser discovers #work.
@@ -24,23 +26,23 @@
         }, 16000);
       }
     </script>
-    <link rel="stylesheet" href="styles.css?v=20261005-50" />
-    <link rel="stylesheet" href="grid-overrides.css?v=20261005-50" />
-  <link rel="stylesheet" href="styles/projects/the-red-dawn.css?v=20261005-50" />
-  <link rel="stylesheet" href="styles/projects/show-e-motions.css?v=20261005-50" />
-    <link rel="stylesheet" href="styles/projects/tencent-cloud-gaming.css?v=20261005-50" />
-  <link rel="stylesheet" href="styles/projects/visual-editor.css?v=20261005-50" />
-  <link rel="stylesheet" href="styles/projects/gangstar-bite-me.css?v=20261005-50" />
-  <link rel="stylesheet" href="project-template.css?v=20261005-50" />
-  <link rel="stylesheet" href="styles/projects/dnf-zhulang-festival.css?v=20261005-50" />
-    <link rel="stylesheet" href="styles/projects/adaptive-app-market.css?v=20261005-50" />
-    <link rel="stylesheet" href="styles/projects/adaptive-app-market-2026.css?v=20261005-50" />
-    <link rel="stylesheet" href="styles/projects/sound-design.css?v=20261005-50" />
-    <link rel="stylesheet" href="styles/projects/water-babies.css?v=20261005-50" />
-    <link rel="stylesheet" href="styles/resume-picker.css?v=20261005-50" />
-    <link rel="stylesheet" href="styles/home-sections.css?v=20261005-50" />
-    <link rel="stylesheet" href="styles/project-background.css?v=20261005-50" />
-    <link rel="stylesheet" href="styles/home-intro.css?v=20261005-50" />
+    <link rel="stylesheet" href="styles.css?v=20261006-51" />
+    <link rel="stylesheet" href="grid-overrides.css?v=20261006-51" />
+  <link rel="stylesheet" href="styles/projects/the-red-dawn.css?v=20261006-51" />
+  <link rel="stylesheet" href="styles/projects/show-e-motions.css?v=20261006-51" />
+    <link rel="stylesheet" href="styles/projects/tencent-cloud-gaming.css?v=20261006-51" />
+  <link rel="stylesheet" href="styles/projects/visual-editor.css?v=20261006-51" />
+  <link rel="stylesheet" href="styles/projects/gangstar-bite-me.css?v=20261006-51" />
+  <link rel="stylesheet" href="project-template.css?v=20261006-51" />
+  <link rel="stylesheet" href="styles/projects/dnf-zhulang-festival.css?v=20261006-51" />
+    <link rel="stylesheet" href="styles/projects/adaptive-app-market.css?v=20261006-51" />
+    <link rel="stylesheet" href="styles/projects/adaptive-app-market-2026.css?v=20261006-51" />
+    <link rel="stylesheet" href="styles/projects/sound-design.css?v=20261006-51" />
+    <link rel="stylesheet" href="styles/projects/water-babies.css?v=20261006-51" />
+    <link rel="stylesheet" href="styles/resume-picker.css?v=20261006-51" />
+    <link rel="stylesheet" href="styles/home-sections.css?v=20261006-51" />
+    <link rel="stylesheet" href="styles/project-background.css?v=20261006-51" />
+    <link rel="stylesheet" href="styles/home-intro.css?v=20261006-51" />
   </head>
   <body>
     <div class="home-intro" id="homeIntro" role="status" aria-live="polite" aria-label="Preparing portfolio">
@@ -103,10 +105,6 @@
             <span data-i18n="resume">Download Résumé</span>
             <span aria-hidden="true">PDF ↓</span>
           </button>
-          <div class="hero-tilt" hidden>
-            <button type="button" data-tilt-toggle aria-pressed="false">Tilt to play</button>
-            <span data-tilt-status role="status" aria-live="polite"></span>
-          </div>
           <div class="artifact-playground" id="heroPhysics" aria-label="Interactive design objects">
             <figure class="gravity-object object-portrait">
               <img decoding="async" fetchpriority="high" src="assets/media/designer-portrait-jpg-web.webp" alt="Portrait of Oliver Wu" />
@@ -127,46 +125,46 @@
             <figure class="gravity-object object-camera" aria-hidden="true">
               <img decoding="async" fetchpriority="high" src="assets/media/float-camera-paper-png-web.webp" alt="" width="776" height="493" />
             </figure>
-            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261005-50" alt="" width="40" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261005-50" alt="" width="40" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261005-50" alt="" width="40" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261005-50" alt="" width="40" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261005-50" alt="" width="40" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261005-50" alt="" width="40" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261005-50" alt="" width="40" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261005-50" alt="" width="40" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261005-50" alt="" width="48" height="122" /></span>
-            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261005-50" alt="" width="60" height="122" /></span>
-            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261005-50" alt="" width="60" height="122" /></span>
-            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261005-50" alt="" width="60" height="122" /></span>
-            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261005-50" alt="" width="60" height="122" /></span>
-            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261005-50" alt="" width="60" height="122" /></span>
-            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261005-50" alt="" width="60" height="122" /></span>
-            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261005-50" alt="" width="60" height="122" /></span>
-            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261005-50" alt="" width="60" height="122" /></span>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
           </div>
           </div>
         </section>
@@ -192,7 +190,7 @@
             <div class="case-frame">
               <div class="case-media">
                 <div class="case-image project-cover-unreleased">
-                  <img loading="lazy" decoding="async" class="case-unreleased-cover" src="assets/projects/unreleased-work/animula-nook-ugc-hub-jpg-web.webp" alt="Animula Nook UGC Hub 1.0 project cover" />
+                  <img loading="lazy" decoding="async" class="case-unreleased-cover" src="assets/projects/unreleased-work/home-card-animula-nook-ugc-hub-jpg-web.webp" alt="Animula Nook UGC Hub 1.0 project cover" />
                   <div class="case-unreleased-overlay">
                     <svg class="case-unreleased-lock" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 10V7.5a4.5 4.5 0 0 1 9 0V10" /><rect x="5" y="10" width="14" height="11" rx="3" /><circle cx="12" cy="15.25" r="1.35" /><path d="M12 16.6v1.8" /></svg>
                     <strong>PROJECT NOT YET RELEASED</strong>
@@ -212,7 +210,7 @@
             <div class="case-frame">
               <div class="case-media">
                 <div class="case-image project-cover-unreleased">
-                  <img loading="lazy" decoding="async" class="case-unreleased-cover" src="assets/projects/unreleased-work/confidential-game-experience-jpg-web.webp" alt="Confidential fantasy game project cover" />
+                  <img loading="lazy" decoding="async" class="case-unreleased-cover" src="assets/projects/unreleased-work/home-card-confidential-game-experience-jpg-web.webp" alt="Confidential fantasy game project cover" />
                   <div class="case-unreleased-overlay">
                     <svg class="case-unreleased-lock" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 10V7.5a4.5 4.5 0 0 1 9 0V10" /><rect x="5" y="10" width="14" height="11" rx="3" /><circle cx="12" cy="15.25" r="1.35" /><path d="M12 16.6v1.8" /></svg>
                     <strong>PROJECT NOT YET RELEASED</strong>
@@ -228,7 +226,7 @@
             </div>
           </article>
 
-          <article class="case-card" data-category="game" data-project-id="utopia-2419" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Utopia 2419 case study" data-cover-pending>
+          <article class="case-card" data-category="game" data-project-id="utopia-2419" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Utopia 2419 case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#030303">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-05"></div></div></div>
             <div class="case-info">
               <p>03 / Interactive Storytelling</p>
@@ -237,8 +235,8 @@
             </div>
           </article>
 
-          <article class="case-card case-featured" data-category="game" data-project-id="spirited-expedition" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Spirited Expedition case study" data-cover-pending>
-            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-07"><img loading="lazy" decoding="async" class="project-card-layer project-card-flower" src="assets/projects/spirited-expedition/guardian-flower-webp-web.webp" alt="" /><img loading="lazy" decoding="async" class="project-card-layer project-card-handheld" src="assets/projects/spirited-expedition/gameplay-handheld-webp-web.webp" alt="" /></div></div></div>
+          <article class="case-card case-featured" data-category="game" data-project-id="spirited-expedition" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Spirited Expedition case study" data-cover-pending data-detail-ratio="3 / 2" data-detail-background="#FAEBC7">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-07"><img loading="lazy" decoding="async" class="project-card-layer project-card-flower" src="assets/projects/spirited-expedition/home-card-guardian-flower-webp-web.webp" alt="" /><img loading="lazy" decoding="async" class="project-card-layer project-card-handheld" src="assets/projects/spirited-expedition/home-card-gameplay-handheld-webp-web.webp" alt="" /></div></div></div>
             <div class="case-info">
               <p>04 / Game Experience</p>
               <h3>Spirited Expedition</h3>
@@ -246,7 +244,7 @@
             </div>
           </article>
 
-          <article class="case-card" data-category="product" data-project-id="florahaven" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open FloraHaven case study" data-cover-pending>
+          <article class="case-card" data-category="product" data-project-id="florahaven" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open FloraHaven case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#D7DBC8">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-08"></div></div></div>
             <div class="case-info">
               <p>05 / Spatial Computing</p>
@@ -255,7 +253,7 @@
             </div>
           </article>
 
-          <article class="case-card case-featured" data-category="product" data-project-id="olive-town" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Olive Town case study" data-cover-pending>
+          <article class="case-card case-featured" data-category="product" data-project-id="olive-town" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Olive Town case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#E9DAC6">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-09"></div></div></div>
             <div class="case-info">
               <p>06 / Urban Systems</p>
@@ -264,7 +262,7 @@
             </div>
           </article>
 
-          <article class="case-card case-featured" data-category="art" data-project-id="cloud-island-device" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Cloud Island Device case study" data-cover-pending>
+          <article class="case-card case-featured" data-category="art" data-project-id="cloud-island-device" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Cloud Island Device case study" data-cover-pending data-detail-ratio="3000 / 2335" data-detail-background="#000000">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-10"></div></div></div>
             <div class="case-info">
               <p>07 / Environmental Systems</p>
@@ -273,7 +271,7 @@
             </div>
           </article>
 
-          <article class="case-card case-featured" data-category="art" data-project-id="external-blood-vessel" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open External Blood Vessel case study" data-cover-pending>
+          <article class="case-card case-featured" data-category="art" data-project-id="external-blood-vessel" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open External Blood Vessel case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#666666">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-11"></div></div></div>
             <div class="case-info">
               <p>08 / Wearable Music Technology</p>
@@ -282,7 +280,7 @@
             </div>
           </article>
 
-          <article class="case-card case-featured" data-category="art" data-project-id="water-babies" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Water Babies case study" data-cover-pending>
+          <article class="case-card case-featured" data-category="art" data-project-id="water-babies" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Water Babies case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#000000">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-12"></div></div></div>
             <div class="case-info">
               <p>09 / Interactive Installation</p>
@@ -291,7 +289,7 @@
             </div>
           </article>
 
-          <article class="case-card case-featured" data-category="art" data-project-id="swrd" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Still Waters Run Deep case study" data-cover-pending>
+          <article class="case-card case-featured" data-category="art" data-project-id="swrd" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Still Waters Run Deep case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#000000">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-13"></div></div></div>
             <div class="case-info">
               <p>10 / Immersive VR Experience</p>
@@ -300,7 +298,7 @@
             </div>
           </article>
 
-          <article class="case-card case-featured" data-category="game" data-project-id="poka-project-p" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open POKA Project P case study" data-cover-pending>
+          <article class="case-card case-featured" data-category="game" data-project-id="poka-project-p" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open POKA Project P case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#eef2f2">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-14"></div></div></div>
             <div class="case-info">
               <p>11 / Game UX &amp; Worldbuilding</p>
@@ -309,7 +307,7 @@
             </div>
           </article>
 
-          <article class="case-card case-featured" data-category="art" data-project-id="the-red-dawn" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open The Red Dawn case study" data-cover-pending>
+          <article class="case-card case-featured" data-category="art" data-project-id="the-red-dawn" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open The Red Dawn case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#000000">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-15"></div></div></div>
             <div class="case-info">
               <p>12 / Critical Installation</p>
@@ -318,7 +316,7 @@
             </div>
           </article>
 
-          <article class="case-card case-featured" data-category="art" data-project-id="show-e-motions" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Show-E-Motions case study" data-cover-pending>
+          <article class="case-card case-featured" data-category="art" data-project-id="show-e-motions" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Show-E-Motions case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#f4f3ed">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-16"></div></div></div>
             <div class="case-info">
               <p>13 / Affective Wearable</p>
@@ -326,7 +324,7 @@
               <div class="case-details"><span>RCA Collaborative Project</span><time datetime="2024">2024</time></div>
             </div>
           </article>
-          <article class="case-card case-featured" data-category="product" data-project-id="tencent-cloud-gaming" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open In-Car Gaming case study" data-cover-pending>
+          <article class="case-card case-featured" data-category="product" data-project-id="tencent-cloud-gaming" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open In-Car Gaming case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#071011">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-hmi"></div></div></div>
             <div class="case-info">
               <p>14 / In-Vehicle HMI</p>
@@ -335,7 +333,7 @@
             </div>
           </article>
 
-          <article class="case-card case-featured" data-category="game" data-project-id="dnf-zhulang-festival" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open DNF Summer Wave Festival case study" data-cover-pending>
+          <article class="case-card case-featured" data-category="game" data-project-id="dnf-zhulang-festival" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open DNF Summer Wave Festival case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#D8CCB6">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-dnf"></div></div></div>
             <div class="case-info">
               <p>15 / Seasonal Game Experience</p>
@@ -344,7 +342,7 @@
             </div>
           </article>
 
-          <article class="case-card case-featured" data-category="product" data-project-id="adaptive-app-market" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open App Market 2.0 case study" data-cover-pending>
+          <article class="case-card case-featured" data-category="product" data-project-id="adaptive-app-market" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open App Market 2.0 case study" data-cover-pending data-detail-ratio="16 / 9" data-detail-background="#F3F6FB">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-app-market"></div></div></div>
             <div class="case-info">
               <p>16 / Cross-Device App Marketplace</p>
@@ -353,7 +351,7 @@
             </div>
           </article>
 
-          <article class="case-card case-featured" data-category="product" data-project-id="visual-editor" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Skill: Visual Editor case study" data-cover-pending>
+          <article class="case-card case-featured" data-category="product" data-project-id="visual-editor" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Skill: Visual Editor case study" data-cover-pending data-detail-ratio="16 / 9" data-detail-background="#f5f4f1">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-18"></div></div></div>
             <div class="case-info">
               <p>17 / AI Design Tool</p>
@@ -362,7 +360,7 @@
             </div>
           </article>
 
-          <article class="case-card case-featured" data-category="game" data-project-id="gangstar-bite-me" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Bite Me! case study" data-cover-pending>
+          <article class="case-card case-featured" data-category="game" data-project-id="gangstar-bite-me" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Bite Me! case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#000000">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-19"></div></div></div>
             <div class="case-info">
               <p>18 / Game Event UI</p>
@@ -371,7 +369,7 @@
             </div>
           </article>
 
-          <article class="case-card case-featured" data-category="sound" data-project-id="sound-design" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Sound Design — Selected Works" data-cover-pending>
+          <article class="case-card case-featured" data-category="sound" data-project-id="sound-design" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Sound Design — Selected Works" data-cover-pending data-detail-ratio="16 / 9" data-detail-background="#f5f4f1">
             <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-sound-design"></div></div></div>
             <div class="case-info">
               <p>19 / Sound Design Portfolio</p>
@@ -578,7 +576,6 @@
             <iframe
               id="projectDetailVideoPlayer"
               title="Project film"
-              src=""
               loading="lazy"
               referrerpolicy="strict-origin-when-cross-origin"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -678,24 +675,26 @@
       </div>
     </dialog>
 
-    <script src="vendor/matter.min.js?v=20261005-50"></script>
-    <script src="scripts/i18n/zh-CN.js?v=20261005-50"></script>
-    <script src="scripts/i18n/zh-CN-details.js?v=20261005-50"></script>
-    <script src="scripts/image-dimensions.js?v=20261005-50"></script>
-    <script src="scripts/projects/tencent-cloud-gaming.js?v=20261005-50"></script>
-    <script src="scripts/projects/visual-editor.js?v=20261005-50"></script>
-    <script src="scripts/projects/gangstar-bite-me.js?v=20261005-50"></script>
-    <script src="scripts/projects/sound-design.js?v=20261005-50"></script>
-    <script src="scripts/home-tilt.js?v=20261005-50"></script>
-    <script src="scripts/project-runtime.js?v=20261005-50"></script>
-    <script src="scripts/project-background.js?v=20261005-50"></script>
-    <script src="script.js?v=20261005-50"></script>
-    <script src="scripts/home-section-flow.js?v=20261005-50"></script>
-    <script src="scripts/paper-geometry.js?v=20261005-50"></script>
-    <script src="scripts/grounded-wordmark.js?v=20261005-50"></script>
-    <script src="scripts/resume-picker.js?v=20261005-50"></script>
-    <script src="scripts/projects/dnf-zhulang-festival.js?v=20261005-50"></script>
-    <script src="scripts/projects/adaptive-app-market.js?v=20261005-50"></script>
-    <script src="scripts/home-intro.js?v=20261005-50"></script>
+    <!-- Start the lightweight greeting before the larger application scripts. -->
+    <script src="scripts/home-intro.js?v=20261006-51"></script>
+    <script src="vendor/matter.min.js?v=20261006-51"></script>
+    <script src="scripts/i18n/zh-CN.js?v=20261006-51"></script>
+    <script src="scripts/i18n/zh-CN-details.js?v=20261006-51"></script>
+    <script src="scripts/image-dimensions.js?v=20261006-51"></script>
+    <script src="scripts/projects/tencent-cloud-gaming.js?v=20261006-51"></script>
+    <script src="scripts/projects/visual-editor.js?v=20261006-51"></script>
+    <script src="scripts/projects/gangstar-bite-me.js?v=20261006-51"></script>
+    <script src="scripts/projects/sound-design.js?v=20261006-51"></script>
+    <script src="scripts/home-tilt.js?v=20261006-51"></script>
+    <script src="scripts/project-runtime.js?v=20261006-51"></script>
+    <script src="scripts/project-background.js?v=20261006-51"></script>
+    <script src="script.js?v=20261006-51"></script>
+    <script src="scripts/home-section-flow.js?v=20261006-51"></script>
+    <script src="scripts/paper-geometry.js?v=20261006-51"></script>
+    <script src="scripts/grounded-wordmark.js?v=20261006-51"></script>
+    <script src="scripts/resume-picker.js?v=20261006-51"></script>
+    <script src="scripts/projects/dnf-zhulang-festival.js?v=20261006-51"></script>
+    <script src="scripts/projects/adaptive-app-market.js?v=20261006-51"></script>
+    <script>window.portfolioResolveRuntime(); delete window.portfolioResolveRuntime;</script>
   </body>
 </html>

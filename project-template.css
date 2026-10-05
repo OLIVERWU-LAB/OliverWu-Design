@@ -573,8 +573,9 @@
   }
 }
 
-/* A two-pixel progress track appears only while real project data and the
-   opening cover are being prepared. */
+/* The card preview and a full-height paper respond immediately to a click.
+   Network preparation no longer holds the sheet below the viewport. */
+.project-sheet.is-loading-project { min-height:calc(100svh / var(--project-canvas-scale,1)); }
 .project-load-progress {
   position: absolute;
   z-index: 12;
@@ -606,6 +607,17 @@
 .project-sheet.is-loading-project > :not(.project-sheet-hero):not(.project-close) {
   display: none !important;
 }
+
+/* Neutral pending images retain intrinsic geometry; clear on load so alpha
+   artwork keeps its authored transparency. No shimmer or blur loop. */
+.project-sheet img[data-image-pending] { background:#96969626; }
+.project-media-host { position:relative; }
+.project-sheet iframe[data-media-pending] { visibility:hidden; }
+.project-sheet video[data-media-pending] { background:#969696; }
+.project-media-placeholder { position:absolute; inset:0; z-index:3; display:grid; place-content:center; gap:12px; padding:20px; background:#969696; color:#252525; text-align:center; font:14px/1.4 Arial,sans-serif; pointer-events:none; }
+.project-media-placeholder::before { content:"▷"; font-size:36px; }
+.project-media-placeholder small { font-size:11px; color:#404040; }
+.project-media-placeholder[hidden] { display:none; }
 
 /* Motion is opt-in at element level. Text, embeds, audio, video and authored
    backgrounds remain stable unless a project explicitly selects a wrapper. */

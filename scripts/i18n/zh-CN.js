@@ -1,13 +1,8 @@
 /* Exact-copy Chinese localization for authored portfolio content.
    Proper nouns stay intact where a project already has an established name. */
 window.zhCNTranslations = new Map([
-  ["Tilt to play", "倾斜互动"],
-  ["Stop tilt", "停止倾斜"],
-  ["Waiting for motion…", "等待手机动作…"],
-  ["Motion access not allowed.", "未允许动作传感器访问。"],
-  ["Motion sensor unavailable.", "动作传感器不可用。"],
-  ["Tilt needs HTTPS.", "倾斜互动需要 HTTPS。"],
-  ["Motion is reduced on this device.", "设备已开启减少动态效果。"],
+  ["Loading video…", "正在加载视频…"],
+  ["Loading audio…", "正在加载音频…"],
   ["Animula Nook — UGC Hub 1.0", "丽丽小人国 — 游戏大厅 1.0"],
   ["Spirited Expedition", "灵动探险队"],
   ["App Market 2.0", "应用商店 2.0"],

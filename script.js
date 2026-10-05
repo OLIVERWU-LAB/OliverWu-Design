@@ -163,7 +163,7 @@ let cursorSuspendedByEmbed = false;
 const projectDataCache = new Map();
 let projectOpenSequence = 0;
 /* Release revision: unchanged large media reuse the browser cache on return. */
-const projectImageRevision = '20261005-50';
+const projectImageRevision = '20261006-51';
 const projectDesktopCanvasWidth = 1280;
 const localizedTextOriginals = new WeakMap();
 let localizedAttributeOriginals = new WeakMap();
@@ -471,7 +471,7 @@ function navigateToSection(event) {
 async function loadProjectData(projectId) {
   if (projectDataCache.has(projectId)) return projectDataCache.get(projectId);
 
-  const request = fetch(`data/projects/${encodeURIComponent(projectId)}.json?v=20261005-50`, {
+  const request = fetch(`data/projects/${encodeURIComponent(projectId)}.json?v=20261006-51`, {
     cache: "no-cache",
     headers: { Accept: "application/json" },
   }).then((response) => {
@@ -725,6 +725,11 @@ function projectBlockImage(source, alt = "") {
   if (dimensions) [image.width, image.height] = dimensions;
   image.loading = "lazy";
   image.decoding = "async";
+  image.dataset.imagePending = 'true';
+  const loaded = () => image.removeAttribute('data-image-pending');
+  image.addEventListener('load', loaded, { once:true });
+  image.addEventListener('error', loaded, { once:true });
+  if (image.complete && image.naturalWidth) loaded();
   return image;
 }
 
@@ -922,10 +927,12 @@ function renderProjectCover(coverConfig, fallbackBackground = activeProjectFallb
   );
   projectCoverLayers = renderedLayers;
   projectDissolveLayers = renderedLayers.filter((layer) => layer.dataset.dissolve === "true");
+  // Reuse the already-downloaded small card while the full cover arrives.
+  // This temporary backing is removed as a group, never left under parallax.
+  projectDetailCover.style.backgroundImage = fallbackBackground || 'none';
 
-  /* The project sheet must not start its entrance while only part of a layered
-     cover is decoded. Waiting for the full group also makes the shared dissolve
-     boundary correct on the very first visible frame. */
+  /* Resolve layered boundaries independently of the sheet entrance. The
+     original artwork remains full resolution, but never blocks a click. */
   const coverReady = Promise.all(renderedLayers.map((layer) => {
     if (layer.complete) {
       if (!layer.naturalWidth) return Promise.resolve();
@@ -940,6 +947,7 @@ function renderProjectCover(coverConfig, fallbackBackground = activeProjectFallb
   return coverReady.then(() => new Promise((resolve) => {
     requestAnimationFrame(() => {
       if (projectCoverLayers === renderedLayers) {
+        if (renderedLayers.every(layer => layer.naturalWidth > 0)) projectDetailCover.style.backgroundImage = 'none';
         updateProjectParallax();
         renderedLayers.forEach((layer) => layer.classList.remove("is-dissolve-pending"));
       }
@@ -3559,6 +3567,7 @@ async function openProject(card, options = {}) {
   if (!projectDetail || !projectSheet || !card) return;
 
   const projectId = card.dataset.projectId;
+  card.removeAttribute('data-cover-pending');
   const openSequence = ++projectOpenSequence;
   window.projectRuntime.begin('preparing');
   await window.projectBackground?.prepare(projectId, activeProjectId, options.pushHistory !== false, reduceMotionQuery.matches);
@@ -3596,6 +3605,7 @@ async function openProject(card, options = {}) {
   });
 
   projectDetailTitle.textContent = title;
+  projectDetailTitle.dataset.text = title;
   if (projectCoverOverlayTitle) projectCoverOverlayTitle.textContent = title;
   if (projectDetailSubtitle) {
     projectDetailSubtitle.textContent = "";
@@ -3612,7 +3622,12 @@ async function openProject(card, options = {}) {
   cancelAnimationFrame(projectTopArrivalFrame);
   projectTopArrivalFrame = 0;
   projectSheet.dataset.projectId = projectId;
-  projectSheet.style.setProperty("--project-page-bg", "#f5f4f1");
+  projectSheet.style.setProperty("--project-page-bg", card.dataset.detailBackground || "#f5f4f1");
+  const placeholderRatio = card.dataset.detailRatio || '2 / 1';
+  projectDetailHero.style.aspectRatio = placeholderRatio;
+  const [placeholderWidth, placeholderHeight] = placeholderRatio.split('/').map(Number);
+  projectHeroAspectRatio = placeholderWidth / placeholderHeight;
+  updateProjectDetailCanvas(projectId);
   activeProjectFallbackCover = cover;
   projectDetailCover?.replaceChildren();
   projectCoverLayers = [];
@@ -3674,6 +3689,19 @@ async function openProject(card, options = {}) {
   projectDetail.setAttribute("aria-hidden", "false");
   document.body.classList.add("project-open");
 
+  const restoringParent = window.projectBackground?.returning;
+  // Let the compositor move a lightweight card-preview paper immediately.
+  // Heavy chapter construction runs after arrival, not during the transition.
+  const arrived = restoringParent ? Promise.resolve() : new Promise(resolve => {
+    requestAnimationFrame(() => {
+      if (openSequence !== projectOpenSequence || activeProjectId !== projectId) { resolve(); return; }
+      projectDetail.classList.add('is-open');
+      const restored = window.projectBackground?.ready();
+      window.projectRuntime.enter(restored, resolve, resolve);
+      projectSheet.focus({ preventScroll:true });
+    });
+  });
+
   let projectCopy;
   try {
     projectCopy = await loadProjectData(projectId);
@@ -3687,7 +3715,11 @@ async function openProject(card, options = {}) {
   if (openSequence !== projectOpenSequence || activeProjectId !== projectId) return;
   setProjectLoadingState(true, 0.46);
 
-  await applyProjectData(card, projectCopy);
+  await arrived;
+  if (openSequence !== projectOpenSequence || activeProjectId !== projectId) return;
+  // Rendering is synchronous; its returned cover decode promise intentionally
+  // runs in the background. A closed/superseded page cannot apply late data.
+  applyProjectData(card, projectCopy);
   if (openSequence !== projectOpenSequence || activeProjectId !== projectId) return;
   projectSheet.style.setProperty("--project-load-progress", "1");
 
@@ -3696,40 +3728,38 @@ async function openProject(card, options = {}) {
       image.style.backgroundImage = galleryCovers[imageIndex] || cover;
     }
   });
-  projectScroller.scrollTop = requestedProjectScrollTop;
+  if (requestedProjectScrollTop > 0) projectScroller.scrollTop = requestedProjectScrollTop;
   updateProjectParallax();
 
-  // Decode only the initial viewport, not the entire case study. Intrinsic
-  // dimensions above keep the remaining lazy images from moving the sheet.
+  // Prioritize the opening images without gating either response or scrolling.
   const scrollerTop = projectScroller.getBoundingClientRect().top;
   const firstPaintImages = [...projectSheet.querySelectorAll('img')].filter(image => {
     const rect = image.getBoundingClientRect();
     return rect.width > 0 && rect.height > 0 && rect.bottom >= scrollerTop && rect.top < scrollerTop + window.innerHeight + 180;
   });
-  await Promise.all(firstPaintImages.map(image => {
+  firstPaintImages.forEach(image => {
     image.loading = 'eager';
-    return typeof image.decode === 'function' ? image.decode().catch(() => {}) : Promise.resolve();
-  }));
+    image.decode?.().catch(() => {});
+  });
   if (openSequence !== projectOpenSequence || activeProjectId !== projectId) return;
 
-  // Prepare the complete themed page before moving it onscreen. Revealing
-  // only its cover first exposed an unthemed white strip during the entrance.
   setProjectLoadingState(false, 1);
   projectSheet.style.removeProperty("--project-load-progress");
-  requestAnimationFrame(() => {
+  const contentReady = () => {
     if (openSequence !== projectOpenSequence || activeProjectId !== projectId) return;
-    projectScroller.scrollTop = requestedProjectScrollTop;
-    updateProjectParallax();
-    requestAnimationFrame(() => {
-      if (openSequence !== projectOpenSequence || activeProjectId !== projectId) return;
+    if (restoringParent) {
       projectDetail.classList.add("is-open");
       const restored = window.projectBackground?.ready();
       window.projectRuntime.enter(restored, setupNibiruScrollReveal);
-      projectSheet.focus({ preventScroll: true });
-      projectScroller.scrollTop = requestedProjectScrollTop;
-      updateProjectParallax();
-    });
-  });
+    } else {
+      window.projectRuntime.observeContent();
+      setupNibiruScrollReveal();
+    }
+    projectSheet.focus({ preventScroll: true });
+    updateProjectParallax();
+  };
+  if (restoringParent) requestAnimationFrame(() => requestAnimationFrame(contentReady));
+  else contentReady();
 }
 
 function projectChapterFlowOffset(target) {

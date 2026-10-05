@@ -29,7 +29,12 @@ html.boot-entering .home-intro {
 .home-intro-content::after { bottom:0; }
 .home-intro p { margin:0; font:800 clamp(11px,1.6vw,26px)/1.5 "Monument Extended",Arial,sans-serif; text-align:center; white-space:nowrap; }
 html[lang="zh-CN"] .home-intro p { font-family:"ZaoZiGongFang YuanHei",sans-serif; font-weight:400; letter-spacing:.025em; }
-.intro-glyph { display:inline-block; white-space:pre; opacity:0; }
+.intro-glyph { display:inline-block; white-space:pre; opacity:0; color:#868686; }
+/* One glyph, not two copies or a canvas mask. Each stop uses the same text
+   coordinate, so a partial letter and the wave share the exact same shape. */
+@supports (background-clip:text) or (-webkit-background-clip:text) {
+  .intro-glyph { background:linear-gradient(90deg,#111 clamp(0px,calc(var(--intro-fill,0px) - var(--glyph-start,0px)),100%),#868686 clamp(0px,calc(var(--intro-fill,0px) - var(--glyph-start,0px)),100%)); background-clip:text; -webkit-background-clip:text; color:transparent; }
+}
 .intro-writing .intro-glyph { animation:intro-write 200ms calc(var(--glyph-index)*40ms) cubic-bezier(.2,.7,.2,1) both; }
 .intro-written .intro-glyph { opacity:1; }
 /* One gentle pass (~1.7s), then ~1.3s at rest. No permanent will-change layers. */
@@ -51,7 +56,7 @@ html.boot-entering .language-toggle { animation:language-arrival 600ms 100ms cub
 @keyframes intro-away { to { opacity:0; } }
 @keyframes backdrop-arrival { from { opacity:0; } }
 @keyframes intro-write { from { opacity:0; transform:translateY(2px); clip-path:inset(0 100% 0 0); } to { opacity:1; transform:translateY(0); clip-path:inset(0); } }
-@keyframes intro-wave { 0%,20%,100% { transform:translateY(0); } 10% { transform:translateY(-.22em); } }
+@keyframes intro-wave { 0%,20%,100% { transform:translateY(0); } 10% { transform:translateY(-.5em); } }
 @keyframes home-arrival { from { transform:translate3d(0,100vh,0); } to { transform:translate3d(0,0,0); } }
 @keyframes language-arrival { from { transform:translate3d(130%,0,0) rotate(-7deg); } to { transform:translate3d(0,0,0) rotate(0); } }
 @media(prefers-reduced-motion:reduce) {

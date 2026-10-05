@@ -704,7 +704,7 @@
 
 /* POKA / PROJECT P — edited from a presentation into a conceptual game-world case study. */
 .case-card[data-project-id="poka-project-p"] .project-cover-14 {
-  background-image: url("assets/projects/poka-project-p/cover-jpg-web.webp?v=20260905-1");
+  background-image: url("assets/projects/poka-project-p/home-card-cover-jpg-web.webp?v=20260905-1");
   background-position: left center;
   background-size: cover;
 }
@@ -2419,7 +2419,7 @@ body.project-open .cursor-dot {
 .project-cover-07 {
   position: relative;
   overflow: hidden;
-  background-image: url("assets/projects/spirited-expedition/cover-background-jpg-web.webp");
+  background-image: url("assets/projects/spirited-expedition/home-card-cover-background-jpg-web.webp");
   background-position: center bottom;
   background-size: cover;
 }
@@ -6293,7 +6293,7 @@ body.project-open .cursor-dot {
 
 /* FloraHaven — light, book-like spatial-computing case study. */
 .project-cover-08 {
-  background-image: url("assets/projects/florahaven/cover-jpg-web.webp");
+  background-image: url("assets/projects/florahaven/home-card-cover-jpg-web.webp");
   background-position: 42% center;
   background-size: cover;
 }
@@ -7128,7 +7128,7 @@ body.project-open .cursor-dot {
 
 /* Olive Town — warm editorial case study built on the shared FloraHaven template. */
 .project-cover-09 {
-  background-image: url("assets/projects/olive-town/cover-jpg-web.webp");
+  background-image: url("assets/projects/olive-town/home-card-cover-jpg-web.webp");
   background-position: center;
   background-size: cover;
 }
@@ -7585,7 +7585,7 @@ body.project-open .cursor-dot {
 
 /* Cloud Island Device — black editorial shell with uninterrupted system boards. */
 .project-cover-10 {
-  background-image: url("assets/projects/cloud-island-device/cover-jpg-web.webp");
+  background-image: url("assets/projects/cloud-island-device/home-card-cover-jpg-web.webp");
   background-position: center;
   background-size: cover;
 }
@@ -7845,7 +7845,7 @@ body.project-open .cursor-dot {
 
 /* External Blood Vessel — wearable MIDI instrument case study. */
 .case-card[data-project-id="external-blood-vessel"] .project-cover-11 {
-  background-image: url("assets/projects/external-blood-vessel/cover-jpg-web.webp?v=20260830-3");
+  background-image: url("assets/projects/external-blood-vessel/home-card-cover-jpg-web.webp?v=20260830-3");
   background-position: center;
   background-size: cover;
 }
@@ -8003,10 +8003,12 @@ body.project-open .cursor-dot {
   background: var(--midi-bg);
 }
 
-/* The native preview has a thin bright left edge. Trim only this embed;
-   expose black paper, without changing the video ratio or other projects. */
-.project-sheet[data-project-id="external-blood-vessel"] .project-content-video-frame iframe[src*="/1222443596?"] {
-  clip-path: inset(0 0 0 calc(2 * var(--project-hairline, 1px)));
+/* Crop the native preview's two-pixel source edge outside the viewport, not
+   inside it: an inset clip left a visible strip of black backing paper. */
+.project-sheet[data-project-id="external-blood-vessel"] .project-content-video-frame iframe[data-project-media-src*="/1222443596?"] {
+  inset:0 auto 0 calc(-2 * var(--project-hairline, 1px));
+  width:calc(100% + 2 * var(--project-hairline, 1px));
+  height:calc(100% + 1.125 * var(--project-hairline, 1px));
 }
 
 .project-sheet[data-project-id="external-blood-vessel"] .project-content-video-caption {
@@ -8131,7 +8133,7 @@ body.project-open .cursor-dot {
 
 /* Water Babies — speculative fluid-intelligence installation. */
 .case-card[data-project-id="water-babies"] .project-cover-12 {
-  background-image: url("assets/projects/water-babies/home-cover-png-web.webp?v=20260930-1");
+  background-image: url("assets/projects/water-babies/home-card-home-cover-png-web.webp?v=20260930-1");
   background-position: center;
   background-size: cover;
 }
@@ -8373,7 +8375,7 @@ body.project-open .cursor-dot {
 
 /* SWRD — immersive audiovisual VR collaboration. */
 .case-card[data-project-id="swrd"] .project-cover-13 {
-  background-image: url("assets/projects/swrd/home-cover-png-web.webp?v=20260930-1");
+  background-image: url("assets/projects/swrd/home-card-home-cover-png-web.webp?v=20260930-1");
   background-position: center;
   background-size: cover;
 }
@@ -8705,7 +8707,7 @@ body.project-open .cursor-dot {
 
 /* UTOPIA 2419 — continuous cosmic field and editorial story flow. */
 .case-card[data-project-id="utopia-2419"] .project-cover-05 {
-  background-image: url("assets/projects/utopia-2419/cover-jpg-web.webp?v=20260905-1");
+  background-image: url("assets/projects/utopia-2419/home-card-cover-jpg-web.webp?v=20260905-1");
   background-position: center;
   background-size: cover;
 }
@@ -9892,7 +9894,7 @@ body.project-open .cursor-dot {
 .project-cover-15 {
   background-image:
     linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.08) 58%, rgba(0, 0, 0, 0.16) 100%),
-    url("assets/projects/the-red-dawn/cover-background-webp-web.webp");
+    url("assets/projects/the-red-dawn/home-card-cover-background-webp-web.webp");
   background-position: center;
   background-size: cover;
   filter: saturate(1.08) contrast(1.06);

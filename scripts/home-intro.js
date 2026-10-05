@@ -24,7 +24,7 @@
     for (const entry of entries) if (entry.isIntersecting) {
       entry.target.removeAttribute('data-cover-pending'); covers.unobserve(entry.target);
     }
-  }, { rootMargin:'400px 0px', threshold:0 });
+  }, { rootMargin:'1200px 0px', threshold:0 });
   const observeCovers = () => document.querySelectorAll('.case-card[data-cover-pending]').forEach(card => covers.observe(card));
   if (!pending) { observeCovers(); intro?.remove(); return; }
   // Cancel a native smooth fragment scroll that may have started before the
@@ -50,6 +50,21 @@
   }
   intro.setAttribute('aria-label', chinese ? '正在准备作品集' : 'Preparing portfolio');
   let assetsReady = false;
+  let completed = 0, textWidth = 0;
+  const total = critical.length + 4;
+  const paintProgress = () => {
+    copy.style.setProperty('--intro-fill', `${textWidth * completed / total}px`);
+    root.dataset.bootProgress = String(completed / total);
+  };
+  const counted = job => job.finally(() => { completed += 1; paintProgress(); });
+  function measureLetters() {
+    const glyphs = [...copy.children];
+    const bounds = glyphs.map(glyph => glyph.getBoundingClientRect());
+    const origin = bounds[0]?.left || 0;
+    textWidth = (bounds.at(-1)?.right || origin) - origin;
+    glyphs.forEach((glyph,index) => glyph.style.setProperty('--glyph-start', `${bounds[index].left - origin}px`));
+    paintProgress();
+  }
   const pauseLetters = () => intro.classList.toggle('intro-paused', document.hidden);
   document.addEventListener('visibilitychange', pauseLetters);
   pauseLetters();
@@ -71,9 +86,11 @@
     // The user selected one complete Chinese face, including the language tab.
     document.fonts.load('400 24px "ZaoZiGongFang YuanHei"', chinese ? greeting : '中'),
   ] : [Promise.resolve(),Promise.resolve(),Promise.resolve()];
-  const fonts = Promise.all(fontJobs.map(job => job.catch(() => [])));
-  const images = Promise.all(critical.map(imageReady));
-  const ready = Promise.all([images, fonts]).then(([statuses]) => statuses.every(Boolean) ? 'loaded' : 'partial');
+  const fonts = Promise.all(fontJobs.map(job => counted(job.catch(() => []))));
+  const images = Promise.all(critical.map(img => counted(imageReady(img))));
+  const runtime = counted(window.portfolioRuntimeReady || Promise.resolve());
+  const ready = Promise.all([images, fonts, runtime]).then(([statuses]) => statuses.every(Boolean) ? 'loaded' : 'partial');
+  fonts.then(() => { if (!finished) measureLetters(); });
   root.dataset.bootPhase = 'loading';
   const started = window.portfolioBootStarted || performance.now();
   const writing = (async () => {
@@ -81,6 +98,8 @@
     const writingFace = fontJobs[chinese ? 2 : 1].catch(() => []);
     await Promise.race([writingFace, sleep(2500)]);
     if (finished) return;
+    measureLetters();
+    window.addEventListener('resize', measureLetters);
     intro.classList.add('intro-writing');
     await sleep(reduced.matches ? 0 : (letters.length - 1) * 40 + 200 + 150);
     if (finished) return;
@@ -94,6 +113,7 @@
     if (finished) return;
     finished = true;
     document.removeEventListener('visibilitychange', pauseLetters);
+    window.removeEventListener('resize', measureLetters);
     intro.classList.remove('intro-waiting');
     clearTimeout(window.portfolioBootFallback);
     root.classList.remove('boot-pending', 'boot-entering');
@@ -115,6 +135,9 @@
     assetsReady = true;
     if (finished) return;
     root.dataset.bootAssets = outcome;
+    // Start nearby small card assets once the hero has its resources, while
+    // the final writing/arrival frames are still playing. Never all details.
+    observeCovers();
     await writing;
     await sleep(Math.max(0, 800 - (performance.now() - started)));
     if (finished) return;
