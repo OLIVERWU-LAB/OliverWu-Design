@@ -1,0 +1,1719 @@
+/* App Market 2.0 — light, adaptive, multi-device case study. */
+.project-cover-app-market {
+  background: #11151d url("../../assets/projects/adaptive-app-market/cover-app-store-2026-jpg-web.webp") center 50% / cover no-repeat;
+}
+
+.project-sheet[data-project-id="adaptive-app-market"] {
+  --am-ink:#121827;
+  --am-copy:#566174;
+  --am-blue:#2377ef;
+  --am-violet:#6e63f6;
+  --am-mint:#c7e8d7;
+  --am-surface:#ffffff;
+  --am-soft:#edf3fb;
+  --am-line:rgba(37,54,84,.13);
+  color:var(--am-ink);
+  background-color:#f3f6fb;
+  background-image:
+    radial-gradient(circle at 84% 8%,rgba(110,99,246,.13),transparent 24%),
+    radial-gradient(circle at 8% 22%,rgba(35,119,239,.12),transparent 26%),
+    linear-gradient(rgba(34,61,104,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(34,61,104,.035) 1px,transparent 1px);
+  background-size:auto,auto,32px 32px,32px 32px;
+  background-attachment:scroll,scroll,local,local;
+}
+
+.project-sheet[data-project-id="adaptive-app-market"] :is(
+  .project-intro,.project-tag-register,.project-introduction,.project-facts,
+  .project-chapters,.project-chapter,.project-content-blocks,.project-sheet-footer
+) { background-color:transparent; }
+
+.project-sheet[data-project-id="adaptive-app-market"] .project-cover-title-overlay {
+  color:#fff;
+  text-shadow:0 2px 20px rgba(0,0,0,.52);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-cover-title-overlay h2 { letter-spacing:.015em; }
+.project-sheet[data-project-id="adaptive-app-market"] .project-introduction > p { color:var(--am-ink); }
+.project-sheet[data-project-id="adaptive-app-market"] .project-facts {
+  border-color:var(--am-line) !important;
+  background:rgba(255,255,255,.34);
+  backdrop-filter:blur(16px);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-facts > .project-fact {
+  border-color:var(--am-line) !important;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-fact > span { color:var(--am-copy); }
+.project-sheet[data-project-id="adaptive-app-market"] .project-partner-list {
+  display:flex;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  gap:7px 14px;
+  color:var(--am-ink);
+}
+
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapters > .project-chapter-titlebar {
+  position:relative;
+  height:112px;
+  min-height:0;
+  margin:0;
+  overflow:hidden;
+  border:0;
+  color:var(--am-ink);
+  background:
+    radial-gradient(ellipse at 82% 4%,rgba(198,232,215,.9),transparent 44%),
+    radial-gradient(ellipse at 68% 0%,rgba(112,164,245,.28),transparent 48%),
+    linear-gradient(100deg,#fff 0%,#edf4ff 50%,#f2efff 100%);
+  box-shadow:0 -16px 34px rgba(34,57,91,.06);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter-titlebar::after {
+  position:absolute;
+  right:138px;
+  bottom:24px;
+  color:rgba(35,119,239,.055);
+  font:800 76px/.9 var(--display);
+  letter-spacing:-.05em;
+  pointer-events:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] [data-project-section-title="0"]::after { content: var(--copy-phone, "PHONE"); }
+.project-sheet[data-project-id="adaptive-app-market"] [data-project-section-title="1"]::after { content: var(--copy-tablet, "TABLET"); }
+.project-sheet[data-project-id="adaptive-app-market"] [data-project-section-title="2"]::after { content: var(--copy-handheld, "HANDHELD"); }
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter-title-surface {
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:flex-end;
+  box-sizing:border-box;
+  width:1000px;
+  height:112px;
+  margin:0 auto;
+  padding:0 0 20px;
+  border:0;
+  background:transparent;
+  font:800 56px/.95 var(--display);
+  letter-spacing:.005em;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter > header {
+  width:100%;
+  min-height:0;
+  margin:0;
+  padding:20px 140px 34px;
+  background:transparent;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter > header p {
+  width:100%;
+  max-width:none;
+  margin:0;
+  color:var(--am-copy);
+  font:400 15.5px/1.7 var(--project-template-copy-font);
+  text-align:left;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-content-blocks {
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-content-blocks[hidden] { display:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter .project-content-block {
+  box-sizing:border-box;
+  width:1000px;
+  max-width:none;
+  margin:0 auto;
+  padding:76px 0;
+  border:0;
+  background:transparent;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter .project-content-block + .project-content-block {
+  border-top:1px solid var(--am-line);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-content-copy {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(320px,.72fr);
+  grid-template-areas:"caption caption" "title body";
+  align-items:start;
+  gap:12px 54px;
+  margin:0 0 38px;
+  padding:0;
+  background:transparent;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-content-copy > span {
+  grid-area:caption;
+  order:0;
+  margin:0;
+  color:var(--am-blue);
+  font:700 10px/1.4 var(--project-template-copy-font);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-content-copy h4 {
+  grid-area:title;
+  margin:0;
+  color:var(--am-ink);
+  font:800 28px/1.18 var(--display);
+  letter-spacing:.015em;
+  text-transform:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-content-copy p {
+  grid-area:body;
+  width:100%;
+  margin:1px 0 0;
+  color:var(--am-copy);
+  font:400 15.5px/1.68 var(--project-template-copy-font);
+}
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-caption {
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin:0;
+  padding:14px 2px 0;
+  color:var(--am-copy);
+  background:transparent;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-caption-kicker {
+  color:var(--am-blue);
+  font:700 9px/1.4 var(--project-template-copy-font);
+  letter-spacing:.12em;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-caption-title {
+  color:var(--am-ink);
+  font:700 13px/1.45 var(--project-template-copy-font);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-caption-body {
+  margin:0;
+  color:var(--am-copy);
+  font:400 12.5px/1.55 var(--project-template-copy-font);
+}
+
+/* Product foundation. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-panel {
+  position:relative;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  min-height:470px;
+  overflow:hidden;
+  border-radius:38px;
+  background:
+    radial-gradient(circle at 92% 8%,rgba(199,232,215,.98),transparent 33%),
+    radial-gradient(circle at 72% 28%,rgba(81,149,245,.75),transparent 42%),
+    linear-gradient(155deg,#171b35 0%,#2c3388 32%,#448ff3 61%,#c7e8d7 100%);
+  box-shadow:0 30px 80px rgba(40,64,122,.17);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-panel::before {
+  position:absolute;
+  inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);
+  background-size:44px 44px;
+  content:"";
+  mask-image:linear-gradient(110deg,#000,transparent 72%);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-statement {
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:54px;
+  color:#fff;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-overline {
+  margin-bottom:auto;
+  font:700 10px/1.4 var(--project-template-copy-font);
+  letter-spacing:.15em;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-title {
+  white-space:pre-line;
+  font:800 44px/1.05 var(--display);
+  letter-spacing:.005em;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-body {
+  max-width:500px;
+  margin:20px 0 0;
+  color:rgba(255,255,255,.72);
+  font:400 14px/1.65 var(--project-template-copy-font);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-grid {
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-content:center;
+  gap:14px;
+  padding:54px 54px 54px 0;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item {
+  display:grid;
+  grid-template-columns:auto auto 1fr;
+  align-items:center;
+  gap:10px;
+  min-height:76px;
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:22px;
+  padding:0 18px;
+  color:#fff;
+  background:rgba(255,255,255,.14);
+  backdrop-filter:blur(18px);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-index { font:500 9px/1 var(--project-template-copy-font); opacity:.62; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-dot { width:15px; height:15px; border-radius:5px; background:var(--am-brand); box-shadow:0 0 24px var(--am-brand); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-name { font:700 13px/1.2 var(--project-template-copy-font); }
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-system-board {
+  margin:0;
+  overflow:hidden;
+  border:1px solid var(--am-line);
+  border-radius:32px;
+  background:#fff;
+  box-shadow:0 20px 60px rgba(31,52,88,.1);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-system-board img { display:block; width:100%; height:auto; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-token-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:18px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-token {
+  display:flex;
+  flex-direction:column;
+  gap:26px;
+  min-height:118px;
+  border-radius:22px;
+  padding:20px;
+  background:rgba(255,255,255,.72);
+  box-shadow:inset 0 0 0 1px var(--am-line);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-token-number { color:var(--am-blue); font:700 10px/1 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-token strong { color:var(--am-ink); font:700 12px/1.45 var(--project-template-copy-font); }
+
+/* Project scale and applied-device example. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-metric-strip {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-bottom:22px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-metric {
+  position:relative;
+  min-height:116px;
+  overflow:hidden;
+  border-radius:22px;
+  padding:22px;
+  background:rgba(255,255,255,.72);
+  box-shadow:inset 0 0 0 1px var(--am-line);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-metric strong { display:block; color:var(--am-ink); font:800 34px/.95 var(--display); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-metric span { display:block; margin-top:12px; color:var(--am-copy); font:700 10px/1.35 var(--project-template-copy-font); letter-spacing:.08em; text-transform:uppercase; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-metric i { position:absolute; right:0; bottom:0; left:0; width:var(--am-metric-size); height:4px; background:linear-gradient(90deg,var(--am-violet),var(--am-blue),#7bd1ad); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-story {
+  position:relative;
+  min-height:560px;
+  margin:0;
+  overflow:hidden;
+  border-radius:38px;
+  background:#f7f8ff;
+  box-shadow:0 28px 70px rgba(40,56,103,.12),inset 0 0 0 1px rgba(38,60,104,.08);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-story-art { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-story::after { position:absolute; inset:0; background:linear-gradient(90deg,rgba(247,248,255,.97) 0%,rgba(247,248,255,.8) 37%,rgba(247,248,255,0) 61%); content:""; pointer-events:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-story-screen {
+  position:absolute;
+  top:11.6%;
+  left:51.75%;
+  z-index:2;
+  width:20.1%;
+  height:61.8%;
+  overflow:hidden;
+  border-radius:26px;
+  background:#fff;
+  transform:rotate(.15deg);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-story-screen > img:first-child { display:block; width:100%; height:auto; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-story-copy { position:absolute; top:50%; left:54px; z-index:3; width:385px; color:var(--am-ink); transform:translateY(-50%); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-story-copy > strong { display:block; margin:12px 0 16px; font:800 36px/1 var(--display); letter-spacing:.01em; white-space:nowrap; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-story-copy > p { margin:0; color:var(--am-copy); font:400 14px/1.7 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-specs { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:30px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-spec { padding-top:12px; border-top:1px solid var(--am-line); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-spec strong { display:block; font:800 17px/1.2 var(--display); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-spec span { display:block; margin-top:6px; color:var(--am-copy); font:700 8px/1.3 var(--project-template-copy-font); letter-spacing:.12em; }
+
+/* Phone devices and state analysis. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-loop-layout { display:grid; grid-template-columns:minmax(0,1fr) 252px; align-items:center; gap:48px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-loop-devices { display:grid; grid-template-columns:1fr 1fr; align-items:end; gap:28px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone { min-width:0; margin:0; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-shell {
+  position:relative;
+  aspect-ratio:938 / 1916;
+  overflow:visible;
+  background:transparent;
+  filter:drop-shadow(0 26px 28px rgba(21,30,54,.2));
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-viewport {
+  position:absolute;
+  inset:1.55% 3.15% 1.35%;
+  z-index:2;
+  overflow:hidden;
+  border-radius:9.8% / 4.8%;
+  background:#fff;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-screen { display:block; width:100%; height:auto; transform:translate3d(0,0,0); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-frame {
+  position:absolute;
+  inset:0;
+  z-index:1;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  pointer-events:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-status {
+  position:absolute;
+  top:0;
+  right:0;
+  left:0;
+  z-index:5;
+  display:block;
+  width:100%;
+  height:auto;
+  pointer-events:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-island { position:absolute; top:1.2%; left:50%; z-index:6; width:27%; aspect-ratio:3.15 / 1; border-radius:999px; background:#030303; box-shadow:inset 0 0 0 1px rgba(255,255,255,.025); content:""; transform:translateX(-50%); pointer-events:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-tabbar {
+  position:absolute;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:4;
+  display:block;
+  width:100%;
+  height:auto;
+  box-shadow:none;
+  pointer-events:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .is-scroll-phone .am-phone-shell.is-am-visible .am-phone-screen {
+  animation:am-phone-scroll 15s cubic-bezier(.65,0,.35,1) infinite;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .is-scroll-phone:nth-child(2) .am-phone-shell.is-am-visible .am-phone-screen { animation-duration:18s; }
+@keyframes am-phone-scroll {
+  0%,16% { transform:translate3d(0,0,0); }
+  48%,65% { transform:translate3d(0,var(--am-scroll-end),0); }
+  94%,100% { transform:translate3d(0,0,0); }
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-notes { display:flex; flex-direction:column; gap:12px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-note {
+  display:grid;
+  grid-template-columns:34px 1fr;
+  gap:8px 12px;
+  border-radius:20px;
+  padding:18px;
+  background:rgba(255,255,255,.72);
+  box-shadow:inset 0 0 0 1px var(--am-line);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-note-index { grid-row:1 / span 2; color:var(--am-blue); font:700 10px/1.4 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-note-title { color:var(--am-ink); font:700 12.5px/1.4 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-note-body { margin:0; color:var(--am-copy); font:400 12px/1.55 var(--project-template-copy-font); }
+
+.project-sheet[data-project-id="adaptive-app-market"] [data-variant="market-phone-states"] {
+  margin-top:24px;
+  padding:58px 46px 68px;
+  border-radius:38px;
+  background:
+    radial-gradient(circle at 92% 6%,rgba(110,99,246,.18),transparent 30%),
+    linear-gradient(140deg,rgba(255,255,255,.88),rgba(239,239,255,.82));
+  box-shadow:inset 0 0 0 1px rgba(92,82,176,.08);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-state-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-analysis-card { position:relative; min-width:0; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-analysis-card .am-phone { width:86%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-analysis-card .am-caption { min-height:118px; padding-right:4px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-component-peek {
+  position:absolute;
+  right:-4px;
+  bottom:116px;
+  z-index:7;
+  width:132px;
+  border-radius:18px;
+  padding:12px;
+  color:var(--am-ink);
+  background:rgba(255,255,255,.95);
+  box-shadow:0 20px 46px rgba(39,46,88,.22),inset 0 0 0 1px rgba(36,62,104,.1);
+  backdrop-filter:blur(14px);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-component-peek::before {
+  position:absolute;
+  top:40%;
+  right:100%;
+  width:44px;
+  border-top:1px dashed rgba(61,82,128,.5);
+  content:"";
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-component-label { display:block; margin-bottom:4px; color:var(--am-violet); font:700 8px/1.3 var(--project-template-copy-font); letter-spacing:.13em; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-component-peek strong { display:block; margin-bottom:10px; font:700 11px/1.35 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-component-crop { height:72px; overflow:hidden; border-radius:11px; background:#f1f4fa; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-component-image { display:block; width:192%; height:auto; transform:translate(-18%,-13%); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-state-card {
+  min-width:0;
+  overflow:hidden;
+  border:1px solid var(--am-line);
+  border-radius:28px;
+  background:#fff;
+  box-shadow:0 18px 46px rgba(31,51,87,.09);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-state-media { height:480px; overflow:hidden; background:linear-gradient(145deg,#eaf1ff,#f8fbff); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-state-media img { display:block; width:100%; height:auto; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-state-card > .am-caption { padding:18px 20px 22px; }
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-panel {
+  position:relative;
+  height:340px;
+  overflow:hidden;
+  border-radius:34px;
+  background:linear-gradient(140deg,rgba(255,255,255,.94),rgba(233,242,255,.86));
+  box-shadow:inset 0 0 0 1px rgba(59,78,124,.1),0 20px 54px rgba(31,51,87,.08);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-panel > svg { position:absolute; right:24px; bottom:18px; left:24px; width:calc(100% - 48px); height:auto; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step { position:absolute; top:var(--am-step-y); z-index:2; width:158px; margin:0; padding:0 12px; background:transparent; transform:translate(-50%,-50%); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(1) { left:7%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(2) { left:24%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(3) { left:43%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(4) { left:65%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(5) { left:89%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step > span { display:grid; place-items:center; width:27px; height:27px; margin-bottom:9px; border-radius:50%; color:#fff; background:linear-gradient(135deg,var(--am-violet),var(--am-blue)); box-shadow:0 8px 18px rgba(35,119,239,.2); font:700 8px/1 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step strong { display:block; color:var(--am-ink); font:700 13px/1.35 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step p { margin:4px 0 0; color:var(--am-copy); font:400 10px/1.4 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-decision-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:18px 0 34px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-decision-card { min-height:145px; border-radius:24px; padding:22px; background:rgba(255,255,255,.76); box-shadow:inset 0 0 0 1px var(--am-line); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-decision-card > span { color:var(--am-blue); font:700 9px/1.2 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-decision-card strong { display:block; margin:22px 0 8px; color:var(--am-ink); font:700 14px/1.35 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-decision-card p { margin:0; color:var(--am-copy); font:400 11.5px/1.55 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-screen-marquee {
+  position:relative;
+  left:50%;
+  width:1280px;
+  margin-left:-640px;
+  overflow:hidden;
+  padding:38px 0 44px;
+  background:linear-gradient(145deg,#151b39,#283984 58%,#75aef0);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-screen-marquee::before,.project-sheet[data-project-id="adaptive-app-market"] .am-screen-marquee::after { position:absolute; right:0; left:0; z-index:3; height:82px; content:""; pointer-events:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-screen-marquee::before { top:0; background:linear-gradient(#151b39,transparent); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-screen-marquee::after { bottom:0; background:linear-gradient(transparent,#273883); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row { overflow:hidden; transform:rotate(-2.5deg) scale(1.04); transform-origin:center; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row + .am-marquee-row { margin-top:-90px; transform:rotate(2.5deg) scale(1.04); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-track { display:flex; width:max-content; gap:28px; animation:am-screen-drift 34s linear infinite; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row.is-reverse .am-marquee-track { animation-direction:reverse; animation-duration:39s; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-phone { width:206px; margin:0; flex:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-viewport { position:relative; height:410px; overflow:hidden; border:5px solid #fff; border-radius:30px; background:#fff; box-shadow:0 28px 50px rgba(5,11,30,.35); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-viewport > img:first-child { display:block; width:100%; height:auto; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-phone figcaption { margin:0; padding:12px 0 0; color:rgba(255,255,255,.72); background:transparent !important; box-shadow:none !important; font:700 9px/1.3 var(--project-template-copy-font); letter-spacing:.12em; text-align:center; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-viewport > .am-phone-status { top:0; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-viewport > .am-phone-island { top:1%; }
+@keyframes am-screen-drift { to { transform:translateX(calc(-50% - 14px)); } }
+
+/* 2026-09-29 Figma screen-map rebuild and 2025 hardware fit. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-shell,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-shell {
+  aspect-ratio:489 / 1024;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-viewport,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-viewport {
+  inset:1.08% 2.86% 1.08%;
+  z-index:1;
+  overflow:hidden;
+  border:0;
+  border-radius:7.2% / 3.35%;
+  background:#fff;
+  box-shadow:none;
+  container-type:size;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-frame,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-frame {
+  z-index:4;
+  object-fit:contain;
+  -webkit-mask:
+    linear-gradient(#000 0 0) top/100% 1.35% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 1.35% no-repeat,
+    linear-gradient(#000 0 0) left/3.05% 100% no-repeat,
+    linear-gradient(#000 0 0) right/3.05% 100% no-repeat,
+    radial-gradient(circle at 50% 3.25%,#000 0 1.45%,transparent 1.55%);
+  mask:
+    linear-gradient(#000 0 0) top/100% 1.35% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 1.35% no-repeat,
+    linear-gradient(#000 0 0) left/3.05% 100% no-repeat,
+    linear-gradient(#000 0 0) right/3.05% 100% no-repeat,
+    radial-gradient(circle at 50% 3.25%,#000 0 1.45%,transparent 1.55%);
+  -webkit-mask-composite:source-over;
+  mask-composite:add;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-island { display:none !important; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-screen { width:100%; max-width:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .is-scroll-phone .am-phone-shell.is-am-visible .am-phone-screen {
+  animation:am-phone-scroll-native 18s cubic-bezier(.68,0,.32,1) infinite;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .is-scroll-phone:nth-child(2) .am-phone-shell.is-am-visible .am-phone-screen { animation-duration:21s; }
+@keyframes am-phone-scroll-native {
+  0%,14% { transform:translate3d(0,0,0); }
+  48%,65% { transform:translate3d(0,calc(-100% + 100cqh),0); }
+  94%,100% { transform:translate3d(0,0,0); }
+}
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-discovery-layout {
+  grid-template-columns:minmax(0,1fr) 232px;
+  align-items:center;
+  gap:54px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-discovery-branch {
+  position:relative;
+  align-self:center;
+  padding-left:28px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-discovery-branch::before {
+  position:absolute;
+  top:44%;
+  right:100%;
+  width:76px;
+  border-top:1px dashed rgba(77,99,151,.55);
+  content:"";
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-discovery-branch::after {
+  position:absolute;
+  top:calc(44% - 3px);
+  right:calc(100% - 1px);
+  width:6px;
+  height:6px;
+  border-top:1px solid #6f7d9b;
+  border-right:1px solid #6f7d9b;
+  content:"";
+  transform:rotate(45deg);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-branch-label {
+  display:block;
+  margin-bottom:12px;
+  color:var(--am-violet);
+  font:700 9px/1.3 var(--project-template-copy-font);
+  letter-spacing:.13em;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-mini-screen { min-width:0; margin:0; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-mini-screen-viewport {
+  position:relative;
+  aspect-ratio:411 / 891;
+  overflow:hidden;
+  border:1px solid rgba(45,68,110,.16);
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 22px 48px rgba(36,51,91,.14);
+  container-type:size;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-mini-screen-image { display:block; width:100%; height:auto; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-mini-screen .am-phone-status { top:0; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-inline-section-copy {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-areas:"label label" "title body";
+  gap:10px 54px;
+  margin:92px 0 34px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-inline-section-copy > span { grid-area:label; color:var(--am-blue); font:700 10px/1.3 var(--project-template-copy-font); letter-spacing:.12em; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-inline-section-copy h5 { grid-area:title; margin:0; font:800 27px/1.18 var(--display); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-inline-section-copy p { grid-area:body; margin:0; color:var(--am-copy); font:400 15px/1.66 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-composition {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 310px;
+  align-items:center;
+  gap:46px;
+  padding:46px;
+  border-radius:38px;
+  background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(235,242,255,.88) 58%,rgba(225,247,238,.82));
+  box-shadow:0 26px 70px rgba(42,56,96,.1),inset 0 0 0 1px rgba(55,75,118,.08);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-related { display:grid; grid-template-columns:1fr 1fr; align-items:end; gap:28px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-related .am-mini-screen:nth-child(2) { transform:translateY(40px); }
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-secondary-copy { margin-top:0; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage {
+  display:grid;
+  grid-template-columns:280px minmax(0,1fr);
+  align-items:center;
+  gap:26px;
+  min-height:570px;
+  margin-bottom:92px;
+  overflow:hidden;
+  border-radius:38px;
+  padding:42px 34px 0;
+  background:radial-gradient(circle at 84% 10%,rgba(110,99,246,.2),transparent 36%),linear-gradient(145deg,rgba(255,255,255,.94),rgba(231,238,255,.9));
+  box-shadow:0 28px 70px rgba(42,55,96,.1);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-lead { align-self:end; width:260px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-fan {
+  position:relative;
+  height:520px;
+  margin:0;
+  overflow:visible;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone { bottom:-26px; left:50%; width:164px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone.is-fan-1 { left:12%; z-index:1; width:142px; transform:translateX(-50%) rotate(-16deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone.is-fan-2 { left:37%; z-index:3; width:172px; transform:translateX(-50%) rotate(-6deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone.is-fan-3 { left:64%; z-index:3; width:172px; transform:translateX(-50%) rotate(6deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone.is-fan-4 { left:89%; z-index:1; width:142px; transform:translateX(-50%) rotate(16deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone .am-caption {
+  position:absolute;
+  top:-34px;
+  left:50%;
+  display:block;
+  min-width:96px;
+  border-radius:999px;
+  padding:7px 10px;
+  color:var(--am-ink);
+  background:rgba(255,255,255,.9);
+  box-shadow:0 10px 26px rgba(42,55,96,.11);
+  text-align:center;
+  transform:translateX(-50%);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone .am-caption-kicker,
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone .am-caption-body { display:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone .am-caption-title { font-size:10px; white-space:nowrap; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-detail-copy { margin-top:0; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 230px;
+  align-items:end;
+  gap:26px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage .am-state-grid { grid-template-columns:repeat(3,1fr); gap:18px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage .am-state-grid .am-caption { min-height:112px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-beta-detail { align-self:end; min-width:0; padding-bottom:2px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-beta-note { margin:16px 2px 0; color:var(--am-copy); font:400 11.5px/1.55 var(--project-template-copy-font); }
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-phone { width:164px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-viewport { position:absolute; inset:1.08% 2.86% 1.08%; height:auto; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-viewport > img:first-child { width:100%; max-height:none; object-fit:initial; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-frame { position:absolute; inset:0; display:block; width:100%; height:100%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row,
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row + .am-marquee-row { margin-top:0; transform:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row.is-reverse .am-marquee-track { animation-direction:reverse; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row.is-reverse .am-ribbon-phone { transform:rotate(-15deg); }
+@keyframes am-screen-drift { from { transform:translate3d(0,0,0); } to { transform:translate3d(-33.333333%,0,0); } }
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-device { aspect-ratio:1024 / 739; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-screen {
+  top:5.15%;
+  left:3.72%;
+  width:92.96%;
+  height:89.85%;
+  border-radius:2.6%;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-status { top:5.15%; left:3.72%; width:92.96%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-frame {
+  -webkit-mask:
+    linear-gradient(#000 0 0) top/100% 5.15% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 5.15% no-repeat,
+    linear-gradient(#000 0 0) left/3.72% 100% no-repeat,
+    linear-gradient(#000 0 0) right/3.72% 100% no-repeat,
+    radial-gradient(circle at 2.15% 50%,#000 0 .72%,transparent .82%);
+  mask:
+    linear-gradient(#000 0 0) top/100% 5.15% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 5.15% no-repeat,
+    linear-gradient(#000 0 0) left/3.72% 100% no-repeat,
+    linear-gradient(#000 0 0) right/3.72% 100% no-repeat,
+    radial-gradient(circle at 2.15% 50%,#000 0 .72%,transparent .82%);
+  mask-composite:add;
+}
+
+/* Definitive 2026-09-29 visual QA overrides. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-panel { grid-template-columns:1.03fr .97fr; min-height:510px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-statement { justify-content:flex-start; padding:44px 36px 44px 44px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-statement .am-overline { margin:0 0 70px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-title { max-width:470px; font-size:42px; line-height:1.02; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-body { max-width:430px; margin-top:16px; font-size:13.5px; line-height:1.58; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-grid { align-content:start; gap:10px; padding:128px 42px 148px 0; filter:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item { grid-template-columns:20px minmax(0,1fr) 62px; min-height:56px; padding:0 14px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item .am-brand-logo { max-width:96px; height:22px; object-position:left center; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item:first-child .am-brand-logo { width:74px; height:18px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item:nth-child(4) .am-brand-logo { width:29px; height:29px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-wordmark { font-size:16px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-family { justify-self:end; white-space:nowrap; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metrics { right:44px; bottom:36px; gap:28px; width:calc(47% - 44px); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metric { min-height:0; border:0; border-radius:0; padding:0; background:none; box-shadow:none; backdrop-filter:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metric strong { font-size:48px; line-height:.9; letter-spacing:-.045em; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metric span { margin-top:12px; color:rgba(255,255,255,.82); font-size:9px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metric small { display:block; margin-top:6px; color:rgba(255,255,255,.42); font:600 7px/1.25 var(--project-template-copy-font); letter-spacing:.09em; }
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-shell,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-shell { overflow:hidden; border-radius:6.1% / 2.9%; background:#050505; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-viewport,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-viewport { inset:1.18% 2.98% 1.18%; z-index:1; border-radius:5.9% / 2.8%; clip-path:inset(0 round 5.9% / 2.8%); background:#050505; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-screen,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-viewport > img:first-child,
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-status,
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-tabbar { right:0; left:0; width:100%; max-width:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-frame,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-frame {
+  z-index:6;
+  -webkit-mask:
+    linear-gradient(#000 0 0) top/100% 1.7% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 1.7% no-repeat,
+    linear-gradient(#000 0 0) left/3.25% 100% no-repeat,
+    linear-gradient(#000 0 0) right/3.25% 100% no-repeat,
+    radial-gradient(circle at 50% 3.25%,#000 0 1.5%,transparent 1.6%);
+  mask:
+    linear-gradient(#000 0 0) top/100% 1.7% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 1.7% no-repeat,
+    linear-gradient(#000 0 0) left/3.25% 100% no-repeat,
+    linear-gradient(#000 0 0) right/3.25% 100% no-repeat,
+    radial-gradient(circle at 50% 3.25%,#000 0 1.5%,transparent 1.6%);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-mini-screen-viewport { border:0; border-radius:17px; clip-path:inset(0 round 17px); background:transparent; box-shadow:0 20px 46px rgba(36,51,91,.14); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-mini-screen-image { border:0; border-radius:inherit; }
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage { grid-template-columns:270px minmax(0,1fr); align-items:end; gap:0; min-height:560px; padding:42px 24px 0 34px; overflow:hidden; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-lead { position:relative; z-index:8; width:255px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage .am-phone-fan { position:relative; z-index:2; height:510px; margin-left:-78px; overflow:visible; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen { position:absolute; bottom:-34px; width:225px; margin:0; transform-origin:50% 100%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-ui { position:relative; aspect-ratio:411 / 891; overflow:hidden; border-radius:18px; background:#fff; box-shadow:0 24px 46px rgba(29,40,75,.2); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-ui > img:first-child { display:block; width:100%; height:auto; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen figcaption { position:absolute; top:-34px; left:50%; min-width:88px; border-radius:999px; padding:7px 10px; color:var(--am-ink); background:rgba(255,255,255,.92); box-shadow:0 10px 26px rgba(42,55,96,.11); font:700 9px/1 var(--project-template-copy-font); text-align:center; white-space:nowrap; transform:translateX(-50%); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen.is-fan-1 { left:8%; z-index:1; opacity:.62; transform:rotate(-14deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen.is-fan-2 { left:26%; z-index:2; opacity:.76; transform:rotate(-8deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen.is-fan-3 { left:44%; z-index:3; opacity:.9; transform:rotate(-3deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen.is-fan-4 { left:62%; z-index:4; transform:rotate(3deg); }
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-device { overflow:hidden; border-radius:4.9% / 6.8%; background:#050505; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-screen { top:5.25%; left:3.78%; z-index:1; width:92.44%; height:89.48%; border:0; border-radius:2.05% / 2.85%; clip-path:inset(0 round 2.05% / 2.85%); object-fit:cover; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-status { top:5.25%; left:3.78%; z-index:2; width:92.44%; max-width:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-frame {
+  z-index:6;
+  -webkit-mask:
+    linear-gradient(#000 0 0) top/100% 5.45% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 5.45% no-repeat,
+    linear-gradient(#000 0 0) left/4% 100% no-repeat,
+    linear-gradient(#000 0 0) right/4% 100% no-repeat,
+    radial-gradient(circle at 2.15% 50%,#000 0 .72%,transparent .82%);
+  mask:
+    linear-gradient(#000 0 0) top/100% 5.45% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 5.45% no-repeat,
+    linear-gradient(#000 0 0) left/4% 100% no-repeat,
+    linear-gradient(#000 0 0) right/4% 100% no-repeat,
+    radial-gradient(circle at 2.15% 50%,#000 0 .72%,transparent .82%);
+}
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-panel { grid-template-columns:repeat(6,minmax(0,1fr)); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-step { min-width:0; min-height:220px; padding:24px 17px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon { display:block; width:58px; height:58px; margin-bottom:44px; filter:drop-shadow(0 10px 20px rgba(0,0,0,.18)); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon > circle:first-child { fill:#fff; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon path,
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon .am-stick-base { fill:#10162f; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon .am-stick-top { fill:#fff; stroke:#10162f; stroke-width:4; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon text { fill:#10162f; font:800 22px/1 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-index { top:27px; right:17px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-step strong { font-size:13px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-step p { font-size:11px; }
+
+@media (max-width:900px) {
+  .project-sheet[data-project-id="adaptive-app-market"] .am-controller-panel { grid-template-columns:repeat(3,1fr); }
+  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage { grid-template-columns:220px minmax(0,1fr); }
+  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-lead { width:210px; }
+  .project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen { width:180px; }
+}
+
+/* 2026-09-29 final alignment pass: commercial overview, device clipping and
+   controller-first interaction. Keep this block last so every device uses one
+   consistent geometry regardless of older exploratory rules above. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-panel {
+  grid-template-columns:1.03fr .97fr;
+  min-height:510px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-statement {
+  justify-content:flex-start;
+  padding:44px 36px 44px 44px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-statement .am-overline {
+  margin:0 0 70px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-title {
+  max-width:470px;
+  font-size:42px;
+  line-height:1.02;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-body {
+  max-width:430px;
+  margin-top:16px;
+  font-size:13.5px;
+  line-height:1.58;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-grid {
+  align-content:start;
+  gap:10px;
+  padding:128px 42px 148px 0;
+  filter:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item {
+  grid-template-columns:20px minmax(0,1fr) 62px;
+  min-height:56px;
+  padding:0 14px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item .am-brand-logo {
+  max-width:96px;
+  height:22px;
+  object-position:left center;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item:first-child .am-brand-logo {
+  width:74px;
+  height:18px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item:nth-child(4) .am-brand-logo {
+  width:29px;
+  height:29px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-wordmark {
+  font-size:16px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-family {
+  justify-self:end;
+  white-space:nowrap;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metrics {
+  right:44px;
+  bottom:36px;
+  gap:28px;
+  width:calc(47% - 44px);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metric {
+  min-height:0;
+  border:0;
+  border-radius:0;
+  padding:0;
+  background:none;
+  box-shadow:none;
+  backdrop-filter:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metric strong {
+  font-size:48px;
+  line-height:.9;
+  letter-spacing:-.045em;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metric span {
+  margin-top:12px;
+  color:rgba(255,255,255,.82);
+  font-size:9px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metric small {
+  display:block;
+  margin-top:6px;
+  color:rgba(255,255,255,.42);
+  font:600 7px/1.25 var(--project-template-copy-font);
+  letter-spacing:.09em;
+}
+
+/* Screen content is clipped to the physical display opening, then the supplied
+   hardware rail and camera are painted above it. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-shell,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-shell {
+  overflow:hidden;
+  border-radius:6.1% / 2.9%;
+  background:#050505;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-viewport,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-viewport {
+  inset:1.18% 2.98% 1.18%;
+  z-index:1;
+  border-radius:5.9% / 2.8%;
+  clip-path:inset(0 round 5.9% / 2.8%);
+  background:#050505;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-screen,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-viewport > img:first-child,
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-status,
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-tabbar {
+  right:0;
+  left:0;
+  width:100%;
+  max-width:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-frame,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-frame {
+  z-index:6;
+  -webkit-mask:
+    linear-gradient(#000 0 0) top/100% 1.7% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 1.7% no-repeat,
+    linear-gradient(#000 0 0) left/3.25% 100% no-repeat,
+    linear-gradient(#000 0 0) right/3.25% 100% no-repeat,
+    radial-gradient(circle at 50% 3.25%,#000 0 1.5%,transparent 1.6%);
+  mask:
+    linear-gradient(#000 0 0) top/100% 1.7% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 1.7% no-repeat,
+    linear-gradient(#000 0 0) left/3.25% 100% no-repeat,
+    linear-gradient(#000 0 0) right/3.25% 100% no-repeat,
+    radial-gradient(circle at 50% 3.25%,#000 0 1.5%,transparent 1.6%);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-mini-screen-viewport {
+  border:0;
+  border-radius:17px;
+  clip-path:inset(0 round 17px);
+  background:transparent;
+  box-shadow:0 20px 46px rgba(36,51,91,.14);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-mini-screen-image {
+  border:0;
+  border-radius:inherit;
+}
+
+/* Personal hub: the lead device stays complete while related UI pages fan out
+   as overlapping sheets, without repeating the hardware shell. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage {
+  grid-template-columns:270px minmax(0,1fr);
+  align-items:end;
+  gap:0;
+  min-height:560px;
+  padding:42px 24px 0 34px;
+  overflow:hidden;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-lead {
+  position:relative;
+  z-index:8;
+  width:255px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage .am-phone-fan {
+  position:relative;
+  z-index:2;
+  height:510px;
+  margin-left:-78px;
+  overflow:visible;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen {
+  position:absolute;
+  bottom:-34px;
+  width:225px;
+  margin:0;
+  transform-origin:50% 100%;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-ui {
+  position:relative;
+  aspect-ratio:411 / 891;
+  overflow:hidden;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 24px 46px rgba(29,40,75,.2);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-ui > img:first-child {
+  display:block;
+  width:100%;
+  height:auto;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen figcaption {
+  position:absolute;
+  top:-34px;
+  left:50%;
+  min-width:88px;
+  border-radius:999px;
+  padding:7px 10px;
+  color:var(--am-ink);
+  background:rgba(255,255,255,.92);
+  box-shadow:0 10px 26px rgba(42,55,96,.11);
+  font:700 9px/1 var(--project-template-copy-font);
+  text-align:center;
+  white-space:nowrap;
+  transform:translateX(-50%);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen.is-fan-1 { left:8%; z-index:1; opacity:.62; transform:rotate(-14deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen.is-fan-2 { left:26%; z-index:2; opacity:.76; transform:rotate(-8deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen.is-fan-3 { left:44%; z-index:3; opacity:.9; transform:rotate(-3deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen.is-fan-4 { left:62%; z-index:4; transform:rotate(3deg); }
+
+/* Tablet content, status layer and any in-screen navigation share the exact
+   display rectangle. The outer image is only a hardware overlay. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-device {
+  overflow:hidden;
+  border-radius:4.9% / 6.8%;
+  background:#050505;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-screen {
+  top:5.25%;
+  left:3.78%;
+  z-index:1;
+  width:92.44%;
+  height:89.48%;
+  border:0;
+  border-radius:2.05% / 2.85%;
+  clip-path:inset(0 round 2.05% / 2.85%);
+  object-fit:cover;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-status {
+  top:5.25%;
+  left:3.78%;
+  z-index:2;
+  width:92.44%;
+  max-width:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-frame {
+  z-index:6;
+  -webkit-mask:
+    linear-gradient(#000 0 0) top/100% 5.45% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 5.45% no-repeat,
+    linear-gradient(#000 0 0) left/4% 100% no-repeat,
+    linear-gradient(#000 0 0) right/4% 100% no-repeat,
+    radial-gradient(circle at 2.15% 50%,#000 0 .72%,transparent .82%);
+  mask:
+    linear-gradient(#000 0 0) top/100% 5.45% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 5.45% no-repeat,
+    linear-gradient(#000 0 0) left/4% 100% no-repeat,
+    linear-gradient(#000 0 0) right/4% 100% no-repeat,
+    radial-gradient(circle at 2.15% 50%,#000 0 .72%,transparent .82%);
+}
+
+/* Six controller affordances form one compact, controller-like vocabulary. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-panel {
+  grid-template-columns:repeat(6,minmax(0,1fr));
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-step {
+  min-width:0;
+  min-height:220px;
+  padding:24px 17px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon {
+  display:block;
+  width:58px;
+  height:58px;
+  margin-bottom:44px;
+  filter:drop-shadow(0 10px 20px rgba(0,0,0,.18));
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon > circle:first-child { fill:#fff; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon path,
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon .am-stick-base { fill:#10162f; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon .am-stick-top {
+  fill:#fff;
+  stroke:#10162f;
+  stroke-width:4;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon text {
+  fill:#10162f;
+  font:800 22px/1 var(--project-template-copy-font);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-index {
+  top:27px;
+  right:17px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-step strong {
+  font-size:13px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-step p {
+  font-size:11px;
+}
+
+@media (max-width:900px) {
+  .project-sheet[data-project-id="adaptive-app-market"] .am-controller-panel { grid-template-columns:repeat(3,1fr); }
+  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage { grid-template-columns:220px minmax(0,1fr); }
+  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-lead { width:210px; }
+  .project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen { width:180px; }
+}
+
+@media (max-width:900px) {
+  .project-sheet[data-project-id="adaptive-app-market"] .am-phone-discovery-layout,
+  .project-sheet[data-project-id="adaptive-app-market"] .am-apps-composition,
+  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage,
+  .project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage { grid-template-columns:1fr; }
+  .project-sheet[data-project-id="adaptive-app-market"] .am-discovery-branch { width:42%; margin:0 auto; }
+  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-lead { width:48%; margin:0 auto; }
+  .project-sheet[data-project-id="adaptive-app-market"] .am-phone-fan { min-height:500px; }
+  .project-sheet[data-project-id="adaptive-app-market"] .am-beta-detail { width:44%; margin:0 auto; }
+}
+
+/* Tablet. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-hero-layout { display:grid; grid-template-columns:minmax(0,1fr) 240px; align-items:center; gap:34px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet { min-width:0; margin:0; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-device {
+  position:relative;
+  isolation:isolate;
+  aspect-ratio:2048 / 1477;
+  filter:drop-shadow(0 24px 28px rgba(29,38,57,.15));
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-screen {
+  position:absolute;
+  top:6.1%;
+  left:4.16%;
+  z-index:1;
+  display:block;
+  width:91.45%;
+  height:88.15%;
+  border-radius:3.4%;
+  object-fit:cover;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-status {
+  position:absolute;
+  top:6.1%;
+  left:4.16%;
+  z-index:3;
+  display:block;
+  width:91.45%;
+  height:auto;
+  pointer-events:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-frame { position:absolute; inset:0; z-index:2; display:block; width:100%; height:100%; pointer-events:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-notes { display:flex; flex-direction:column; gap:12px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-notes .am-note { display:block; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-notes .am-note-title { display:block; margin-bottom:7px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-grid .am-caption { padding:13px 4px 0; }
+
+/* Handheld. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld-video-layout { display:flex; flex-direction:column; gap:30px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context {
+  display:grid;
+  grid-template-columns:1fr 1.45fr;
+  grid-template-areas:"eyebrow eyebrow" "title body";
+  gap:12px 54px;
+  border-radius:26px;
+  padding:28px 30px;
+  background:linear-gradient(120deg,rgba(255,255,255,.82),rgba(230,240,255,.72));
+  box-shadow:inset 0 0 0 1px var(--am-line);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context .am-overline { grid-area:eyebrow; margin:0; color:var(--am-blue); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context > strong { grid-area:title; color:var(--am-ink); font:800 30px/1 var(--display); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context > p { grid-area:body; margin:0; color:var(--am-copy); font:400 13.5px/1.65 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld-pair { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld { min-width:0; margin:0; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld-device {
+  position:relative;
+  isolation:isolate;
+  aspect-ratio:2444 / 1014;
+  filter:drop-shadow(0 20px 28px rgba(21,26,39,.18));
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld-screen {
+  position:absolute;
+  top:9.15%;
+  left:19.7%;
+  z-index:1;
+  display:block;
+  width:60.7%;
+  height:82.2%;
+  border:0;
+  border-radius:1.2%;
+  background:#fff;
+  object-fit:cover;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld-frame { position:absolute; inset:0; z-index:2; display:block; width:100%; height:100%; pointer-events:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld.is-featured .am-caption { max-width:420px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld-state-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld-state-grid .am-caption { padding:12px 3px 0; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-panel {
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  overflow:hidden;
+  border:1px solid var(--am-line);
+  border-radius:30px;
+  background:linear-gradient(145deg,#172039,#282f69 54%,#3f67ae 100%);
+  box-shadow:0 24px 60px rgba(24,35,75,.2);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-step { position:relative; min-width:0; min-height:220px; padding:24px 17px; color:#fff; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-step + .am-controller-step { border-left:1px solid rgba(255,255,255,.13); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-key { display:grid; place-items:center; width:64px; height:64px; margin-bottom:54px; border:1px solid rgba(255,255,255,.35); border-radius:50%; background:rgba(255,255,255,.1); box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 0 28px rgba(82,149,255,.22); font:700 12px/1 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon { display:block; width:58px; height:58px; margin-bottom:44px; filter:drop-shadow(0 10px 20px rgba(0,0,0,.18)); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon > circle:first-child { fill:#fff; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon path,
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon .am-stick-base { fill:#10162f; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon .am-stick-top { fill:#fff; stroke:#10162f; stroke-width:4; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon text { fill:#10162f; font:800 22px/1 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-index { position:absolute; top:27px; right:17px; color:rgba(255,255,255,.45); font:700 10px/1 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-step strong { display:block; margin-bottom:8px; font:700 13px/1.4 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-step p { margin:0; color:rgba(255,255,255,.58); font:400 11px/1.55 var(--project-template-copy-font); }
+
+.project-sheet[data-project-id="adaptive-app-market"] .project-sheet-footer { border-color:var(--am-line); color:var(--am-copy); }
+
+/* 2026-09-28 hierarchy and motion pass. */
+.project-sheet[data-project-id="adaptive-app-market"] :is(.project-tag-register,.project-introduction,.project-facts) {
+  background:rgba(249,251,255,.72) !important;
+  backdrop-filter:blur(16px);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-facts { box-shadow:none; }
+
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapters > .project-chapter-titlebar {
+  height:122px;
+  overflow:visible;
+  isolation:isolate;
+  background:
+    radial-gradient(ellipse at 8% -12%,rgba(255,255,255,.98),transparent 48%),
+    radial-gradient(ellipse at 82% 0%,rgba(198,232,215,.82),transparent 46%),
+    linear-gradient(100deg,#fff 0%,#edf4ff 48%,#efebff 100%);
+  box-shadow:0 24px 44px rgba(122,110,219,.14);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapters > .project-chapter-titlebar::before {
+  position:absolute;
+  z-index:-1;
+  right:0;
+  bottom:-32px;
+  left:0;
+  height:34px;
+  background:linear-gradient(rgba(239,235,255,.82),rgba(243,246,251,0));
+  content:"";
+  pointer-events:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter-title-surface {
+  height:122px;
+  padding-bottom:22px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter > header {
+  padding-top:44px;
+}
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-project-overview {
+  padding:72px 0 88px;
+  background:
+    radial-gradient(circle at 88% 18%,rgba(116,207,171,.13),transparent 27%),
+    linear-gradient(180deg,rgba(255,255,255,.38),rgba(237,243,252,.34));
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-project-overview > .project-content-block {
+  box-sizing:border-box;
+  width:1000px;
+  margin:0 auto;
+  padding:0;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-project-overview > .project-content-block + .project-content-block {
+  margin-top:74px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-project-overview .project-content-copy {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(320px,.72fr);
+  grid-template-areas:"caption caption" "title body";
+  align-items:start;
+  gap:12px 54px;
+  margin:0 0 38px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-project-overview .project-content-copy > span { grid-area:caption; color:var(--am-blue); font:700 10px/1.4 var(--project-template-copy-font); letter-spacing:.12em; text-transform:uppercase; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-project-overview .project-content-copy h4 { grid-area:title; margin:0; font:800 28px/1.18 var(--display); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-project-overview .project-content-copy p { grid-area:body; margin:0; color:var(--am-copy); font:400 15.5px/1.68 var(--project-template-copy-font); }
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-grid {
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  padding-right:44px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item {
+  grid-template-columns:22px 1fr auto;
+  min-height:64px;
+  border-radius:18px;
+  padding:0 16px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item:last-child { grid-column:1 / -1; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-logo {
+  display:block;
+  width:auto;
+  max-width:96px;
+  height:22px;
+  object-fit:contain;
+  object-position:left center;
+  filter:invert(1) brightness(2);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item:first-child .am-brand-logo { width:74px; height:18px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item:nth-child(4) .am-brand-logo { width:29px; height:29px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-wordmark { color:#fff; font:800 16px/1 var(--display); letter-spacing:-.03em; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-family { justify-self:end; color:rgba(255,255,255,.55); font:700 8px/1 var(--project-template-copy-font); letter-spacing:.12em; white-space:nowrap; }
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-partner-overview {
+  display:grid;
+  grid-template-columns:.92fr 1.08fr;
+  min-height:470px;
+  margin:0;
+  overflow:hidden;
+  border-radius:38px;
+  background:linear-gradient(145deg,#f9fbff 0%,#edf1ff 54%,#e4f7ef 100%);
+  box-shadow:0 26px 72px rgba(40,56,103,.11),inset 0 0 0 1px rgba(38,60,104,.08);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-partner-device { position:relative; display:grid; place-items:center; min-width:0; padding:28px 18px 48px; background:radial-gradient(circle at 50% 45%,#fff 0%,rgba(255,255,255,.38) 54%,transparent 72%); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-partner-device-image { display:block; width:92%; height:330px; object-fit:contain; filter:drop-shadow(0 28px 30px rgba(33,42,72,.13)); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-partner-device-note { position:absolute; right:28px; bottom:24px; left:28px; color:var(--am-copy); font:700 8px/1.4 var(--project-template-copy-font); letter-spacing:.11em; text-align:center; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-partner-scope { display:flex; flex-direction:column; justify-content:center; padding:50px 54px 50px 24px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-partner-scope .am-overline { margin:0 0 16px; color:var(--am-blue); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-partner-scope > strong { max-width:430px; font:800 35px/1.08 var(--display); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-partner-scope > p { margin:20px 0 0; color:var(--am-copy); font:400 14px/1.7 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-partner-lanes { display:grid; gap:10px; margin-top:30px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-partner-lane { display:grid; grid-template-columns:72px 1fr; gap:5px 14px; padding-top:14px; border-top:1px solid var(--am-line); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-partner-lane > span { grid-row:1 / span 2; color:var(--am-violet); font:700 8px/1.4 var(--project-template-copy-font); letter-spacing:.11em; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-partner-lane > strong { font:700 12px/1.35 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-partner-lane > p { margin:0; color:var(--am-copy); font:400 11px/1.4 var(--project-template-copy-font); }
+
+/* The UI stays physically beneath the supplied hardware overlay. The source
+   mockup has an opaque black screen, so a four-edge mask keeps its real rim
+   while opening the display aperture for the product UI below. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-viewport {
+  inset:1.45% 2.45% 1.55%;
+  z-index:1;
+  border-radius:9.2% / 4.55%;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-frame {
+  z-index:4;
+  -webkit-mask-image:
+    linear-gradient(90deg,#000 0 2.75%,transparent 2.75% 97.25%,#000 97.25%),
+    linear-gradient(#000 0 2.4%,transparent 2.4% 97.6%,#000 97.6%);
+  mask-image:
+    linear-gradient(90deg,#000 0 2.75%,transparent 2.75% 97.25%,#000 97.25%),
+    linear-gradient(#000 0 2.4%,transparent 2.4% 97.6%,#000 97.6%);
+  -webkit-mask-composite:source-over;
+  mask-composite:add;
+  mix-blend-mode:normal;
+}
+
+.project-sheet[data-project-id="adaptive-app-market"] [data-variant="market-phone-components"] {
+  width:100%;
+  padding-right:0;
+  padding-left:0;
+}
+.project-sheet[data-project-id="adaptive-app-market"] [data-variant="market-phone-components"] > .project-content-copy { width:1000px; margin-right:auto; margin-left:auto; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-component-stage {
+  position:relative;
+  display:grid;
+  grid-template-columns:220px minmax(0,1fr) 220px;
+  align-items:center;
+  gap:10px;
+  left:50%;
+  width:1120px;
+  margin:0;
+  padding:42px 26px;
+  border-radius:42px;
+  background:linear-gradient(140deg,rgba(255,255,255,.96),rgba(236,235,255,.88) 58%,rgba(220,246,235,.86));
+  box-shadow:inset 0 0 0 1px rgba(54,70,112,.08),0 30px 80px rgba(41,55,96,.11);
+  transform:translateX(-50%);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-in-hand { position:relative; min-width:0; margin:0; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-in-hand-art { display:block; width:100%; height:auto; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-in-hand-screen {
+  position:absolute;
+  top:10.2%;
+  left:52.1%;
+  z-index:1;
+  width:17.05%;
+  height:62.6%;
+  overflow:hidden;
+  border-radius:10% / 5%;
+  background:#fff;
+  transform:rotate(.1deg);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-in-hand-screen > img:first-child { display:block; width:100%; height:auto; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-component-column { position:relative; z-index:3; display:flex; flex-direction:column; gap:16px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-extracted-component { position:relative; margin:0; border-radius:20px; padding:12px 12px 14px; background:rgba(255,255,255,.92); box-shadow:0 20px 42px rgba(42,49,91,.15),inset 0 0 0 1px rgba(50,67,108,.09); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-extracted-component::after { position:absolute; top:50%; width:34px; border-top:1px dashed rgba(68,85,128,.48); content:""; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-component-column.is-left .am-extracted-component::after { left:100%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-component-column.is-right .am-extracted-component::after { right:100%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-extracted-component img { display:block; width:100%; max-height:130px; border-radius:12px; object-fit:contain; background:#fff; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-extracted-component > span { display:block; margin-top:10px; color:var(--am-violet); font:700 8px/1.3 var(--project-template-copy-font); letter-spacing:.12em; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-extracted-component > strong { display:block; margin-top:4px; color:var(--am-ink); font:700 11px/1.35 var(--project-template-copy-font); }
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-fan { position:relative; height:500px; margin:-12px 0 44px; overflow:hidden; border-bottom:1px solid var(--am-line); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone { position:absolute; bottom:-132px; left:50%; width:190px; transform-origin:50% 100%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone .am-caption { display:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone.is-fan-1 { z-index:1; transform:translateX(-152%) rotate(-18deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone.is-fan-2 { z-index:2; transform:translateX(-102%) rotate(-9deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone.is-fan-3 { z-index:5; width:210px; transform:translateX(-50%); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone.is-fan-4 { z-index:2; transform:translateX(2%) rotate(9deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone.is-fan-5 { z-index:1; transform:translateX(52%) rotate(18deg); }
+
+.project-sheet[data-project-id="adaptive-app-market"] [data-variant="market-phone-flow"] { width:100%; padding-bottom:0; }
+.project-sheet[data-project-id="adaptive-app-market"] [data-variant="market-phone-flow"] > .project-content-copy { width:1000px; margin-right:auto; margin-left:auto; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-panel {
+  left:50%;
+  width:1280px;
+  height:430px;
+  margin-left:-640px;
+  overflow:visible;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-panel > svg { inset:0; width:100%; height:100%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step { width:150px; padding:0; transform:translate(-50%,-50%); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(1) { top:50%; left:9%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(2) { top:17%; left:20%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(3) { top:50%; left:50%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(4) { top:80%; left:66.5%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(5) { top:17%; left:83.5%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-user-flow { display:flex; align-items:center; justify-content:center; gap:16px; width:1000px; margin:14px auto 54px; padding:24px 0; border-top:1px solid var(--am-line); border-bottom:1px solid var(--am-line); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-flow-step { display:grid; grid-template-columns:auto 1fr; gap:3px 10px; width:170px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-flow-step > span { grid-row:1 / span 2; color:var(--am-blue); font:700 9px/1.4 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-flow-step > strong { font:700 12px/1.3 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-flow-step > p { margin:0; color:var(--am-copy); font:400 10px/1.35 var(--project-template-copy-font); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-flow-arrow { width:44px; height:1px; background:var(--am-line); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-flow-arrow::after { display:block; width:6px; height:6px; margin:-3px 0 0 auto; border-top:1px solid #8590a4; border-right:1px solid #8590a4; content:""; transform:rotate(45deg); }
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-screen-marquee {
+  left:50%;
+  width:1280px;
+  margin-left:-640px;
+  padding:20px 0 72px;
+  background:transparent;
+  mask-image:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-screen-marquee::before,
+.project-sheet[data-project-id="adaptive-app-market"] .am-screen-marquee::after { display:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row { overflow:hidden; padding:30px 0; transform:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row + .am-marquee-row { margin-top:22px; transform:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-track { display:flex; gap:0; width:max-content; animation:am-screen-drift 36s linear infinite; will-change:transform; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row.is-reverse .am-marquee-track { animation-direction:reverse; animation-duration:41s; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-group { display:flex; flex:none; gap:30px; padding-right:30px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-phone { width:164px; transform:rotate(-4deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row.is-reverse .am-ribbon-phone { transform:rotate(4deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-shell { position:relative; aspect-ratio:938 / 1916; filter:drop-shadow(0 22px 24px rgba(35,42,72,.2)); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-viewport { position:absolute; inset:1.45% 2.45% 1.55%; z-index:1; height:auto; border:0; border-radius:9.2% / 4.55%; box-shadow:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-frame {
+  position:absolute;
+  inset:0;
+  z-index:4;
+  display:block;
+  width:100%;
+  height:100%;
+  -webkit-mask-image:
+    linear-gradient(90deg,#000 0 2.75%,transparent 2.75% 97.25%,#000 97.25%),
+    linear-gradient(#000 0 2.4%,transparent 2.4% 97.6%,#000 97.6%);
+  mask-image:
+    linear-gradient(90deg,#000 0 2.75%,transparent 2.75% 97.25%,#000 97.25%),
+    linear-gradient(#000 0 2.4%,transparent 2.4% 97.6%,#000 97.6%);
+  -webkit-mask-composite:source-over;
+  mask-composite:add;
+  pointer-events:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-phone figcaption { color:var(--am-copy); }
+@keyframes am-screen-drift { from { transform:translate3d(0,0,0); } to { transform:translate3d(-33.333333%,0,0); } }
+
+.project-sheet[data-project-id="adaptive-app-market"] [data-project-section-title="1"] { margin-top:0; }
+
+@media (max-width:900px) {
+  .project-sheet[data-project-id="adaptive-app-market"] .am-project-overview > .project-content-block,
+  .project-sheet[data-project-id="adaptive-app-market"] .am-project-overview .project-content-copy,
+  .project-sheet[data-project-id="adaptive-app-market"] [data-variant="market-phone-components"] > .project-content-copy,
+  .project-sheet[data-project-id="adaptive-app-market"] [data-variant="market-phone-flow"] > .project-content-copy,
+  .project-sheet[data-project-id="adaptive-app-market"] .am-user-flow { width:calc(100% - 40px); }
+  .project-sheet[data-project-id="adaptive-app-market"] .am-positioning-panel,
+  .project-sheet[data-project-id="adaptive-app-market"] .am-partner-overview { grid-template-columns:1fr; }
+  .project-sheet[data-project-id="adaptive-app-market"] .am-phone-component-stage { left:0; grid-template-columns:1fr; width:calc(100% - 24px); margin:0 auto; transform:none; }
+  .project-sheet[data-project-id="adaptive-app-market"] .am-component-column { display:grid; grid-template-columns:1fr 1fr; }
+  .project-sheet[data-project-id="adaptive-app-market"] .am-phone-in-hand { order:-1; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .project-sheet[data-project-id="adaptive-app-market"] .is-scroll-phone .am-phone-screen { animation:none !important; transform:none !important; }
+  .project-sheet[data-project-id="adaptive-app-market"] .am-marquee-track { animation-play-state:paused !important; }
+}
+
+/* 2026-09-29 structure and device-fit refinement. */
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter .project-content-block + .project-content-block {
+  border-top:0;
+}
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-panel {
+  grid-template-columns:1.03fr .97fr;
+  min-height:510px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-grid {
+  align-content:start;
+  gap:10px;
+  padding:128px 42px 148px 0;
+  filter:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item {
+  grid-template-columns:20px minmax(0,1fr) 62px;
+  min-height:56px;
+  padding:0 14px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item:last-child { grid-column:auto; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metrics {
+  position:absolute;
+  right:44px;
+  bottom:36px;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+  width:calc(47% - 44px);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metric {
+  min-height:0;
+  border:0;
+  border-radius:0;
+  padding:0;
+  color:#fff;
+  background:none;
+  box-shadow:none;
+  backdrop-filter:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metric strong {
+  display:block;
+  font:800 48px/.9 var(--display);
+  letter-spacing:-.045em;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metric span {
+  display:block;
+  margin-top:12px;
+  color:rgba(255,255,255,.82);
+  font:700 9px/1.3 var(--project-template-copy-font);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metric small { display:block; margin-top:6px; color:rgba(255,255,255,.42); font:600 7px/1.25 var(--project-template-copy-font); letter-spacing:.09em; }
+
+/* Keep every UI plane physically beneath the supplied phone hardware. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-viewport,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-viewport {
+  inset:1.65% 3.2% 1.7%;
+  z-index:1;
+  border-radius:9% / 4.4%;
+  background:#fff;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-frame,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-frame { z-index:4; }
+
+/* The secondary-page fan is one complete composition; detail variants remain
+   in the separate analysis grid below. */
+.project-sheet[data-project-id="adaptive-app-market"] [data-variant="market-phone-states"] {
+  margin-top:0;
+  padding:76px 0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-fan {
+  height:500px;
+  margin:0 0 52px;
+  overflow:hidden;
+  border:0;
+  border-radius:36px;
+  background:
+    radial-gradient(circle at 82% 14%,rgba(105,91,240,.2),transparent 33%),
+    linear-gradient(145deg,rgba(255,255,255,.92),rgba(233,238,255,.9));
+  box-shadow:0 28px 70px rgba(42,55,96,.1);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone {
+  bottom:-10px;
+  left:auto;
+  transform-origin:50% 100%;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone.is-fan-1 { left:17%; z-index:1; width:158px; transform:translateX(-50%) rotate(-15deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone.is-fan-2 { left:39%; z-index:3; width:190px; transform:translateX(-50%) rotate(-6deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone.is-fan-3 { left:61%; z-index:3; width:190px; transform:translateX(-50%) rotate(6deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-fan-phone.is-fan-4 { left:83%; z-index:1; width:158px; transform:translateX(-50%) rotate(15deg); }
+
+/* One continuous journey line with five anchored decision cards. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-panel {
+  height:420px;
+  overflow:visible;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step {
+  width:156px;
+  box-sizing:border-box;
+  border-radius:18px;
+  padding:14px 15px;
+  background:rgba(255,255,255,.9);
+  box-shadow:0 14px 36px rgba(40,54,93,.12);
+  backdrop-filter:blur(12px);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(1) { top:86%; left:9.72%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(2) { top:14%; left:27.78%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(3) { top:86%; left:50%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(4) { top:14%; left:70%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(5) { top:86%; left:87.99%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step > span {
+  width:auto;
+  height:auto;
+  margin:0 0 7px;
+  place-items:start;
+  border-radius:0;
+  color:var(--am-blue);
+  background:none;
+  box-shadow:none;
+}
+
+/* A solid showcase field separates the moving UI wall from the page grid.
+   Each duplicate group is wider than the viewport, so the loop never exposes
+   an empty seam. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-screen-marquee {
+  padding:48px 0 64px;
+  background:linear-gradient(145deg,#12172f 0%,#27377d 58%,#587fc5 100%);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row { padding:34px 0; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row + .am-marquee-row { margin-top:0; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-group { gap:34px; padding-right:34px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-phone,
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row.is-reverse .am-ribbon-phone {
+  width:164px;
+  transform:rotate(-15deg);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-phone figcaption { color:rgba(255,255,255,.72); }
+@keyframes am-screen-drift { from { transform:translate3d(0,0,0); } to { transform:translate3d(-50%,0,0); } }
+
+/* Final cascade: new supplied hardware and revised phone information map. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-shell,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-shell { aspect-ratio:489 / 1024; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-viewport,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-viewport {
+  position:absolute;
+  inset:1.18% 2.98% 1.18%;
+  z-index:1;
+  height:auto;
+  overflow:hidden;
+  border:0;
+  border-radius:5.9% / 2.8%;
+  clip-path:inset(0 round 5.9% / 2.8%);
+  background:#050505;
+  box-shadow:none;
+  container-type:size;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-frame,
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-frame {
+  position:absolute;
+  inset:0;
+  z-index:6;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  -webkit-mask:
+    linear-gradient(#000 0 0) top/100% 1.7% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 1.7% no-repeat,
+    linear-gradient(#000 0 0) left/3.25% 100% no-repeat,
+    linear-gradient(#000 0 0) right/3.25% 100% no-repeat,
+    radial-gradient(circle at 50% 3.25%,#000 0 1.5%,transparent 1.6%);
+  mask:
+    linear-gradient(#000 0 0) top/100% 1.7% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 1.7% no-repeat,
+    linear-gradient(#000 0 0) left/3.25% 100% no-repeat,
+    linear-gradient(#000 0 0) right/3.25% 100% no-repeat,
+    radial-gradient(circle at 50% 3.25%,#000 0 1.5%,transparent 1.6%);
+  -webkit-mask-composite:source-over;
+  mask-composite:add;
+  pointer-events:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage .am-phone-fan {
+  height:510px;
+  margin:0 0 0 -78px;
+  overflow:visible;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage .am-fan-phone { bottom:-26px; left:50%; width:164px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage .am-fan-phone.is-fan-1 { left:12%; z-index:1; width:142px; transform:translateX(-50%) rotate(-16deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage .am-fan-phone.is-fan-2 { left:37%; z-index:3; width:172px; transform:translateX(-50%) rotate(-6deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage .am-fan-phone.is-fan-3 { left:64%; z-index:3; width:172px; transform:translateX(-50%) rotate(6deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage .am-fan-phone.is-fan-4 { left:89%; z-index:1; width:142px; transform:translateX(-50%) rotate(16deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage .am-fan-phone .am-caption { display:block; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-phone,
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row.is-reverse .am-ribbon-phone { width:164px; transform:rotate(-15deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row,
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row + .am-marquee-row { margin-top:0; transform:none; }
+@keyframes am-screen-drift { from { transform:translate3d(0,0,0); } to { transform:translate3d(-33.333333%,0,0); } }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-device { aspect-ratio:1024 / 739; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-screen { top:5.25%; left:3.78%; z-index:1; width:92.44%; height:89.48%; border:0; border-radius:2.05% / 2.85%; clip-path:inset(0 round 2.05% / 2.85%); object-fit:cover; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-status { top:5.25%; left:3.78%; z-index:2; width:92.44%; max-width:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-tablet-frame {
+  z-index:6;
+  -webkit-mask:
+    linear-gradient(#000 0 0) top/100% 5.45% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 5.45% no-repeat,
+    linear-gradient(#000 0 0) left/4% 100% no-repeat,
+    linear-gradient(#000 0 0) right/4% 100% no-repeat,
+    radial-gradient(circle at 2.15% 50%,#000 0 .72%,transparent .82%);
+  mask:
+    linear-gradient(#000 0 0) top/100% 5.45% no-repeat,
+    linear-gradient(#000 0 0) bottom/100% 5.45% no-repeat,
+    linear-gradient(#000 0 0) left/4% 100% no-repeat,
+    linear-gradient(#000 0 0) right/4% 100% no-repeat,
+    radial-gradient(circle at 2.15% 50%,#000 0 .72%,transparent .82%);
+  mask-composite:add;
+}

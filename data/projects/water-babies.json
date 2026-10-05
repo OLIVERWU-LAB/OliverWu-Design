@@ -1,0 +1,89 @@
+{
+  "id": "water-babies",
+  "title": "Water Babies",
+  "subtitle": "An Interactive Art Installation in Dialogue with Fluid Intelligence",
+  "backgroundColor": "#000000",
+  "summary": "An immersive installation that translates human presence and voice into a real-time dialogue of fluid imagery, light and sound.",
+  "body": "Set in 2123 aboard a speculative spacecraft orbiting Kepler-138b, Water Babies imagines humanity’s first contact with a microscopic aquatic hive mind. Audiences address the organism through a wireless sensing system; a custom translation pipeline maps their presence and voice into real-time fluid imagery, light and sound, while the entity’s shifting responses form a non-verbal dialogue. By reducing language to frequency, movement and fluctuation, the installation asks whether understanding—or empathy—can emerge beyond human semantics.",
+  "company": "Collaboration Project",
+  "companyLabel": "PROJECT CONTEXT",
+  "partners": [
+    {
+      "name": "Collaboration Project",
+      "detail": "Visual Design & Visualization: 杰杰\nSoundscape Design: fabia\nBiological Sound Design: Oliver\nScriptwriting: Hadas, fabia, Oliver"
+    }
+  ],
+  "year": "2023",
+  "yearLabel": "PROJECT YEAR",
+  "roles": [
+    "Sound Design",
+    "Programming",
+    "Interaction System Design",
+    "Sensing System Development",
+    "System Integration"
+  ],
+  "tags": [
+    "Sound Design",
+    "Real-Time Visualization",
+    "Sensing Systems",
+    "Scriptwriting"
+  ],
+  "cover": {
+    "ratio": "2 / 1",
+    "designWidth": 3000,
+    "background": "assets/projects/water-babies/cover-jpg-web.webp",
+    "layers": [
+      {
+        "src": "assets/projects/water-babies/cover-jpg-web.webp",
+        "kind": "base",
+        "parallax": 0.5,
+        "parallaxLimit": 0.8
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 1,
+  "sections": [
+    {
+      "title": "Research, System and Outcome",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "video",
+          "provider": "vimeo",
+          "id": "1222596918",
+          "params": "badge=0&autopause=0&player_id=0&app_id=58479&title=1&byline=0&portrait=0",
+          "ratio": "16 / 9",
+          "layout": "full",
+          "title": "Water Baby — Live Installation",
+          "caption": "Water Baby — Live Installation"
+        },
+        {
+          "type": "water-board-stack",
+          "layout": "full",
+          "images": [
+            {
+              "src": "assets/projects/water-babies/board-research-jpg-web.webp",
+              "alt": "Water Babies background, interaction model and visualization research",
+              "videoOverlay": true,
+              "video": "assets/projects/water-babies/hud-interaction-m4v-web.mp4"
+            },
+            {
+              "src": "assets/projects/water-babies/board-system-jpg-web.webp",
+              "alt": "Water Babies sensing system, programming, sound design and visualization development",
+              "soundCloud": {
+                "trackId": "2391424677"
+              }
+            },
+            {
+              "src": "assets/projects/water-babies/board-installation-jpg-web.webp",
+              "alt": "Water Babies installation construction and final audience experience"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

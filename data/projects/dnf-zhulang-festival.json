@@ -1,0 +1,458 @@
+{
+  "id": "dnf-zhulang-festival",
+  "title": "DNF: Summer Wave Festival",
+  "subtitle": "Two Island Games Across One Summer Event",
+  "backgroundColor": "#D8CCB6",
+  "summary": "A seasonal DNF experience built as two connected island mini-games: an idle-management expedition and a route-based card adventure.",
+  "body": "Interaction design for two sequential mini-games within DNF’s summer live event. Island Expedition turns an illustrated inn into a readable idle-management space for navigation, upgrading, crafting and crew progression; Island Card reshapes a grid-based card adventure into a scenic route of battles, events, camps and shops. Together, they translate one island theme into two distinct interaction systems released across the season.",
+  "company": "DNF × Tencent",
+  "companyLabel": "PROJECT CONTEXT",
+  "year": "2026.08—2026.09",
+  "yearLabel": "LIVE OPERATION",
+  "roles": [
+    "Interaction Design"
+  ],
+  "partners": [
+    {
+      "name": "DNF",
+      "logo": "assets/projects/dnf-zhulang-festival/dnf-logo-clean-png-web.webp"
+    },
+    {
+      "name": "Tencent",
+      "logo": "assets/media/logo-tencent.svg", "color": "#6b3007"
+    }
+  ],
+  "game": {
+    "label": "BASE GAME",
+    "name": "Dungeon & Fighter",
+    "logo": "assets/projects/dnf-zhulang-festival/dnf-game-icon-png-web.webp"
+  },
+  "mergeGameIntoYear": true,
+  "tags": [
+    "Game UX",
+    "Interaction Design",
+    "Live Event",
+    "Pixel Interface"
+  ],
+  "cover": {
+    "ratio": "2 / 1",
+    "designWidth": 1576,
+    "background": "assets/projects/dnf-zhulang-festival/cover-island-card-jpg-web.webp",
+    "layers": [
+      {
+        "src": "assets/projects/dnf-zhulang-festival/cover-island-card-jpg-web.webp",
+        "kind": "base",
+        "parallax": 0.5,
+        "parallaxLimit": 0.8
+      },
+      {
+        "src": "assets/projects/dnf-zhulang-festival/dnf-logo-clean-png-web.webp",
+        "kind": "art",
+        "x": 50,
+        "y": 10,
+        "width": 9,
+        "mobileX": 50,
+        "mobileY": 10,
+        "mobileWidth": 11,
+        "parallax": 0.66,
+        "parallaxLimit": 0.8
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 2,
+  "sections": [
+    {
+      "title": "Island Expedition",
+      "body": "The first release is an idle-management game built around an inn, equipment and crew progression.",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "split",
+          "image": "assets/projects/dnf-zhulang-festival/event-entry-jpg-web.webp",
+          "alt": "Summer Wave Festival entry shown inside the DNF game client",
+          "title": "A Two-Part Summer Event Inside DNF",
+          "body": "Live from August to September 2026, Summer Wave Festival brought two mini-games into DNF in sequence: Island Expedition, an idle-management experience, followed by Island Card, a route-based card adventure.",
+          "caption": "EVENT ENTRY / LIVE OPERATION",
+          "layout": "wide",
+          "variant": "festival-intro"
+        },
+        {
+          "type": "inset",
+          "image": "assets/projects/dnf-zhulang-festival/activity-1-island-expedition-jpg-web.webp",
+          "alt": "Pixel-art title screen for DNF Island Expedition",
+          "layout": "full",
+          "variant": "game-opener"
+        },
+        {
+          "type": "text",
+          "title": "An Island That Works at a Glance",
+          "body": "The home screen had to feel like a place, not a menu. Core destinations remain visible inside one island scene, so players can read what needs attention before deciding where to go.",
+          "caption": "ENTRY SYSTEM / UX TO FINAL INTERFACE",
+          "layout": "rail",
+          "variant": "section-intro"
+        },
+        {
+          "type": "media-rail",
+          "layout": "wide",
+          "variant": "entry-system",
+          "groups": [
+            {
+              "feature": {
+                "src": "assets/projects/dnf-zhulang-festival/expedition-home-loop-mp4-web.mp4",
+                "caption": "UI\nIsland home · final interface"
+              },
+              "items": [
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/entry-area-plan-jpg-web.webp",
+                  "media": "image",
+                  "alt": "UX plan for the main island entry areas",
+                  "caption": "UX planning · Entrance zones\nA first-pass plan for arranging every destination inside one readable island scene."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "split",
+          "image": "assets/projects/dnf-zhulang-festival/inn-ux-overview-jpg-web.webp",
+          "alt": "Inn management interaction analysis",
+          "title": "Navigate Fast. Keep Upgrades in the Scene.",
+          "body": "The bottom icons are navigation shortcuts, not upgrade controls. Players can drag freely or jump to a room, then interact with its NPC to upgrade it. Pressing the active shortcut again adds a blue outline, confirming the camera is already at that destination.",
+          "caption": "INN MANAGEMENT / SPATIAL NAVIGATION AND NPC INTERACTION",
+          "layout": "wide",
+          "variant": "inn-overview"
+        },
+        {
+          "type": "media-rail",
+          "layout": "wide",
+          "variant": "inn-ux-row",
+          "groups": [
+            {
+              "feature": {
+                "src": "assets/projects/dnf-zhulang-festival/inn-upgrade-ux-mp4-web.mp4",
+                "caption": "UX\nRoom upgrade flow"
+              },
+              "items": [
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/inn-collect-ux-mp4-web.mp4",
+                  "caption": "UX\nCollect room income"
+                },
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/inn-swipe-ux-mp4-web.mp4",
+                  "caption": "UX\nMove between rooms"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "inset",
+          "image": "assets/projects/dnf-zhulang-festival/inn-reception-room-progression-jpg-web.webp",
+          "alt": "Visual progression studies for the reception desk and room facilities",
+          "caption": "Reception and Room Upgrade Progression",
+          "layout": "wide",
+          "variant": "inn-upgrade-progression"
+        },
+        {
+          "type": "media-rail",
+          "layout": "wide",
+          "variant": "inn-visual-row",
+          "groups": [
+            {
+              "feature": {
+                "src": "assets/projects/dnf-zhulang-festival/expedition-inn-navigation-mp4-web.mp4",
+                "caption": "UI\nPersistent inn navigation"
+              },
+              "items": [
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/expedition-inn-collect-mp4-web.mp4",
+                  "caption": "UI\nRoom income collection"
+                },
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/expedition-inn-upgrade-mp4-web.mp4",
+                  "caption": "UI\nRoom upgrade interaction"
+                },
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/expedition-inn-thumbnail-mp4-web.mp4",
+                  "caption": "UI\nInn status overview"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Turn Equipment Crafting into a Machine",
+          "body": "DNF's steampunk language and the age-of-sail setting meet inside a lower-deck workshop. Instead of a flat crafting form, players choose a blueprint, feed it into a machine and operate physical-looking controls. The sequence gives equipment production a tactile, HMI-like rhythm.",
+          "caption": "EQUIPMENT ROOM / SKEUOMORPHIC INTERACTION",
+          "layout": "rail",
+          "variant": "section-intro"
+        },
+        {
+          "type": "media-rail",
+          "layout": "wide",
+          "variant": "forge-ux-pair",
+          "groups": [
+            {
+              "feature": {
+                "src": "assets/projects/dnf-zhulang-festival/forge-flow-ux-mp4-web.mp4",
+                "alt": "UX flow for selecting and producing equipment",
+                "caption": "UX\nBlueprint-to-production flow"
+              },
+              "items": [
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/forge-control-ux-mp4-web.mp4",
+                  "alt": "UX prototype for operating the equipment machine",
+                  "caption": "UX\nSkeuomorphic machine controls"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "media-rail",
+          "layout": "wide",
+          "variant": "forge-final-pair",
+          "groups": [
+            {
+              "feature": {
+                "src": "assets/projects/dnf-zhulang-festival/expedition-forge-build-mp4-web.mp4",
+                "alt": "Final equipment crafting interface",
+                "caption": "UI\nEquipment crafting interface"
+              },
+              "items": [
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/expedition-forge-modify-mp4-web.mp4",
+                  "alt": "Final equipment modification interface",
+                  "caption": "UI\nEquipment modification interface"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Make the Summer Draw Feel Playful and Physical",
+          "body": "The gacha is staged as a tangible open–reveal–collect sequence, turning a routine reward draw into a playful moment. Recruitment, development, the hero codex and activity tasks remain compact around it.",
+          "caption": "SEASONAL REWARD / TACTILE GACHA AND SUPPORTING SYSTEMS",
+          "layout": "rail",
+          "variant": "section-intro"
+        },
+        {
+          "type": "media-rail",
+          "layout": "wide",
+          "variant": "progression-system",
+          "groups": [
+            {
+              "feature": {
+                "src": "assets/projects/dnf-zhulang-festival/expedition-summer-gacha-mp4-web.mp4",
+                "caption": "UI\nSummer gacha · seasonal reward draw"
+              },
+              "items": [
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/expedition-hero-development-mp4-web.mp4",
+                  "caption": "UI\nHero development"
+                },
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/expedition-hero-codex-mp4-web.mp4",
+                  "caption": "UI\nHero codex"
+                },
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/expedition-tasks-mp4-web.mp4",
+                  "caption": "UI\nActivity tasks"
+                },
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/expedition-hero-recruit-mp4-web.mp4",
+                  "caption": "UI\nHero recruitment"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Idle Expedition Gameplay",
+          "body": "An idle loop carries the prepared crew from inn management into automated exploration and combat.",
+          "caption": "IDLE PLAY / EXPEDITION LOOP",
+          "layout": "rail",
+          "variant": "section-intro"
+        },
+        {
+          "type": "media-rail",
+          "layout": "wide",
+          "variant": "gameplay-transition",
+          "groups": [
+            {
+              "feature": {
+                "src": "assets/projects/dnf-zhulang-festival/expedition-gameplay-loop-mp4-web.mp4",
+                "caption": "UI\nInside the expedition"
+              },
+              "items": [
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/expedition-enter-gameplay-mp4-web.mp4",
+                  "caption": "GAME ENTRY\nA clear handoff from inn management into the idle expedition."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "provider": "vimeo",
+          "id": "1230229293",
+          "title": "DNF Summer Wave Festival Event In-Game Gameplay Showcase",
+          "caption": "Complete in-game gameplay showcase",
+          "ratio": "100 / 68.51",
+          "params": "badge=0&autopause=0&player_id=0&app_id=58479&title=1&byline=0&portrait=0&dnt=1",
+          "layout": "wide",
+          "variant": "gameplay-film"
+        }
+      ]
+    },
+    {
+      "title": "Island Card",
+      "body": "The second release turns progression into a route-based card adventure across a scenic island map.",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "inset",
+          "image": "assets/projects/dnf-zhulang-festival/activity-2-island-card-jpg-web.webp",
+          "alt": "Pixel-art title screen for DNF Island Card",
+          "layout": "full",
+          "variant": "game-opener"
+        },
+        {
+          "type": "text",
+          "title": "Enter Quickly. Keep the Meta Layer Nearby.",
+          "body": "The opening carries players directly into the run, while tasks and the codex remain compact supporting destinations on the main interface rather than interrupting the route itself.",
+          "caption": "ENTRY / OUT-OF-RUN SYSTEMS",
+          "layout": "rail",
+          "variant": "section-intro"
+        },
+        {
+          "type": "media-rail",
+          "layout": "wide",
+          "variant": "card-entry-system",
+          "groups": [
+            {
+              "feature": {
+                "src": "assets/projects/dnf-zhulang-festival/card-enter-game-mp4-web.mp4",
+                "caption": "UI\nEnter the game"
+              },
+              "items": [
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/card-tasks-mp4-web.mp4",
+                  "caption": "UI\nTasks"
+                },
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/card-codex-mp4-web.mp4",
+                  "caption": "UI\nCodex"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Turn a 4 × 4 Grid into a Place",
+          "body": "The underlying route began as a regular 4 × 4 structure. Curved connections and a scenic island silhouette turn that logic into a world map. Fog clears in a cross-shaped pattern as landmarks unlock, revealing nearby possibilities without exposing the whole run at once.",
+          "caption": "MAP UX / STRUCTURE, SCENE AND DISCOVERY",
+          "layout": "rail",
+          "variant": "section-intro"
+        },
+        {
+          "type": "media-rail",
+          "layout": "wide",
+          "variant": "map-system",
+          "groups": [
+            {
+              "feature": {
+                "src": "assets/projects/dnf-zhulang-festival/island-card-map-ux-mp4-web.mp4",
+                "caption": "UX\nScenic route-map interaction"
+              },
+              "items": [
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/island-card-map-sketch-jpg-web.webp",
+                  "media": "image",
+                  "alt": "Early sketch for turning the grid into a scenic island map",
+                  "caption": "Early scenic-map sketch\nThe regular 4 × 4 structure becomes an island route with curved connections."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Every Node Promises a Different Kind of Decision",
+          "body": "Random events, camps, shops, forging and battles share one map grammar while keeping distinct visual identities. Players can anticipate the type of choice ahead before committing to a route.",
+          "caption": "EVENT NODES / ONE SYSTEM, DISTINCT EXPECTATIONS",
+          "layout": "rail",
+          "variant": "section-intro"
+        },
+        {
+          "type": "media-rail",
+          "layout": "wide",
+          "variant": "event-system",
+          "groups": [
+            {
+              "feature": {
+                "src": "assets/projects/dnf-zhulang-festival/card-map-fog-mp4-web.mp4",
+                "caption": "UI\nCross-shaped fog reveal"
+              },
+              "items": [
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/card-camp-mp4-web.mp4",
+                  "caption": "UI\nCamp"
+                },
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/card-shop-mp4-web.mp4",
+                  "caption": "UI\nShop"
+                },
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/card-forge-mp4-web.mp4",
+                  "caption": "UI\nForge"
+                },
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/card-random-event-mp4-web.mp4",
+                  "caption": "UI\nRandom event"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Make the Battle State Unmistakable",
+          "body": "Opening, enemy turn and victory are treated as distinct beats. The interface changes enough to communicate the state immediately while remaining inside the same pixel-art combat language.",
+          "caption": "BATTLE / START, RESPONSE AND RESOLUTION",
+          "layout": "rail",
+          "variant": "section-intro"
+        },
+        {
+          "type": "media-rail",
+          "layout": "wide",
+          "variant": "battle-system",
+          "groups": [
+            {
+              "feature": {
+                "src": "assets/projects/dnf-zhulang-festival/card-battle-start-mp4-web.mp4",
+                "caption": "UI\nBattle opening"
+              },
+              "items": [
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/card-monster-turn-mp4-web.mp4",
+                  "caption": "UI\nMonster turn"
+                },
+                {
+                  "src": "assets/projects/dnf-zhulang-festival/card-victory-mp4-web.mp4",
+                  "caption": "UI\nVictory"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

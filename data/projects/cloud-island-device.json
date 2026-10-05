@@ -1,0 +1,50 @@
+{
+  "id": "cloud-island-device",
+  "title": "Cloud Island Device",
+  "subtitle": "A Speculative Design for Urban Air Quality",
+  "backgroundColor": "#000000",
+  "summary": "A speculative urban system that combines artificial clouds, environmental infrastructure and public experience to continuously clean polluted air.",
+  "body": "Cloud Island Device is a speculative urban air-quality system that connects architecture, industrial design and a fleet of artificial clouds. A self-regulating central tower monitors fog, particulate matter and gaseous pollution, then uses 3D printing to create cloud units with hydrophilic and hydrophobic fibre surfaces. These mobile clouds travel to affected areas to capture particles, while contaminated gases return to the tower for chemical filtration and reuse in energy generation and plant cultivation. Around this infrastructure, a floating botanical island turns air remediation into a public experience through gardens, orchards, tree planting, cloud concerts and environmental education. A companion app allows residents to monitor air quality, purchase tickets and summon purification clouds, linking citizens, operators and government into a circular urban service ecosystem.",
+  "company": "Individual Project",
+  "companyLabel": "PROJECT CONTEXT",
+  "year": "2022",
+  "yearLabel": "PROJECT YEAR",
+  "roles": ["Architecture Design", "Industrial Design", "Service System Design", "UI Design"],
+  "partners": [{ "name": "Individual Project" }],
+  "tags": ["Air Quality", "Speculative Design", "Urban Systems", "Industrial Design", "Service Design"],
+  "cover": {
+    "ratio": "3000 / 2335",
+    "designWidth": 3000,
+    "background": "assets/projects/cloud-island-device/cover-jpg-web.webp",
+    "layers": [
+      {
+        "src": "assets/projects/cloud-island-device/cover-jpg-web.webp",
+        "kind": "base",
+        "parallax": 0,
+        "parallaxLimit": 0
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 1,
+  "sections": [
+    {
+      "title": "System Boards",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "cloud-board-stack",
+          "layout": "full",
+          "images": [
+            { "src": "assets/projects/cloud-island-device/background-board-jpg-web.webp", "alt": "Cloud Island background research and urban air-pollution analysis" },
+            { "src": "assets/projects/cloud-island-device/device-system-board-jpg-web.webp", "alt": "Cloud Island industrial process and artificial-cloud purification system" },
+            { "src": "assets/projects/cloud-island-device/experience-board-jpg-web.webp", "alt": "Cloud Island public experience and environmental tourism system" },
+            { "src": "assets/projects/cloud-island-device/app-service-board-jpg-web.webp", "alt": "Cloud Island app, user flow and stakeholder service ecosystem" }
+          ]
+        }
+      ]
+    }
+  ]
+}

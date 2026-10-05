@@ -1,0 +1,910 @@
+{
+  "id": "tencent-cloud-gaming",
+  "title": "In-Car Gaming",
+  "subtitle": "Bringing Cloud Gaming to the Smart Cockpit",
+  "backgroundColor": "#071011",
+  "summary": "An in-vehicle cloud gaming experience developed through research, OEM integration, interaction exploration and a multi-screen consumer platform.",
+  "body": "An in-car display is not an ordinary screen. Seat position, reach, input devices and the surrounding environment reshape how people discover and play. The platform was developed in cooperation with car companies and mobility partners including BMW, Dongfeng Nissan, Zeekr and Huawei. This case study follows the project in its original iteration sequence—from research and an OEM-integrated 1.0, through the unreleased 1.5 exploration, to the broader 2.0 platform system.",
+  "company": "Tencent",
+  "companyLabel": "PROJECT CONTEXT", "partnerLabel": "Partners:",
+  "year": "2024",
+  "yearLabel": "PROJECT START",
+  "roles": [
+    "Experience Design",
+    "HMI & Interaction",
+    "Prototyping & Systems"
+  ],
+  "partners": [
+    {
+      "name": "Tencent",
+      "logo": "assets/media/logo-tencent.svg", "color": "#ffffff",
+      "detail": "GAME CONTENT · CLOUD GAMING SERVICES"
+    },
+    { "name": "Dongfeng Nissan", "logo": "assets/projects/tencent-cloud-gaming/partner-dongfeng-nissan.svg" },
+    { "name": "BMW", "logo": "assets/projects/tencent-cloud-gaming/partner-bmw.svg" },
+    { "name": "Zeekr", "logo": "assets/projects/tencent-cloud-gaming/partner-zeekr.svg" },
+    { "name": "Huawei", "logo": "assets/projects/tencent-cloud-gaming/partner-huawei-png-web.webp" }
+  ],
+  "tags": [
+    "In-Vehicle HMI",
+    "Cloud Gaming",
+    "Interaction Systems",
+    "Prototyping"
+  ],
+  "cover": {
+    "ratio": "2 / 1",
+    "designWidth": 1920,
+    "background": "assets/projects/tencent-cloud-gaming/cover-background-webp-web.webp",
+    "layers": [
+      {
+        "src": "assets/projects/tencent-cloud-gaming/cover-background-webp-web.webp",
+        "kind": "base",
+        "parallax": 0.5,
+        "parallaxLimit": 0.8
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 4,
+  "sections": [
+    {
+      "title": "Start by Asking the Right Question",
+      "body": "Before drawing a cockpit interface, the project first defined who would use it, where they would sit, what they could reach and which devices could actually control a game.",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "hmi-notes",
+          "title": "Evolution",
+          "columns": 3,
+          "variant": "version-arc",
+          "items": [
+            {
+              "version": "1.0",
+              "label": "1.0 / TO BUSINESS · FOUNDATION",
+              "title": "OEM feature",
+              "body": "Light functional customisation per partner, so cloud gaming becomes a selling point of their car."
+            },
+            {
+              "version": "1.5",
+              "label": "1.5 / TRANSITION · UNRELEASED",
+              "title": "A cockpit language",
+              "body": "Test playful immersion and directional input."
+            },
+            {
+              "version": "2.0",
+              "label": "2.0 / TO CUSTOMER · SYSTEM",
+              "title": "A consumer platform",
+              "body": "Add a store, membership and paid tiers for the people in the car — a real entertainment space."
+            }
+          ]
+        },
+        {
+          "type": "hmi-notes",
+          "title": "Three Questions",
+          "columns": 1,
+          "variant": "research-questions",
+          "items": [
+            {
+              "label": "PEOPLE",
+              "title": "Who plays in a car?",
+              "body": "A driver alone in the parked car, or several people sharing the screen during the trip."
+            },
+            {
+              "label": "REACH",
+              "title": "The screen sits centre. How does either side reach it?",
+              "body": "This decided which side navigation belongs on—the largest change from 1.0 to 2.0."
+            },
+            {
+              "label": "INPUT",
+              "title": "Touch, phone or gamepad?",
+              "body": "Input is not fixed, so one interface must serve all."
+            }
+          ]
+        },
+        {
+          "type": "hmi-notes",
+          "title": "People & Situations",
+          "body": "Seat, timing and available controls defined each situation.",
+          "columns": 2,
+          "variant": "situations",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/research-solo-parked-jpg-web.webp",
+              "label": "SOLO",
+              "title": "A little time alone before heading home",
+              "body": "Driver’s seat · safely parked · phone ready.",
+              "alt": "A person sitting alone in a parked car at night",
+              "width": 1800,
+              "height": 1200
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/research-shared-passengers-jpg-web.webp",
+              "label": "SHARED",
+              "title": "Waiting together can be playing together",
+              "body": "Front seats · safely parked · shared screen.",
+              "alt": "Three people waiting together inside a neon-lit car",
+              "width": 1800,
+              "height": 1200
+            }
+          ]
+        },
+        {
+          "type": "hmi-notes",
+          "title": "How a Game Begins",
+          "body": "The interface must work with whatever controller is already at hand.",
+          "columns": 3,
+          "variant": "inputs",
+          "items": [
+            {
+              "icon": "phone",
+              "label": "PHONE",
+              "title": "Phone controller",
+              "body": "Scan to connect without extra hardware."
+            },
+            {
+              "icon": "gamepad",
+              "label": "GAMEPAD",
+              "title": "Physical controller",
+              "body": "Key mapping with native game feedback."
+            },
+            {
+              "icon": "touch",
+              "label": "TOUCH",
+              "title": "Touch display",
+              "body": "Tap and drag; three-finger swipe changes sides."
+            }
+          ]
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "Reach Zones",
+          "body": "Seat distance led to larger targets and horizontal browsing.",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/research-hot-zones-jpg-web.webp",
+              "alt": "Operational hot zones across the cockpit display, from easy to hard reach, with voice, gesture, touch and physical-button inputs",
+              "width": 2304,
+              "height": 760
+            }
+          ],
+          "variant": "reach",
+          "columns": 1
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "Customized incremental value",
+          "body": "Automaker and platform deliver one customized experience to the player — catching the urge to play in the short window.",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/research-value-map-jpg-web.webp",
+              "alt": "Design value map: automaker and cloud gaming platform jointly deliver ritual, novelty, customized service and emotional design to the player",
+              "width": 1920,
+              "height": 1080
+            }
+          ],
+          "variant": "value-map",
+          "columns": 1
+        }
+      ]
+    },
+    {
+      "title": "Make the Core Experience Work First",
+      "body": "Version 1.0 established the basic experience: large cards, horizontal browsing, side switching and light/dark themes. The main client supported game discovery; the in-game microclient handled accounts, time, quality and control help.",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "hmi-gallery",
+          "items": [
+            {
+              "video": "assets/projects/tencent-cloud-gaming/v1-microclient-ingame-mp4-web.mp4",
+              "poster": "assets/projects/tencent-cloud-gaming/v1-microclient-ingame-poster.webp",
+              "title": "In-game microclient",
+              "alt": "The in-game microclient expanding over gameplay on the car's centre display",
+              "width": 1920,
+              "height": 1080
+            }
+          ],
+          "variant": "v1-hero",
+          "columns": 1
+        },
+        {
+          "type": "hmi-notes",
+          "title": "Experience Architecture",
+          "columns": 3,
+          "variant": "v1-summary",
+          "items": [
+            {
+              "icon": "discover",
+              "label": "PICK",
+              "title": "Pick a game",
+              "body": "Continue via your phone account, take a home-screen pick, or search."
+            },
+            {
+              "icon": "manage",
+              "label": "PLAY",
+              "title": "Adjust inside the game",
+              "body": "The microclient keeps account, time, quality and guidance one tap away."
+            },
+            {
+              "icon": "play",
+              "label": "CONTINUE",
+              "title": "Top up and keep going",
+              "body": "When time runs out, recharge from the microclient or the home screen."
+            }
+          ]
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "The main interface in motion",
+          "body": "Two views of the 1.0 home screen: the operations banner and game selection.",
+          "items": [
+            {
+              "video": "assets/projects/tencent-cloud-gaming/v1-home-ops-slot-mp4-web.mp4",
+              "poster": "assets/projects/tencent-cloud-gaming/v1-home-ops-slot-poster.webp",
+              "title": "Operations banner, expanded and collapsed",
+              "alt": "The operations slot expanding and collapsing on the home screen",
+              "width": 1282,
+              "height": 720
+            },
+            {
+              "video": "assets/projects/tencent-cloud-gaming/v1-home-selection-mp4-web.mp4",
+              "poster": "assets/projects/tencent-cloud-gaming/v1-home-selection-poster.webp",
+              "title": "Game selection",
+              "alt": "Game cards moving through the selected state on the home screen",
+              "width": 1920,
+              "height": 1080
+            }
+          ],
+          "variant": "v1-evidence",
+          "columns": 2
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "Bring navigation within reach",
+          "body": "The centre display is shared, but the reach is not. Primary tabs pinned to one edge sit beyond the far seat's arm, so a three-finger horizontal swipe moves the whole navigation rail to the side you are sitting on.",
+          "columns": 2,
+          "variant": "decision",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/v1-nav-sides-jpg-web.webp",
+              "title": "One layout, two anchors",
+              "alt": "Low-fidelity comparison: the navigation rail anchored left for the driver and right for the front passenger, each reached by the nearer hand",
+              "width": 1226,
+              "height": 351
+            },
+            {
+              "video": "assets/projects/tencent-cloud-gaming/v1-nav-swipe-mp4-web.mp4",
+              "poster": "assets/projects/tencent-cloud-gaming/v1-nav-swipe-poster.webp",
+              "title": "Three fingers move the rail",
+              "alt": "A three-finger horizontal swipe moving the navigation rail from the left edge to the right edge of the in-car display",
+              "width": 2064,
+              "height": 720
+            }
+          ]
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "Control mapping across devices",
+          "body": "The experience also had to connect a phone controller and physical key mappings to different games.",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/v1-phone.webp",
+              "title": "Scan & play",
+              "alt": "Scan, then play",
+              "width": 1920,
+              "height": 1200
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/v1-peace-webp-web.webp",
+              "title": "Peace Elite mapping",
+              "alt": "Peace Elite mapping",
+              "width": 1920,
+              "height": 1200
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/v1-lol-webp-web.webp",
+              "title": "LoL mapping",
+              "alt": "League of Legends mapping",
+              "width": 1920,
+              "height": 1200
+            }
+          ],
+          "variant": "controls",
+          "columns": 3
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "Map the full system first",
+          "body": "The 1.0 map follows discovery, game details and launch into account, membership, settings and support flows.",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/v1-system-map-jpg-web.webp",
+              "alt": "The 1.0 end-to-end system map covering discovery, game details, launch, account, membership, settings and support",
+              "width": 1920,
+              "height": 791
+            }
+          ],
+          "variant": "flow",
+          "columns": 1
+        }
+      ]
+    },
+    {
+      "title": "Explore a Cockpit-Native Language · Unreleased",
+      "body": "Version 1.5 was not released. It deliberately loosened delivery constraints to explore two directions—immersive context and directional input—and both fed into the design vocabulary of 2.0.",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "hmi-gallery",
+          "title": "Direction A · Immersion",
+          "body": "Entry, scene, selection and launch run as one continuous sequence (sound designed by me).",
+          "items": [
+            {
+              "embed": {
+                "provider": "vimeo",
+                "id": "1227996002"
+              },
+              "title": "An environment, not a menu",
+              "alt": "Immersion 1.5 — scene, motion and sound demonstration"
+            }
+          ],
+          "variant": "v15-immersive",
+          "columns": 1
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "Spatial UI motion studies",
+          "body": "Two motion experiments give the interface a sense of space — creative, game-like presentations beyond a flat menu.",
+          "items": [
+            {
+              "video": "assets/projects/tencent-cloud-gaming/v15-motion-spatial-ambient-mp4-web.mp4",
+              "poster": "assets/projects/tencent-cloud-gaming/v15-motion-spatial-ambient-poster.webp",
+              "title": "A transition through space",
+              "alt": "Game detail panel floating inside a realistic cockpit environment",
+              "width": 1920,
+              "height": 1080
+            },
+            {
+              "video": "assets/projects/tencent-cloud-gaming/v15-motion-spatial-neon-mp4-web.mp4",
+              "poster": "assets/projects/tencent-cloud-gaming/v15-motion-spatial-neon-poster.webp",
+              "title": "Interface in a game world",
+              "alt": "Game detail panel surrounded by a neon virtual space",
+              "width": 1920,
+              "height": 1080
+            }
+          ],
+          "variant": "v15-motion",
+          "columns": 2
+        },
+        {
+          "type": "hmi-notes",
+          "title": "Immersive Language",
+          "columns": 3,
+          "variant": "v15-language",
+          "items": [
+            {
+              "label": "SCENE",
+              "icon": "scene",
+              "title": "Set it in a scene",
+              "body": "Entry animation and a living home scene hold the atmosphere."
+            },
+            {
+              "label": "MOTION",
+              "icon": "motion",
+              "title": "Move like a game",
+              "body": "Selection pushes in, launch is a portal, tabs move the scene."
+            },
+            {
+              "label": "SOUND",
+              "icon": "voice",
+              "title": "Wrap it in sound",
+              "body": "My original sound design pulls the user into the game world."
+            }
+          ],
+          "body": null
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "Direction B · Focus logic",
+          "body": "A diagonal card layout has no square adjacency: pushing right could mean upper-right or lower-right. The ambiguity had to become an explicit focus rule.",
+          "variant": "v15-direction-b",
+          "columns": 1,
+          "items": []
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "Joystick direction fitting",
+          "body": "That mapping could not be settled on paper — a physical joystick rig and live direction code were built to fit each raw stick movement to the card players actually intended, before any user session.",
+          "variant": "v15-prototype",
+          "columns": 2,
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/v15-rotation-test-jpg-web.webp",
+              "title": "Handle rotation test and icon arrangement optimization",
+              "alt": "Joystick rotation test diagram with six direction regions, threshold table and the joystick module",
+              "width": 1646,
+              "height": 1044
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/v15-icon-arrangement-jpg-web.webp",
+              "title": "Paths for multiple input types",
+              "alt": "Hexagonal icon arrangement studies showing card clusters, full grids and scrollable paths",
+              "width": 811,
+              "height": 1044
+            },
+            {
+              "video": "assets/projects/tencent-cloud-gaming/v15-prototype-demo.mp4",
+              "poster": "assets/projects/tencent-cloud-gaming/v15-prototype-demo-poster.webp",
+              "title": "Arduino rig driving the prototype",
+              "alt": "A hand operating a joystick wired to a tablet showing the hexagonal card prototype",
+              "width": 1280,
+              "height": 720
+            },
+            {
+              "video": "assets/projects/tencent-cloud-gaming/v15-direction-code-mp4-web.mp4",
+              "poster": "assets/projects/tencent-cloud-gaming/v15-direction-code-poster.webp",
+              "title": "Direction logic in live code",
+              "alt": "Arduino code mapping joystick X and Y values to directions, with the serial monitor printing results",
+              "width": 720,
+              "height": 720
+            }
+          ]
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "User testing workshop",
+          "body": "A workshop closed the method: participants drove the irregular card grid with the joystick so the selection path through it could be defined from real behaviour rather than assumption.",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/v15-workshop.webp",
+              "title": "Workshop session",
+              "alt": "A participant testing the joystick prototype at a workshop desk",
+              "width": 1465,
+              "height": 1169
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/v15-focus-path-jpg-web.webp",
+              "title": "Final focus path",
+              "alt": "The final focus path across the hexagonal card layout",
+              "width": 2304,
+              "height": 917
+            }
+          ],
+          "variant": "v15-result",
+          "columns": 2
+        }
+      ]
+    },
+    {
+      "title": "From an In-Car Feature to a Consumer Platform",
+      "body": "From content and themes to touch and gamepad, version 2.0 expanded a single OEM feature into a consumer platform. One interaction system now spans screen formats, input methods, service operations, store and membership.",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "hmi-notes",
+          "title": "Four Pressures Shaped 2.0",
+          "columns": 4,
+          "variant": "pressures",
+          "items": [
+            {
+              "icon": "performance",
+              "label": "PERFORMANCE",
+              "title": "Diagonal cards cost performance",
+              "body": "The project returned to rectangular grids on the target hardware."
+            },
+            {
+              "icon": "business",
+              "label": "TO B → TO C",
+              "title": "From owners to players",
+              "body": "Operations, store and membership became necessary."
+            },
+            {
+              "icon": "platform",
+              "label": "PLATFORM",
+              "title": "Mobile and console coexist",
+              "body": "Duration, quality and entitlement rules must remain legible."
+            },
+            {
+              "icon": "interaction",
+              "label": "INTERACTION",
+              "title": "Input is not fixed",
+              "body": "Touch, gamepad, keyboard, remote, voice and phone share one model."
+            }
+          ]
+        },
+        {
+          "type": "hmi-loop",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/v2-panorama-01-jpg-web.webp",
+              "alt": "2.0 platform on a wide in-car display, panoramic view",
+              "width": 1920,
+              "height": 860
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/v2-panorama-02-jpg-web.webp",
+              "alt": "2.0 platform on a portrait in-car display, panoramic view",
+              "width": 1920,
+              "height": 860
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/v2-panorama-03-jpg-web.webp",
+              "alt": "2.0 platform on a tall in-car display, panoramic view",
+              "width": 1920,
+              "height": 860
+            }
+          ],
+          "variant": "v2-cover",
+          "columns": 1,
+          "dots": true
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "01 · From switching sides to always within reach.",
+          "body": "The 1.0 gesture shortened reach but had to be discovered. In 2.0, both navigation rails stay visible with synchronised selection.",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-mapping-20260920-jpg-web.webp",
+              "body": "Select on either navigation rail and the opposite side syncs its state — quick control for the driver, the front passenger and shared play from both sides.",
+              "label": "LEFT–RIGHT MAPPING",
+              "alt": "Left–right mapping",
+              "width": 1920,
+              "height": 1080
+            }
+          ],
+          "variant": "v2-module",
+          "columns": 1
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "02 · Change the controller, not the interface.",
+          "body": "Touch uses tap and swipe; a gamepad uses buttons and sticks. One interface had to stay legible and accurate in both.",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-interaction-20260920-jpg-web.webp",
+              "alt": "Touch and gamepad",
+              "width": 1920,
+              "height": 1080,
+              "label": "TOUCH + GAMEPAD",
+              "body": "Touch works by tap and swipe, a gamepad by buttons and sticks — the same account panel stays operable in both."
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-interaction-2-20260920-jpg-web.webp",
+              "alt": "Voice control",
+              "width": 1920,
+              "height": 1080,
+              "label": "VOICE",
+              "body": "Voice commands and audio recognition drive in-game choices; the device list shows which inputs are connected."
+            }
+          ],
+          "variant": "v2-module",
+          "columns": 2
+        },
+        {
+          "type": "hmi-notes",
+          "title": "External Input System",
+          "columns": 4,
+          "variant": "external-inputs",
+          "items": [
+            {
+              "icon": "gamepad",
+              "label": "01",
+              "title": "Gamepad",
+              "body": "Physical controller."
+            },
+            {
+              "icon": "keyboard",
+              "label": "02",
+              "title": "Keyboard & mouse",
+              "body": "External precision input."
+            },
+            {
+              "icon": "pointer",
+              "label": "03",
+              "title": "Pointer remote",
+              "body": "Directional pointing."
+            },
+            {
+              "icon": "voice",
+              "label": "04",
+              "title": "Voice",
+              "body": "Spoken commands."
+            }
+          ]
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "Connected devices",
+          "body": null,
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-pad-20260920-jpg-web.webp",
+              "alt": "Connected gamepad state with key hints on the in-car interface",
+              "width": 1920,
+              "height": 1080
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/devices-webp-web.webp",
+              "alt": "Device list showing which controller currently owns input",
+              "width": 1920,
+              "height": 1080,
+              "label": "CONTROL OWNERSHIP",
+              "body": "Four devices connected, with the active gamepad marked — some games support several players at once, and a link to the control guide sits below."
+            }
+          ],
+          "variant": "v2-input-support",
+          "columns": 2
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "Guidance",
+          "variant": "v2-guidance",
+          "columns": 2,
+          "items": [
+            {
+              "video": "assets/projects/tencent-cloud-gaming/v2-guidance-onboarding-mp4-web.mp4",
+              "poster": "assets/projects/tencent-cloud-gaming/v2-guidance-onboarding-poster.webp",
+              "label": "FIRST RUN",
+              "body": "A five-step walkthrough greets first-time users, each input introduced in turn, skippable at any point.",
+              "alt": "First-run guidance introducing the control language",
+              "width": 1272,
+              "height": 720
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/guide-webp-web.webp",
+              "alt": "The same instructions reopened later from the interface",
+              "width": 1920,
+              "height": 1080,
+              "label": "ON DEMAND",
+              "body": "The same guide reopens from the sidebar — external gamepad, virtual gamepad, keyboard & mouse, pointer remote and voice."
+            }
+          ]
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "03 · Navigation stays fixed. Content expands.",
+          "body": "Screens vary widely across OEMs. Adaptation locks navigation and lets the content layer respond to the available width and height.",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-screenfit-20260920-jpg-web.webp",
+              "body": "Across 1920×1080, 1920×1620, 3840×1080 and 1920×2160 cockpit screens the navigation rail keeps its size; only the content layer expands.",
+              "label": "SCREEN ADAPTATION",
+              "alt": "Screen adaptation",
+              "width": 1920,
+              "height": 1080
+            }
+          ],
+          "variant": "v2-module",
+          "columns": 1
+        },
+        {
+          "type": "hmi-loop",
+          "title": "One system, continuously adapting",
+          "body": "Ultrawide and portrait formats move through one continuous loop. Navigation keeps its anchor; the content layer does the adapting.",
+          "variant": "screen-loop",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/x-ribbon-20260913.webp",
+              "body": "The rail holds its width while the content layer stretches sideways.",
+              "label": "ULTRAWIDE 3840×1080",
+              "alt": "Ultrawide display",
+              "width": 1920,
+              "height": 540
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/x-tall-20260913.webp",
+              "body": "The same rail, with the content layer growing downward instead.",
+              "label": "PORTRAIT 1920×2160",
+              "alt": "Portrait display",
+              "width": 1706,
+              "height": 1920
+            }
+          ]
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "04 · System entries stay put. Content expands.",
+          "body": "Profile and search hold the top and bottom; the centre belongs to featured and library content. Entering All Games expands category tabs on the same structure, driven identically by touch and gamepad.",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-home-1-20260920-jpg-web.webp",
+              "alt": "Home · core functions",
+              "width": 1920,
+              "height": 1080,
+              "label": "CORE FUNCTIONS",
+              "body": "Profile and search stay pinned to the top and bottom edges — the platform's own entries never move."
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-home-2-20260920-jpg-web.webp",
+              "alt": "Home · game content",
+              "width": 1920,
+              "height": 1080,
+              "label": "GAME CONTENT",
+              "body": "The middle belongs to featured and full-library content, with room for whatever the catalogue becomes."
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-library-20260920-jpg-web.webp",
+              "alt": "All Games",
+              "width": 1920,
+              "height": 1080,
+              "label": "ALL GAMES",
+              "body": "Category tabs expand on entry and switch the grid below; touch taps or swipes, a gamepad uses the D-pad and sticks, and a card opens its detail page."
+            }
+          ],
+          "variant": "v2-module",
+          "columns": 3,
+          "hoverZoom": true
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "05 · The UI steps back. The cabin joins in.",
+          "body": "On entry the interface recedes so the artwork leads. On the next interaction controls return — together with the cockpit capabilities each game can drive.",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-detail-1-20260920-jpg-web.webp",
+              "alt": "Game detail · immersion",
+              "width": 1920,
+              "height": 1080,
+              "label": "UI RECEDES",
+              "body": "On entry the system UI fades outward so the trailer or key art plays as the content; the next interaction fades it back in."
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-detail-2-20260920-jpg-web.webp",
+              "alt": "Game detail · capability",
+              "width": 1920,
+              "height": 1080,
+              "label": "CABIN CAPABILITIES",
+              "body": "Each game declares the cockpit hardware it drives — 2K display, audio system, dual gamepads and ambient lighting."
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/v2-detail-ultrawide-jpg-web.webp",
+              "label": "ULTRAWIDE 3840×1080",
+              "alt": "Game detail page on the longest ultrawide in-car display",
+              "width": 1920,
+              "height": 540,
+              "body": "The same detail page on the longest production screen, artwork running the full width."
+            }
+          ],
+          "variant": "v2-module",
+          "columns": 2,
+          "lastFull": true
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "06 · Expand from a source. Keep the origin.",
+          "body": "Profile, search and messages expand from the sidebar with the origin fixed left. In game, the floating tool follows the same rule: a small entry expands into quality, virtual-controller and instruction settings without leaving the session.",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-profile-20260920-jpg-web.webp",
+              "alt": "Profile hierarchy",
+              "width": 1920,
+              "height": 1080,
+              "label": "PROFILE · THREE LEVELS",
+              "body": "Account functions run three levels deep from one source, the back button marking each step; a flat card layout keeps them reachable."
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-search-20260920-jpg-web.webp",
+              "alt": "Search hierarchy",
+              "width": 1920,
+              "height": 1080,
+              "label": "SEARCH",
+              "body": "History, live results and an empty state — a quick entry that sits alongside browsing rather than replacing it."
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-floatball-20260920-jpg-web.webp",
+              "alt": "In-game floating tool",
+              "width": 1920,
+              "height": 1080,
+              "label": "IN-GAME TOOL",
+              "body": "A floating ball opens image quality and instructions during play, shown for members and non-members alike."
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-dialog-20260920-jpg-web.webp",
+              "alt": "Confirmation dialogs",
+              "width": 1920,
+              "height": 1080,
+              "label": "DIALOGS · THREE SIZES",
+              "body": "Small for queue, game switching, network checks and sign-out; medium for authorised login; large for agreements and custom-experience clips."
+            }
+          ],
+          "variant": "v2-module",
+          "columns": 2
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "07 · Going consumer means building a store.",
+          "body": "The clearest result of the To B → To C shift is a store separate from profile, carrying membership, hardware and reserved operational slots.",
+          "items": [
+            {
+              "video": "assets/projects/tencent-cloud-gaming/v2-store-member-mp4-web.mp4",
+              "poster": "assets/projects/tencent-cloud-gaming/v2-store-member-poster.webp",
+              "label": "STORE · ACTIVE MEMBER",
+              "body": "The store carries membership, gamepad sales and reserved slots; an active member sees expiry, renewal and the five VIP benefits.",
+              "alt": "Membership center for an active member",
+              "width": 1272,
+              "height": 720
+            },
+            {
+              "video": "assets/projects/tencent-cloud-gaming/v2-store-gamepads-mp4-web.mp4",
+              "poster": "assets/projects/tencent-cloud-gaming/v2-store-gamepads-poster.webp",
+              "label": "STORE · GAMEPAD SALES",
+              "body": "Controllers sit in their own tab, listed with model and price and added to the cart directly.",
+              "alt": "Gamepad sales tab listing controllers with prices",
+              "width": 1272,
+              "height": 720
+            }
+          ],
+          "variant": "v2-module",
+          "columns": 2
+        },
+        {
+          "type": "hmi-loop",
+          "title": "Understand the benefits, then decide.",
+          "body": "VIP and SVIP move as one continuous sequence before choosing, with scan-to-pay designed for the in-car context.",
+          "variant": "tier-loop",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/vip-checkout-webp-web.webp",
+              "body": "Monthly, single-month or quarterly plans at 1080P 60fps with 12 bonus hours a month, paid by QQ or WeChat QR scan.",
+              "label": "VIP",
+              "alt": "VIP checkout",
+              "width": 1920,
+              "height": 1080
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/svip-checkout-webp-web.webp",
+              "body": "The higher tier adds 2K 60fps, weekly packs, 30 bonus hours and an annual plan with unlimited play time.",
+              "label": "SVIP",
+              "alt": "SVIP checkout",
+              "width": 1920,
+              "height": 1080
+            }
+          ]
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "08 · The cabin changes light. The structure does not.",
+          "body": "Day and night in a moving cabin are not a style choice — the theme has to follow the vehicle system so the screen never fights the driver's eyes. Dark is the default immersive mode; both themes carry the same structure and hierarchy.",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-theme-dark-20260913.webp",
+              "body": "The default immersive mode for night driving and low cabin light.",
+              "label": "DARK",
+              "alt": "Dark mode",
+              "width": 1920,
+              "height": 1080
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/g-theme-light-20260913.webp",
+              "body": "The same structure under the vehicle system's light theme for daytime.",
+              "label": "LIGHT",
+              "alt": "Light mode",
+              "width": 1920,
+              "height": 1080
+            }
+          ],
+          "variant": "v2-module",
+          "columns": 2
+        },
+        {
+          "type": "hmi-gallery",
+          "title": "09 · The account continues on the phone.",
+          "body": null,
+          "variant": "v2-phone",
+          "columns": 1,
+          "aside": "Once the car account is linked, the phone app becomes the membership entry: sign in with WeChat or QQ, check benefits and membership status, and top up before the next trip.",
+          "items": [
+            {
+              "src": "assets/projects/tencent-cloud-gaming/v2-phone-login-png-web.webp",
+              "alt": "Phone app login page in a phone mockup"
+            },
+            {
+              "src": "assets/projects/tencent-cloud-gaming/v2-phone-benefits-png-web.webp",
+              "alt": "Phone app benefits page with official-account QR code in a phone mockup"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "id": "the-red-dawn",
+  "title": "THE RED DAWN",
+  "subtitle": "A Speculative Installation About Belief and Manufactured Reality",
+  "backgroundColor": "#000000",
+  "summary": "A future religion built from the visual and psychological machinery of online conspiracy.",
+  "statement": "When does information become belief, and when does belief become reality?",
+  "body": "Set on the eve of 2090, The Red Dawn imagines the Nibiru conspiracy evolving into a digital cult. Screens, fibre optics, printed social feeds, propaganda film and ritual posture form an installation that asks visitors to enter a belief system rather than observe it from outside.",
+  "company": "Individual Project",
+  "companyLabel": "PROJECT CONTEXT",
+  "year": "2024",
+  "yearLabel": "EXHIBITION YEAR",
+  "roles": ["Art Direction", "Critical Experience Design", "Installation, Film and Sound"],
+  "partners": [
+    { "name": "Individual Project" },
+    { "name": "Royal College of Art · MA Information Experience Design", "logo": "assets/media/logo-rca.svg", "color": "#c95b5b" }
+  ],
+  "tags": ["Speculative Installation", "Critical Practice", "Moving Image", "Social Psychology"],
+  "cover": {
+    "ratio": "2 / 1",
+    "designWidth": 2000,
+    "background": "assets/projects/the-red-dawn/cover-one-god-jpg-web.webp",
+    "layers": [{ "src": "assets/projects/the-red-dawn/cover-one-god-jpg-web.webp", "kind": "base", "parallax": 0.5, "parallaxLimit": 0.8 }]
+  },
+  "gallery": [],
+  "sectionCount": 4,
+  "sections": [
+    {
+      "title": "The Installation",
+      "body": "The final work stages Nibiru as the centre of a future religion. A suspended red planet, mirrored surfaces, illuminated cables, phones and printed feeds turn online conspiracy into a physical place of worship.",
+      "caption": "01 / FINAL WORK",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "duo",
+          "layout": "wide",
+          "variant": "installation-hero-pair",
+          "images": ["assets/projects/the-red-dawn/installation-audience-front-jpg-web.webp", "assets/projects/the-red-dawn/installation-audience-side-jpg-web.webp"],
+          "title": "The shrine and its worshipper",
+          "body": "The visitor sits or kneels before a red screen while the structure rises above the body. Looking becomes submission; an online fiction acquires the scale and posture of an institution.",
+          "caption": "FINAL INSTALLATION / RCA DEGREE SHOW"
+        },
+        {
+          "type": "nibiru-portrait-film",
+          "layout": "full",
+          "variant": "recruitment-film",
+          "src": "assets/projects/the-red-dawn/recruitment-film-vertical-mp4-web.mp4",
+          "poster": "assets/projects/the-red-dawn/recruitment-film-poster-vertical-png-web.webp",
+          "title": "Recruitment Film",
+          "body": "A portrait recruitment film designed to circulate from inside the imagined organisation. It introduces the prophecy before the installation reveals the machinery that sustains it.",
+          "caption": "PROPAGANDA FILM",
+          "prophecies": [
+            {
+              "title": "THE ONE GOD",
+              "body": "Nibiru shall replace the sun and rise from the horizon, burning away all sins."
+            },
+            {
+              "title": "THE ONE END",
+              "body": "Anunnaki shall shatter the human regime. In the Red Dawn, a new order shall arise."
+            }
+          ]
+        },
+        {
+          "type": "nibiru-installation-triptych",
+          "layout": "full",
+          "variant": "installation-details",
+          "images": ["assets/projects/the-red-dawn/installation-orbit-detail-jpg-web.webp", "assets/projects/the-red-dawn/installation-feed-detail-jpg-web.webp", "assets/projects/the-red-dawn/installation-prophecies-jpg-web.webp"],
+          "title": "The network made physical",
+          "body": "Phones orbit the central body as witnesses. Their posts continue downward as printed evidence, while exposed cables and the prophecy screen make the infrastructure of belief visible.",
+          "caption": "PHONE ORBIT / PRINTED FEED / PROPHECY SCREEN"
+        },
+        {
+          "type": "duo",
+          "layout": "wide",
+          "variant": "community-pair",
+          "images": ["assets/projects/the-red-dawn/community-interface-portrait-jpg-web.webp", "assets/projects/the-red-dawn/community-interface-detail-jpg-web.webp"],
+          "title": "A simulated Nibiru community",
+          "body": "Ambiguous photographs of suns, moons and planets accumulate inside a closed social community. Repetition turns each uncertain image into support for the next one; the digital feed is later printed into the installation.",
+          "caption": "DIGITAL COMMUNITY / IMAGE ECHO CHAMBER"
+        }
+      ]
+    },
+    {
+      "title": "The Ritual",
+      "body": "One gesture completes the work: the visitor kneels. Screens, sound and red light prepare the scene, but the meaning changes only when the body accepts the posture of worship.",
+      "caption": "02 / EXPERIENCE",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "stage",
+          "layout": "full",
+          "variant": "installation-draft",
+          "image": "assets/projects/the-red-dawn/installation-draft-jpg-web.webp",
+          "alt": "Early annotated sketch of The Red Dawn installation",
+          "title": "From shrine sketch to encounter",
+          "body": "The early study defines the mirrored planet, six screens, projected narrative, fibre optics and the place where the visitor would kneel. The final work keeps this bodily relationship at its centre.",
+          "caption": "EARLY INSTALLATION STUDY"
+        },
+        {
+          "type": "nibiru-ritual-sequence",
+          "layout": "full",
+          "items": [
+            { "src": "assets/projects/the-red-dawn/cg-01-jpg-web.webp", "label": "Approach", "alt": "A visitor approaches the shrine" },
+            { "src": "assets/projects/the-red-dawn/cg-02-jpg-web.webp", "label": "Kneel", "alt": "A visitor kneels inside the installation" },
+            { "src": "assets/projects/the-red-dawn/cg-04-jpg-web.webp", "label": "Submit", "alt": "A visitor bows toward the shrine" },
+            { "src": "assets/projects/the-red-dawn/cg-03-jpg-web.webp", "label": "Receive", "alt": "A visitor faces the shrine" }
+          ]
+        },
+        {
+          "type": "split",
+          "layout": "full",
+          "variant": "audience-testing",
+          "image": "assets/projects/the-red-dawn/audience-testing-photo-jpg-web.webp",
+          "alt": "Audience members discussing The Red Dawn installation",
+          "title": "Audience Testing",
+          "body": "Visitors discussed the work while standing inside its light, sound and image field. Their responses tested whether the encounter communicated worship, community and the uneasy attraction of a closed information system.",
+          "caption": "AUDIENCE TEST / INSTALLATION FEEDBACK"
+        }
+      ]
+    },
+    {
+      "title": "Constructing Belief",
+      "body": "The system emerged through interviews, perception testing and field observation. Each step moves from lived vulnerability to the social machinery that can transform uncertain images into collective belief.",
+      "caption": "03 / RESEARCH TO SYSTEM",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "nibiru-field-study",
+          "layout": "full",
+          "variant": "testimonies",
+          "images": ["assets/projects/the-red-dawn/testimony-lina-jpg-web.webp", "assets/projects/the-red-dawn/testimony-oliver-jpg-web.webp", "assets/projects/the-red-dawn/testimony-max-jpg-web.webp"],
+          "steps": [
+            { "title": "Lina", "body": "Henan, China" },
+            { "title": "Oliver", "body": "London, UK" },
+            { "title": "Max", "body": "San Juan, Puerto Rico" }
+          ],
+          "note": "In times of uncertainty or personal crisis, conspiracy theories can offer control and belonging. They address dissatisfaction while strengthening personal and group identity."
+        },
+        {
+          "type": "stage",
+          "layout": "full",
+          "variant": "workshop-results",
+          "image": "assets/projects/the-red-dawn/workshop-perception-results-png-web.webp",
+          "alt": "Perception workshop materials and coded results showing a 65 percent error rate",
+          "title": "Perception workshop",
+          "body": "Participants classified ambiguous photographs as the sun, moon or another planet. Sixty-five percent of the classifications were incorrect: context changed what people believed they could see.",
+          "caption": "TEST MATERIAL / RESPONSE SHEETS / ERROR RATE 65%"
+        },
+        {
+          "type": "nibiru-field-study",
+          "layout": "full",
+          "variant": "cult-fieldwork",
+          "images": ["assets/projects/the-red-dawn/field-chinatown-01-png-web.webp", "assets/projects/the-red-dawn/field-chinatown-02-png-web.webp", "assets/projects/the-red-dawn/field-chinatown-03-png-web.webp"],
+          "steps": [
+            { "title": "Promise", "body": "Offer protection or privileged knowledge." },
+            { "title": "Evidence", "body": "Arrange testimony and images into proof." },
+            { "title": "Repeat", "body": "Turn the audience into the next distributor." }
+          ],
+          "note": "Field research in London Chinatown traced how recruitment material combines certainty, testimony and repeated distribution."
+        },
+        {
+          "type": "nibiru-system-grid",
+          "layout": "full",
+          "image": "assets/projects/the-red-dawn/belief-system-map-new-jpg-web.webp",
+          "alt": "Diagram showing how conspiracy, Nibiru imagery, culture, history and evidence form a self-reinforcing belief system",
+          "sideLabel": "RESEARCH",
+          "title": "NIBIRU PROPAGANDA SYSTEM ARCHITECTURE FRAMEWORK",
+          "structureLabel": "STRUCTURE",
+          "groups": [
+            { "label": "EXPERIENCE PROCESS", "items": ["Attraction", "Promotion", "Participation"] },
+            { "label": "PROMOTION PROCESS / TRIFOLD & VIDEO", "items": ["Benefits", "Evidence of God", "Output of Opinions"] }
+          ],
+          "footer": "THE RED DAWN"
+        }
+      ]
+    },
+    {
+      "title": "Artist Statement",
+      "body": "Whispering Behind is a two-channel experimental film that places the visible world beside an alternative reality forming inside the mind of a conspiracy believer. Murmured monologue, personal testimony and interview material allow both worlds to unfold in parallel.",
+      "caption": "04 / PERSONAL TESTIMONY",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "nibiru-artist-statement",
+          "layout": "full",
+          "poster": "assets/projects/the-red-dawn/whispering-poster-jpg-web.webp",
+          "montage": "assets/projects/the-red-dawn/whispering-montage-jpg-web.webp",
+          "videoId": "vNTuF50R5UE",
+          "title": "Whispering Behind",
+          "body": "Across two opposing channels, documentary reality and an imagined world diverge and contaminate one another, tracing how a conspiracy believer constructs an alternative reality through murmured monologue, self-narration and interview.",
+          "caption": "TWO-CHANNEL EXPERIMENTAL FILM / MONOLOGUE / INTERVIEW"
+        },
+        {
+          "type": "stage",
+          "layout": "full",
+          "variant": "nibiru-thanks",
+          "copyPosition": "before",
+          "image": "assets/projects/the-red-dawn/thanks-artwork-png-web.webp",
+          "alt": "The Red Dawn closing artwork",
+          "title": "Thanks for watching",
+          "body": "When does information become belief, and when does belief become reality?",
+          "caption": "THE RED DAWN"
+        }
+      ]
+    }
+  ]
+}

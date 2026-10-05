@@ -1,0 +1,179 @@
+/* Homepage only: native snap keeps long sections freely scrollable.
+   The first screen includes two paper gaps; later screens include the bottom gap. */
+html { scroll-snap-type:y mandatory; scroll-padding-top:1px; overscroll-behavior-y:auto; }
+html:has(body.project-open), html:has(dialog[open]) { scroll-snap-type:none; }
+/* Include the existing gap in the snap area, without changing the visible panel.
+   Oversized sections can then scroll through their full trailing gap before snapping.
+   The next section's start stays exactly where it was. */
+.page-panel-about,.work-section,.experience-section,.contact-panel { scroll-snap-align:start; scroll-snap-stop:always; scroll-margin-bottom:var(--outer-gap); }
+.page-panel-about { scroll-margin-top:var(--outer-gap); display:flex; flex-direction:column; min-height:calc(100svh - 2 * var(--outer-gap)); }
+.page-panel-about > .hero { display:flex; flex:1; min-height:0; }
+.page-panel-about .hero-copy { flex:1; min-height:0; }
+.experience-section { display:flex; flex-direction:column; min-height:calc(100svh - var(--outer-gap) - 1px); }
+.experience-section > .experience-grid { flex:1; grid-template-rows:auto auto auto auto; }
+.experience-grid > article { --experience-logo-column:148px; --experience-logo-gap:26px; min-height:auto; justify-content:flex-start; padding:20px 30px; }
+.experience-grid article > span { margin-bottom:12px; color:#686868; }
+.experience-position { position:relative; padding-right:calc(var(--experience-logo-column) + var(--experience-logo-gap)); font-size:clamp(.85rem,1.15vw,1.08rem); line-height:1.2; }
+.experience-grid .experience-position h3 { margin:0; font-size:inherit; line-height:inherit; }
+.experience-grid article p { max-width:900px; min-height:0; margin:12px 0 0; font-size:13px; line-height:1.6; white-space:normal; }
+.experience-grid article .experience-organization { max-width:calc(100% - var(--experience-logo-column) - var(--experience-logo-gap)); margin-top:6px; color:#242424; font-size:13px; }
+.experience-grid article .experience-note { margin-top:4px; color:#777; font-size:11px; }
+/* Anchor every logo's centre to the first title line, not the varying article height. */
+.experience-grid .organization-logo { top:.6em; left:calc(100% - var(--experience-logo-column)); right:auto; max-width:var(--experience-logo-column); transform:translateY(-50%); }
+.contact-panel { display:flex; flex-direction:column; min-height:calc(100svh - var(--outer-gap) - 1px); }
+.contact-panel > .contact-section { display:flex; flex:1; flex-direction:column; gap:28px; min-height:0; padding:36px 44px 30px; border:0; background:linear-gradient(140deg,rgba(255,220,204,.58),rgba(250,250,248,.98) 58%); }
+.contact-section > .contact-main,.contact-section > .contact-bottom { padding:0; display:grid; grid-template-columns:minmax(0,1.45fr) minmax(0,1fr); gap:52px; align-items:center; }
+.contact-main > .contact-copy { min-height:0; padding:0; border:0; }
+.contact-copy .kicker { margin-bottom:20px; }
+.contact-copy h2 { font-size:clamp(2.6rem,4.2vw,4.7rem); line-height:1; text-wrap:balance; }
+.contact-availability { max-width:460px; margin:18px 0 0; font-size:12px; line-height:1.5; color:#666; }
+.contact-person { justify-self:end; margin-right:12%; }
+.contact-person > img { display:block; width:clamp(160px,17vw,230px); height:clamp(175px,18.5vw,250px); object-fit:cover; }
+.contact-bottom { flex:1; }
+/* One width owns the frame, caption and controls, including height-limited layouts. */
+.contact-moments { width:100%; max-width:660px; min-width:0; justify-self:start; --moment-duration:650ms; --moment-ease:cubic-bezier(.22,.61,.36,1); }
+.contact-moments-heading { padding-bottom:12px; font-size:10px; }
+.contact-moments-heading > span { font-family:var(--display); color:#222; }
+.contact-moments-track { width:100%; overflow:hidden; contain:paint; aspect-ratio:16 / 9; background:rgba(226,222,217,.5); }
+.contact-moments-reel { display:flex; width:100%; height:100%; transition:transform var(--moment-duration) var(--moment-ease); transform:translate3d(calc(var(--moment-index,0) * -100%),0,0); }
+.contact-moment { flex:0 0 100%; min-width:0; margin:0; }
+.contact-moments.is-resetting .contact-moments-reel { transition:none; }
+/* Supplied 16:9 photos fill the frame; the frame keeps its existing ratio. */
+.contact-moment img { display:block; width:100%; height:100%; object-fit:cover; }
+.contact-moments-caption { display:flex; align-items:flex-start; justify-content:space-between; gap:20px; min-height:15px; margin:10px 0 0; font-size:10px; line-height:1.5; color:#777; text-align:left; }
+.contact-moments-description { display:grid; min-width:0; }
+/* All captions share one grid cell so long/short copy never moves the frame,
+   footer or the paper cut. Only the active caption is visible/accessible. */
+.contact-moments-description > span { grid-area:1 / 1; visibility:hidden; }
+.contact-moments-description > span.is-current { visibility:inherit; }
+.contact-moments-year { flex:0 0 auto; color:#555; font-variant-numeric:tabular-nums; text-align:right; }
+.contact-carousel-dots { display:flex; width:100%; align-items:center; justify-content:center; gap:0; padding-top:8px; }
+.contact-carousel-dots button { position:relative; display:grid; place-items:center; flex:0 0 auto; width:12px; height:24px; padding:0; border:0; border-radius:999px; background:transparent; cursor:pointer; transition:width var(--moment-duration) var(--moment-ease); }
+.contact-carousel-dots button::before { display:block; width:7px; height:7px; border-radius:999px; background:#c7c1bc; content:""; transition:width var(--moment-duration) var(--moment-ease),background-color var(--moment-duration) var(--moment-ease); }
+.contact-carousel-dots button[aria-pressed="true"] { width:28px; }
+.contact-carousel-dots button[aria-pressed="true"]::before { width:24px; background:#171717; }
+.contact-carousel-dots button:focus-visible { outline:1px solid #171717; outline-offset:2px; }
+.contact-links { min-width:0; }
+.contact-links a { --link-hover-start:#ffc8b7; background:none; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:22px 16px; border-bottom:1px solid rgba(17,17,17,.2); color:var(--ink); text-decoration:none; }
+.contact-links a:hover,.contact-links a:focus-visible { color:var(--ink); }
+.contact-links a:hover .contact-link-arrow,.contact-links a:focus-visible .contact-link-arrow { transform:translateY(var(--contact-arrow-shift,0)) rotate(45deg); }
+.contact-link-copy { display:flex; flex-direction:column; gap:10px; min-width:0; }
+.contact-link-copy > span:first-child { font-family:var(--display); font-size:13px; }
+.contact-link-copy > span:last-child { font-size:clamp(12px,1.1vw,16px); white-space:nowrap; }
+.contact-link-arrow { font-size:22px; }
+.contact-panel > .site-footer { display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); align-items:center; gap:8px; flex:0 0 auto; min-height:72px; border-top:1px solid rgba(17,17,17,.2); padding:16px 44px; background:rgba(250,250,248,.975); }
+.contact-panel > .site-footer p { margin:0; font-size:clamp(8px,1.1vw,10px); white-space:nowrap; }
+.contact-panel > .site-footer p[data-i18n="footerPractice"] { justify-self:center; text-align:center; }
+.contact-panel > .site-footer p:last-child { justify-self:end; text-align:right; }
+.contact-panel .site-footer .brand-mark { justify-self:start; font-size:clamp(11px,2.5vw,40px); white-space:nowrap; }
+.hero-tilt { position:absolute; bottom:12px; right:18px; z-index:6; max-width:180px; text-align:right; }
+.hero-tilt[hidden] { display:none; }
+.hero-tilt button { padding:7px 10px; border:1px solid var(--line); background:rgba(255,237,227,.88); color:var(--ink); font:11px var(--body,Arial,sans-serif); cursor:pointer; }
+.hero-tilt button[aria-pressed="true"] { background:#ffc8b7; }
+.hero-tilt button:focus-visible { outline:1px dashed var(--ink); outline-offset:3px; }
+.hero-tilt button:disabled { cursor:wait; }
+.hero-tilt [role="status"] { display:block; margin-top:4px; font-size:10px; color:#555; }
+/* Falling objects scale CONTINUOUSLY with width: one linear formula per object
+   from the phone size at 390px to the existing PC size at 1440px. There is no
+   size breakpoint, so narrowing a window never makes the stickers jump.
+   The fall always starts at the top of the full hero panel. */
+.page-panel-about .object-portrait { --portrait-width:clamp(150px, calc(11.1429vw + 106.5429px), 267px); }
+.page-panel-about .object-synth { width:clamp(140px, calc(11.8095vw + 93.9429px), 264px); }
+.page-panel-about .object-phone { width:clamp(38px, calc(3.0476vw + 26.1143px), 70px); }
+.page-panel-about .object-tablet { width:clamp(70px, calc(6.2857vw + 45.4857px), 136px); }
+.page-panel-about .object-laptop { width:clamp(128px, calc(10.6667vw + 86.4px), 240px); }
+.page-panel-about .object-camera { width:clamp(84px, calc(7.2381vw + 55.7714px), 160px); }
+.page-panel-about .gravity-star { --clip-large-height:clamp(32px, calc(2.0952vw + 23.8286px), 54px); }
+.page-panel-about .gravity-star.star-sm { --star-height:calc(var(--clip-large-height) * .75); }
+.page-panel-about .gravity-star.star-xs { --star-height:calc(var(--clip-large-height) * .55); }
+.page-panel-about .gravity-star.star-md,
+.page-panel-about .gravity-star.star-lg { --star-height:var(--clip-large-height); }
+
+/* The perforation owns the top strip, so section titles sit one hole radius
+   lower without changing the section height or its bottom seam. */
+.work-section > .section-marquee strong,
+.experience-section > .section-marquee strong {
+  padding-top:calc(8px + var(--binding-hole,5px));
+  padding-bottom:calc(6px - var(--binding-hole,5px));
+}
+/* Stacked copy layout up to 1024px (the existing copy breakpoint). The landing
+   room under the résumé button comes from script.js (--hero-landing-space): it is
+   the settled pile height, so the pile top lands at the button, not a fixed gap.
+   The copy sits above the objects, so a passing or nudged piece never hides text. */
+@media(max-width:1024px) {
+ .page-panel-about .hero-copy { display:flex; flex-direction:column; padding:28px 18px calc(var(--hero-landing-space, 300px) + 12px); }
+ .page-panel-about .hero-copy > .kicker,.page-panel-about .hero-resume { align-self:flex-start; }
+ .page-panel-about .hero-copy > .hero-intro { width:100%; max-width:640px; text-wrap:pretty; }
+ .page-panel-about .hero-copy > .kicker,.page-panel-about .hero-copy > h1,.page-panel-about .hero-copy > .hero-intro,.page-panel-about .hero-resume { position:relative; z-index:4; }
+ .page-panel-about .artifact-playground { position:absolute; inset:0; width:auto; height:auto; margin:0; }
+}
+@media(max-width:760px) {
+ .experience-grid > article { --experience-logo-column:95px; --experience-logo-gap:20px; padding:18px 20px; }
+ .experience-grid article p { font-size:12px; }
+ .experience-grid .organization-logo { max-height:64px; }
+ .contact-panel > .contact-section { padding:28px 24px; }
+ .contact-section > .contact-main,.contact-section > .contact-bottom { gap:24px; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); }
+ .contact-person { margin:0; }
+ .contact-person > img { width:140px; height:160px; }
+ .contact-copy h2 { font-size:2.4rem; }
+ .contact-copy .kicker { font-size:8px; }
+ .contact-link-copy > span:last-child { font-size:11px; }
+ .contact-link-arrow { font-size:18px; }
+ .contact-panel > .site-footer { padding:16px 24px; }
+}
+@media(max-width:520px) {
+ .experience-grid > article { --experience-logo-column:64px; --experience-logo-gap:14px; padding-top:16px; padding-bottom:16px; }
+ .experience-grid .organization-logo { max-height:52px; }
+ .contact-section > .contact-main { grid-template-columns:minmax(0,1fr) 100px; gap:14px; }
+ .contact-person > img { width:100px; height:135px; }
+ .contact-copy h2 { font-size:1.75rem; }
+ .contact-section > .contact-bottom { grid-template-columns:1fr; }
+ .contact-links a { padding:14px 12px; }
+}
+/* Short desktop/tablet windows: trim whitespace, not content or text size.
+   Very short phone landscapes remain scrollable instead of clipping content. */
+@media(min-width:761px) and (max-height:800px) {
+ .page-panel-about .hero-copy { padding-top:28px; }
+ .experience-grid > article { padding-top:16px; padding-bottom:8px; }
+ .experience-grid article > span { margin-bottom:8px; }
+ .experience-grid article p { margin-top:8px; }
+ .contact-panel > .contact-section { padding-top:24px; padding-bottom:20px; gap:20px; }
+ .contact-copy .kicker { margin-bottom:14px; }
+ .contact-availability { margin-top:12px; }
+ .contact-person > img { width:160px; height:175px; }
+ .contact-moments { max-width:440px; }
+ .contact-panel > .site-footer { min-height:60px; padding-top:12px; padding-bottom:12px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ html { scroll-behavior:auto; }
+ .contact-moments-reel,.contact-carousel-dots button,.contact-carousel-dots button::before,.contact-links a::before,.contact-link-arrow { transition:none; }
+}
+
+/* Loaded after project themes: keep every case-study scrollbar at the viewport
+   edge and preserve the shared cut geometry even when a project overrides its
+   own sheet overflow or hero shape. */
+.project-layer { overflow:hidden !important; }
+.project-layer-backdrop { position:fixed !important; }
+.project-scroller {
+  position:absolute;
+  inset:0;
+  overflow-x:hidden;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  overflow-anchor:none;
+  scrollbar-gutter:stable;
+  transform:translate3d(0,104vh,0);
+  transition:transform 760ms cubic-bezier(.18,.82,.16,1);
+  will-change:auto;
+}
+.project-layer[data-runtime="preparing"] .project-scroller,
+.project-layer[data-runtime="entering"] .project-scroller,
+.project-layer[data-runtime="exiting"] .project-scroller { will-change:transform; }
+.project-layer.is-open .project-scroller { transform:translate3d(0,0,0); }
+.project-sheet { position:relative !important; inset:auto !important; min-height:100%; overflow:visible !important; transform:none !important; transition:none; }
+.project-sheet.is-desktop-canvas { height:auto !important; min-height:var(--project-canvas-height,100%) !important; margin-left:var(--project-canvas-left,14px); }
+/* Cutting only the hero/table/footer left the backing sheet visible. The
+   transparent parent cut is shared across all project themes instead. */
+.project-sheet.paper-cut-sheet { clip-path:var(--paper-cut-path) !important; }
+.project-close { position:fixed !important; border:0 !important; border-radius:0 !important; }
+@media(prefers-reduced-motion:reduce) { .project-scroller { transition:none; } }

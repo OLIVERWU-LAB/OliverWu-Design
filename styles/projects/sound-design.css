@@ -1,0 +1,121 @@
+.case-card[data-project-id="sound-design"] .project-cover-sound-design {
+  background: #101517 url("../../assets/projects/sound-design/cover-headphones-v3-png-web.webp") center / cover;
+}
+.project-sheet[data-project-id="sound-design"] {
+  --project-page-bg: #f5f4f1;
+  background: var(--project-page-bg);
+  color: #202325;
+}
+.project-sheet[data-project-id="sound-design"] .project-sheet-hero,
+.project-sheet[data-project-id="sound-design"] .project-intro,
+.project-sheet[data-project-id="sound-design"] > .project-video,
+.project-sheet[data-project-id="sound-design"] .project-chapter-titlebar,
+.project-sheet[data-project-id="sound-design"] .project-chapter > header,
+.project-sheet[data-project-id="sound-design"] .project-chapter > figure { display: none !important; }
+.project-sheet[data-project-id="sound-design"] .project-chapters,
+.project-sheet[data-project-id="sound-design"] .project-chapter,
+.project-sheet[data-project-id="sound-design"] .project-content-blocks {
+  width: 100%; max-width: none; margin: 0; padding: 0; background: transparent;
+}
+.project-sheet[data-project-id="sound-design"] .sound-showcase {
+  width: 100%; margin: 0; padding: 0;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project {
+  --sound-bg: #000;
+  --sound-ink: #f3f2ee;
+  --sound-muted: rgba(243,242,238,.67);
+  margin: 0; padding: 64px 140px 84px;
+  background: var(--sound-bg); color: var(--sound-ink);
+}
+.project-sheet[data-project-id="sound-design"] .sound-project--water-babies {
+  --sound-bg: #073b3c;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project--swrd {
+  --sound-bg: #050505;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project--spirited-expedition {
+  --sound-bg: #faebc7;
+  --sound-ink: #27231c;
+  --sound-muted: rgba(39,35,28,.65);
+}
+.project-sheet[data-project-id="sound-design"] .sound-project--utopia-2419 {
+  --sound-bg: #000;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project-header,
+.project-sheet[data-project-id="sound-design"] .sound-project-layout {
+  width: 1000px; margin-right: auto; margin-left: auto;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project-header {
+  display: grid; grid-template-columns: minmax(0,1fr) auto;
+  align-items: center; gap: 14px 24px; margin-bottom: 36px;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project-meta {
+  grid-column: 1 / -1; margin: 0; font: 11px/1.4 Arial, Helvetica, sans-serif;
+  letter-spacing: .12em; color: var(--sound-muted);
+}
+.project-sheet[data-project-id="sound-design"] .sound-project-header h3 {
+  display: block; width: auto; max-width: none; margin: 0; padding: 0;
+  background: none; font-family: var(--display); font-size: 29px;
+  font-weight: 800; line-height: 1.25; letter-spacing: .025em;
+  white-space: normal; text-wrap: initial; text-transform: uppercase;
+  color: var(--sound-ink); -webkit-text-stroke: 0; text-shadow: none;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project-jump {
+  display: inline-flex; align-items: center; gap: 12px;
+  border: 0; padding: 0; background: transparent;
+  font: 800 12px/1.2 var(--display); letter-spacing: .02em;
+  color: var(--sound-ink); cursor: pointer; text-transform: lowercase;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project-jump:hover,
+.project-sheet[data-project-id="sound-design"] .sound-project-jump:focus-visible { opacity: .66; }
+.project-sheet[data-project-id="sound-design"] .sound-project-jump-icon {
+  display: inline-flex; width: 1.8em; height: 1.8em; flex: 0 0 1.8em;
+  align-items: center; justify-content: center; border-radius: 50%;
+  background: transparent; color: inherit;
+  font: 800 1.375em/1 "Monument Extended", sans-serif; transform: none;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project-layout {
+  display: grid; grid-template-columns: 264px 680px; gap: 56px; align-items: start;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project-context img {
+  display: block; width: 264px; height: 264px; object-fit: cover;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project-context h4 {
+  margin: 24px 0 12px; font: 700 15px/1.5 Arial, Helvetica, sans-serif;
+  letter-spacing: 0; color: var(--sound-ink);
+}
+.project-sheet[data-project-id="sound-design"] .sound-project-context p {
+  margin: 0; font: 15.5px/1.65 Arial, Helvetica, sans-serif; color: var(--sound-muted);
+}
+.project-sheet[data-project-id="sound-design"] .sound-project-embeds {
+  display: grid; gap: 30px; min-width: 0;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project-embeds .project-content-block {
+  display: block; width: 100%; max-width: none; margin: 0; padding: 0;
+  border: 0; background: transparent;
+}
+.project-sheet[data-project-id="sound-design"] .project-soundcloud-stack-players { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.project-sheet[data-project-id="sound-design"] .project-soundcloud-stack-item { margin: 0; padding: 0; }
+.project-sheet[data-project-id="sound-design"] .project-soundcloud-stack-item h5,
+.project-sheet[data-project-id="sound-design"] .sound-project-embeds figcaption {
+  margin: 0 0 10px; padding: 0; background: none; color: var(--sound-muted);
+  font: 12px/1.5 Arial, Helvetica, sans-serif; letter-spacing: .01em;
+  text-align: left; text-transform: none;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project-embeds figcaption { margin: 10px 0 0; }
+.project-sheet[data-project-id="sound-design"] .project-soundcloud-stack-item iframe {
+  display: block; width: 100%; height: 166px; border: 0;
+}
+.project-sheet[data-project-id="sound-design"] .project-content-video-frame { width: 100%; margin: 0; }
+.project-sheet[data-project-id="sound-design"] .project-content-video-frame iframe {
+  display: block; width: 100%; height: 100%; border: 0;
+}
+.project-sheet[data-project-id="sound-design"] .project-content-utopia-video-trio { padding: 0; }
+.project-sheet[data-project-id="sound-design"] .project-utopia-video-trio-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px;
+}
+.project-sheet[data-project-id="sound-design"] .project-utopia-video-trio-grid video {
+  display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
+  border: 0; background: #111; box-shadow: none;
+}
+.project-sheet[data-project-id="sound-design"] .project-sheet-footer { background: #000; color: rgba(255,255,255,.65); }

@@ -1,0 +1,1379 @@
+@font-face {
+  font-family: "Canterbury";
+  src: url("../../assets/fonts/Canterbury-web.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* THE RED DAWN — one fixed 1280px exhibition canvas on every device. */
+.case-card[data-project-id="the-red-dawn"] .project-cover-15,
+.project-cover-15 {
+  background-image:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.46), transparent 58%),
+    url("../../assets/projects/the-red-dawn/cover-one-god-jpg-web.webp");
+  background-position: center;
+  background-size: cover;
+  filter: none;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] {
+  --nibiru-title: #ff1515;
+  --nibiru-glow: #f14343;
+  --nibiru-copy: #ff3838;
+  --nibiru-muted: #ff3838;
+  --nibiru-black: #000;
+  --nibiru-red-top: #3a0001;
+  --nibiru-red-bottom: #650010;
+  --nibiru-rule: #ff3838;
+  --nibiru-gothic: "Canterbury", "Old English Text MT", serif;
+  background: #000;
+  color: var(--nibiru-copy);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-sheet-cover::after {
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.78), transparent 48%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.25), transparent 30%, transparent 70%, rgba(0, 0, 0, 0.2));
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-sheet-heading h2,
+.project-sheet[data-project-id="the-red-dawn"] .project-cover-title-overlay h2,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-title-surface,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-copy h4,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid h4 {
+  width: auto;
+  max-width: none;
+  padding: 0;
+  background: none;
+  color: var(--nibiru-title);
+  font-family: var(--nibiru-gothic);
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  line-height: 0.9;
+  text-transform: none;
+  text-shadow:
+    0 0 32px var(--nibiru-glow),
+    0 0 10px var(--nibiru-glow),
+    0 0 3.5px var(--nibiru-glow),
+    0 0 1.5px var(--nibiru-glow);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-cover-title-overlay h2 {
+  font-size: 74px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-cover-title-overlay p,
+.project-sheet[data-project-id="the-red-dawn"] .project-detail-subtitle,
+.project-sheet[data-project-id="the-red-dawn"] .project-introduction,
+.project-sheet[data-project-id="the-red-dawn"] .project-tags,
+.project-sheet[data-project-id="the-red-dawn"] .project-facts,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter > header p,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-copy p,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-copy > span,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-video-caption,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-note,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-flow,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid {
+  color: var(--nibiru-copy);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-cover-title-overlay p {
+  max-width: 760px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-intro,
+.project-sheet[data-project-id="the-red-dawn"] .project-tag-register,
+.project-sheet[data-project-id="the-red-dawn"] .project-introduction,
+.project-sheet[data-project-id="the-red-dawn"] .project-facts,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapters {
+  border: 0;
+  background: #000;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-sheet-heading h2 {
+  font-size: 118px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-detail-subtitle {
+  margin-top: 20px;
+  padding: 0;
+  background: none;
+  color: var(--nibiru-copy);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.13em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-introduction > p {
+  color: var(--nibiru-copy);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-tags li,
+.project-sheet[data-project-id="the-red-dawn"] .project-fact > span,
+.project-sheet[data-project-id="the-red-dawn"] .project-role-list li,
+.project-sheet[data-project-id="the-red-dawn"] .project-fact > strong {
+  color: var(--nibiru-copy);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-facts {
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-facts > .project-fact {
+  border-top: 0;
+  border-bottom: 0;
+  border-right-color: rgba(240, 122, 115, 0.22);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-partner-list :is(img, .brand-mark) {
+  width: 168px;
+  max-height: 58px;
+  object-fit: contain;
+  object-position: left center;
+  filter: invert(19%) sepia(99%) saturate(5587%) hue-rotate(354deg) brightness(111%) contrast(110%);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-partner-list {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-partner-list strong {
+  color: var(--nibiru-copy);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar {
+  position: relative;
+  min-height: 150px;
+  margin: 0;
+  border: 0;
+  padding: 54px 72px 20px;
+  background: #000;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="0"] {
+  min-height: 270px;
+  padding-top: 136px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-title-surface {
+  display: block;
+  font-size: 78px;
+  white-space: nowrap;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter {
+  border: 0;
+  background: #000;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter > header {
+  min-height: 0;
+  border: 0;
+  padding: 26px 160px 82px;
+  background: transparent;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter > header p {
+  max-width: 800px;
+  font-size: 18px;
+  line-height: 1.62;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-blocks {
+  border: 0;
+  background: transparent;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter .project-content-block,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter .project-content-block:nth-child(even) {
+  margin: 0;
+  border: 0;
+  padding: 88px 72px 102px;
+  background: transparent;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-copy {
+  gap: 16px;
+  margin-top: 48px;
+  background: transparent;
+  color: var(--nibiru-copy);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-copy h4 {
+  font-size: 42px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-copy p {
+  max-width: 780px;
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-copy > span {
+  color: var(--nibiru-muted);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-block img,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-block video,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-video-frame {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  filter: none;
+}
+
+/* One continuous red field for the ritual; all other primary sections stay black. */
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="1"] {
+  background: var(--nibiru-red-top);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter {
+  background: linear-gradient(to bottom, var(--nibiru-red-top) 0%, var(--nibiru-red-bottom) 100%);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="2"],
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="3"],
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter {
+  background: #000;
+}
+
+/* Recruitment film first, presented as an artefact rather than a platform embed. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-nibiru-portrait-film[data-variant="recruitment-film"] {
+  padding-top: 20px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-portrait-film {
+  display: grid;
+  grid-template-columns: 430px 1fr;
+  align-items: center;
+  gap: 104px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-portrait-frame {
+  width: 390px;
+  margin: 0 auto;
+  background: #090000;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-portrait-frame::before,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-portrait-frame::after {
+  display: none;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-portrait-frame video {
+  display: block;
+  width: 390px;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-portrait-film .project-content-copy {
+  width: auto;
+  margin: 0;
+}
+
+/* Main installation photographs: stronger but still controlled offset. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-duo[data-variant="installation-hero-pair"] .project-content-duo-media {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 30px;
+  padding-bottom: 96px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-duo[data-variant="installation-hero-pair"] .project-content-duo-media img {
+  width: 100%;
+  max-height: none;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-duo[data-variant="installation-hero-pair"] .project-content-duo-media img:last-child {
+  transform: translateY(92px);
+}
+
+/* Three close-up views belong to one installation plate. */
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-installation-triptych {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.76fr;
+  align-items: start;
+  gap: 26px;
+  min-height: 690px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-installation-triptych img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-installation-triptych img:nth-child(2) {
+  transform: translateY(70px);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-installation-triptych img:nth-child(3) {
+  height: 520px;
+  transform: translateY(24px);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-duo[data-variant="community-pair"] .project-content-duo-media {
+  display: grid;
+  grid-template-columns: 0.64fr 1.36fr;
+  align-items: center;
+  gap: 32px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-duo[data-variant="community-pair"] .project-content-duo-media img:first-child {
+  width: auto;
+  height: 610px;
+  justify-self: center;
+  object-fit: contain;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-duo[data-variant="community-pair"] .project-content-duo-media img:last-child {
+  width: 100%;
+  height: auto;
+  transform: none;
+}
+
+/* Ritual draft is supporting evidence, not another hero. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="installation-draft"] > img {
+  width: 570px;
+  max-height: none;
+  margin: 0 auto;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="installation-draft"] .project-content-copy {
+  width: 760px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence li,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence li:nth-child(even) {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  transform: none;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence li:nth-child(even) {
+  transform: translateY(42px);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence span,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence strong {
+  color: var(--nibiru-copy);
+}
+
+/* Research remains one uninterrupted black sequence. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-nibiru-field-study[data-variant="testimonies"] {
+  padding-top: 24px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-study {
+  display: grid;
+  gap: 30px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-gallery img,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-gallery img:nth-child(1),
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-gallery img:nth-child(2),
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-gallery img:nth-child(3) {
+  width: 100%;
+  height: 290px;
+  aspect-ratio: auto;
+  transform: none;
+  object-fit: cover;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-nibiru-field-study[data-variant="testimonies"] .project-nibiru-field-gallery img {
+  filter: grayscale(1) contrast(1.04);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-flow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-flow li {
+  border: 0;
+  color: var(--nibiru-copy);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-flow li::after {
+  display: none;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-flow li strong,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-flow li p,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-note {
+  color: var(--nibiru-copy);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-note {
+  max-width: 930px;
+  margin: 26px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="workshop-results"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="workshop-results"] > img {
+  width: 100%;
+  max-height: none;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="workshop-results"] .project-content-copy {
+  margin-right: 72px;
+  margin-left: 72px;
+}
+
+/* Framework grid follows the original four-column editorial plate. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-nibiru-system-grid {
+  padding: 74px 0 94px !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid {
+  display: grid;
+  grid-template-columns: 150px 720px 260px 150px;
+  grid-template-rows: 132px minmax(520px, auto) 96px;
+  width: 1280px;
+  border-top: 1px solid var(--nibiru-title);
+  border-bottom: 1px solid var(--nibiru-title);
+  background-image:
+    linear-gradient(to right, transparent 149px, var(--nibiru-title) 149px, var(--nibiru-title) 150px, transparent 150px),
+    linear-gradient(to right, transparent 869px, var(--nibiru-title) 869px, var(--nibiru-title) 870px, transparent 870px),
+    linear-gradient(to right, transparent 1129px, var(--nibiru-title) 1129px, var(--nibiru-title) 1130px, transparent 1130px),
+    linear-gradient(to bottom, transparent 131px, var(--nibiru-title) 131px, var(--nibiru-title) 132px, transparent 132px),
+    linear-gradient(to bottom, transparent calc(100% - 97px), var(--nibiru-title) calc(100% - 97px), var(--nibiru-title) calc(100% - 96px), transparent calc(100% - 96px));
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-side-label,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure-label,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid h4 {
+  align-self: center;
+  color: var(--nibiru-title);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-side-label {
+  grid-column: 1;
+  padding-left: 18px;
+  font-size: 18px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid h4 {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 0 22px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure-label {
+  grid-column: 3;
+  grid-row: 1;
+  padding: 0 20px;
+  font-size: 22px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-diagram {
+  display: flex;
+  grid-column: 2;
+  grid-row: 2;
+  align-items: center;
+  padding: 34px 24px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-diagram img {
+  width: 100%;
+  height: auto;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure {
+  display: grid;
+  grid-column: 3;
+  grid-row: 2;
+  align-content: stretch;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure section {
+  display: grid;
+  align-content: center;
+  gap: 24px;
+  padding: 24px 22px;
+  border-bottom: 1px solid var(--nibiru-title);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure section:last-child {
+  border-bottom: 0;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure strong,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure li {
+  color: var(--nibiru-title);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.32;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure ol {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-footer {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: center;
+  justify-self: center;
+  color: var(--nibiru-copy);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+}
+
+/* Audience testing uses the supplied photograph; the alien is only a quiet marginal accent. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-split[data-variant="audience-testing"] {
+  position: relative;
+  display: grid;
+  grid-template-columns: 690px 1fr;
+  align-items: center;
+  gap: 70px;
+  min-height: 800px;
+  overflow: hidden;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-split[data-variant="audience-testing"]::after {
+  position: absolute;
+  z-index: 0;
+  top: 36px;
+  right: -118px;
+  width: 420px;
+  height: 610px;
+  background: url("../../assets/projects/the-red-dawn/alien-decoration-png-web.webp") center / contain no-repeat;
+  content: "";
+  opacity: 0.34;
+  pointer-events: none;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-split[data-variant="audience-testing"] > img,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-split[data-variant="audience-testing"] .project-content-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-split[data-variant="audience-testing"] > img {
+  width: 690px;
+  height: 690px;
+  object-fit: cover;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-split[data-variant="audience-testing"] .project-content-copy {
+  margin: 0;
+}
+
+/* Artist statement archive. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-duo[data-variant="whispering-archive"] .project-content-duo-media {
+  display: grid;
+  grid-template-columns: 390px 1fr;
+  align-items: center;
+  gap: 34px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-duo[data-variant="whispering-archive"] .project-content-duo-media img:first-child {
+  width: 390px;
+  height: 590px;
+  object-fit: cover;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-duo[data-variant="whispering-archive"] .project-content-duo-media img:last-child {
+  width: 100%;
+  height: auto;
+  transform: translateY(46px);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-video[data-variant="artist-statement"] {
+  padding-right: 260px;
+  padding-left: 260px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-video[data-variant="artist-statement"] .project-content-video-frame,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-video[data-variant="artist-statement"] .project-content-video-caption {
+  width: 760px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-video[data-variant="artist-statement"] .project-content-video-caption {
+  padding: 18px 0 0;
+  background: transparent;
+  color: var(--nibiru-copy);
+  text-align: left;
+}
+
+/* Closing copy comes before the edge-to-edge artwork. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="nibiru-thanks"] {
+  padding: 118px 0 0;
+  background: linear-gradient(to bottom, var(--nibiru-red-top) 0%, var(--nibiru-red-bottom) 100%);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="nibiru-thanks"] .project-content-copy {
+  width: 880px;
+  margin: 0 auto 82px;
+  text-align: center;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="nibiru-thanks"] .project-content-copy h4 {
+  font-size: 68px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="nibiru-thanks"] .project-content-copy p {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="nibiru-thanks"] > img {
+  width: 100%;
+  max-height: none;
+  margin: 0;
+}
+
+/* Scroll entrance is restrained: opacity plus a short vertical arrival. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-block.nibiru-reveal {
+  opacity: 0;
+  transform: translateY(46px);
+  transition:
+    opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-block.nibiru-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-sheet[data-project-id="the-red-dawn"] .project-content-block.nibiru-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* v5 refinement: one colour system, no chapter frames, one research measure. */
+.project-sheet[data-project-id="the-red-dawn"] .project-tag-register .project-tags li,
+.project-sheet[data-project-id="the-red-dawn"] .project-tag-register .project-tags li::before,
+.project-sheet[data-project-id="the-red-dawn"] .project-fact > span,
+.project-sheet[data-project-id="the-red-dawn"] .project-fact > strong,
+.project-sheet[data-project-id="the-red-dawn"] .project-role-list li,
+.project-sheet[data-project-id="the-red-dawn"] .project-partner-list strong,
+.project-sheet[data-project-id="the-red-dawn"] .project-sheet-footer,
+.project-sheet[data-project-id="the-red-dawn"] .project-sheet-footer a,
+.project-sheet[data-project-id="the-red-dawn"] .project-sheet-footer span,
+.project-sheet[data-project-id="the-red-dawn"] .project-sheet-footer strong {
+  color: var(--nibiru-copy) !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-partner-list :is(img, .brand-mark) {
+  filter: brightness(0) saturate(100%) invert(33%) sepia(100%) saturate(4272%) hue-rotate(344deg) brightness(112%) contrast(108%);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-facts {
+  border-top: 1px solid var(--nibiru-copy) !important;
+  border-bottom: 1px solid var(--nibiru-copy) !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-facts > .project-fact {
+  border-right-color: var(--nibiru-copy) !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar.is-stuck,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-title-surface {
+  overflow: visible !important;
+  contain: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar::before,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar::after,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-title-surface::before,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-title-surface::after {
+  display: none !important;
+  content: none !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter > header,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-blocks,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter .project-content-block,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-copy,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-duo .project-content-copy,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage .project-content-copy {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-copy,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-duo .project-content-copy,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage .project-content-copy {
+  padding-top: 0 !important;
+}
+
+/* The supporting sketch becomes a compact left/right plate. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="installation-draft"] {
+  display: grid;
+  grid-template-columns: 520px 1fr;
+  align-items: center;
+  gap: 78px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="installation-draft"] > img {
+  width: 520px;
+  margin: 0;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="installation-draft"] .project-content-copy {
+  width: auto;
+  margin: 0;
+}
+
+/* Four ritual states use one square rhythm and a single baseline. */
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence {
+  align-items: start;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence li,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence li:nth-child(even) {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  align-items: baseline;
+  gap: 12px 8px;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence img {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence span,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence strong {
+  align-self: baseline;
+  margin: 0;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  line-height: 1.1;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence span {
+  grid-column: 1;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence strong {
+  grid-column: 2;
+}
+
+/* Research content uses the framework's first and last inner rules as its measure. */
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter .project-content-block:not(.project-content-nibiru-system-grid) {
+  padding-right: 150px;
+  padding-left: 150px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-nibiru-field-study[data-variant="testimonies"] .project-nibiru-field-gallery img {
+  height: 238px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-nibiru-field-study[data-variant="cult-fieldwork"] .project-nibiru-field-gallery img {
+  height: 252px;
+}
+
+/* Framework is a two-row table: no glow, no footer cells, no internal image padding. */
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid {
+  grid-template-rows: 132px minmax(520px, auto);
+  border-color: var(--nibiru-copy);
+  background-image:
+    linear-gradient(to right, transparent 149px, var(--nibiru-copy) 149px, var(--nibiru-copy) 150px, transparent 150px),
+    linear-gradient(to right, transparent 869px, var(--nibiru-copy) 869px, var(--nibiru-copy) 870px, transparent 870px),
+    linear-gradient(to right, transparent 1129px, var(--nibiru-copy) 1129px, var(--nibiru-copy) 1130px, transparent 1130px),
+    linear-gradient(to bottom, transparent 131px, var(--nibiru-copy) 131px, var(--nibiru-copy) 132px, transparent 132px);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-side-label,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure-label,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid h4 {
+  color: var(--nibiru-copy);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  text-shadow: none !important;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-diagram {
+  padding: 34px 0;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-footer {
+  display: none;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure section,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure section:last-child {
+  border-color: var(--nibiru-copy);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure strong,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure li {
+  color: var(--nibiru-copy);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Audience testing now closes the ritual rather than the research argument. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-split[data-variant="audience-testing"] {
+  min-height: 720px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-split[data-variant="audience-testing"] > img {
+  width: 650px;
+  height: 650px;
+}
+
+/* Artist statement: poster and copy on the left, larger film above the montage on the right. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-nibiru-artist-statement {
+  padding: 68px 40px 118px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-artist-statement {
+  display: grid;
+  grid-template-columns: 380px 780px;
+  align-items: start;
+  gap: 40px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-artist-left {
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  padding-top: 92px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-artist-left > img {
+  width: 380px;
+  height: auto;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-artist-left .project-content-copy {
+  margin: 0;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-artist-right {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-artist-video {
+  width: 780px;
+  aspect-ratio: 16 / 9;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-artist-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-artist-right > img {
+  width: 780px;
+  height: auto;
+}
+
+/* One-line centred closing, with no tertiary caption. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="nibiru-thanks"] .project-content-copy {
+  display: flex !important;
+  align-items: center;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="nibiru-thanks"] .project-content-copy h4 {
+  width: auto;
+  white-space: nowrap;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="nibiru-thanks"] .project-content-copy p {
+  text-align: center;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="nibiru-thanks"] .project-content-copy > span {
+  display: none;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-sheet-footer {
+  border-color: var(--nibiru-copy) !important;
+}
+
+/* v7 hierarchy: tighter title/copy units and deeper continuous red fields. */
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar.is-stuck {
+  min-height: 130px;
+  padding: 42px 150px 8px;
+  text-align: left;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="0"] {
+  min-height: 230px;
+  padding-top: 116px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter > header {
+  display: block !important;
+  min-height: 0 !important;
+  padding: 10px 150px 64px !important;
+  text-align: left !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter > header p {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="3"] {
+  background: var(--nibiru-red-top);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter {
+  background: linear-gradient(to bottom, var(--nibiru-red-top) 0%, var(--nibiru-red-bottom) 100%);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="nibiru-thanks"] {
+  background: transparent;
+}
+
+/* The study caption belongs to the image; title and paragraph remain a left-aligned unit. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="installation-draft"] {
+  position: relative;
+  grid-template-rows: auto 24px;
+  padding-bottom: 78px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="installation-draft"] > img {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="installation-draft"] .project-content-copy {
+  display: flex !important;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 16px;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  text-align: left;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="installation-draft"] .project-content-copy p {
+  width: 100%;
+  margin: 0;
+  text-align: left;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="installation-draft"] .project-content-copy > span {
+  display: none;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="installation-draft"]::after {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: end;
+  color: var(--nibiru-copy);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  line-height: 1;
+  text-transform: uppercase;
+  content: var(--copy-installation, "EARLY INSTALLATION STUDY");
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-copy > span {
+  font-size: 11px !important;
+}
+
+/* The 720px diagram is 3:2; its 480px row meets all four surrounding rules. */
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid {
+  grid-template-rows: 132px 480px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-diagram {
+  align-items: stretch;
+  padding: 0;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-diagram img {
+  width: 720px;
+  height: 480px;
+  object-fit: cover;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure {
+  height: 480px;
+}
+
+/* v9 precision pass. */
+.project-sheet[data-project-id="the-red-dawn"] .project-partner-list :is(img, .brand-mark) {
+  filter: none;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-tag-register .project-tags li {
+  border-color: var(--nibiru-copy) !important;
+  box-shadow: none !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter > header p {
+  width: 980px;
+  max-width: none;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar.is-stuck,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="0"] {
+  min-height: 192px !important;
+  padding: 116px 150px 0 !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter > header {
+  padding-top: 2px !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="installation-draft"] {
+  column-gap: 78px;
+  row-gap: 10px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="installation-draft"]::after {
+  align-self: start;
+  justify-self: stretch;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-copy > span,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence span,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-ritual-sequence strong,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-flow li > span,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-flow li strong,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-flow li p {
+  color: var(--nibiru-copy) !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  line-height: 1.25 !important;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter .project-nibiru-field-study,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter .project-nibiru-field-gallery,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter .project-nibiru-field-flow,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter .project-nibiru-field-note {
+  width: 980px;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="workshop-results"] > img {
+  display: block;
+  width: 980px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="workshop-results"] .project-content-copy {
+  width: 980px;
+  margin: 48px auto 0 !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid::after {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, transparent 149px, var(--nibiru-copy) 149px, var(--nibiru-copy) 150px, transparent 150px),
+    linear-gradient(to right, transparent 869px, var(--nibiru-copy) 869px, var(--nibiru-copy) 870px, transparent 870px),
+    linear-gradient(to right, transparent 1129px, var(--nibiru-copy) 1129px, var(--nibiru-copy) 1130px, transparent 1130px),
+    linear-gradient(to bottom, transparent 131px, var(--nibiru-copy) 131px, var(--nibiru-copy) 132px, transparent 132px);
+  content: "";
+  pointer-events: none;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-stage[data-variant="nibiru-thanks"] {
+  padding: 118px 0 0 !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-sheet-footer {
+  min-height: 120px;
+  padding: 24px 76px;
+  color: var(--nibiru-copy) !important;
+  font-size: 11px !important;
+  letter-spacing: 0 !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-sheet-footer button,
+.project-sheet[data-project-id="the-red-dawn"] .project-sheet-footer > span {
+  color: var(--nibiru-copy) !important;
+  font-size: 11px !important;
+  letter-spacing: 0 !important;
+  opacity: 1 !important;
+}
+
+/* v10: keep the artist-statement plate on the same 72px measure as Installation. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-nibiru-artist-statement {
+  padding: 68px 72px 118px !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-artist-statement {
+  grid-template-columns: 360px 736px;
+  gap: 40px;
+  width: 1136px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-artist-left > img {
+  width: 360px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-artist-video,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-artist-right > img {
+  width: 736px;
+}
+
+/* Framework rules use two deliberate layers: horizontal rules sit beneath the
+   diagram, while vertical column rules stay above it. This keeps the image
+   flush to its column without letting the middle row rule cut through it. */
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid {
+  box-sizing: border-box;
+  border: 0 !important;
+  background: none !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid::before,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid::before {
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, var(--nibiru-copy), var(--nibiru-copy)),
+    linear-gradient(to right, var(--nibiru-copy), var(--nibiru-copy)),
+    linear-gradient(
+      to right,
+      var(--nibiru-copy) 0,
+      var(--nibiru-copy) 150px,
+      transparent 150px,
+      transparent 870px,
+      var(--nibiru-copy) 870px,
+      var(--nibiru-copy) 100%
+    );
+  background-position:
+    0 0,
+    0 calc(132px - var(--project-hairline, 1px)),
+    0 calc(372px - var(--project-hairline, 1px));
+  background-repeat: no-repeat;
+  background-size:
+    100% var(--project-hairline, 1px),
+    100% var(--project-hairline, 1px),
+    100% var(--project-hairline, 1px);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid::after {
+  z-index: 5;
+  background-image:
+    linear-gradient(to right, transparent calc(150px - var(--project-hairline, 1px)), var(--nibiru-copy) calc(150px - var(--project-hairline, 1px)), var(--nibiru-copy) 150px, transparent 150px),
+    linear-gradient(to right, transparent calc(870px - var(--project-hairline, 1px)), var(--nibiru-copy) calc(870px - var(--project-hairline, 1px)), var(--nibiru-copy) 870px, transparent 870px),
+    linear-gradient(to right, transparent calc(1130px - var(--project-hairline, 1px)), var(--nibiru-copy) calc(1130px - var(--project-hairline, 1px)), var(--nibiru-copy) 1130px, transparent 1130px),
+    linear-gradient(to top, var(--nibiru-copy) 0, var(--nibiru-copy) var(--project-hairline, 1px), transparent var(--project-hairline, 1px));
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure section,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-structure section:last-child {
+  border: 0 !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"]
+  .project-facts > .project-fact:not([hidden]):not(:has(~ .project-fact:not([hidden]))) {
+  border-right: 0 !important;
+}
+
+/* Recruitment-film prophecy: the copy begins high beside the portrait frame,
+   then unfolds as two stacked lines of doctrine. */
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-portrait-film {
+  align-items: start;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-portrait-film .project-content-copy {
+  align-self: start;
+  margin: 0;
+  padding-top: 64px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-prophecy {
+  display: grid;
+  max-width: 430px;
+  gap: 30px;
+  margin-top: 24px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-prophecy section {
+  display: grid;
+  gap: 10px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-prophecy strong {
+  color: var(--nibiru-title);
+  font-family: var(--nibiru-gothic);
+  font-size: 34px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 0.9;
+  text-shadow:
+    0 0 20px var(--nibiru-glow),
+    0 0 6px var(--nibiru-glow),
+    0 0 2px var(--nibiru-glow);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-prophecy p {
+  max-width: 420px;
+  margin: 0;
+  color: var(--nibiru-copy);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* Installation captions use the same title-left / description-right grammar. */
+.project-sheet[data-project-id="the-red-dawn"] .project-content-nibiru-installation-triptych > .project-nibiru-installation-triptych + .project-content-copy {
+  display: grid !important;
+  grid-template-columns: 300px 1fr !important;
+  gap: 48px !important;
+  margin-top: 34px;
+  padding-top: 0 !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-nibiru-installation-triptych > .project-nibiru-installation-triptych + .project-content-copy > h4 {
+  grid-column: 1;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-nibiru-installation-triptych > .project-nibiru-installation-triptych + .project-content-copy > p {
+  grid-column: 2;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-nibiru-installation-triptych > .project-nibiru-installation-triptych + .project-content-copy > span {
+  grid-column: 1 / -1;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-prophecy {
+  margin-top: 48px;
+}
+
+/* Preserve the authored column positions while allowing the diagram to cover
+   only the horizontal rule behind it. */
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid::after {
+  z-index: 5 !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-grid > * {
+  position: relative;
+  z-index: 1;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-diagram {
+  background: #000;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-system-diagram img {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}

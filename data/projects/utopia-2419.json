@@ -1,0 +1,304 @@
+{
+  "id": "utopia-2419",
+  "title": "UTOPIA 2419",
+  "subtitle": "A Dystopian AI Art Adventure",
+  "backgroundColor": "#030303",
+  "summary": "An interactive dystopian tragedy told through 538 AI-assisted illustrations, a branching 160,000-word narrative and an original eleven-track score.",
+  "statement": "A personal story about idealism, freedom and the moment a dream becomes a system of control.",
+  "body": "Completed in June 2022, UTOPIA 2419 adapts my dystopian science-fiction novella Ideal Republic 2419 into an interactive web experience. Set in the twenty-fourth-century wasteland of Kapia, the story follows a protagonist who exposes false deities and leads a revolution in pursuit of an ideal republic. Their resistance gradually hardens into obsession, betrayal and tyranny, ending in cosmic exile and self-destruction.\n\nThe project examines the paradox of idealism: the desire for perfection can erase human complexity, turn belief into dogma and transform liberation into another form of oppression. I shaped the world through AI-assisted image generation, 3D modelling, rendering, texturing and detailed post-production, then connected its 538 illustrations through a choice-driven website with 683 interaction points, 12 narrative decisions and five interaction modes. The project was interviewed and featured by Beijing-based technology media company PingWest.",
+  "company": "Individual Project",
+  "companyLabel": "PROJECT CONTEXT",
+  "year": "2022",
+  "yearLabel": "PROJECT YEAR",
+  "roles": [
+    "AI Image Generation",
+    "Interaction Design",
+    "Narrative and Scriptwriting",
+    "Music Production"
+  ],
+  "tags": [
+    "Interactive Storytelling",
+    "Generative AI",
+    "Illustration",
+    "Web Interaction"
+  ],
+  "cover": {
+    "ratio": "2 / 1",
+    "designWidth": 2000,
+    "background": "assets/projects/utopia-2419/cover-jpg-web.webp",
+    "layers": [
+      {
+        "src": "assets/projects/utopia-2419/cover-jpg-web.webp",
+        "kind": "base",
+        "parallax": 0.5,
+        "parallaxLimit": 0.8
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 1,
+  "sections": [
+    {
+      "title": "",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "utopia-epigraph",
+          "layout": "narrow",
+          "english": [
+            "Dedicated to the ideal of freedom in childhood.",
+            "The feeling of nostalgia is deeper than sadness.",
+            "It swept into every corner of the past like the tide, and then set off countless regrets."
+          ],
+          "chinese": "献给童年自由的理想。怀念的感觉比悲伤来得更彻骨，它像潮水漫入过去的每个角落，而后掀起无数遗憾。"
+        },
+        {
+          "type": "video",
+          "provider": "youtube",
+          "id": "EFHgn6Eaf3s",
+          "params": "rel=0&playsinline=1",
+          "ratio": "16 / 9",
+          "layout": "full",
+          "title": "UTOPIA 2419 — Interactive Experience",
+          "caption": "Promotional Video"
+        },
+        {
+          "type": "video",
+          "provider": "youtube",
+          "id": "eZU_wdTVSj4",
+          "params": "rel=0&playsinline=1",
+          "ratio": "16 / 9",
+          "layout": "full",
+          "title": "UTOPIA 2419 — Visual Narrative",
+          "caption": "Full Demonstration"
+        },
+        {
+          "type": "utopia-section-heading",
+          "layout": "full",
+          "index": "01",
+          "title": "Research",
+          "body": "A study of nihilism, player motivation and the visual grammar of speculative worlds. The research asks how an interactive story can make the seduction—and danger—of an ideal society emotionally legible."
+        },
+        {
+          "type": "inset",
+          "layout": "full",
+          "variant": "utopia-board",
+          "image": "assets/projects/utopia-2419/research-persona-jpg-web.webp",
+          "alt": "Research, persona and competitor analysis for UTOPIA 2419"
+        },
+        {
+          "type": "inset",
+          "layout": "full",
+          "variant": "utopia-board",
+          "image": "assets/projects/utopia-2419/design-process-jpg-web.webp",
+          "alt": "Design brief, AI image workflow and production process for UTOPIA 2419"
+        },
+        {
+          "type": "utopia-section-heading",
+          "layout": "full",
+          "variant": "plot-start",
+          "index": "02",
+          "title": "Plot & Fate",
+          "body": "The player does not simply follow a fixed story. Every answer redirects the protagonist's fate, turning a personal revolution into a map of conflicting futures."
+        },
+        {
+          "type": "inset",
+          "layout": "full",
+          "variant": "utopia-board",
+          "image": "assets/projects/utopia-2419/plot-process-jpg-web.webp",
+          "alt": "Branching plot, story timeline and content composition of UTOPIA 2419"
+        },
+        {
+          "type": "utopia-synopsis",
+          "layout": "narrow",
+          "title": "Choose a Belief.\nLive Its Consequence.",
+          "paragraphs": [
+            "In the ruined territory of Kapia, a lone idealist discovers that the gods governing the world are manufactured instruments of power. They ignite a revolution and promise a republic founded on freedom.",
+            "The player may resist, compromise, betray or rebuild. Yet the more fiercely the protagonist pursues a flawless future, the closer they move toward becoming the authority they once opposed."
+          ]
+        },
+        {
+          "type": "utopia-story-sphere",
+          "layout": "full",
+          "images": [
+            "assets/projects/utopia-2419/story-sphere/story-01-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-02-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-03-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-04-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-05-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-06-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-07-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-08-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-09-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-10-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-11-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-12-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-13-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-14-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-15-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-16-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-17-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-18-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-19-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-20-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-21-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-22-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-23-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-24-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-25-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-26-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-27-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-28-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-29-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-30-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-31-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-32-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-33-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-34-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-35-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-36-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-37-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-38-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-39-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-40-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-41-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-42-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-43-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-44-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-45-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-46-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-47-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-48-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-49-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-50-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-51-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-52-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-53-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-54-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-55-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-56-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-57-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-58-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-59-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-60-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-61-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-62-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-63-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-64-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-65-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-66-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-67-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-68-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-69-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-70-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-71-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-72-jpg-web.webp",
+            "assets/projects/utopia-2419/story-sphere/story-73-jpg-web.webp"
+          ]
+        },
+        {
+          "type": "utopia-video-trio",
+          "layout": "full",
+          "items": [
+            {
+              "src": "assets/projects/utopia-2419/process-01-mp4-web.mp4",
+              "alt": "UTOPIA 2419 visual process clip one"
+            },
+            {
+              "src": "assets/projects/utopia-2419/process-02-mp4-web.mp4",
+              "alt": "UTOPIA 2419 visual process clip two"
+            },
+            {
+              "src": "assets/projects/utopia-2419/process-03-mp4-web.mp4",
+              "alt": "UTOPIA 2419 visual process clip three"
+            }
+          ]
+        },
+        {
+          "type": "utopia-section-heading",
+          "layout": "full",
+          "variant": "plot-end",
+          "index": "03",
+          "title": "Interaction Methods",
+          "body": "Dialogue choices, hover discoveries, prompt archives, a diegetic recorder and light-led navigation turn the interface into part of the fiction."
+        },
+        {
+          "type": "inset",
+          "layout": "full",
+          "variant": "utopia-board",
+          "image": "assets/projects/utopia-2419/interaction-methods-01-jpg-web.webp",
+          "alt": "Dialogue, prompt, recorder and discovery interactions in UTOPIA 2419"
+        },
+        {
+          "type": "inset",
+          "layout": "full",
+          "variant": "utopia-board",
+          "image": "assets/projects/utopia-2419/interaction-methods-02-jpg-web.webp",
+          "alt": "Conversation, light, animation and story structure interactions in UTOPIA 2419"
+        },
+        {
+          "type": "utopia-section-heading",
+          "layout": "full",
+          "index": "04",
+          "title": "Original Soundtrack",
+          "body": "Eleven original compositions move between memory, revolt, exile and the silence that follows an impossible ideal."
+        },
+        {
+          "type": "soundcloud-stack",
+          "layout": "narrow",
+          "title": "",
+          "tracks": [
+            {
+              "title": "2419.I — Undertow",
+              "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392485462&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+            },
+            {
+              "title": "Elsewhere",
+              "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474620&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+            },
+            {
+              "title": "Reverse Space",
+              "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474629&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+            },
+            {
+              "title": "2419.II — A Century Passes",
+              "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392485465&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+            },
+            {
+              "title": "Utopia",
+              "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474617&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+            },
+            {
+              "title": "Underneath",
+              "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474632&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+            },
+            {
+              "title": "Exile",
+              "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474626&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+            },
+            {
+              "title": "2419.III — Nothing Weighs",
+              "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392485459&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+            },
+            {
+              "title": "Reverse Ocean",
+              "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474623&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+            },
+            {
+              "title": "Still Here",
+              "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474635&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+            }
+          ]
+        },
+        {
+          "type": "utopia-closing",
+          "layout": "narrow",
+          "english": "I made this project during one of the lowest periods of my life. To anyone living through the pain of a shattered dream: you are not alone.",
+          "chinese": "这个项目诞生于我人生的低谷。献给所有正在经历幻梦破碎之痛的人：你们并不孤单。"
+        }
+      ]
+    }
+  ]
+}

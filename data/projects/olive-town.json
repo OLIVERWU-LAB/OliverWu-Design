@@ -1,0 +1,136 @@
+{
+  "id": "olive-town",
+  "title": "Olive Town",
+  "subtitle": "A Metabolic Community System Beneath the Viaduct",
+  "backgroundColor": "#E9DAC6",
+  "summary": "An adaptable urban sanctuary that combines modular architecture, digital services and an inclusive local economy for wanderers and people experiencing homelessness.",
+  "body": "Olive Town reimagines the overlooked space beneath a viaduct as an adaptable community for wanderers and people experiencing homelessness. Inspired by Kisho Kurokawa’s Metabolism movement, modular architecture works with a digital service ecosystem to provide safe shelter, work opportunities, healthcare, performance spaces and community support. A mobile application connects residents to these services, while Olive Coin and a tiered certification model reward participation without relying on conventional financial structures. By bringing spatial design, technology and social care into one system, the project proposes a more dignified and autonomous model of urban belonging.",
+  "company": "Individual Project",
+  "companyLabel": "PROJECT CONTEXT",
+  "year": "2022",
+  "yearLabel": "PROJECT YEAR",
+  "roles": ["UX / UI Design", "Research", "Architecture Design"],
+  "partners": [{ "name": "Individual Project" }],
+  "tags": ["Urban Design", "Social Innovation", "UX / UI", "Metabolism", "3D Visualization"],
+  "cover": {
+    "ratio": "2 / 1",
+    "designWidth": 4000,
+    "background": "assets/projects/olive-town/cover-jpg-web.webp",
+    "layers": [
+      {
+        "src": "assets/projects/olive-town/cover-jpg-web.webp",
+        "kind": "base",
+        "parallax": 0.5,
+        "parallaxLimit": 0.8
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 4,
+  "sections": [
+    {
+      "title": "Origins & Inspiration",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "olive-inspiration",
+          "layout": "rail",
+          "image": "assets/projects/olive-town/inspiration-collage-jpg-web.webp",
+          "alt": "Blue collage connecting wanderers, displacement and Metabolism architecture",
+          "sideImages": [
+            {
+              "src": "assets/projects/olive-town/inspiration-wanderer-jpg-web.webp",
+              "alt": "Collage exploring wandering, escape and lives outside conventional society"
+            },
+            {
+              "src": "assets/projects/olive-town/inspiration-displacement-jpg-web.webp",
+              "alt": "Collage exploring displacement, disaster and the search for belonging"
+            }
+          ],
+          "quote": "Do not ask me where I come from,\nmy hometown lies far away.\nWhy do I wander?\nFor the olive tree my dreams belong.",
+          "quoteHighlight": "Olive Tree",
+          "attribution": "Echo Chen (Sanmao), 1973",
+          "captionText": "Wandering, displacement and Metabolism—the three ideas behind Olive Town."
+        }
+      ]
+    },
+    {
+      "title": "Research to Service System",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "olive-process-stack",
+          "layout": "full",
+          "images": [
+            { "src": "assets/projects/olive-town/background-research-jpg-web.webp", "alt": "Background research into homelessness and wandering" },
+            { "src": "assets/projects/olive-town/interview-persona-jpg-web.webp", "alt": "Interview findings, persona and empathy map" },
+            { "src": "assets/projects/olive-town/user-journey-jpg-web.webp", "alt": "User journey map for a day in the life of a wanderer" },
+            { "src": "assets/projects/olive-town/storyboard-stakeholder-jpg-web.webp", "alt": "Comprehensive Olive Town UI showcase" },
+            { "src": "assets/projects/olive-town/final-outcome-jpg-web.webp", "alt": "Olive Town high-fidelity mobile interface boards" },
+            { "src": "assets/projects/olive-town/interface-showcase-jpg-web.webp", "alt": "Olive Town storyboard and interactive public-screen experience" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Metabolic Urban Framework",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "olive-process-stack",
+          "layout": "full",
+          "images": [
+            { "src": "assets/projects/olive-town/capsule-render-jpg-web.webp", "alt": "Olive Town modular capsule structure" },
+            { "src": "assets/projects/olive-town/olive-town-design-jpg-web.webp", "alt": "Olive Town architectural and community design system" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Spatial Outcome",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "olive-render-gallery",
+          "layout": "full",
+          "pair": [
+            {
+              "src": "assets/projects/olive-town/entrance-render-jpg-web.webp",
+              "caption": "Ground-level services and a fixed public operations platform."
+            },
+            {
+              "src": "assets/projects/olive-town/community-aerial-jpg-web.webp",
+              "caption": "Capsule modules attached to the viaduct structure."
+            }
+          ],
+          "grid": [
+            {
+              "src": "assets/projects/olive-town/interior-garden-jpg-web.webp",
+              "caption": "Shared paths and planted public space at ground level."
+            },
+            {
+              "src": "assets/projects/olive-town/modular-interior-jpg-web.webp",
+              "caption": "Capsule rooms layered above circulation and landscape."
+            },
+            {
+              "src": "assets/projects/olive-town/viaduct-street-jpg-web.webp",
+              "caption": "The community opens from the viaduct toward the city."
+            },
+            {
+              "src": "assets/projects/olive-town/capsule-corridor-jpg-web.webp",
+              "caption": "A second-floor corridor connects the private capsules."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

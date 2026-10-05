@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <filter id="noise" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.16" numOctaves="2" seed="17" stitchTiles="stitch"/>
+    <feColorMatrix values="
+      0 0 0 0 1
+      0 0 0 0 0.082
+      0 0 0 0 0.082
+      0.38 0 0 0 -0.285"/>
+  </filter>
+  <rect width="192" height="192" filter="url(#noise)"/>
+</svg>

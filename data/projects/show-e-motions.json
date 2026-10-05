@@ -1,0 +1,400 @@
+{
+  "id": "show-e-motions",
+  "title": "SHOW-E-MOTIONS",
+  "subtitle": "A Wearable Interface for Radical Emotional Visibility",
+  "backgroundColor": "#f4f3ed",
+  "summary": "A heart-rate-driven garment that turns private physiological change into a public, moving image.",
+  "statement": "If emotion becomes visible, does the body gain agency—or become newly exposed?",
+  "body": "Show-E-Motions is a collaborative inquiry into affective technology, fashion and moving image. Heart-rate data is translated into real-time projection mapping on a textile body, transforming an internal signal into a shared visual event. The garment stops behaving as a covering and becomes an interface: expressive, unstable and impossible to ignore.",
+  "company": "Collaboration",
+  "companyLabel": "PROJECT CONTEXT",
+  "year": "2024",
+  "yearLabel": "PROJECT YEAR",
+  "roles": [
+    "Moving Image",
+    "System Coding",
+    "Experience Direction"
+  ],
+  "partners": [
+    {
+      "name": "Collaboration",
+      "detail": "Tsu Chutong Li — Fashion Design\nDesara Husha — Textile Design\nCammeron Jarvie — Video"
+    }
+  ],
+  "tags": [
+    "Affective Technology",
+    "Wearable Interface",
+    "Projection Mapping",
+    "Critical Practice"
+  ],
+  "cover": {
+    "ratio": "2 / 1",
+    "designWidth": 2560,
+    "background": "assets/projects/show-e-motions/web/cover-webp-web.webp",
+    "layers": [
+      {
+        "src": "assets/projects/show-e-motions/web/cover-webp-web.webp",
+        "kind": "base",
+        "parallax": 0.5,
+        "parallaxLimit": 0.8
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 5,
+  "sections": [
+    {
+      "title": "The Body as Interface",
+      "body": "The final garment makes an intimate biological rhythm spatial. Projection moves across dyed textile and sculptural shoulders, allowing the wearer’s changing pulse to reorganise the image in front of an audience.",
+      "caption": "01 / FINAL WORK",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "stage",
+          "layout": "wide",
+          "variant": "show-projection-outcome",
+          "image": "assets/projects/show-e-motions/web/projection-in-space-webp-web.webp",
+          "alt": "The finished garment beside a projected pattern and the wearer's shadow",
+          "title": "An internal signal, made visible",
+          "body": "Light connects the textile body to its surroundings. A changing pattern becomes visible to the wearer and to others, turning a private physiological signal into a shared encounter.",
+          "caption": "FINAL WORK / GARMENT AND PROJECTION"
+        },
+        {
+          "type": "show-emotions-gallery",
+          "layout": "wide",
+          "variant": "show-outcome-details",
+          "title": "A surface with its own presence",
+          "body": "The garment has a material identity before the projection begins. Sculptural forms, dyed fabric and moving light contribute different layers to the final encounter.",
+          "caption": "FINAL GARMENT / MATERIAL AND LIGHT",
+          "items": [
+            {
+              "src": "assets/projects/show-e-motions/web/garment-portrait.webp",
+              "title": "The garment",
+              "body": "Dyed textile and sculptural shoulders shape the silhouette.",
+              "alt": "The garment"
+            },
+            {
+              "src": "assets/projects/show-e-motions/web/projection-closeup.webp",
+              "title": "The projected body",
+              "body": "Pattern travels across the wearer, fabric and surrounding space.",
+              "alt": "The projected body"
+            }
+          ]
+        },
+        {
+          "type": "stage",
+          "layout": "wide",
+          "variant": "show-garment-projection-detail",
+          "image": "assets/projects/show-e-motions/web/garment-projection-detail.webp",
+          "alt": "Close view of the projected garment alongside installation and textile details",
+          "title": "Light meets the constructed body",
+          "body": "A closer view brings the garment’s layered structure into focus. Projection crosses the dyed textile, folded centre panel and sculptural sleeves, while the supporting views locate that surface within the installation.",
+          "caption": "FINAL WORK / PROJECTION ACROSS TEXTILE AND FORM"
+        },
+        {
+          "type": "video",
+          "layout": "wide",
+          "variant": "show-main-film",
+          "provider": "youtube",
+          "id": "prucWmuwIaM",
+          "title": "Show-E-Motions — Project Film",
+          "caption": "FULL PROJECT FILM / SOUND ON",
+          "params": "rel=0&playsinline=1&iv_load_policy=3&modestbranding=1"
+        }
+      ]
+    },
+    {
+      "title": "Three Affective States",
+      "body": "Three moving-image studies explore restrained, withdrawn and surging visual intensities. These are expressive interpretations of physiological change, rather than measurements of a specific emotion.",
+      "caption": "02 / MOVING IMAGE",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "show-emotions-triptych",
+          "layout": "full",
+          "clips": [
+            {
+              "src": "assets/projects/show-e-motions/slow-loop-mp4-web.mp4",
+              "title": "Slow",
+              "body": "A pale field unfolds through gradual, cellular movement.",
+              "alt": "Slow pale kaleidoscopic projection state"
+            },
+            {
+              "src": "assets/projects/show-e-motions/cold-loop-mp4-web.mp4",
+              "title": "Cold",
+              "body": "Cooler colour and dense reflection create a more withdrawn visual register.",
+              "alt": "Cold blue-grey kaleidoscopic projection state"
+            },
+            {
+              "src": "assets/projects/show-e-motions/color-loop-mp4-web.mp4",
+              "title": "Surge",
+              "body": "Saturated red and blue produce a more forceful visual rhythm.",
+              "alt": "Vivid red-blue kaleidoscopic projection state"
+            }
+          ],
+          "title": "Pulse becomes visual behaviour",
+          "body": "The clips loop like living samples. Their differences are deliberately continuous: affect is treated as motion and degree, not as three neat emotional boxes.",
+          "caption": "REAL-TIME VISUAL STATES / HEART-RATE DRIVEN"
+        },
+        {
+          "type": "show-emotions-gallery",
+          "layout": "wide",
+          "variant": "show-motion-studies",
+          "title": "A visual grammar of reflection",
+          "body": "Reflection, scale, hue and saturation create different visual intensities. Selected frames make these compositional changes visible alongside the looping studies above.",
+          "caption": "MOVING IMAGE / SELECTED FRAMES",
+          "items": [
+            {
+              "src": "assets/projects/show-e-motions/web/state-slow-01.webp",
+              "title": "Emerging signal",
+              "body": "Small red traces surface within a pale reflected field.",
+              "alt": "Pale symmetrical field with small red cellular traces"
+            },
+            {
+              "src": "assets/projects/show-e-motions/web/state-cold-01.webp",
+              "title": "Muted symmetry",
+              "body": "Blue-grey forms gather into a restrained central pattern.",
+              "alt": "Muted blue-grey cellular forms arranged symmetrically"
+            },
+            {
+              "src": "assets/projects/show-e-motions/web/state-surge-01.webp",
+              "title": "Colour activation",
+              "body": "Saturated red and blue forms break through the pale ground.",
+              "alt": "Saturated red and blue forms within a pale symmetrical field"
+            },
+            {
+              "src": "assets/projects/show-e-motions/web/state-slow-02.webp",
+              "title": "Open interval",
+              "body": "A larger pale centre slows the rhythm between repeated forms.",
+              "alt": "Pale symmetrical frame with a large open central interval"
+            },
+            {
+              "src": "assets/projects/show-e-motions/web/state-cold-02.webp",
+              "title": "Dense reflection",
+              "body": "Repeated cells compress into a darker layered structure.",
+              "alt": "Dense dark blue-grey repeated cellular pattern"
+            },
+            {
+              "src": "assets/projects/show-e-motions/web/state-surge-02.webp",
+              "title": "Expanded intensity",
+              "body": "Scale and saturated colour spread across the whole frame.",
+              "alt": "Large saturated red and blue reflected forms filling the frame"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Affective Ecology",
+      "body": "Before designing a sensor, the team looked at how living organisms make internal condition visible through colour, scale and posture. Show-E-Motions asks what changes when a human body borrows this legibility inside a social world trained to suppress anxiety.",
+      "caption": "03 / RESEARCH",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "show-emotions-gallery",
+          "layout": "wide",
+          "variant": "show-nature-references",
+          "title": "What if clothing could signal from within?",
+          "body": "Animal colour and shape became prompts for speculative fashion: could a future garment make internal change perceptible without fixing its meaning? Show-E-Motions does not claim that heart rate reveals a person’s true emotion. A pulse remains ambiguous—exertion, fear, joy and anticipation can overlap—and the project treats that ambiguity as material rather than reducing the body to a clean label.",
+          "caption": "RESEARCH / BIOLOGICAL SIGNALS AND CRITICAL POSITION",
+          "items": [
+            {
+              "src": "assets/projects/show-e-motions/web/salmon-spawning.webp",
+              "title": "Colour as a signal",
+              "body": "The salmon reference prompted a question about colour changing with internal condition.",
+              "alt": "Colour as a signal",
+              "comparison": "assets/projects/show-e-motions/web/salmon-silver.webp"
+            },
+            {
+              "src": "assets/projects/show-e-motions/web/chameleon.webp",
+              "title": "Pattern as expression",
+              "body": "Changing colour suggested a surface that could communicate through variation.",
+              "alt": "Pattern as expression"
+            },
+            {
+              "src": "assets/projects/show-e-motions/web/pufferfish.webp",
+              "title": "Form as expression",
+              "body": "Expansion suggested a garment whose silhouette could communicate as well as its surface.",
+              "alt": "Form as expression"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "From Pulse to Projection",
+      "body": "From that research question, the project builds a translation chain rather than a single object. A physical signal is sensed, interpreted, converted into image behaviour and returned to the body as light.",
+      "caption": "04 / SYSTEM",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "show-emotions-system",
+          "layout": "full",
+          "steps": [
+            {
+              "title": "Body",
+              "body": "The wearer’s pulse changes through lived experience."
+            },
+            {
+              "title": "Sensor",
+              "body": "Heart-rate data is captured as a continuous signal."
+            },
+            {
+              "title": "Arduino",
+              "body": "The physical reading enters the digital system."
+            },
+            {
+              "title": "Analysis",
+              "body": "Code maps change without assigning a fixed emotion."
+            },
+            {
+              "title": "TouchDesigner",
+              "body": "Rate and variation drive motion, colour and scale."
+            },
+            {
+              "title": "Projection",
+              "body": "The moving image returns to the garment and audience."
+            }
+          ],
+          "title": "A feedback loop between interior and exterior",
+          "body": "The body is both source and screen. What begins as a private rhythm returns as a public image, making the wearer, the system and the audience mutually aware.",
+          "caption": "HEART RATE → CODE → MOVING IMAGE → TEXTILE"
+        },
+        {
+          "type": "show-emotions-gallery",
+          "layout": "wide",
+          "variant": "show-system-evidence",
+          "title": "The code behind the image",
+          "body": "Arduino handles the incoming physical signal; the TouchDesigner network shapes the image. Shown separately, these working interfaces reveal the link between system coding and visual behaviour.",
+          "caption": "IMPLEMENTATION / ARDUINO AND TOUCHDESIGNER",
+          "items": [
+            {
+              "src": "assets/projects/show-e-motions/web/arduino-code.webp",
+              "title": "Signal processing",
+              "body": "A working code view from the project's system development.",
+              "alt": "Signal processing"
+            },
+            {
+              "src": "assets/projects/show-e-motions/web/touchdesigner-network.webp",
+              "title": "Image generation",
+              "body": "The node network connecting input values with the projected image.",
+              "alt": "Image generation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Making Radical Honesty",
+      "body": "The interface only exists because code, cloth and the body are negotiated together. Dyeing, memory fabric, sculptural patterning, mannequin tests and live projection turn the proposition into a wearable encounter.",
+      "caption": "05 / FASHION, TEXTILE AND REFLECTION",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "show-emotions-gallery",
+          "layout": "wide",
+          "variant": "show-garment-development",
+          "title": "From silhouette to surface",
+          "body": "The team's drawings and draping studies establish the relationship between the close-fitting body layer and the dimensional shoulder piece.",
+          "caption": "FASHION DESIGN / DRAWING AND DRAPING",
+          "items": [
+            {
+              "src": "assets/projects/show-e-motions/web/garment-drawing.webp",
+              "title": "Garment drawing",
+              "body": "Front, side and back views establish the silhouette and colour placement.",
+              "alt": "Garment drawing"
+            },
+            {
+              "src": "assets/projects/show-e-motions/web/garment-draping.webp",
+              "title": "Draping study",
+              "body": "The fabric is tested on a form before the final garment is assembled.",
+              "alt": "Draping study"
+            }
+          ]
+        },
+        {
+          "type": "show-emotions-gallery",
+          "layout": "wide",
+          "variant": "show-dye-sequence",
+          "title": "Building colour into the cloth",
+          "body": "The textile starts with its own yellow-to-blue transition. The dyeing sequence makes that material base visible before moving light is added.",
+          "caption": "TEXTILE PROCESS / DYEING",
+          "items": [
+            {
+              "src": "assets/projects/show-e-motions/web/dye-materials.webp",
+              "title": "01 / Palette",
+              "body": "Dyes and colour samples.",
+              "alt": "01 / Palette"
+            },
+            {
+              "src": "assets/projects/show-e-motions/web/dye-mixing.webp",
+              "title": "02 / Mixing",
+              "body": "Preparing the colour baths.",
+              "alt": "02 / Mixing"
+            },
+            {
+              "src": "assets/projects/show-e-motions/web/dye-fabric.webp",
+              "title": "03 / Fabric",
+              "body": "The dyed cloth reveals its gradient.",
+              "alt": "03 / Fabric"
+            }
+          ]
+        },
+        {
+          "type": "show-emotions-gallery",
+          "layout": "wide",
+          "variant": "show-memory-sequence",
+          "title": "Making the sculptural shoulder",
+          "body": "Repeated stitching gives the fabric a dimensional structure. These close views show how the centre piece was constructed, before it became part of the garment.",
+          "caption": "TEXTILE PROCESS / MEMORY FABRIC",
+          "items": [
+            {
+              "src": "assets/projects/show-e-motions/web/memory-fabric-stitching.webp",
+              "title": "Hand construction",
+              "body": "Stitching the repeated folds.",
+              "alt": "Hand construction"
+            },
+            {
+              "src": "assets/projects/show-e-motions/web/memory-fabric-construction.webp",
+              "title": "Assembled structure",
+              "body": "Testing the dimensional fabric on the work surface.",
+              "alt": "Assembled structure"
+            }
+          ]
+        },
+        {
+          "type": "show-emotions-gallery",
+          "layout": "wide",
+          "variant": "show-test-sequence",
+          "title": "Bringing light and textile together",
+          "body": "Tests on the mannequin bring the image, surface and physical setup into the same space. They document development of the projection experience, rather than evidence of emotion recognition.",
+          "caption": "PROTOTYPING / SYSTEM AND MANNEQUIN TESTS",
+          "items": [
+            {
+              "src": "assets/projects/show-e-motions/web/projection-system-test.webp",
+              "title": "System setup",
+              "body": "Working through the computer and projection setup.",
+              "alt": "System setup"
+            },
+            {
+              "src": "assets/projects/show-e-motions/web/projection-mannequin-test.webp",
+              "title": "Surface test",
+              "body": "Observing how the pattern lands on a three-dimensional garment.",
+              "alt": "Surface test"
+            }
+          ]
+        },
+        {
+          "type": "split",
+          "layout": "wide",
+          "variant": "show-closing-question",
+          "image": "assets/projects/show-e-motions/web/reflection-object-webp-web.webp",
+          "alt": "Sculptural paper construction developed for Show-E-Motions",
+          "title": "Radical honesty—or radical exposure?",
+          "body": "Making hidden signals visible can challenge emotional suppression and give form to experiences that are difficult to articulate. It can also create pressure to disclose, perform or be interpreted by others. Show-E-Motions holds both possibilities at once: the body gains a new language, but not a final translation.",
+          "caption": "IF EMOTION BECOMES VISIBLE, WHO CONTROLS ITS MEANING?"
+        }
+      ]
+    }
+  ]
+}

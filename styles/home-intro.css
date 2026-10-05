@@ -1,0 +1,61 @@
+/* A one-shot greeting; grain reuses the existing home canvas and frame loop. */
+.home-intro { display:none; }
+html.boot-pending .case-card[data-cover-pending] .case-image,
+html.cover-lazy-enabled .case-card[data-cover-pending] .case-image { background-image:none !important; }
+html.boot-pending, html.boot-entering { overflow:hidden; }
+html.boot-pending body, html.boot-entering body { overflow:hidden; }
+html.boot-pending :is(.backdrop-planet,.backdrop-ground) { visibility:hidden; }
+html.boot-pending .backdrop-planet { animation-play-state:paused; }
+html.boot-entering :is(.backdrop-planet,.backdrop-ground) { animation:backdrop-arrival 320ms ease-out both; }
+/* Never expose later papers through the arriving first viewport. */
+html.boot-entering .site-shell > :not(.page-panel-about) { visibility:hidden; }
+html.boot-pending,html.boot-entering { scroll-snap-type:none; scroll-behavior:auto; }
+html.boot-pending .site-shell,
+html.boot-pending .paper-edge-extensions,
+html.boot-pending .language-toggle { visibility:hidden; }
+html.boot-pending .home-intro,
+html.boot-entering .home-intro {
+  position:fixed; inset:0; z-index:1000; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; pointer-events:none;
+}
+.home-intro::before,.home-intro::after {
+  content:""; position:absolute; top:0; bottom:0; width:1px; background:var(--line);
+}
+.home-intro::before { left:var(--page-shell-edge,64px); }
+.home-intro::after { right:var(--page-shell-edge,64px); }
+.home-intro-content { position:relative; width:calc(100% - 2 * var(--page-shell-edge,64px)); padding:22px 12px; display:grid; justify-items:center; }
+.home-intro-content::before,.home-intro-content::after { content:""; position:absolute; left:50%; width:100vw; transform:translateX(-50%); height:1px; background:var(--line); }
+.home-intro-content::before { top:0; }
+.home-intro-content::after { bottom:0; }
+.home-intro p { margin:0; font:800 clamp(11px,1.6vw,26px)/1.5 "Monument Extended",Arial,sans-serif; text-align:center; white-space:nowrap; }
+html[lang="zh-CN"] .home-intro p { font-family:"ZaoZiGongFang YuanHei",sans-serif; font-weight:400; letter-spacing:.025em; }
+.intro-glyph { display:inline-block; white-space:pre; opacity:0; }
+.intro-writing .intro-glyph { animation:intro-write 200ms calc(var(--glyph-index)*40ms) cubic-bezier(.2,.7,.2,1) both; }
+.intro-written .intro-glyph { opacity:1; }
+/* One gentle pass (~1.7s), then ~1.3s at rest. No permanent will-change layers. */
+.intro-waiting .intro-glyph { animation:intro-wave 3000ms calc(var(--glyph-index)*45ms) ease-in-out infinite; }
+.intro-paused .intro-glyph { animation-play-state:paused; }
+html.boot-entering .home-intro-content { animation:intro-away 180ms ease-out both; }
+html.boot-entering .home-intro::before,html.boot-entering .home-intro::after { display:none; }
+/* Move only the first viewport, not the multi-screen portfolio/GPU backing. */
+html.boot-entering .page-panel-about { animation:home-arrival 720ms cubic-bezier(.18,.82,.16,1) both; }
+html.boot-entering .paper-edge-extensions { visibility:hidden; }
+.home-arrival-outline { display:none; }
+html.boot-entering .home-arrival-outline {
+  display:block; position:fixed; inset:0; width:100%; height:100%; z-index:7;
+  pointer-events:none; overflow:visible;
+  animation:home-arrival 720ms cubic-bezier(.18,.82,.16,1) both;
+}
+.home-arrival-outline path { fill:none; stroke:var(--line); stroke-width:1px; vector-effect:non-scaling-stroke; }
+html.boot-entering .language-toggle { animation:language-arrival 600ms 100ms cubic-bezier(.18,.82,.16,1) both; }
+@keyframes intro-away { to { opacity:0; } }
+@keyframes backdrop-arrival { from { opacity:0; } }
+@keyframes intro-write { from { opacity:0; transform:translateY(2px); clip-path:inset(0 100% 0 0); } to { opacity:1; transform:translateY(0); clip-path:inset(0); } }
+@keyframes intro-wave { 0%,20%,100% { transform:translateY(0); } 10% { transform:translateY(-.22em); } }
+@keyframes home-arrival { from { transform:translate3d(0,100vh,0); } to { transform:translate3d(0,0,0); } }
+@keyframes language-arrival { from { transform:translate3d(130%,0,0) rotate(-7deg); } to { transform:translate3d(0,0,0) rotate(0); } }
+@media(prefers-reduced-motion:reduce) {
+  .intro-glyph { opacity:1; animation:none !important; }
+  html.boot-entering .home-intro { animation:none; display:none; }
+  html.boot-entering :is(.page-panel-about,.language-toggle,.home-arrival-outline) { animation:none; }
+}

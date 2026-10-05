@@ -1,0 +1,60 @@
+/* The B wipe uses the sheet's curve, without filters or RAF loops. */
+.project-background-moving {
+  transition:clip-path 760ms cubic-bezier(.18,.82,.16,1);
+}
+.project-parent-preview {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.project-layer-backdrop { z-index: 0; }
+.project-parent-preview { z-index: 1; overflow: hidden; }
+.project-layer.has-project-parent .project-parent-preview {
+  visibility: visible;
+}
+.project-layer.is-parent-hidden .project-parent-preview { visibility:hidden; }
+.project-scroller { z-index: 3; }
+/* This copy has no dialog role and contains no video/audio/iframe elements. */
+.project-parent-preview .project-parent-paper {
+  transform: translateY(var(--project-parent-offset,0px)) !important;
+  will-change: auto;
+}
+.project-parent-preview .project-parent-paper,
+.project-parent-preview .project-parent-paper * {
+  animation: none !important;
+  transition: none !important;
+}
+.project-frozen-media { background: #111 center / cover no-repeat; }
+.project-layer.is-open.is-switching-project .project-scroller {
+  transform: translate3d(0,104vh,0);
+  transition: none;
+}
+.project-layer.is-open.is-returning-to-parent .project-scroller {
+  transform: translate3d(0,104vh,0);
+}
+.project-layer.is-open.is-restoring-parent .project-scroller { transition: none; }
+.project-layer.is-closing-from-parent .project-parent-preview {
+  transform: translate3d(0,104vh,0);
+  transition: transform 760ms cubic-bezier(.18,.82,.16,1);
+}
+.project-layer:not([data-runtime="idle"]) .project-sheet,
+.project-layer:not([data-runtime="idle"]) .project-sheet *,
+.project-layer:not([data-runtime="idle"]) .project-sheet *::before,
+.project-layer:not([data-runtime="idle"]) .project-sheet *::after,
+.project-layer[data-runtime-visibility="hidden"] .project-sheet,
+.project-layer[data-runtime-visibility="hidden"] .project-sheet *,
+.project-layer[data-runtime-visibility="hidden"] .project-sheet *::before,
+.project-layer[data-runtime-visibility="hidden"] .project-sheet *::after,
+.project-layer .project-sheet .project-chapter:not([data-runtime-visible]),
+.project-layer .project-sheet .project-chapter:not([data-runtime-visible]) *,
+.project-layer .project-sheet .project-chapter:not([data-runtime-visible]) *::before,
+.project-layer .project-sheet .project-chapter:not([data-runtime-visible]) *::after,
+.project-layer .project-sheet .project-chapter:not([data-runtime-visible])::before,
+.project-layer .project-sheet .project-chapter:not([data-runtime-visible])::after {
+  animation-play-state: paused !important;
+}
+@media(prefers-reduced-motion:reduce) {
+  .project-background-moving { transition:none; }
+  .project-sheet,.project-sheet *,.project-sheet *::before,.project-sheet *::after { animation-play-state:paused !important; }
+}

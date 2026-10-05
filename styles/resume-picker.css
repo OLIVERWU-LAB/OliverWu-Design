@@ -1,0 +1,175 @@
+@property --resume-fold {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+.resume-picker {
+  --resume-fold: 0px;
+  width: min(520px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  color: #111;
+  transition: --resume-fold 380ms cubic-bezier(.22, .78, .2, 1);
+}
+
+.resume-picker:has(.resume-picker-close:hover),
+.resume-picker:has(.resume-picker-close:focus-visible) { --resume-fold: 52px; }
+
+.resume-picker,
+.resume-picker * { cursor: none !important; }
+
+.resume-picker::backdrop {
+  background: rgba(17, 17, 17, .52);
+  backdrop-filter: blur(3px);
+  cursor: none;
+}
+
+.resume-picker-paper {
+  position: relative;
+  filter:
+    drop-shadow(0 18px 32px rgba(19, 19, 19, .14))
+    drop-shadow(0 4px 10px rgba(19, 19, 19, .08));
+}
+
+.resume-picker-surface {
+  position: relative;
+  max-height: calc(100dvh - 32px);
+  padding: 54px 36px 42px;
+  overflow-y: auto;
+  background:
+    linear-gradient(180deg, rgba(255, 191, 157, .88), rgba(255, 200, 183, .35) 58%, transparent) top / 100% 155px no-repeat,
+    repeating-linear-gradient(0deg, transparent 0 32px, rgba(17, 17, 17, .045) 32px 33px),
+    #fafaf8;
+  clip-path: polygon(0 0, calc(100% - var(--resume-fold)) 0, 100% var(--resume-fold), 100% 100%, 0 100%);
+}
+
+.resume-picker-noise {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .82;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.resume-picker-paper::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: var(--resume-fold);
+  height: var(--resume-fold);
+  content: "";
+  background: linear-gradient(45deg, #fff 50%, transparent 50%);
+  filter: drop-shadow(-2px 4px 3px rgba(0, 0, 0, .20));
+  pointer-events: none;
+}
+
+.resume-picker h2 {
+  position: relative;
+  z-index: 2;
+  max-width: calc(100% - 50px);
+  margin: 0 0 35px;
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.18;
+}
+
+html[lang="zh-CN"] .resume-picker h2 {
+  font-weight: 400;
+  letter-spacing: .035em;
+}
+
+.resume-picker-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  display: block;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #111;
+  font-family: Arial, sans-serif;
+  outline: 0;
+}
+
+.resume-picker-close > span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.resume-picker-options {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 18px;
+}
+
+.resume-picker-option {
+  display: flex;
+  width: 100%;
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 0 17px;
+  border: 0;
+  border-radius: 0;
+  background: #090909;
+  color: #fff;
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: .02em;
+  line-height: 1.25;
+  text-align: left;
+  text-decoration: none;
+  appearance: none;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.resume-picker-option > span:last-child {
+  flex: none;
+  font-family: var(--display);
+  font-size: 14px;
+  letter-spacing: .02em;
+  line-height: 1;
+}
+
+.resume-picker-option:hover,
+.resume-picker-option:focus-visible {
+  background: var(--accent-hover-orange);
+  color: #090909;
+  outline: 1px solid #090909;
+}
+
+@media (max-width: 560px) {
+  .resume-picker-surface { padding: 52px 24px 34px; }
+  .resume-picker h2 { font-size: 25px; }
+  .resume-picker h2 { margin-bottom: 28px; }
+  .resume-picker-option { min-height: 55px; font-size: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-picker { transition: none; }
+}

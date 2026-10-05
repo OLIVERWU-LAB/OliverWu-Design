@@ -1,0 +1,1624 @@
+/* SHOW-E-MOTIONS — fixed 1280px editorial canvas, scaled as one composition. */
+.case-card[data-project-id="show-e-motions"] .project-cover-16,
+.project-cover-16 {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03), transparent 45%),
+    url("../../assets/projects/show-e-motions/web/cover-webp-web.webp?v=20260910-46") center / cover no-repeat;
+  filter: none;
+}
+
+.project-sheet[data-project-id="show-e-motions"] {
+  --show-paper: #f3f2ec;
+  --show-ink: #171717;
+  --show-muted: #6d6b68;
+  --show-blue: #3158ff;
+  --show-red: #3158ff;
+  --show-line: rgba(23, 23, 23, 0.28);
+  width: 1280px;
+  max-width: none;
+  background: var(--show-paper);
+  color: var(--show-ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-sheet-hero {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 2 / 1;
+  min-height: 0;
+  background: #101010;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-sheet-cover {
+  background-position: center;
+  background-size: cover;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-sheet-hero::after {
+  position: absolute;
+  z-index: 3;
+  inset: 42% 0 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.16) 38%,
+    rgba(0, 0, 0, 0.72) 100%
+  );
+  content: "";
+  pointer-events: none;
+}
+
+/* Keep the live project title in the cover, matching the shared case-study
+   opening contract. The artwork remains an unchanged image layer beneath it. */
+.project-sheet[data-project-id="show-e-motions"] .project-cover-title-overlay {
+  --project-cover-title-gap: 12px;
+  position: absolute;
+  z-index: 4;
+  right: 80px;
+  bottom: 32px;
+  left: 80px;
+  display: grid;
+  justify-items: center;
+  gap: var(--project-cover-title-gap);
+  color: #f7f4ed;
+  text-align: center;
+  pointer-events: none;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-cover-title-overlay h2 {
+  width: auto;
+  max-width: 22ch;
+  margin: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  font-family: var(--project-template-display-font);
+  font-size: var(--project-template-title-size);
+  font-weight: 800;
+  letter-spacing: 0.012em;
+  line-height: 0.96;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.42);
+  white-space: nowrap;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-cover-title-overlay p {
+  width: min(72ch, 84%);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  color: rgba(247, 244, 237, 0.92);
+  font-family: var(--project-template-display-font);
+  font-size: var(--project-template-subtitle-size);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-title-decoration,
+.project-sheet[data-project-id="show-e-motions"] .project-intro::after,
+.project-sheet[data-project-id="show-e-motions"] .project-introduction::before,
+.project-sheet[data-project-id="show-e-motions"] .project-chapter > header::before,
+.project-sheet[data-project-id="show-e-motions"] .project-chapter > header::after,
+.project-sheet[data-project-id="show-e-motions"] .project-content-block::before {
+  display: none !important;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-intro,
+.project-sheet[data-project-id="show-e-motions"] .project-chapters,
+.project-sheet[data-project-id="show-e-motions"] .project-chapter,
+.project-sheet[data-project-id="show-e-motions"] .project-content-blocks,
+.project-sheet[data-project-id="show-e-motions"] .project-content-block,
+.project-sheet[data-project-id="show-e-motions"] .project-sheet-footer {
+  width: 1280px;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-intro {
+  /* The full-width facts table must not enlarge a padded grid track. */
+  display: block;
+  padding: 0;
+  background: var(--show-paper);
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-tag-register,
+.project-sheet[data-project-id="show-e-motions"] .project-introduction {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-tag-register {
+  margin-top: 0;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-tags li {
+  padding: 7px 11px 6px;
+  border: 1px solid var(--show-ink);
+  border-radius: 100px;
+  color: var(--show-ink);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-introduction {
+  margin-top: 0;
+  padding-bottom: 76px;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-introduction > p {
+  width: 860px;
+  max-width: none;
+  margin: 0;
+  color: var(--show-ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-facts {
+  position: relative;
+  left: 0;
+  display: grid;
+  grid-template-columns: 380px 560px 196px;
+  width: 1280px;
+  margin: 0;
+  border-top: var(--project-hairline, 1px) solid var(--show-line);
+  border-bottom: var(--project-hairline, 1px) solid var(--show-line);
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-fact {
+  min-height: 170px;
+  padding: 28px 28px 30px;
+  border-right: var(--project-hairline, 1px) solid var(--show-line);
+  color: var(--show-ink);
+}
+
+.project-sheet[data-project-id="show-e-motions"]
+  .project-facts > .project-fact:not([hidden]):not(:has(~ .project-fact:not([hidden]))) {
+  border-right: 0 !important;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-fact > span {
+  color: var(--show-blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-fact li,
+.project-sheet[data-project-id="show-e-motions"] .project-fact strong,
+.project-sheet[data-project-id="show-e-motions"] .project-partner-list strong {
+  color: var(--show-ink);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-partner-list {
+  align-items: flex-start;
+  gap: 0;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-partner-copy {
+  display: grid;
+  min-height: 0;
+  align-content: start;
+  row-gap: 0.4em;
+  border: 0;
+  padding: 0;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-partner-copy > span {
+  color: var(--show-muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.35;
+  white-space: pre-line;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapters {
+  background: var(--show-paper);
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar {
+  display: flex;
+  align-items: flex-end;
+  min-height: 200px;
+  margin: 0;
+  padding: 96px 72px 16px;
+  border: 0;
+  background: var(--show-paper);
+  box-shadow: none;
+  color: var(--show-ink);
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-title-surface {
+  display: block;
+  width: 980px;
+  min-height: 0 !important;
+  margin: 0 auto;
+  padding: 0;
+  border: 0 !important;
+  background: none;
+  color: inherit;
+  font-family: var(--project-template-display-font);
+  font-size: 62px;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter {
+  padding: 0;
+  background: var(--show-paper);
+  color: var(--show-ink);
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter > header {
+  width: 980px;
+  margin: 0 auto;
+  padding: 0 0 54px;
+  background: transparent;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter > header p {
+  width: 780px;
+  max-width: none;
+  margin: 0;
+  color: inherit;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter > figure:not(.project-content-block) {
+  display: none;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-blocks {
+  display: grid;
+  gap: 0;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-block {
+  margin: 0;
+  padding: 42px 72px 104px;
+  background: transparent;
+  color: inherit;
+  transform: none;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-block[data-layout="wide"] {
+  padding-right: 150px;
+  padding-left: 150px;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-block[data-layout="narrow"] {
+  padding-right: 260px;
+  padding-left: 260px;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-block img,
+.project-sheet[data-project-id="show-e-motions"] .project-content-block video,
+.project-sheet[data-project-id="show-e-motions"] .project-content-video-frame {
+  display: block;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-copy {
+  display: grid;
+  grid-template-columns: 0.72fr 1fr;
+  gap: 54px;
+  width: 100%;
+  margin: 30px 0 0;
+  padding: 0;
+  color: inherit;
+  text-align: left;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-copy h4 {
+  margin: 0;
+  color: inherit;
+  font-family: var(--project-template-display-font);
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: var(--project-display-tracking);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-copy p {
+  margin: 0;
+  color: inherit;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-copy > span {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  padding-top: 13px;
+  border-top: 1px solid currentColor;
+  color: inherit;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-stage {
+  display: block;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-stage > img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-duo {
+  display: block;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-duo-media {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-duo-media img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-video {
+  display: block;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-video-frame {
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-video-caption {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid currentColor;
+  color: inherit;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-triptych {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-triptych article {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  align-content: start;
+  column-gap: 8px;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-triptych video {
+  grid-column: 1 / -1;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 16px;
+  background: #0c0c0c;
+  object-fit: cover;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-triptych span {
+  grid-row: 2 / 4;
+  color: var(--show-blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-triptych strong {
+  color: inherit;
+  font-size: 18px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-triptych p {
+  margin: 8px 0 0;
+  color: inherit;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system ol {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  list-style: none;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li {
+  position: relative;
+  min-height: 218px;
+  padding: 24px 18px 28px;
+  border-left: 1px solid currentColor;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li:first-child {
+  border-left: 0;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li:not(:last-child)::after {
+  position: absolute;
+  right: -8px;
+  bottom: 26px;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  clip-path: polygon(0 45%, 66% 45%, 66% 0, 100% 50%, 66% 100%, 66% 55%, 0 55%);
+  content: "";
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system span {
+  display: block;
+  margin-bottom: 64px;
+  color: var(--show-red);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system p {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-text .project-content-copy {
+  display: block;
+  margin: 0;
+  padding: 56px 0 0;
+  border-top: 1px solid currentColor;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-text .project-content-copy h4 {
+  max-width: 660px;
+  margin-bottom: 30px;
+  font-size: 44px;
+  line-height: 0.98;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-text .project-content-copy p {
+  max-width: 650px;
+  font-size: 19px;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-text .project-content-copy > span {
+  display: block;
+  margin-top: 54px;
+}
+
+/* Dark chapters are complete fields, not separate gradients. */
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"],
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"],
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter,
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter {
+  background: #111;
+  color: #f4f3ed;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter .project-content-blocks,
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter .project-content-block,
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter .project-content-blocks,
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter .project-content-block {
+  background: #111 !important;
+  color: #f4f3ed !important;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"] {
+  background:
+    radial-gradient(circle at 88% 22%, rgba(49, 88, 255, 0.28), transparent 28%),
+    #111;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"] {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(255, 64, 86, 0.22), transparent 27%),
+    #111;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-stage[data-variant="show-final-board"],
+.project-sheet[data-project-id="show-e-motions"] .project-content-stage[data-variant="show-moving-board"],
+.project-sheet[data-project-id="show-e-motions"] .project-content-stage[data-variant="show-process-board"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-stage[data-variant="show-final-board"] .project-content-copy,
+.project-sheet[data-project-id="show-e-motions"] .project-content-stage[data-variant="show-moving-board"] .project-content-copy,
+.project-sheet[data-project-id="show-e-motions"] .project-content-stage[data-variant="show-process-board"] .project-content-copy {
+  width: 980px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-stage[data-variant="show-system-plan"] > img {
+  background: #fff;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-text[data-variant="show-closing-question"] {
+  padding-top: 74px;
+  padding-bottom: 144px;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-text[data-variant="show-closing-question"] .project-content-copy h4 {
+  color: var(--show-red);
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-sheet-footer {
+  display: flex;
+  min-height: 112px;
+  padding: 30px 72px;
+  border-top: 1px solid var(--show-line);
+  background: var(--show-paper);
+  color: var(--show-ink);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-sheet-footer button,
+.project-sheet[data-project-id="show-e-motions"] .project-sheet-footer > span {
+  color: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  opacity: 1;
+}
+
+/* One centred axis, one background and one reading rhythm. */
+.project-sheet[data-project-id="show-e-motions"] .project-sheet-heading {
+  display: none;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-tags {
+  justify-content: center;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-introduction > p {
+  width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: left !important;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar {
+  display: grid;
+  min-height: 210px;
+  align-content: end;
+  justify-items: center;
+  gap: 14px;
+  padding: 78px 150px 20px;
+  border-top: 0;
+  border-bottom: 0;
+  background: var(--show-paper) !important;
+  color: var(--show-ink) !important;
+  text-align: center;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar::before {
+  display: block;
+  color: var(--show-blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="0"]::before {
+  content: var(--copy-final-work, "01 / FINAL WORK");
+}
+
+/* The facts table owns this shared boundary; the first chapter must not draw
+   a second line directly on top of it. */
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="0"] {
+  border-top: 0;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"]::before {
+  content: var(--copy-moving-image, "02 / MOVING IMAGE");
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="2"]::before {
+  content: var(--copy-research, "03 / RESEARCH");
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"]::before {
+  content: var(--copy-system, "04 / SYSTEM");
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="4"]::before {
+  color: var(--show-red);
+  content: var(--copy-making, "05 / MAKING & REFLECTION");
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-title-surface {
+  width: 980px;
+  margin: 0;
+  font-size: 54px;
+  letter-spacing: var(--project-display-tracking);
+  text-align: center;
+  white-space: normal;
+  text-wrap: balance;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter,
+.project-sheet[data-project-id="show-e-motions"] .project-content-blocks,
+.project-sheet[data-project-id="show-e-motions"] .project-content-block {
+  background: var(--show-paper) !important;
+  color: var(--show-ink) !important;
+}
+
+.project-sheet[data-project-id="show-e-motions"]
+  .project-chapter-titlebar[data-project-section-title]
+  + .project-chapter .project-content-blocks,
+.project-sheet[data-project-id="show-e-motions"]
+  .project-chapter-titlebar[data-project-section-title]
+  + .project-chapter .project-content-block {
+  background: var(--show-paper) !important;
+  color: var(--show-ink) !important;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter > header {
+  width: 980px;
+  padding: 0 0 72px;
+  text-align: center;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter > header p {
+  width: 780px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-block,
+.project-sheet[data-project-id="show-e-motions"] .project-content-block[data-layout="full"],
+.project-sheet[data-project-id="show-e-motions"] .project-content-block[data-layout="wide"] {
+  padding: 42px 150px 112px;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-block[data-layout="narrow"] {
+  padding-right: 260px;
+  padding-left: 260px;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-stage[data-variant="show-final-board"],
+.project-sheet[data-project-id="show-e-motions"] .project-content-stage[data-variant="show-moving-board"],
+.project-sheet[data-project-id="show-e-motions"] .project-content-stage[data-variant="show-process-board"] {
+  padding-right: 150px !important;
+  padding-left: 150px !important;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-copy {
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 48px;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-stage[data-variant="show-final-board"] .project-content-copy,
+.project-sheet[data-project-id="show-e-motions"] .project-content-stage[data-variant="show-moving-board"] .project-content-copy,
+.project-sheet[data-project-id="show-e-motions"] .project-content-stage[data-variant="show-process-board"] .project-content-copy {
+  width: 100%;
+}
+
+/* Individually exported media; all headings and captions remain HTML. */
+.project-sheet[data-project-id="show-e-motions"] .project-show-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 24px;
+  width: 100%;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-gallery-item {
+  display: block;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-gallery-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #e8e7e1;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-gallery-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  object-fit: cover;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-gallery-item figcaption {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 18px 0 0;
+  border: 0;
+  background: none;
+  color: var(--show-ink);
+  text-align: left;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-gallery-item figcaption strong {
+  font-family: var(--project-template-display-font);
+  font-size: 12px;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-gallery-item figcaption span {
+  max-width: 42ch;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.project-sheet[data-project-id="show-e-motions"] [data-variant="show-outcome-details"] .project-show-gallery-media {
+  aspect-ratio: 4 / 5;
+}
+
+.project-sheet[data-project-id="show-e-motions"] :is([data-variant="show-motion-studies"], [data-variant="show-nature-references"], [data-variant="show-dye-sequence"]) .project-show-gallery {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project-sheet[data-project-id="show-e-motions"] [data-variant="show-motion-studies"] .project-show-gallery-media {
+  aspect-ratio: 16 / 9;
+}
+
+.project-sheet[data-project-id="show-e-motions"] [data-variant="show-dye-sequence"] .project-show-gallery-media {
+  aspect-ratio: 3 / 4;
+}
+
+.project-sheet[data-project-id="show-e-motions"] :is([data-variant="show-garment-development"], [data-variant="show-nature-references"]) .project-show-gallery-media {
+  background: #fff;
+}
+
+.project-sheet[data-project-id="show-e-motions"] :is([data-variant="show-garment-development"], [data-variant="show-nature-references"], [data-variant="show-system-evidence"]) .project-show-gallery-media img {
+  object-fit: contain;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-gallery-media.has-comparison {
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 12px;
+  box-sizing: border-box;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-gallery-media.has-comparison img {
+  height: calc(50% - 8px);
+}
+
+.project-sheet[data-project-id="show-e-motions"] [data-variant="show-system-evidence"] .project-show-gallery-media {
+  aspect-ratio: 1 / 1.12;
+  background: #202428;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-content-show-gallery > .project-content-copy {
+  margin-top: 44px;
+}
+
+/* Chapter descriptions share the same left edge as the editorial content. */
+.project-sheet[data-project-id="show-e-motions"] .project-chapter > header p {
+  width: 780px;
+  margin-right: auto;
+  margin-left: 0;
+  text-align: left;
+}
+
+/* Quiet surface changes separate chapters without turning them into cards. */
+.project-sheet[data-project-id="show-e-motions"] .project-chapter,
+.project-sheet[data-project-id="show-e-motions"] .project-chapter .project-content-blocks,
+.project-sheet[data-project-id="show-e-motions"] .project-chapter .project-content-block {
+  background: var(--show-section-surface, var(--show-paper)) !important;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="0"],
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="0"] + .project-chapter {
+  --show-section-surface: #f3f2ec;
+  background: var(--show-section-surface) !important;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"],
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter {
+  --show-section-surface: #edf0f6;
+  background: var(--show-section-surface) !important;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="2"],
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter {
+  --show-section-surface: #f2f1ea;
+  background: var(--show-section-surface) !important;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"],
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter {
+  --show-section-surface: #eceff1;
+  background: var(--show-section-surface) !important;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="4"],
+.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="4"] + .project-chapter {
+  --show-section-surface: #f4efed;
+  background: var(--show-section-surface) !important;
+}
+
+/* A continuous signal rail replaces the earlier boxed flow and heavy arrows. */
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system ol {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  overflow: hidden;
+  margin: 0;
+  padding: 0 28px;
+  border: 0;
+  background: #171a22;
+  color: #f4f3ed;
+  list-style: none;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system ol::before {
+  position: absolute;
+  top: 68px;
+  right: calc(8.333% + 28px);
+  left: calc(8.333% + 28px);
+  height: 1px;
+  background: rgba(244, 243, 237, 0.34);
+  content: "";
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li {
+  position: relative;
+  min-height: 210px;
+  padding: 100px 20px 30px;
+  border: 0;
+  background: transparent;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li::before {
+  position: absolute;
+  top: 62px;
+  left: 50%;
+  z-index: 1;
+  width: 11px;
+  height: 11px;
+  border: 2px solid #171a22;
+  border-radius: 50%;
+  background: var(--show-blue);
+  box-shadow: 0 0 0 1px rgba(244, 243, 237, 0.68);
+  content: "";
+  transform: translateX(-50%);
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li::after {
+  display: none;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system span {
+  position: absolute;
+  top: 27px;
+  right: 20px;
+  left: 20px;
+  margin: 0;
+  color: var(--show-red);
+  font-size: 10px;
+  text-align: center;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system strong {
+  margin-bottom: 13px;
+  color: #f4f3ed;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system p {
+  color: rgba(244, 243, 237, 0.74);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Final hierarchy: the cover title remains dominant; section titles sit below it. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-title-surface {
+  width: 980px;
+  font-size: 32px;
+  line-height: 0.98;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter > header {
+  width: 980px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 0 72px;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter > header p {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.58;
+  text-align: left;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-introduction > p {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] :is(
+  .project-content-copy p,
+  .project-show-gallery-item figcaption span,
+  .project-show-emotions-triptych p,
+  .project-show-emotions-system p
+) {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Each surface continues through the complete chapter: heading, copy and media. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="0"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="0"] + .project-chapter {
+  --show-section-surface: #f3f2ec;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter {
+  --show-section-surface: #e8ecf4;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="2"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter {
+  --show-section-surface: #f2efe5;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter {
+  --show-section-surface: #e7eceb;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="4"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="4"] + .project-chapter {
+  --show-section-surface: #f2e8e7;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter .project-content-blocks,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter .project-content-block {
+  background: var(--show-section-surface, var(--show-paper)) !important;
+}
+
+/* Each visual state is one column containing its two related frames. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] [data-variant="show-motion-studies"] .project-show-gallery {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] [data-variant="show-motion-studies"] .project-show-gallery-media {
+  aspect-ratio: 8 / 9;
+  gap: 12px;
+  padding: 0;
+  background: transparent;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] [data-variant="show-motion-studies"] .project-show-gallery-media img {
+  width: 100%;
+  height: calc(50% - 6px);
+  object-fit: cover;
+}
+
+/* Older chapter-specific rules were more specific, so bind each colour to
+   the title and every descendant of its matching chapter explicitly. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="0"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="0"] + .project-chapter,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="0"] + .project-chapter .project-content-blocks,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="0"] + .project-chapter .project-content-block {
+  background: #f3f2ec !important;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter .project-content-blocks,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter .project-content-block {
+  background: #e8ecf4 !important;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="2"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter .project-content-blocks,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter .project-content-block {
+  background: #f2efe5 !important;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter .project-content-blocks,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter .project-content-block {
+  background: #e7eceb !important;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="4"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="4"] + .project-chapter,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="4"] + .project-chapter .project-content-blocks,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="4"] + .project-chapter .project-content-block {
+  background: #f2e8e7 !important;
+}
+
+/* Compact vertical rhythm after reducing the type hierarchy. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar {
+  min-height: 170px;
+  padding: 58px 150px 14px;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter > header {
+  padding-bottom: 44px;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-block,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-block[data-layout="full"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-block[data-layout="wide"] {
+  padding: 28px 150px 76px;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-block[data-layout="narrow"] {
+  padding: 28px 260px 76px;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-partner-copy > span {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Alternate only the project's warm paper and pure white. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="0"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="0"] + .project-chapter,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="0"] + .project-chapter .project-content-blocks,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="0"] + .project-chapter .project-content-block,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="2"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter .project-content-blocks,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter .project-content-block,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="4"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="4"] + .project-chapter,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="4"] + .project-chapter .project-content-blocks,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="4"] + .project-chapter .project-content-block {
+  --show-section-surface: #f3f2ec;
+  background: #f3f2ec !important;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter .project-content-blocks,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter .project-content-block,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter .project-content-blocks,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter .project-content-block {
+  --show-section-surface: #fff;
+  background: #fff !important;
+}
+
+/* Fill the animal-reference frame without horizontal white bands. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] [data-variant="show-nature-references"] .project-show-gallery-item:nth-child(3) .project-show-gallery-media img {
+  object-fit: cover;
+}
+
+/* Return to six independently captioned frames. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] [data-variant="show-motion-studies"] .project-show-gallery-media {
+  aspect-ratio: 16 / 9;
+  padding: 0;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] [data-variant="show-motion-studies"] .project-show-gallery-media img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Minimal black-and-blue signal diagram with a shared left alignment axis. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system ol {
+  border-top: 1px solid rgba(23, 23, 23, 0.32);
+  border-bottom: 1px solid rgba(23, 23, 23, 0.32);
+  background: #fff;
+  color: var(--show-ink);
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system ol::before {
+  right: calc(16.667% - 1px);
+  left: 48px;
+  background: rgba(23, 23, 23, 0.32);
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li::before {
+  left: 20px;
+  border-color: #fff;
+  background: var(--show-blue);
+  box-shadow: 0 0 0 1px rgba(23, 23, 23, 0.45);
+  transform: translateX(-50%);
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li {
+  padding-right: 8px;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system span {
+  right: auto;
+  left: 20px;
+  color: var(--show-blue);
+  text-align: left;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system strong {
+  color: var(--show-ink);
+  font-family: var(--project-template-display-font);
+  font-size: 11.5px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system p {
+  color: rgba(23, 23, 23, 0.72);
+}
+
+/* One continuous paper stock; slim white breaks behave like journal page breaks. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title],
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter .project-content-blocks,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter .project-content-block {
+  --show-section-surface: #f3f2ec;
+  background: #f3f2ec !important;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title]:not([data-project-section-title="0"]) {
+  border-top: 18px solid #fff;
+}
+
+/* The signal rail is the diagram's first line; no additional upper rule. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-show-emotions-system {
+  padding-top: 0;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter:has(.project-show-emotions-system) > header {
+  padding-bottom: 24px;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system ol {
+  border-top: 0;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system ol::before {
+  top: 48px;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li {
+  min-height: 190px;
+  padding-top: 80px;
+  padding-bottom: 24px;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li::before {
+  top: 42px;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system span {
+  top: 9px;
+}
+
+/* The closing question intentionally regains its warning colour. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-text[data-variant="show-closing-question"] .project-content-copy h4 {
+  color: #ff4056;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter .project-content-blocks,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter .project-content-block,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter .project-content-blocks,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter .project-content-block {
+  --show-section-surface: #f3f2ec;
+  background: #f3f2ec !important;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system ol {
+  background: #f3f2ec;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li::before {
+  border-color: #f3f2ec;
+}
+
+/* A narrow top-edge shadow makes every chapter read as a new sheet of paper. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title] {
+  box-shadow: none;
+}
+
+/* The previous yellow sheet casts into the white break beneath its bottom edge. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter:not(:last-child) {
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  box-shadow: 0 12px 12px -14px rgba(23, 23, 23, 0.48);
+}
+
+/* The final making plate and the closing reflection share one chapter in the
+   document structure, so this plate needs to cast its own paper-edge shadow. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"]
+  [data-variant="show-test-sequence"] {
+  position: relative;
+  z-index: 3;
+  overflow: visible;
+  box-shadow: 0 14px 14px -10px rgba(23, 23, 23, 0.48);
+}
+
+/* The closing question is a separate conclusion sheet inside the final chapter. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-text[data-variant="show-closing-question"] {
+  position: relative;
+  margin-top: 18px;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-text[data-variant="show-closing-question"]::before {
+  position: absolute;
+  top: -18px;
+  right: 0;
+  left: 0;
+  display: block !important;
+  height: 18px;
+  background:
+    linear-gradient(180deg, rgba(23, 23, 23, 0.18), transparent 11px),
+    #fff;
+  content: "";
+}
+
+/* Closing reflection: a separate paper note over the moving-image field. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-split[data-variant="show-closing-question"] {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: 58px;
+  min-height: 720px;
+  margin-top: 0;
+  border-top: 18px solid #fff !important;
+  padding: 132px 198px 138px !important;
+  overflow: visible;
+  background: url("../../assets/projects/show-e-motions/web/reflection-background.webp?v=20260910-47") center / cover no-repeat !important;
+}
+
+/* The fifth chapter normally forces its paper colour onto every child block;
+   the closing field deliberately replaces that one local surface. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"]
+  .project-chapter-titlebar[data-project-section-title="4"]
+  + .project-chapter
+  .project-content-split[data-variant="show-closing-question"] {
+  background: url("../../assets/projects/show-e-motions/web/reflection-background.webp?v=20260910-47") center / cover no-repeat !important;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-split[data-variant="show-closing-question"]::before {
+  position: absolute;
+  z-index: 2;
+  top: -18px;
+  right: 0;
+  left: 0;
+  height: 18px;
+  background:
+    linear-gradient(180deg, rgba(23, 23, 23, 0.26), transparent 12px),
+    #fff;
+  content: "";
+  pointer-events: none;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-split[data-variant="show-closing-question"]::after {
+  position: absolute;
+  z-index: -1;
+  top: 84px;
+  right: 150px;
+  bottom: 90px;
+  left: 150px;
+  background: #fff;
+  box-shadow: 0 12px 34px rgba(23, 23, 23, 0.14);
+  content: "";
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-split[data-variant="show-closing-question"] > img {
+  width: 100%;
+  height: 390px;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-split[data-variant="show-closing-question"] .project-content-copy {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 22px;
+  margin: 0;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-split[data-variant="show-closing-question"] .project-content-copy h4 {
+  max-width: 12ch;
+  color: #ff4056;
+  font-size: 34px;
+  letter-spacing: 0.025em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-split[data-variant="show-closing-question"] .project-content-copy p {
+  font-size: 16px;
+  line-height: 1.58;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-split[data-variant="show-closing-question"] .project-content-copy > span {
+  margin-top: 4px;
+  padding-top: 0;
+  border-top: 0;
+  color: var(--show-blue);
+  line-height: 1.35;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] [data-variant="show-test-sequence"] .project-content-copy > span {
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* Final paper rhythm: adjoining chapters share one warm stock. The preceding
+   chapter keeps its lower-edge shadow, but no white spacer is inserted. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-chapter-titlebar[data-project-section-title]:not([data-project-section-title="0"]) {
+  border-top: 0;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-split[data-variant="show-closing-question"] {
+  border-top: 0 !important;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-split[data-variant="show-closing-question"]::before,
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-content-text[data-variant="show-closing-question"]::before {
+  display: none !important;
+}
+
+/* Display faces are fully black; serif reading copy sits one level quieter. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] :is(
+  .project-chapter-title-surface,
+  .project-content-copy h4,
+  .project-show-gallery-item figcaption strong,
+  .project-show-emotions-triptych strong,
+  .project-show-emotions-system strong
+) {
+  color: #000 !important;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] :is(
+  .project-introduction > p,
+  .project-chapter > header p,
+  .project-content-copy p,
+  .project-show-gallery-item figcaption span,
+  .project-show-emotions-triptych p,
+  .project-show-emotions-system p,
+  .project-partner-copy > span
+) {
+  color: rgba(0, 0, 0, 0.78) !important;
+}
+
+/* Six equal stages span the complete 980px editorial rail. Numbers and nodes
+   share an axis with each column's copy; the first copy starts on the left
+   boundary and the sixth column finishes on the right boundary. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system ol {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  width: 100%;
+  overflow: visible;
+  padding: 0;
+  border: 0;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system ol::before {
+  top: 48px;
+  right: calc(16.666667% - 8px);
+  left: 8px;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li {
+  min-width: 0;
+  min-height: 190px;
+  padding: 80px 16px 24px 0;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li:last-child {
+  padding-right: 0;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system span {
+  top: 9px;
+  right: auto;
+  left: 0;
+  width: 16px;
+  text-align: center;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li::before {
+  top: 42px;
+  left: 8px;
+  border-color: var(--show-paper);
+  box-shadow: 0 0 0 2px rgba(49, 88, 255, 0.24);
+  transform: translateX(-50%);
+  animation: show-emotions-node-breathe 2.8s ease-in-out infinite;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li:nth-child(2n)::before {
+  animation-delay: -0.7s;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li:nth-child(3n)::before {
+  animation-delay: -1.4s;
+}
+
+@keyframes show-emotions-node-breathe {
+  0%,
+  100% {
+    box-shadow: 0 0 0 2px rgba(49, 88, 255, 0.26);
+    transform: translateX(-50%) scale(1);
+  }
+
+  50% {
+    box-shadow: 0 0 0 7px rgba(49, 88, 255, 0);
+    transform: translateX(-50%) scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-sheet.project-sheet[data-project-id="show-e-motions"] .project-show-emotions-system li::before {
+    animation: none;
+  }
+}
+
+/* Chapter openings read as fresh sheets without reintroducing the former
+   white spacer: white at the top settles into the shared warm paper by the
+   point the chapter title begins. The preceding sheet's edge shadow remains
+   visible over this lighter entry field. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"]
+  .project-chapter-titlebar[data-project-section-title] {
+  --show-section-surface: #f3f2ec;
+  background: linear-gradient(
+    180deg,
+    #fff 0%,
+    #fbfaf7 28%,
+    #f3f2ec 72%,
+    #f3f2ec 100%
+  ) !important;
+}
+
+/* Captions use one quiet academic register: a fine pale rule with a matching
+   low-contrast label. Restore that register on the final prototyping plate,
+   which previously removed its rule locally. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"]
+  .project-content-copy > span,
+.project-sheet.project-sheet[data-project-id="show-e-motions"]
+  .project-content-video-caption {
+  color: rgba(0, 0, 0, 0.46) !important;
+  border-top-color: rgba(0, 0, 0, 0.46) !important;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"]
+  [data-variant="show-test-sequence"] .project-content-copy > span {
+  padding-top: 13px;
+  border-top: 1px solid rgba(0, 0, 0, 0.46);
+}
+
+/* A longer paper fade gives every chapter a clearer opening field. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"]
+  .project-chapter-titlebar[data-project-section-title] {
+  min-height: 170px;
+  background: linear-gradient(
+    180deg,
+    #fff 0%,
+    #fbfaf7 54%,
+    #f8f7f2 100%
+  ) !important;
+}
+
+/* Continue the same fade through the opening of the chapter copy. This makes
+   the colour transition roughly twice as tall without moving the kicker,
+   title or description from their established positions. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"]
+  .project-chapter-titlebar[data-project-section-title]
+  + .project-chapter {
+  background: linear-gradient(
+    180deg,
+    #f8f7f2 0,
+    #f3f2ec 150px,
+    #f3f2ec 100%
+  ) !important;
+}
+
+/* The continuous rule reads optically darker than small type at the same
+   numeric alpha, so its lower alpha balances both into one quiet grey. */
+.project-sheet.project-sheet[data-project-id="show-e-motions"]
+  .project-content-copy > span,
+.project-sheet.project-sheet[data-project-id="show-e-motions"]
+  .project-content-video-caption {
+  color: rgba(0, 0, 0, 0.32) !important;
+  border-top-color: rgba(0, 0, 0, 0.24) !important;
+}
+
+.project-sheet.project-sheet[data-project-id="show-e-motions"]
+  [data-variant="show-test-sequence"] .project-content-copy > span {
+  border-top-color: rgba(0, 0, 0, 0.24);
+}

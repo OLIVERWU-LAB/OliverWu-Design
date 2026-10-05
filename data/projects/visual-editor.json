@@ -1,0 +1,385 @@
+{
+  "id": "visual-editor",
+  "title": "Skill: Visual Editor",
+  "subtitle": "A Figma-like Editor for Pages Built with AI Coding Agents",
+  "backgroundColor": "#f5f4f1",
+  "summary": "A skill for AI coding agents: a Figma-like inspector that runs inside your page. Adjust it by hand, save real CSS.",
+  "body": "When a page is built by talking to an AI coding agent, every change has to go through a text prompt — yet position, size and spacing are exactly what is hardest to put into words, and prose doesn't follow a designer's way of judging layout. Visual Editor is a skill that fills that gap: it installs a Figma-like inspector inside the page itself, so you drag, resize, retype and restyle live, then save real CSS in the units the author wrote. It loads only when the URL carries ?edit=1, so the shipped page is never touched.",
+  "company": "Individual Project (Open Source)",
+  "companyLabel": "PROJECT CONTEXT",
+  "year": "2026",
+  "yearLabel": "PROJECT YEAR",
+  "roles": [
+    "Product Design",
+    "Interaction Design",
+    "Prototyping"
+  ],
+  "partners": [
+    {
+      "name": "Individual Project (Open Source)"
+    }
+  ],
+  "tags": [
+    "AI Tooling",
+    "Design Tools",
+    "Interaction Design",
+    "Web"
+  ],
+  "cover": {
+    "ratio": "16 / 9",
+    "designWidth": 1920,
+    "background": "assets/projects/visual-editor/cover-background-jpg-web.webp",
+    "layers": [
+      {
+        "src": "assets/projects/visual-editor/cover-background-jpg-web.webp",
+        "kind": "base",
+        "parallax": 0,
+        "parallaxLimit": 0
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 5,
+  "sections": [
+    {
+      "title": "“Drag it,\nDon't describe it.”",
+      "body": "A Figma-like inspector that runs inside your page. Adjust it by hand, save real CSS.",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "ve-cta",
+          "label": "Try it live",
+          "href": "assets/projects/visual-editor/playground/index.html?edit=1",
+          "github": "https://github.com/OLIVERWU-LAB/visual-editor-skill"
+        }
+      ]
+    },
+    {
+      "title": "The Problem",
+      "body": "AI writes the page in one prompt. Then you spend an hour on the last 20%.",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "ve-bar",
+          "fast": "0 → 80%",
+          "slow": "80 → 100%",
+          "fastLabel": "one prompt",
+          "slowLabel": "dozens of prompts"
+        },
+        {
+          "type": "ve-loops",
+          "items": [
+            {
+              "tone": "bad",
+              "kicker": "Prompt loop",
+              "cost": "~8 min each",
+              "steps": [
+                "Describe the change in words",
+                "Agent interprets it",
+                "Rebuild",
+                "Reload and look",
+                "Still off — describe again"
+              ],
+              "foot": "Costs tokens. Loses precision at every hop."
+            },
+            {
+              "tone": "good",
+              "kicker": "Direct loop",
+              "cost": "~5s each",
+              "steps": [
+                "Drag it",
+                "Look",
+                "Judge"
+              ],
+              "foot": "Free. Exact. Then one save writes it all to CSS."
+            }
+          ]
+        },
+        {
+          "type": "ve-cells",
+          "items": [
+            {
+              "num": "01",
+              "title": "Judgement needs a visual loop",
+              "body": "Nobody picks 15px over 16px by reading prose. You nudge, look, judge — and chat breaks that loop."
+            },
+            {
+              "num": "02",
+              "title": "\"A bit left\" isn't a measurement",
+              "body": "A drag says it exactly, in one second, for free. Words need a rebuild."
+            },
+            {
+              "num": "03",
+              "title": "Handoff without translation",
+              "body": "The agent builds it, the designer adjusts it in place. No annotated screenshots."
+            }
+          ]
+        },
+        {
+          "type": "ve-compare",
+          "title": "Three ways to fix the last 20%",
+          "columns": [
+            "Prompt the agent",
+            "Edit the CSS",
+            "Visual Editor"
+          ],
+          "rows": [
+            {
+              "label": "Feedback delay",
+              "cells": [
+                [
+                  "bad",
+                  "30–60s per change"
+                ],
+                [
+                  "ok",
+                  "1–3s, needs a reload"
+                ],
+                [
+                  "good",
+                  "Instant, on the page"
+                ]
+              ]
+            },
+            {
+              "label": "Precision",
+              "cells": [
+                [
+                  "bad",
+                  "Interpreted, varies"
+                ],
+                [
+                  "good",
+                  "Exact"
+                ],
+                [
+                  "good",
+                  "Exact"
+                ]
+              ]
+            },
+            {
+              "label": "Token cost",
+              "cells": [
+                [
+                  "bad",
+                  "Every iteration"
+                ],
+                [
+                  "good",
+                  "None"
+                ],
+                [
+                  "good",
+                  "None"
+                ]
+              ]
+            },
+            {
+              "label": "Needs to write code",
+              "cells": [
+                [
+                  "good",
+                  "No"
+                ],
+                [
+                  "bad",
+                  "Yes"
+                ],
+                [
+                  "good",
+                  "No"
+                ]
+              ]
+            },
+            {
+              "label": "Keeps fluid units",
+              "cells": [
+                [
+                  "ok",
+                  "If you ask nicely"
+                ],
+                [
+                  "good",
+                  "You control it"
+                ],
+                [
+                  "good",
+                  "Always, by design"
+                ]
+              ]
+            },
+            {
+              "label": "Handoff artefact",
+              "cells": [
+                [
+                  "bad",
+                  "A chat log"
+                ],
+                [
+                  "good",
+                  "A commit"
+                ],
+                [
+                  "good",
+                  "A CSS patch"
+                ]
+              ]
+            }
+          ],
+          "note": "Not a replacement for either — it covers the gap between them: the visual pass a designer has to make, without asking them to write code or spend an agent turn on every nudge."
+        }
+      ]
+    },
+    {
+      "title": "Capabilities",
+      "body": "Move, resize, retype, size type, scope, params, images — every edit happens on the page itself.",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "ve-feature",
+          "num": "01",
+          "title": "Point. Grab. Move.",
+          "body": "Click to select, double-click to go deeper, drag to move. Where you drop it is where it goes.",
+          "src": "assets/projects/visual-editor/feature-01-move-mp4-web.mp4",
+          "alt": "Selecting an element and dragging it to a new position"
+        },
+        {
+          "type": "ve-feature",
+          "flip": true,
+          "num": "02",
+          "title": "Eight handles. Resize.",
+          "body": "Every side and corner is a handle. The badge shows real pixels; the CSS stays in `cqw` or `%`.",
+          "src": "assets/projects/visual-editor/feature-02-resize-mp4-web.mp4",
+          "alt": "Resizing an element by dragging its corner handle"
+        },
+        {
+          "type": "ve-feature",
+          "num": "03",
+          "title": "Retype anything.",
+          "body": "Double-click and type. Enter commits, Esc cancels, every keystroke is undoable.",
+          "src": "assets/projects/visual-editor/feature-03-text-mp4-web.mp4",
+          "alt": "Double-clicking a headline and retyping it letter by letter"
+        },
+        {
+          "type": "ve-feature",
+          "flip": true,
+          "num": "04",
+          "title": "Size type by eye.",
+          "body": "Step it until it looks right. A fluid `5.4 cqw` is still `cqw` when you're done.",
+          "src": "assets/projects/visual-editor/feature-04-typesize-mp4-web.mp4",
+          "alt": "Stepping a headline's size up from the Typography panel"
+        },
+        {
+          "type": "ve-feature",
+          "num": "05",
+          "title": "One card, or all seven.",
+          "body": "Seven cards share a selector. Hover **All 7** to see the blast radius, or pick **Only this** — you always know which.",
+          "src": "assets/projects/visual-editor/feature-05-scope-mp4-web.mp4",
+          "alt": "Scope control: editing all seven cards, then only one"
+        },
+        {
+          "type": "ve-feature",
+          "flip": true,
+          "num": "06",
+          "title": "Every param, a real control.",
+          "body": "Gradients, shadows, radius, fill, stroke, spacing — structured editors, not a CSS textarea.",
+          "src": "assets/projects/visual-editor/feature-06-params-mp4-web.mp4",
+          "alt": "Editing gradient angle, adding a drop shadow, and rounding corners"
+        },
+        {
+          "type": "ve-feature",
+          "num": "07",
+          "title": "Swap the artwork.",
+          "body": "One button, your file picker, frame untouched. Works on `<img>` and CSS backgrounds alike.",
+          "src": "assets/projects/visual-editor/feature-07-replace-mp4-web.mp4",
+          "alt": "Replacing an image element with new artwork"
+        },
+        {
+          "type": "ve-feature",
+          "flip": true,
+          "num": "08",
+          "title": "Hide it. Judge the page.",
+          "body": "Toolbar in the way? Click the mark — it shuts to just the logo, red when hidden. Your edits keep working.",
+          "src": "assets/projects/visual-editor/feature-08-drawer-mp4-web.mp4",
+          "alt": "Collapsing the toolbar into its logo and expanding it back"
+        },
+        {
+          "type": "ve-save",
+          "src": "assets/projects/visual-editor/save-export-mp4-web.mp4",
+          "alt": "Opening the Save-as menu and exporting a CSS patch",
+          "items": [
+            {
+              "title": "Save",
+              "kbd": "⌘S",
+              "body": "Writes the batch into your CSS overrides file. The page is just the page again."
+            },
+            {
+              "title": "Export CSS patch",
+              "body": "Only the changes, with merge instructions in the header. A readable diff for review and handoff."
+            },
+            {
+              "title": "Export clean copy",
+              "body": "The whole site, editor stripped out. What you ship."
+            }
+          ],
+          "num": "09",
+          "title": "One save, three shapes.",
+          "body": "Edits pile up as a batch — the count rides on Save."
+        }
+      ]
+    },
+    {
+      "title": "Full Demo",
+      "body": "A complete editing session on a real music console interface.",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "ve-video",
+          "src": "assets/projects/visual-editor/hero-real-session.mp4",
+          "alt": "A complete editing session on a real music console interface"
+        }
+      ]
+    },
+    {
+      "title": "Design Rules",
+      "body": "Four things it refuses to do — then two files and one loader to install it.",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "ve-rules",
+          "items": [
+            {
+              "title": "Look like AI made it.",
+              "body": "No purple gradients, no glass blur. Hairlines, hard colours, square corners."
+            },
+            {
+              "title": "Rank its own controls.",
+              "body": "Peers are equal-width and always there. Unavailable ones grey out in place."
+            },
+            {
+              "title": "Hide state.",
+              "body": "Saved or dirty, open or shut — always visible, never a convention you must learn."
+            },
+            {
+              "title": "Touch the shipped page.",
+              "body": "Without `?edit=1` nothing loads at all."
+            }
+          ]
+        },
+        {
+          "type": "ve-code",
+          "title": "Two files. One loader.",
+          "body": "Ask your agent to add it, or paste this yourself:",
+          "code": "<!-- before </body> — loads only when the URL carries ?edit=1 -->\n<script>\n  if (location.search.indexOf(\"edit=1\") !== -1) {\n    var css = document.createElement(\"link\");\n    css.rel = \"stylesheet\";\n    css.href = \"tools/visual-editor.css?v=18\";\n    document.head.appendChild(css);\n    var js = document.createElement(\"script\");\n    js.src = \"tools/visual-editor.js?v=18\";\n    js.defer = true;\n    document.body.appendChild(js);\n  }\n</script>"
+        },
+        {
+          "type": "ve-cta",
+          "label": "Try it live",
+          "href": "assets/projects/visual-editor/playground/index.html?edit=1",
+          "github": "https://github.com/OLIVERWU-LAB/visual-editor-skill"
+        }
+      ]
+    }
+  ]
+}

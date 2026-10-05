@@ -1,0 +1,14 @@
+/* Collaboration credits reuse External Blood Vessel's small-copy scale. */
+.project-sheet[data-project-id="water-babies"] .project-partner-copy {
+  display: grid;
+  min-height: 0;
+  align-content: start;
+  gap: .4em;
+  border: 0;
+  padding: 0;
+}
+.project-sheet[data-project-id="water-babies"] .project-partner-copy > span {
+  font: 400 10px/1.35 Arial, Helvetica, sans-serif;
+  color: rgba(255,255,255,.62);
+  white-space: pre-line;
+}

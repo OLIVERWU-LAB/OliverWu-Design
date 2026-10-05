@@ -1,0 +1,634 @@
+/* Shared case-study opening contract.
+   Project styles may change colour and typeface, but spacing, scale and the
+   three-column information grid stay consistent. */
+
+.project-sheet {
+  --project-template-display-font: var(--display);
+  --project-template-copy-font: Arial, Helvetica, sans-serif;
+  --project-template-title-size: 44.8px;
+  --project-template-subtitle-size: 14.08px;
+  --project-template-tag-size: 11.52px;
+  --project-template-description-size: 15.5px;
+  --project-template-fact-label-size: 10.24px;
+  --project-template-fact-value-size: 11.52px;
+  --project-context-note-font: 600 7px/1 var(--project-template-copy-font);
+  --project-context-note-tracking: .055em;
+}
+
+/* Information tables are open at the page edges in every visual language.
+   Project-specific colour and column proportions remain untouched. */
+.project-sheet .project-facts {
+  border-right: 0 !important;
+  border-left: 0 !important;
+  border-top-width: var(--project-hairline, 1px) !important;
+  border-bottom-width: var(--project-hairline, 1px) !important;
+}
+
+.project-sheet .project-facts > .project-fact {
+  border-right-width: var(--project-hairline, 1px);
+}
+
+.project-sheet
+  .project-facts > .project-fact:not([hidden]):not(:has(~ .project-fact:not([hidden]))) {
+  border-right: 0 !important;
+}
+
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="show-e-motions"],
+  [data-project-id="tencent-cloud-gaming"]
+)) .project-sheet-hero {
+  overflow: clip;
+}
+
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="show-e-motions"],
+  [data-project-id="tencent-cloud-gaming"]
+)) .project-sheet-hero::after {
+  position: absolute;
+  z-index: 3;
+  inset: 44% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.64));
+  content: "";
+  pointer-events: none;
+}
+
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="show-e-motions"],
+  [data-project-id="tencent-cloud-gaming"]
+)) .project-cover-title-overlay {
+  --project-cover-title-gap: 12px;
+  --project-cover-title-bottom-gap: calc(var(--project-cover-title-gap) * 2);
+  position: sticky;
+  z-index: 4;
+  top: calc(var(--project-canvas-height, 100dvh) - var(--project-cover-title-height, 96px));
+  right: 64px;
+  bottom: auto;
+  left: 64px;
+  display: grid;
+  justify-items: center;
+  gap: var(--project-cover-title-gap);
+  color: #f7f4ed;
+  text-align: center;
+  transform: translateY(calc(-1 * var(--project-cover-title-bottom-gap)));
+  pointer-events: none;
+}
+
+.project-sheet.is-cover-fully-visible:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="show-e-motions"],
+  [data-project-id="tencent-cloud-gaming"]
+)) .project-cover-title-overlay {
+  position: absolute;
+  top: auto;
+  bottom: var(--project-cover-title-bottom-gap);
+  transform: none;
+}
+
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="show-e-motions"],
+  [data-project-id="tencent-cloud-gaming"]
+)) .project-cover-title-overlay h2 {
+  width: auto;
+  max-width: 22ch;
+  margin: 0;
+  padding: 0;
+  background: none;
+  font-size: var(--project-template-title-size);
+  letter-spacing: 0.012em;
+  line-height: 0.96;
+  text-align: center;
+  text-wrap: nowrap;
+  white-space: nowrap;
+}
+
+/* Standard and future projects always inherit the portfolio display face.
+   Authored title treatments keep their own project-level typography. */
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="show-e-motions"],
+  [data-project-id="the-red-dawn"],
+  [data-project-id="tencent-cloud-gaming"]
+)) .project-cover-title-overlay h2 {
+  font-family: var(--project-template-display-font);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="show-e-motions"],
+  [data-project-id="tencent-cloud-gaming"]
+)) .project-cover-title-overlay p {
+  width: min(72ch, 84%);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--project-template-display-font);
+  font-size: var(--project-template-subtitle-size);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="show-e-motions"]
+)) .project-sheet-heading {
+  display: none;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-tag-register {
+  min-height: 0;
+  padding: 28px 64px 8px;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-tag-register .project-tags {
+  justify-content: center;
+  gap: 8px;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-tag-register .project-tags li {
+  margin: 0;
+  border-radius: 999px;
+  padding: 9px 14px 8px;
+  font-family: var(--project-template-display-font);
+  font-size: var(--project-template-tag-size);
+  letter-spacing: 0.015em;
+  line-height: 1;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-introduction {
+  display: block;
+  padding: 20px 64px 64px;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-introduction > p {
+  width: min(100%, 1000px);
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: var(--project-template-copy-font);
+  font-size: var(--project-template-description-size);
+  line-height: 1.65;
+  text-align: left;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-facts[data-fact-count="3"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-facts {
+  border-right: 0;
+  border-left: 0;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-facts > .project-fact {
+  min-height: 142px;
+  grid-template-rows: max-content minmax(0, 1fr);
+  border-top: 0;
+  border-bottom: 0;
+  border-right-width: 1px;
+  padding: 22px 32px;
+}
+
+/* Every information value resolves to the same lower baseline, regardless of
+   whether the cell contains one line, a role list, or a partner lock-up. */
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-facts > .project-fact > :last-child {
+  align-self: end;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"])
+  .project-facts > .project-fact:not([hidden]):not(:has(~ .project-fact:not([hidden]))) {
+  border-right: 0 !important;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-fact > span {
+  font-family: var(--project-template-display-font);
+  font-size: var(--project-template-fact-label-size);
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-role-list li,
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-fact > strong,
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-partner-list strong {
+  font-family: var(--project-template-display-font);
+  font-size: var(--project-template-fact-value-size);
+  line-height: 1.3;
+}
+
+.project-sheet.is-desktop-canvas:not([data-project-id="spirited-expedition"]) .project-facts {
+  border-top-width: var(--project-hairline, 1px);
+  border-bottom-width: var(--project-hairline, 1px);
+}
+
+.project-sheet.is-desktop-canvas:not([data-project-id="spirited-expedition"])
+  .project-facts > .project-fact {
+  border-right-width: var(--project-hairline, 1px);
+}
+
+/* The facts table owns the boundary below the project information. Remove the
+   adjacent section's coincident top rule so that boundary stays one hairline. */
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="show-e-motions"],
+  [data-project-id="the-red-dawn"],
+  [data-project-id="utopia-2419"],
+  [data-project-id="poka-project-p"]
+)) .project-intro + .project-video {
+  border-top: 0;
+}
+
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="show-e-motions"],
+  [data-project-id="the-red-dawn"],
+  [data-project-id="utopia-2419"],
+  [data-project-id="poka-project-p"]
+)) .project-intro + .project-video[hidden] + .project-chapters
+  > .project-chapter-titlebar:first-child .project-chapter-title-surface {
+  border-top: 0;
+}
+
+/* The Red Dawn keeps its chromatic and gothic identity, but no longer owns a
+   second opening scale. */
+.project-sheet[data-project-id="the-red-dawn"] .project-cover-title-overlay h2 {
+  line-height: 0.96;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-cover-title-overlay p {
+  width: min(72ch, 84%);
+  max-width: none;
+  font-family: var(--project-template-display-font);
+  font-size: var(--project-template-subtitle-size);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-tag-register .project-tags li {
+  padding: 9px 14px 8px;
+  font-family: var(--project-template-display-font);
+  font-size: var(--project-template-tag-size);
+  letter-spacing: 0.015em;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-introduction {
+  padding: 20px 64px 64px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-introduction > p {
+  width: min(100%, 1000px);
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: var(--project-template-copy-font);
+  font-size: var(--project-template-description-size);
+  line-height: 1.65;
+  text-align: left;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-partner-list {
+  gap: 8px;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-partner-list :is(img, .brand-mark) {
+  width: auto;
+  max-width: 156px;
+  max-height: 44px;
+}
+
+/* The Red Dawn keeps Canterbury exclusively for its authored headings. All
+   supporting copy inherits the same type scale as the shared case template;
+   the project's red palette remains untouched. */
+.project-sheet[data-project-id="the-red-dawn"] .project-fact > span,
+.project-sheet[data-project-id="the-red-dawn"] .project-fact > strong,
+.project-sheet[data-project-id="the-red-dawn"] .project-role-list li,
+.project-sheet[data-project-id="the-red-dawn"] .project-partner-list strong {
+  font-family: var(--project-template-display-font);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-fact > span {
+  font-size: var(--project-template-fact-label-size);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-fact > strong,
+.project-sheet[data-project-id="the-red-dawn"] .project-role-list li,
+.project-sheet[data-project-id="the-red-dawn"] .project-partner-list strong {
+  font-size: var(--project-template-fact-value-size);
+  line-height: 1.3;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter > header p,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-copy p,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-note,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-flow li p {
+  font-family: var(--project-template-copy-font);
+  font-size: var(--project-template-description-size);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+/* The Red Dawn uses two deliberate content measures:
+   72px for the installation / ritual / statement, 150px for research. */
+.project-sheet[data-project-id="the-red-dawn"] {
+  --nibiru-glow: #ff1515;
+  --nibiru-wide-rail: 72px;
+  --nibiru-research-rail: 150px;
+  --nibiru-section-lead: 88px;
+  --nibiru-title-box: 78px;
+  --nibiru-title-description-gap: 12px;
+  --nibiru-description-bottom: 24px;
+  --nibiru-block-gap: 42px;
+  background-color: #000;
+  background-image: url("assets/projects/the-red-dawn/noise.svg?v=3");
+  background-position: 0 0;
+  background-size: 192px 192px;
+  animation: nibiru-signal-noise 820ms steps(2, end) infinite;
+}
+
+/* Cover and chapter headings are one authored Canterbury scale. */
+.project-sheet[data-project-id="the-red-dawn"] .project-cover-title-overlay h2 {
+  color: #ff1515;
+  font-size: 78px;
+  text-shadow:
+    0 0 32px #ff1515,
+    0 0 10px #ff1515,
+    0 0 3.5px #ff1515,
+    0 0 1.5px #ff1515;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-title-surface,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-copy h4 {
+  color: #ff1515;
+  text-shadow:
+    0 0 32px #ff1515,
+    0 0 10px #ff1515,
+    0 0 3.5px #ff1515,
+    0 0 1.5px #ff1515;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar.is-stuck,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="0"] {
+  min-height: 0 !important;
+  padding-top: var(--nibiru-section-lead) !important;
+  padding-bottom: 0 !important;
+  z-index: 2;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-title-surface {
+  min-height: var(--nibiru-title-box) !important;
+  height: auto !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter {
+  position: relative;
+  z-index: 1;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter > header {
+  padding-top: var(--nibiru-title-description-gap) !important;
+  padding-bottom: var(--nibiru-description-bottom) !important;
+}
+
+/* Opening hierarchy: electric red is reserved for authored titles. Contextual
+   copy steps through softer, dustier reds so the opening reads in layers. */
+.project-sheet[data-project-id="the-red-dawn"] .project-tag-register .project-tags li {
+  border-color: #9f4848 !important;
+  color: #9f4848 !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-introduction > p {
+  color: #d96a6a !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-fact > span {
+  color: #8f4242 !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-fact > strong,
+.project-sheet[data-project-id="the-red-dawn"] .project-role-list li,
+.project-sheet[data-project-id="the-red-dawn"] .project-partner-list strong {
+  color: #c95b5b !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-facts,
+.project-sheet[data-project-id="the-red-dawn"] .project-facts > .project-fact {
+  border-color: rgba(201, 91, 91, 0.55) !important;
+}
+
+.project-facts .project-partner-list > .project-cooperation-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+}
+.project-facts .project-cooperation-label {
+  flex: 0 0 auto;
+  opacity: .7;
+  font: var(--project-context-note-font);
+  letter-spacing: var(--project-context-note-tracking);
+  text-transform: uppercase;
+}
+
+/* In the context cell, the RCA mark sits above and the project status shares
+   the same lower baseline as the final role and the exhibition year. */
+.project-sheet[data-project-id="the-red-dawn"] .project-partner-list :is(img, .brand-mark) {
+  order: -1;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-partner-list strong {
+  order: 1;
+}
+
+/* Wide authored sections. */
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar:not([data-project-section-title="2"]),
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar:not([data-project-section-title="2"]) + .project-chapter > header {
+  padding-right: var(--nibiru-wide-rail) !important;
+  padding-left: var(--nibiru-wide-rail) !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar:not([data-project-section-title="2"]) + .project-chapter > header p {
+  width: 100%;
+  max-width: none;
+}
+
+/* Research follows the inner rules of the system table. */
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="2"],
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter > header {
+  padding-right: var(--nibiru-research-rail) !important;
+  padding-left: var(--nibiru-research-rail) !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter > header p {
+  width: 100%;
+  max-width: none;
+}
+
+/* One vertical rhythm for all ordinary content plates. Special full-bleed and
+   closing plates keep their authored edge treatment. */
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter .project-content-block:not(.project-content-nibiru-system-grid):not(.project-content-nibiru-artist-statement):not([data-variant="nibiru-thanks"]) {
+  padding-top: var(--nibiru-block-gap);
+  padding-bottom: var(--nibiru-block-gap);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-nibiru-artist-statement {
+  padding-top: var(--nibiru-block-gap) !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="0"] + .project-chapter .project-content-block {
+  padding-right: var(--nibiru-wide-rail);
+  padding-left: var(--nibiru-wide-rail);
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="0"] + .project-chapter .project-content-duo-media,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="0"] + .project-chapter .project-nibiru-installation-triptych,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="0"] + .project-chapter .project-nibiru-portrait-film {
+  width: 100%;
+  max-width: none;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-content-duo[data-variant="community-pair"] .project-content-duo-media img:first-child {
+  justify-self: start;
+}
+
+/* Keep the subtle interference in colour fields, but never over photographs,
+   films or text. Black plates reveal the project-level texture; red plates
+   carry the same texture as the first layer of their gradient. */
+.project-sheet[data-project-id="the-red-dawn"] .project-intro,
+.project-sheet[data-project-id="the-red-dawn"] .project-tag-register,
+.project-sheet[data-project-id="the-red-dawn"] .project-introduction,
+.project-sheet[data-project-id="the-red-dawn"] .project-facts,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="0"],
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="2"],
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="0"] + .project-chapter,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="2"] + .project-chapter {
+  background-color: #000 !important;
+  background-image: url("assets/projects/the-red-dawn/noise.svg?v=3") !important;
+  background-position: 0 0;
+  background-size: 192px 192px !important;
+  animation: nibiru-signal-noise 820ms steps(2, end) infinite;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapters {
+  background: transparent !important;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="1"],
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="3"] {
+  background-color: var(--nibiru-red-top) !important;
+  background-image: url("assets/projects/the-red-dawn/noise.svg?v=3") !important;
+  background-position: 0 0;
+  background-size: 192px 192px !important;
+  animation: nibiru-signal-noise 820ms steps(2, end) infinite;
+}
+
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="1"] + .project-chapter,
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar[data-project-section-title="3"] + .project-chapter {
+  background-color: transparent !important;
+  background-image:
+    url("assets/projects/the-red-dawn/noise.svg?v=3"),
+    linear-gradient(to bottom, var(--nibiru-red-top) 0%, var(--nibiru-red-bottom) 100%) !important;
+  background-position: 0 0, 0 0;
+  background-size: 192px 192px, 100% 100% !important;
+  animation: nibiru-signal-noise-layered 820ms steps(2, end) infinite;
+}
+
+@keyframes nibiru-signal-noise {
+  0% { background-position: 0 0; }
+  25% { background-position: -13px 9px; }
+  50% { background-position: 8px -11px; }
+  75% { background-position: 15px 7px; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes nibiru-signal-noise-layered {
+  0% { background-position: 0 0, 0 0; }
+  25% { background-position: -13px 9px, 0 0; }
+  50% { background-position: 8px -11px, 0 0; }
+  75% { background-position: 15px 7px, 0 0; }
+  100% { background-position: 0 0, 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-sheet[data-project-id="the-red-dawn"] {
+    animation: none;
+  }
+
+  .project-sheet[data-project-id="the-red-dawn"] .project-intro,
+  .project-sheet[data-project-id="the-red-dawn"] .project-tag-register,
+  .project-sheet[data-project-id="the-red-dawn"] .project-introduction,
+  .project-sheet[data-project-id="the-red-dawn"] .project-facts,
+  .project-sheet[data-project-id="the-red-dawn"] .project-chapter-titlebar,
+  .project-sheet[data-project-id="the-red-dawn"] .project-chapter {
+    animation: none;
+  }
+}
+
+/* A two-pixel progress track appears only while real project data and the
+   opening cover are being prepared. */
+.project-load-progress {
+  position: absolute;
+  z-index: 12;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.18);
+  opacity: 0;
+  transition: opacity 180ms ease;
+  pointer-events: none;
+}
+
+.project-load-progress > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: currentColor;
+  transform: scaleX(var(--project-load-progress, 0));
+  transform-origin: left center;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-sheet.is-loading-project .project-load-progress {
+  opacity: 0.92;
+}
+
+.project-sheet.is-loading-project > :not(.project-sheet-hero):not(.project-close) {
+  display: none !important;
+}
+
+/* Motion is opt-in at element level. Text, embeds, audio, video and authored
+   backgrounds remain stable unless a project explicitly selects a wrapper. */
+.project-media-reveal {
+  opacity: 0;
+  translate: 0 24px;
+  transition:
+    opacity 720ms cubic-bezier(0.22, 1, 0.36, 1),
+    translate 820ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--project-reveal-delay, 0ms);
+  will-change: opacity, translate;
+}
+
+.project-media-reveal.is-revealed {
+  opacity: 1;
+  translate: 0 0;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-media-reveal {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+}

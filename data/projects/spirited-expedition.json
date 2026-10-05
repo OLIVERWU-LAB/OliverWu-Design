@@ -1,0 +1,498 @@
+{
+  "id": "spirited-expedition",
+  "title": "Spirited Expedition",
+  "subtitle": "League of Legends: Wild Rift | Guardian Theme Special",
+  "backgroundColor": "#FAEBC7",
+
+  "summary": "A deep live-operations gameplay experience for League of Legends: Wild Rift (CN), combining progression, action and ecological storytelling.",
+  "body": "This project is a deep live-ops gameplay designed for League of Legends: Wild Rift (CN). By integrating \"Roguelike Bullet-hell\" mechanics with \"Character Progression\" systems, the initiative drives user engagement and commercial conversion. In partnership with Hongshan Forest Zoo, the design embeds biodiversity conservation into the game's worldview, achieving a profound synergy between online activity and brand Social Responsibility (CSR) values.",
+  "company": "Tencent / Riot Games / Hongshan Forest Zoo",
+  "companyLabel": "PROJECT CONTEXT",
+  "year": "2025.08.28—2025.09.26",
+  "yearLabel": "LIVE OPERATION",
+  "roles": ["UX / Interaction Design", "UI Motion Design", "Audio Design"],
+  "partners": [
+    {
+      "name": "Tencent",
+      "logo": "assets/media/logo-tencent.svg", "color": "#6d340d"
+    },
+    {
+      "name": "Riot Games",
+      "logo": "assets/projects/spirited-expedition/partner-riot-games-png-web.webp"
+    },
+    {
+      "name": "Hongshan Forest Zoo",
+      "logo": "assets/projects/spirited-expedition/partner-hongshan-zoo-png-web.webp"
+    }
+  ],
+  "game": {
+    "label": "BASE GAME",
+    "name": "Wild Rift (CN)",
+    "logo": "assets/projects/spirited-expedition/base-game-wild-rift.jpg"
+  },
+  "mergeGameIntoYear": true,
+  "tags": ["#Wild Rift", "#Live Ops", "#Action Roguelike", "#CSR & Ecology"],
+  "rights": {
+    "logo": "assets/projects/spirited-expedition/rights-logo-png-web.webp",
+    "logoAlt": "League of Legends: Wild Rift",
+    "text": "© Riot Games & Tencent. All Rights Reserved."
+  },
+  "cover": {
+    "ratio": "3 / 2",
+    "designWidth": 3200,
+    "background": "assets/projects/spirited-expedition/cover-background-jpg-web.webp",
+    "headline": {
+      "parts": [
+        { "text": "“", "tone": "quote" },
+        { "text": "Roguelike", "tone": "emphasis" },
+        { "text": " Live Ops turning ", "tone": "support" },
+        { "text": "Biodiversity Advocacy", "tone": "emphasis" },
+        { "text": " into ", "tone": "support" },
+        { "text": "Commercial Momentum", "tone": "emphasis" },
+        { "text": "”", "tone": "quote" }
+      ],
+      "x": 50,
+      "y": 5.625,
+      "width": 100
+    },
+    "layers": [
+      {
+        "src": "assets/projects/spirited-expedition/cover-background-jpg-web.webp",
+        "kind": "base",
+        "designTop": -116,
+        "fadeOpaqueY": 1539,
+        "fadeTransparentY": 1884,
+        "parallax": 0.32,
+        "parallaxLimit": 0.38
+      },
+      {
+        "src": "assets/projects/spirited-expedition/guardian-flower-webp-web.webp",
+        "kind": "art",
+        "x": 89,
+        "y": 67.0546875,
+        "width": 37.25,
+        "mobileX": 91,
+        "mobileY": 67.0546875,
+        "mobileWidth": 37.25,
+        "designCenterY": 1430.5,
+        "fadeOpaqueY": 1733,
+        "fadeTransparentY": 1875,
+        "parallax": 0.6,
+        "parallaxLimit": 0.5,
+        "blend": "normal"
+      },
+      {
+        "src": "assets/projects/spirited-expedition/gameplay-handheld-webp-web.webp",
+        "kind": "art",
+        "x": 50,
+        "y": 69.2109375,
+        "width": 58.75,
+        "mobileX": 48,
+        "mobileY": 69.2109375,
+        "mobileWidth": 58.75,
+        "designCenterY": 1476.5,
+        "fadeOpaqueY": 1674,
+        "fadeTransparentY": 1922,
+        "parallax": 0.18,
+        "parallaxLimit": 0.3,
+        "blend": "normal"
+      },
+      {
+        "src": "assets/projects/spirited-expedition/rights-logo-png-web.webp",
+        "kind": "art",
+        "x": 100,
+        "y": 0,
+        "width": 12.71875,
+        "mobileX": 100,
+        "mobileY": 0,
+        "mobileWidth": 12.71875,
+        "parallax": 0,
+        "blend": "normal"
+      }
+    ]
+  },
+  "gallery": [],
+  "sections": [
+    {
+      "title": "Video Showcase",
+      "titleImage": "assets/projects/spirited-expedition/section-video-showcase-png-web.webp",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "video",
+          "provider": "vimeo",
+          "id": "1215449393",
+          "ratio": "16 / 9",
+          "decor": "sound-stage",
+          "title": "High-Fidelity UI Demo",
+          "caption": "High-Fidelity UI Demo"
+        },
+        {
+          "type": "video",
+          "provider": "vimeo",
+          "id": "1217293558",
+          "ratio": "956 / 440",
+          "decor": "mandrill-stage",
+          "title": "Real-time Gameplay",
+          "caption": "Real-time Gameplay"
+        }
+      ]
+    },
+    {
+      "title": "Concept",
+      "titleImage": "assets/projects/spirited-expedition/section-concept-png-web.webp",
+      "body": "Displaced by the loss of their sanctuary, the Guardians set sail for the Aurora Archipelago to build a new home. Facing ecological alienation caused by celestial corruption, they deploy purification energy to rescue lifeforms, harnessing salvaged resources for their own evolution. Joined by star animals from Hongshan Forest Zoo as key companions, the Guardians restore harmony to the realm. This translates Ecological Rescue into a vibrant digital narrative and warm social resonance.",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "stage",
+          "layout": "full",
+          "image": "assets/projects/spirited-expedition/figma-concept-body-webp-web.webp",
+          "alt": "Spirited Expedition concept system, guardian selection and island journey"
+        }
+      ]
+    },
+    {
+      "title": "UX Design",
+      "titleImage": "assets/projects/spirited-expedition/section-ux-design-png-web.webp",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "text",
+          "layout": "rail",
+          "title": "User Flow"
+        },
+        {
+          "type": "inset",
+          "layout": "rail",
+          "image": "assets/projects/spirited-expedition/figma-ux-user-flow-jpg-web.webp",
+          "alt": "User flow across out-of-game systems and the in-game core loop"
+        },
+        {
+          "type": "text",
+          "layout": "rail",
+          "title": "UI Scene Transition",
+          "body": "Rather than treating each screen change as an isolated transition, the home, out-of-game and in-game interfaces form one continuous spatial event. Sea level, sky and the island's overhead view are connected through upward and downward camera tilts, carrying the player continuously between the home, out-of-game, in-game and pause states. This camera language strengthens the worldbuilding and turns interface changes into one coherent seafaring adventure.",
+          "highlights": [
+            {
+              "text": "one continuous spatial event",
+              "tone": "dark"
+            },
+            {
+              "text": "Sea level, sky and the island's overhead view",
+              "tone": "dark"
+            },
+            {
+              "text": "upward and downward camera tilts",
+              "tone": "dark"
+            },
+            {
+              "text": "strengthens the worldbuilding",
+              "tone": "dark"
+            },
+            {
+              "text": "one coherent seafaring adventure",
+              "tone": "dark"
+            }
+          ]
+        },
+        {
+          "type": "motion-grid",
+          "layout": "rail",
+          "image": "assets/projects/spirited-expedition/ux-scene-transition-overview-jpg-web.webp",
+          "alt": "Out-of-game to home to in-game scene transition overview",
+          "clips": [
+            {
+              "src": "assets/projects/spirited-expedition/ux-showcase-quests-mp4-web.mp4",
+              "caption": "Home to Out-of-Game",
+              "alt": "Home screen opening the quest interface"
+            },
+            {
+              "src": "assets/projects/spirited-expedition/ux-scene-home-game-home-mp4-web.mp4",
+              "caption": "Home to In-Game",
+              "alt": "Home screen entering gameplay and returning home"
+            },
+            {
+              "src": "assets/projects/spirited-expedition/ux-scene-pause-mp4-web.mp4",
+              "caption": "In-Game Pause",
+              "alt": "Pausing during gameplay"
+            }
+          ],
+          "ratio": "1116 / 515"
+        },
+        {
+          "type": "text",
+          "layout": "rail",
+          "title": "UX Animation Showcase"
+        },
+        {
+          "type": "video",
+          "layout": "rail",
+          "provider": "vimeo",
+          "id": "1216180005",
+          "ratio": "3120 / 1440",
+          "title": "Wild Rift × Spirited Expedition UX Demonstration",
+          "caption": "Complete UX Demonstration",
+          "decor": "ux-demonstration"
+        },
+        {
+          "type": "media-rail",
+          "layout": "full",
+          "groups": [
+            {
+              "feature": { "media": "video", "src": "assets/projects/spirited-expedition/ux-showcase-victory-mp4-web.mp4", "caption": "In-Game Victory" },
+              "itemsLayout": "column",
+              "items": [
+                { "media": "video", "src": "assets/projects/spirited-expedition/ux-showcase-defeat-mp4-web.mp4", "caption": "In-Game Defeat" },
+                { "media": "video", "src": "assets/projects/spirited-expedition/ux-showcase-quest-popup-mp4-web.mp4", "caption": "In-Game Quest Pop-up" }
+              ]
+            },
+            {
+              "feature": { "media": "video", "src": "assets/projects/spirited-expedition/ux-showcase-evolution-mp4-web.mp4", "caption": "Out-of-Game Evolution" },
+              "items": [
+                { "media": "video", "src": "assets/projects/spirited-expedition/ux-scene-codex-mp4-web.mp4", "caption": "Out-of-Game Codex" },
+                { "media": "image", "src": "assets/projects/spirited-expedition/ux-showcase-guardian-codex-jpg-web.webp", "caption": "Out-of-Game Guardian Codex" },
+                { "media": "image", "src": "assets/projects/spirited-expedition/ux-showcase-mail-jpg-web.webp", "caption": "Out-of-Game Mail" },
+                { "media": "image", "src": "assets/projects/spirited-expedition/ux-showcase-milestones-jpg-web.webp", "caption": "Out-of-Game Milestones" }
+              ]
+            },
+            {
+              "feature": { "media": "video", "src": "assets/projects/spirited-expedition/ux-showcase-chapter-select-mp4-web.mp4", "caption": "Out-of-Game Chapter Selection" },
+              "itemsLayout": "column",
+              "items": [
+                { "media": "video", "src": "assets/projects/spirited-expedition/ux-showcase-leaderboard-mp4-web.mp4", "caption": "Out-of-Game Leaderboard" },
+                { "media": "video", "src": "assets/projects/spirited-expedition/ux-showcase-endless-mp4-web.mp4", "caption": "Out-of-Game Endless Mode" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "hongshan-intro",
+          "layout": "rail",
+          "title": "Hongshan Zoo IP Collaboration",
+          "logo": "assets/projects/spirited-expedition/hongshan-section-logo-png-web.webp",
+          "logoAlt": "League of Legends and Hongshan Forest Zoo",
+          "body": "Serving as the online promotional touchpoint for the August 28, 2025 launch of the new Guardian \"Apple\" (Red Panda), two Panda Teemo chroma skins, and the limited-time return of \"Peanut\" (Capybara), this campaign partners with Hongshan Forest Zoo, viral for its \"rejecting animal performances\" philosophy and the popular memes of cute star animals like \"Red Panda Kafei\" and \"Dudu\" (White-faced Saki). By integrating these star animals into the UI as the strategic entry point, this design aims to boost DAU and brand social value, thereby fostering player affinity to ultimately drive purchase conversion.",
+          "highlights": [
+            { "text": "Hongshan Forest Zoo", "tone": "dark" },
+            { "text": "\"rejecting animal performances\"", "tone": "dark" },
+            { "text": "integrating these star animals into the UI", "tone": "dark" },
+            { "text": "boost DAU and brand social value", "tone": "dark" },
+            { "text": "drive purchase conversion", "tone": "dark" }
+          ]
+        },
+        {
+          "type": "inset",
+          "layout": "rail",
+          "image": "assets/projects/spirited-expedition/figma-ux-hongshan-collaboration-jpg-web.webp",
+          "alt": "Hongshan Zoo collaboration from animal stories to in-game conversion"
+        },
+        {
+          "type": "hongshan-footer",
+          "layout": "rail",
+          "image": "assets/projects/spirited-expedition/hongshan-footer-png-web.webp",
+          "alt": "Through emotionally resonant IPs and seamless in-game experiences, we build a meaningful bridge between players and nature"
+        },
+        {
+          "type": "technical-spec",
+          "layout": "rail",
+          "title": "Technical Specification & Implementation",
+          "perspectiveTitle": "Perspective & Motion Calibration",
+          "perspectiveImage": "assets/projects/spirited-expedition/technical-perspective-motion-png-web.webp",
+          "specTitle": "Technical Specification",
+          "specifications": [
+            {
+              "label": "30° Isometric Perspective",
+              "text": "Compared to standard orthographic views, the 30° isometric perspective offers greater vertical coverage, causing Y-axis displacements to appear slower on-screen."
+            },
+            {
+              "label": "Motion Compensation",
+              "text": "To ensure a consistent movement experience across both axes, Y-axis velocity compensation is required."
+            }
+          ],
+          "formula": "Vy(adj) = Vx × sin(30°)",
+          "formulaNotes": [
+            "Vx: Character velocity on the X-axis (World Space).",
+            "Vy: Adjusted Y-axis velocity (World Space)."
+          ],
+          "viewportTitle": "Viewport Adaptation & Device Mockups",
+          "viewportImage": "assets/projects/spirited-expedition/technical-viewport-adaptation-webp-web.webp",
+          "gridTitle": "Grid Precision & Unit Specification",
+          "gridImage": "assets/projects/spirited-expedition/figma-ux-grid-spec-01-jpg-web.webp",
+          "gridCaption": "Note: Dimensions are base pixels (px), scaled proportionally across resolutions to ensure consistent logic and density.",
+          "gridTable": "assets/projects/spirited-expedition/technical-grid-table-png-web.webp",
+          "lowerBackground": "assets/projects/spirited-expedition/technical-lower-background-jpg-web.webp"
+        }
+      ]
+    },
+    {
+      "title": "UI Design",
+      "titleImage": "assets/projects/spirited-expedition/section-ui-design-complete-png-web.webp",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "ui-element-library",
+          "layout": "rail",
+          "title": "UI Element Library",
+          "image": "assets/projects/spirited-expedition/ui-element-library-webp-web.webp",
+          "alt": "Spirited Expedition UI elements, icons, controls and decorative components",
+          "tags": ["#Alien Flora", "#Rune Characters", "#Gnosticism", "#Cute Pets", "#Crystal Energy"]
+        },
+        {
+          "type": "ui-responsive-system",
+          "layout": "rail",
+          "title": "Responsive Interface System",
+          "image": "assets/projects/spirited-expedition/ui-responsive-system-webp-web.webp",
+          "alt": "Responsive interface adaptation from the 16:9 design base",
+          "callouts": [
+            {
+              "label": "Tablet: <16:9",
+              "description": "Keep width unchanged. Compress vertically and move top/bottom UI inward to preserve safe spacing."
+            },
+            {
+              "label": "Smartphone: >16:9",
+              "description": "Keep width unchanged. Expand vertically and move top/bottom UI while preserving safe areas for camera cutouts and gestures."
+            },
+            {
+              "label": "Design Base: 16:9",
+              "description": "The shared reference frame for hierarchy, alignment and interaction reach."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "layout": "rail",
+          "title": "High-Fidelity UI Demonstrations"
+        },
+        {
+          "type": "ui-phone-demo",
+          "layout": "rail",
+          "alignment": "left",
+          "frame": "assets/projects/spirited-expedition/ui-phone-frame-png-web.webp",
+          "video": "assets/projects/spirited-expedition/ui-demo-home-mp4-web.mp4",
+          "decor": "assets/projects/spirited-expedition/figma-ui-character-system-webp-web.webp",
+          "title": "Home Interface",
+          "description": "Layered horizontal parallax gives the 2D world a tangible sense of depth. Swiping between islands selects chapters, while faster island scaling against the background creates a subtle dolly-zoom into Endless Mode."
+        },
+        {
+          "type": "ui-phone-demo",
+          "layout": "rail",
+          "alignment": "right",
+          "frame": "assets/projects/spirited-expedition/ui-phone-frame-png-web.webp",
+          "video": "assets/projects/spirited-expedition/ui-demo-enter-game-mp4-web.mp4",
+          "captionPlacement": "side-left",
+          "title": "Enter Game",
+          "description": "One continuous spatial transition carries the player from a sky-framed ocean, down to sea level, and finally ashore—linking Home, preparation, and gameplay as a single journey."
+        },
+        {
+          "type": "ui-phone-demo",
+          "layout": "rail",
+          "alignment": "left",
+          "frame": "assets/projects/spirited-expedition/ui-phone-frame-png-web.webp",
+          "video": "assets/projects/spirited-expedition/ui-demo-pause-mp4-web.mp4",
+          "captionPlacement": "side-right",
+          "title": "Pause UI",
+          "description": "A wave washes over the battlefield and resolves into a calm horizon, turning Pause into a seamless atmospheric transition instead of a disconnected overlay."
+        },
+        {
+          "type": "ui-phone-demo",
+          "layout": "rail",
+          "alignment": "right",
+          "frame": "assets/projects/spirited-expedition/ui-phone-frame-png-web.webp",
+          "video": "assets/projects/spirited-expedition/ui-demo-skill-upgrade-mp4-web.mp4",
+          "captionPlacement": "side-left",
+          "title": "Skill Upgrade",
+          "description": "Upgrade decisions use a compact hierarchy that supports fast comparison during a live run."
+        },
+        {
+          "type": "ui-phone-fan",
+          "layout": "full",
+          "frame": "assets/projects/spirited-expedition/ui-phone-frame-png-web.webp",
+          "leftImage": "assets/projects/spirited-expedition/ui-fan-left-jpg-web.webp",
+          "centerVideo": "assets/projects/spirited-expedition/ui-demo-out-of-game-aug21-mp4-web.mp4",
+          "rightImage": "assets/projects/spirited-expedition/ui-fan-right-jpg-web.webp",
+          "title": "Out-of-Game Progression",
+          "description": "The camera rises from sea level toward a wider sky as the Home screen opens into meta progression, giving the out-of-run space a calmer, more expansive character."
+        },
+        {
+          "type": "ui-phone-pair",
+          "layout": "rail",
+          "frame": "assets/projects/spirited-expedition/ui-phone-frame-png-web.webp",
+          "leftVideo": "assets/projects/spirited-expedition/ui-demo-defeat-mp4-web.mp4",
+          "rightVideo": "assets/projects/spirited-expedition/ui-demo-victory-mp4-web.mp4",
+          "leftLabel": "Defeat",
+          "rightLabel": "Victory",
+          "title": "Victory & Defeat Transition",
+          "description": "A wave carries combat into a clean ocean horizon before the Victory or Defeat interface animates in from both sides. Returning Home reverses the same sea-to-sky transition, completing one coherent spatial loop."
+        },
+        {
+          "type": "ui-finale",
+          "layout": "full",
+          "background": "assets/projects/spirited-expedition/ui-finale-background-jpg-web.webp",
+          "hands": "assets/projects/spirited-expedition/ui-finale-hands-webp-web.webp",
+          "video": "assets/projects/spirited-expedition/ui-finale-demo-mp4-web.mp4",
+          "quoteLines": [
+            "“Every run rescues a real animal from the Hongshan Index—",
+            "the game remembers what the world forgets.”"
+          ],
+          "subtitle": "League of Legends: Wild Rift | Guardian Theme Special"
+        }
+      ]
+    },
+    {
+      "title": "Audio Design",
+      "titleImage": "assets/projects/spirited-expedition/section-audio-design-png-web.webp",
+      "body": "Original music produced for the League of Legends: Wild Rift CN Spirited Expedition event. Live acoustic ukulele and traditional Caribbean instruments merge with lush synthesizer soundscapes across a three-track EP, creating a relaxed, exotic island atmosphere.",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "audio-player-grid",
+          "layout": "rail",
+          "image": "assets/projects/spirited-expedition/figma-audio-artwork-jpg-web.webp",
+          "alt": "Spirited Expedition soundtrack artwork",
+          "tracks": [
+            {
+              "title": "Dawn of the Isle (Main Menu BGM)",
+              "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2324711624&color=%23669fb5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+            },
+            {
+              "title": "Cute Breakout (Normal Battle BGM)",
+              "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2324711627&color=%23669fb5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+            },
+            {
+              "title": "The Looming Threat (Boss Battle BGM)",
+              "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2324711621&color=%23669fb5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+            }
+          ]
+        },
+        {
+          "type": "audio-footer",
+          "layout": "full",
+          "background": "assets/projects/spirited-expedition/closing-background-complete-webp-web.webp",
+          "title": "THANKS FOR WATCHING!",
+          "creditsTitle": "CREDITS",
+          "credits": [
+            { "role": "UX & UI Motion Design", "name": "Oliver Wu（me）" },
+            { "role": "Visual Design", "name": "Wu Nanfeng" },
+            { "role": "2D Illustration", "name": "Lu Jianbin" },
+            { "role": "VFX Design", "name": "Wu Fei" },
+            { "role": "Audio Design", "name": "Oliver Wu（me）" }
+          ],
+          "partners": [
+            { "name": "Tencent", "logo": "assets/media/logo-tencent.svg", "color": "#6d340d" },
+            { "name": "Riot Games", "logo": "assets/projects/spirited-expedition/partner-riot-games-png-web.webp" },
+            { "name": "Hongshan Forest Zoo", "logo": "assets/projects/spirited-expedition/partner-hongshan-zoo-png-web.webp" }
+          ]
+        }
+      ]
+    }
+  ]
+}
