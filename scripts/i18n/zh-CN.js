@@ -3,7 +3,7 @@
 window.zhCNTranslations = new Map([
   ["Loading video…", "正在加载视频…"],
   ["Loading audio…", "正在加载音频…"],
-  ["Animula Nook — UGC Hub 1.0", "丽丽小人国 — 游戏大厅 1.0"],
+  ["Animula Nook — UGC Hub 1.0", "粒粒小人国 — 游戏大厅 1.0"],
   ["Spirited Expedition", "灵动探险队"],
   ["App Market 2.0", "应用商店 2.0"],
   ["Bite Me!", "鳄鱼咬一口！"],
