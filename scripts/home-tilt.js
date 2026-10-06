@@ -1,38 +1,39 @@
-/* Touch-only gravity control, on the existing physics loop. No corner UI.
-   Browsers requiring permission use the first real tap on the first paper. */
+/* Screen-space gravity from pose, not platform-dependent accelerometer signs.
+   Reuses Matter's existing loop. No telemetry, polling, or tilt button. */
 (() => {
   "use strict";
   const playground = document.getElementById("heroPhysics");
   if (!playground || !navigator.maxTouchPoints || !matchMedia("(pointer: coarse)").matches
-    || !window.isSecureContext || !window.DeviceMotionEvent) return;
+    || !window.isSecureContext || !window.DeviceOrientationEvent) return;
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
-  const needsPermission = typeof DeviceMotionEvent.requestPermission === "function";
-  let enabled = !needsPermission;
+  const needsPermission = typeof DeviceOrientationEvent.requestPermission === "function";
+  // Registering a listener never grants permission. A previously granted
+  // browser can deliver immediately; otherwise iOS waits for a trusted tap.
+  let enabled = true;
   let listening = false;
   let visible = true;
   let permissionAttempted = false;
   let target = { x: 0, y: 1 };
-  const limit = (value) => Math.max(-1.35, Math.min(1.35, value));
   function receive(event) {
-    const acceleration = event.accelerationIncludingGravity;
-    if (!acceleration || !Number.isFinite(acceleration.x) || !Number.isFinite(acceleration.y)) return;
-    // Accelerometer axes are portrait-relative and point opposite gravity.
-    // CSS y points downward. Rotate into the CURRENT screen orientation.
+    if (!Number.isFinite(event.beta) || !Number.isFinite(event.gamma)) return;
+    const beta = event.beta * Math.PI / 180;
+    const gamma = event.gamma * Math.PI / 180;
     const angle = (screen.orientation?.angle ?? window.orientation ?? 0) * Math.PI / 180;
-    const x = -acceleration.x / 9.81;
-    const y = acceleration.y / 9.81;
-    target = { x: limit(x * Math.cos(angle) - y * Math.sin(angle)), y: limit(x * Math.sin(angle) + y * Math.cos(angle)) };
+    // Project world-down onto device X/Y, then rotate into current CSS axes.
+    const x = Math.cos(beta) * Math.sin(gamma), y = Math.sin(beta);
+    target = { x:x * Math.cos(angle) + y * Math.sin(angle), y:-x * Math.sin(angle) + y * Math.cos(angle) };
   }
   function sync() {
     const active = enabled && visible && !document.hidden && !reduced.matches
-      && !document.body.classList.contains("project-open");
+      && !document.body.classList.contains("project-open") && !document.querySelector('dialog[open]');
     if (active === listening) return;
     listening = active;
+    target = { x:0, y:1 };
     if (active) {
-      window.addEventListener("devicemotion", receive, { passive: true });
+      window.addEventListener("deviceorientation", receive, { passive: true });
     }
     else {
-      window.removeEventListener("devicemotion", receive);
+      window.removeEventListener("deviceorientation", receive);
       target = { x: 0, y: 1 };
     }
   }
@@ -40,18 +41,20 @@
     if (!event.isTrusted || reduced.matches || !visible || permissionAttempted
       || document.body.classList.contains('project-open')) return;
     permissionAttempted = true;
+    window.removeEventListener('pointerup', authorize, true);
     try {
       // iOS cannot grant this on page load. Keep the normal system prompt.
-      enabled = await DeviceMotionEvent.requestPermission() === 'granted';
+      enabled = await DeviceOrientationEvent.requestPermission() === 'granted';
       sync();
     } catch { enabled = false; }
-    finally { playground.closest('.page-panel-about')?.removeEventListener('click', authorize); }
   }
-  if (needsPermission) playground.closest('.page-panel-about')?.addEventListener('click', authorize);
+  if (needsPermission) window.addEventListener('pointerup', authorize, { capture:true, passive:true });
   if ("IntersectionObserver" in window) {
     new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }).observe(playground);
   }
   new MutationObserver(sync).observe(document.body, { attributes: true, attributeFilter: ["class"] });
+  const dialog = document.getElementById('resumePicker');
+  if (dialog) new MutationObserver(sync).observe(dialog, { attributes:true, attributeFilter:['open'] });
   document.addEventListener("visibilitychange", sync);
   reduced.addEventListener("change", sync);
   window.addEventListener("pagehide", () => { visible = false; sync(); });

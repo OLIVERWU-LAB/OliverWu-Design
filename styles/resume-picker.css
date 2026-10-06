@@ -12,6 +12,9 @@
   padding: 0;
   overflow: visible;
   border: 0;
+  /* showModal focuses this non-interactive container. Avoid the native blue
+     ring, while retaining focus-visible feedback on its actual controls. */
+  outline: 0;
   background: transparent;
   color: #111;
   transition: --resume-fold 380ms cubic-bezier(.22, .78, .2, 1);

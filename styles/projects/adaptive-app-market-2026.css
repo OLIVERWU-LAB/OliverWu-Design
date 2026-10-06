@@ -484,44 +484,7 @@
   padding-bottom:10px;
 }
 
-@media (max-width:1180px) {
-  .project-sheet[data-project-id="adaptive-app-market"] :is(
-    .am-phone-component-stage,
-    .am-phone-discovery-layout,
-    .am-apps-composition,
-    .am-profile-flow-stage,
-    .am-search-stage,
-    .am-detail-stage
-  ) {
-    width:calc(100% + 140px);
-    max-width:none;
-  }
-}
 
-@media (max-width:900px) {
-  .project-sheet[data-project-id="adaptive-app-market"] .am-phone-discovery-layout,
-  .project-sheet[data-project-id="adaptive-app-market"] .am-apps-composition,
-  .project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage {
-    grid-template-columns:1fr;
-  }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-apps-related {
-    grid-template-columns:repeat(3,1fr);
-  }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-flow-stage {
-    min-height:1120px;
-  }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-pair {
-    left:50%;
-    transform:translateX(-50%);
-  }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches {
-    top:650px;
-    right:auto;
-    left:50%;
-    transform:translateX(-50%);
-  }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-connectors { display:none; }
-}
 
 /* 2026-09-29 reference-led precision pass. */
 .project-sheet[data-project-id="adaptive-app-market"] .project-partner-list {

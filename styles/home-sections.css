@@ -6,6 +6,12 @@ html:has(body.project-open), html:has(dialog[open]) { scroll-snap-type:none; }
    Oversized sections can then scroll through their full trailing gap before snapping.
    The next section's start stays exactly where it was. */
 .page-panel-about,.work-section,.experience-section,.contact-panel { scroll-snap-align:start; scroll-snap-stop:always; scroll-margin-bottom:var(--outer-gap); }
+/* Touch momentum must not force a long paper back to its start. Desktop's
+   confirmed mandatory snap stays unchanged; touch keeps native proximity. */
+@media (pointer:coarse) {
+ html { scroll-snap-type:y proximity; }
+ .page-panel-about,.work-section,.experience-section,.contact-panel { scroll-snap-stop:normal; }
+}
 .page-panel-about { scroll-margin-top:var(--outer-gap); display:flex; flex-direction:column; min-height:calc(100svh - 2 * var(--outer-gap)); }
 .page-panel-about > .hero { display:flex; flex:1; min-height:0; }
 .page-panel-about .hero-copy { flex:1; min-height:0; }
@@ -34,8 +40,9 @@ html:has(body.project-open), html:has(dialog[open]) { scroll-snap-type:none; }
 .contact-moments { width:100%; max-width:660px; min-width:0; justify-self:start; --moment-duration:650ms; --moment-ease:cubic-bezier(.22,.61,.36,1); }
 .contact-moments-heading { padding-bottom:12px; font-size:10px; }
 .contact-moments-heading > span { font-family:var(--display); color:#222; }
-.contact-moments-track { width:100%; overflow:hidden; contain:paint; aspect-ratio:16 / 9; background:rgba(226,222,217,.5); }
-.contact-moments-reel { display:flex; width:100%; height:100%; transition:transform var(--moment-duration) var(--moment-ease); transform:translate3d(calc(var(--moment-index,0) * -100%),0,0); }
+.contact-moments-track { width:100%; overflow:hidden; contain:paint; aspect-ratio:16 / 9; background:rgba(226,222,217,.5); touch-action:pan-y pinch-zoom; user-select:none; }
+.contact-moments.is-dragging .contact-moments-reel { transition:none; }
+.contact-moments-reel { display:flex; width:100%; height:100%; transition:transform var(--moment-duration) var(--moment-ease); transform:translate3d(calc((var(--moment-index,0) + 1) * -100% + var(--moment-drag,0px)),0,0); }
 .contact-moment { flex:0 0 100%; min-width:0; margin:0; }
 .contact-moments.is-resetting .contact-moments-reel { transition:none; }
 /* Supplied 16:9 photos fill the frame; the frame keeps its existing ratio. */
@@ -152,7 +159,8 @@ html:has(body.project-open), html:has(dialog[open]) { scroll-snap-type:none; }
   inset:0;
   overflow-x:hidden;
   overflow-y:auto;
-  overscroll-behavior:contain;
+  /* Keep the paper pinned; boundary feedback belongs to cover transforms. */
+  overscroll-behavior:none;
   overflow-anchor:none;
   scrollbar-gutter:stable;
   transform:translate3d(0,104vh,0);

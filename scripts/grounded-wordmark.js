@@ -487,10 +487,12 @@
         sync();
       });
       intersectionObserver.observe(stage);
-    } else {
-      listen(window, "scroll", queueVisibility, { passive: true, capture: true });
-      queueVisibility();
     }
+    // IntersectionObserver may report visibility while a snapped ancestor is
+    // still hidden/moving. A failed measure then has no running RAF. Recheck on
+    // real scrolls so returning to the header can always restart that loop.
+    listen(window, "scroll", queueVisibility, { passive: true, capture: true });
+    queueVisibility();
     const resizeObserver = "ResizeObserver" in window ? new ResizeObserver(invalidate) : null;
     resizeObserver?.observe(stage);
     resizeObserver?.observe(header);
@@ -509,7 +511,7 @@
         cancelAnimationFrame(visibilityFrame);
         visibilityFrame = null;
       }
-      if (!document.hidden && !intersectionObserver) queueVisibility();
+      if (!document.hidden) queueVisibility();
       sync();
     });
     listen(window, "pagehide", stop);

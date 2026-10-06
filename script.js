@@ -471,7 +471,7 @@ async function loadProjectData(projectId) {
   if (projectDataCache.has(projectId)) return projectDataCache.get(projectId);
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 12000);
-  const request = fetch(`data/projects/${encodeURIComponent(projectId)}.json?v=20261006-51`, {
+  const request = fetch(`data/projects/${encodeURIComponent(projectId)}.json?v=20261007-54`, {
     cache: "no-cache",
     headers: { Accept: "application/json" },
     signal:controller.signal,
@@ -3882,9 +3882,11 @@ function updateProjectParallax() {
   /* Read geometry before writing any animation styles. Keeping the two phases
      separate avoids a forced layout on every scroll / pull-back frame. */
   const rawScrollTop = projectScroller.scrollTop;
-  const scrollTop = Math.max(0, rawScrollTop);
-  const overscroll = Math.max(0, -rawScrollTop);
-  const pullDistance = reduceMotionQuery.matches ? 0 : Math.max(overscroll, projectTopPull);
+  const canvasScale = Number.parseFloat(projectSheet.style.getPropertyValue('--project-canvas-scale')) || 1;
+  const canvasViewportHeight = window.innerHeight / canvasScale;
+  const scrollTop = Math.max(0, rawScrollTop) / canvasScale;
+  const overscroll = Math.max(0, -rawScrollTop) / canvasScale;
+  const pullDistance = reduceMotionQuery.matches ? 0 : Math.max(overscroll, projectTopPull / canvasScale);
   const heroWidth = projectDetailHero.clientWidth;
   const coverTitleHeight = projectCoverOverlayTitle?.closest(".project-cover-title-overlay")?.offsetHeight || 0;
   const layerHeights = new Map(projectDissolveLayers.map((layer) => [layer, layer.offsetHeight]));
@@ -3905,7 +3907,7 @@ function updateProjectParallax() {
     ? Math.max(0, finaleBackground.offsetHeight - finaleStage.clientHeight)
     : 0;
   const finaleOffset = reduceMotionQuery.matches ? 0 : -finaleOverflow * finaleProgress;
-  const progress = clamp(scrollTop / Math.max(1, window.innerHeight * 0.92), 0, 1);
+  const progress = clamp(scrollTop / Math.max(1, canvasViewportHeight * 0.92), 0, 1);
   const isFloraHaven = projectSheet.dataset.projectId === "florahaven";
   const usesFlatCoverParallax = projectSheet.dataset.projectId === "cloud-island-device";
   const heroPullDistance = isFloraHaven
@@ -3916,7 +3918,7 @@ function updateProjectParallax() {
     ? 0
     : Math.min(
       scrollTop * (usesFlatCoverParallax ? 0.5 : 0.32),
-      window.innerHeight * (usesFlatCoverParallax ? 0.5 : 0.38),
+      canvasViewportHeight * (usesFlatCoverParallax ? 0.5 : 0.38),
     );
   const heroBaseHeight = Math.max(1, heroWidth / projectHeroAspectRatio);
   const heroHeight = heroBaseHeight + heroPullDistance;
@@ -3931,7 +3933,7 @@ function updateProjectParallax() {
 
   const layerStates = projectCoverLayers.map((layer) => {
     const layerSpeed = coverNumber(layer.dataset.parallax, 0.12, -0.25, 1.5);
-    const layerLimit = window.innerHeight * coverNumber(
+    const layerLimit = canvasViewportHeight * coverNumber(
       layer.dataset.parallaxLimit,
       layer.classList.contains("project-cover-layer-base") ? 0.38 : 0.22,
       0,
@@ -3962,7 +3964,7 @@ function updateProjectParallax() {
      parallax speed. This preserves the supplied initial masks without making
      an individual gradient drift with its image. */
   if (projectSheet.dataset.projectId === "spirited-expedition") {
-    const useMobilePosition = window.innerWidth <= 760;
+    const useMobilePosition = projectLayoutViewportWidth() <= 760;
 
     projectDissolveLayers.forEach((layer) => {
       const layerState = layerStates.find((state) => state.layer === layer);
@@ -4803,6 +4805,7 @@ function renderPhysicsBodies() {
 
 function updatePhysics(delta) {
   if (!physicsEngine || !window.Matter || !physicsPlayground || document.hidden) return;
+  if (document.getElementById('resumePicker')?.open) return;
   if (document.documentElement.classList.contains('boot-pending')) return;
   if (physicsEngine.plugin.portfolioReducedMotion !== reduceMotionQuery.matches) buildPhysicsWorld();
   if (reduceMotionQuery.matches) return;
@@ -5279,6 +5282,26 @@ projectSectionTitles.forEach((title, chapterIndex) => {
 
 projectScroller?.addEventListener("scroll", queueProjectParallax, { passive: true });
 projectScroller?.addEventListener("wheel", respondToProjectTopPull, { passive: true });
+// A touch pull at the top stretches only the cover. The native scroller stays
+// pinned; ordinary vertical reading, multi-touch and pinch zoom are untouched.
+let projectTouchPull = null;
+projectScroller?.addEventListener('touchstart', event => {
+  if (event.touches.length !== 1 || projectScroller.scrollTop > 1 || reduceMotionQuery.matches
+    || window.projectRuntime?.phase !== 'idle') { projectTouchPull = null; return; }
+  const touch = event.touches[0];
+  projectTouchPull = { x:touch.clientX, y:touch.clientY, lastY:touch.clientY };
+}, { passive:true });
+projectScroller?.addEventListener('touchmove', event => {
+  if (!projectTouchPull || event.touches.length !== 1 || window.projectRuntime?.phase !== 'idle') return;
+  const touch = event.touches[0], dx = touch.clientX-projectTouchPull.x, dy = touch.clientY-projectTouchPull.y;
+  if (dy <= 0 || Math.abs(dx) > Math.abs(dy) || projectScroller.scrollTop > 1) { projectTouchPull = null; return; }
+  if (event.cancelable) event.preventDefault();
+  const delta = touch.clientY-projectTouchPull.lastY;
+  projectTouchPull.lastY = touch.clientY;
+  if (delta > 0) kickProjectTopPull(-delta);
+}, { passive:false });
+projectScroller?.addEventListener('touchend', () => { projectTouchPull = null; }, { passive:true });
+projectScroller?.addEventListener('touchcancel', () => { projectTouchPull = null; }, { passive:true });
 
 if (projectDetail) {
   projectDetail.dataset.scriptReady = "true";

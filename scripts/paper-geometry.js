@@ -17,6 +17,33 @@
   extensionOutline.append(extensionPath);
   // Attach outside the offset body: these coordinates are document coordinates.
   document.documentElement.append(extensionOutline);
+  // Only the exposed overscroll strips are fixed. They never draw through
+  // paper cuts and never add scrollable document height or a second full rail.
+  const elasticOutline = document.createElementNS(NS, 'svg');
+  elasticOutline.classList.add('paper-elastic-extensions');
+  elasticOutline.setAttribute('aria-hidden', 'true');
+  const elasticPath = document.createElementNS(NS, 'path');
+  elasticOutline.append(elasticPath);
+  document.documentElement.append(elasticOutline);
+  let elasticEdges = null, elasticFrame = null;
+  function paintElasticEdges() {
+    elasticFrame = null;
+    if (!elasticEdges) return;
+    const height = window.innerHeight, width = window.innerWidth;
+    const above = Math.min(height, Math.max(0, -window.scrollY));
+    const below = Math.min(height, Math.max(0, window.scrollY + height - document.documentElement.scrollHeight));
+    const segments = [];
+    for (const x of elasticEdges) {
+      if (above > 0) segments.push(`M${x} 0 V${above}`);
+      if (below > 0) segments.push(`M${x} ${height-below} V${height}`);
+    }
+    elasticOutline.setAttribute('viewBox', `0 0 ${width} ${height}`);
+    const path = segments.join(' ');
+    if (elasticPath.getAttribute('d') !== path) elasticPath.setAttribute('d', path);
+  }
+  window.addEventListener('scroll', () => {
+    if (elasticFrame === null) elasticFrame = requestAnimationFrame(paintElasticEdges);
+  }, { passive:true });
   // A viewport-sized one-shot outline travels WITH the first paper. The long
   // document SVG stays still/offscreen; do not promote it to a huge GPU layer.
   const arrivalOutline = document.createElementNS(NS, "svg");
@@ -149,6 +176,7 @@
     homepageGeometry.sort((a,b) => a.pageTop - b.pageTop);
     if (homepageGeometry.length) {
       const g=homepageGeometry[0], parts=[];
+      elasticEdges = [g.pageLeft, g.pageRight];
       const top=g.pageTop-window.scrollY, bottom=top+g.height*g.scale;
       [top,bottom].forEach(y=>parts.push(`M0 ${y.toFixed(2)} H${window.innerWidth}`));
       for(const side of ['left','right']){
@@ -181,6 +209,7 @@
     extensionOutline.setAttribute("width", String(window.innerWidth));
     extensionOutline.setAttribute("height", String(documentHeight));
     extensionPath.setAttribute("d", extensionSegments.join(" "));
+    paintElasticEdges();
     document.documentElement.classList.add("has-paper-geometry");
   }
   function queue() { if (!frame) frame = requestAnimationFrame(update); }

@@ -808,12 +808,6 @@
 .project-sheet[data-project-id="adaptive-app-market"] .am-controller-step strong { font-size:13px; }
 .project-sheet[data-project-id="adaptive-app-market"] .am-controller-step p { font-size:11px; }
 
-@media (max-width:900px) {
-  .project-sheet[data-project-id="adaptive-app-market"] .am-controller-panel { grid-template-columns:repeat(3,1fr); }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage { grid-template-columns:220px minmax(0,1fr); }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-lead { width:210px; }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen { width:180px; }
-}
 
 /* 2026-09-29 final alignment pass: commercial overview, device clipping and
    controller-first interaction. Keep this block last so every device uses one
@@ -1099,23 +1093,7 @@
   font-size:11px;
 }
 
-@media (max-width:900px) {
-  .project-sheet[data-project-id="adaptive-app-market"] .am-controller-panel { grid-template-columns:repeat(3,1fr); }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage { grid-template-columns:220px minmax(0,1fr); }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-lead { width:210px; }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-fan-screen { width:180px; }
-}
 
-@media (max-width:900px) {
-  .project-sheet[data-project-id="adaptive-app-market"] .am-phone-discovery-layout,
-  .project-sheet[data-project-id="adaptive-app-market"] .am-apps-composition,
-  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-stage,
-  .project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage { grid-template-columns:1fr; }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-discovery-branch { width:42%; margin:0 auto; }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-profile-lead { width:48%; margin:0 auto; }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-phone-fan { min-height:500px; }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-beta-detail { width:44%; margin:0 auto; }
-}
 
 /* Tablet. */
 .project-sheet[data-project-id="adaptive-app-market"] .am-tablet-hero-layout { display:grid; grid-template-columns:minmax(0,1fr) 240px; align-items:center; gap:34px; }
@@ -1473,18 +1451,6 @@
 
 .project-sheet[data-project-id="adaptive-app-market"] [data-project-section-title="1"] { margin-top:0; }
 
-@media (max-width:900px) {
-  .project-sheet[data-project-id="adaptive-app-market"] .am-project-overview > .project-content-block,
-  .project-sheet[data-project-id="adaptive-app-market"] .am-project-overview .project-content-copy,
-  .project-sheet[data-project-id="adaptive-app-market"] [data-variant="market-phone-components"] > .project-content-copy,
-  .project-sheet[data-project-id="adaptive-app-market"] [data-variant="market-phone-flow"] > .project-content-copy,
-  .project-sheet[data-project-id="adaptive-app-market"] .am-user-flow { width:calc(100% - 40px); }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-positioning-panel,
-  .project-sheet[data-project-id="adaptive-app-market"] .am-partner-overview { grid-template-columns:1fr; }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-phone-component-stage { left:0; grid-template-columns:1fr; width:calc(100% - 24px); margin:0 auto; transform:none; }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-component-column { display:grid; grid-template-columns:1fr 1fr; }
-  .project-sheet[data-project-id="adaptive-app-market"] .am-phone-in-hand { order:-1; }
-}
 
 @media (prefers-reduced-motion:reduce) {
   .project-sheet[data-project-id="adaptive-app-market"] .is-scroll-phone .am-phone-screen { animation:none !important; transform:none !important; }

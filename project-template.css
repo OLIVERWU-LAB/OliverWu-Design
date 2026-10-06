@@ -3,6 +3,10 @@
    three-column information grid stay consistent. */
 
 .project-sheet {
+  /* Preserve the authored canvas, including on mobile text-inflation engines.
+     Browser zoom remains available; do not disable user pinch zoom. */
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
   --project-template-display-font: var(--display);
   --project-template-copy-font: Arial, Helvetica, sans-serif;
   --project-template-title-size: 44.8px;

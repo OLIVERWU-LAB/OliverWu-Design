@@ -100,6 +100,9 @@
     if (finished) return;
     measureLetters();
     window.addEventListener('resize', measureLetters);
+    // The initial HTML and reduced-motion glyphs stay hidden until this gate.
+    // Keep the approved 2.5s fallback; never flash the unsplit initial sentence.
+    copy.style.visibility = 'visible';
     intro.classList.add('intro-writing');
     await sleep(reduced.matches ? 0 : (letters.length - 1) * 40 + 200 + 150);
     if (finished) return;
