@@ -573,40 +573,50 @@
   }
 }
 
-/* The card preview and a full-height paper respond immediately to a click.
-   Network preparation no longer holds the sheet below the viewport. */
-.project-sheet.is-loading-project { min-height:calc(100svh / var(--project-canvas-scale,1)); }
-.project-load-progress {
-  position: absolute;
-  z-index: 12;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.18);
-  opacity: 0;
-  transition: opacity 180ms ease;
-  pointer-events: none;
+/* The final JSON layout exists before entrance; only artwork is pending. */
+.project-sheet-cover.is-cover-pending { background:#969696 !important; }
+.project-sheet-cover.is-cover-pending > .project-cover-layer { visibility:hidden; }
+.project-cover-placeholder {
+  display:none;
+  position:absolute;
+  inset:0;
+  z-index:4;
+  align-items:center;
+  justify-content:center;
+  font:400 16px/1.4 Arial, sans-serif;
+  color:#f5f5f5;
+  pointer-events:none;
 }
-
-.project-load-progress > span {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: currentColor;
-  transform: scaleX(var(--project-load-progress, 0));
-  transform-origin: left center;
-  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+.project-sheet-hero:has(.is-cover-pending) .project-cover-placeholder { display:flex; }
+.project-preparation[hidden] { display:none; }
+.project-preparation {
+  position:fixed;
+  inset:0;
+  z-index:150;
+  display:grid;
+  place-items:center;
+  padding:16px;
+  background:rgba(17,17,17,.52);
 }
-
-.project-sheet.is-loading-project .project-load-progress {
-  opacity: 0.92;
+.project-preparation-paper {
+  width:min(400px,100%);
+  box-sizing:border-box;
+  padding:26px;
+  color:#111;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(255,191,157,.88),rgba(255,200,183,.35) 58%,transparent),#fafaf8;
+  box-shadow:0 12px 28px #13131324;
 }
-
-.project-sheet.is-loading-project > :not(.project-sheet-hero):not(.project-close) {
-  display: none !important;
-}
+.project-preparation-paper p { margin:0 0 12px; font:400 13px/1.4 Arial, sans-serif; }
+.project-preparation-paper [data-preparation-title] { font:800 14px/1.3 var(--display); }
+:lang(zh-CN) .project-preparation-paper [data-preparation-title] { font-weight:400; }
+.project-preparation-track { height:2px; overflow:hidden; margin:16px 0; background:#1112; }
+.project-preparation-track span { display:block; width:35%; height:100%; background:#111; animation:preparation-scan 1.2s ease-in-out infinite alternate; }
+.project-preparation-paper button { padding:7px 12px; border:1px solid var(--line); background:transparent; color:#111; font:400 12px/1 Arial, sans-serif; }
+.project-preparation.has-error .project-preparation-track { visibility:hidden; }
+.project-preparation.is-paused .project-preparation-track span { animation-play-state:paused; }
+@keyframes preparation-scan { from {transform:translateX(0)} to {transform:translateX(185%)} }
+@media (prefers-reduced-motion:reduce) { .project-preparation-track span { animation:none; } }
 
 /* Neutral pending images retain intrinsic geometry; clear on load so alpha
    artwork keeps its authored transparency. No shimmer or blur loop. */

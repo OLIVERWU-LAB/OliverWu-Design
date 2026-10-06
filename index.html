@@ -9,7 +9,8 @@
     />
     <title>Oliver Wu — Experience Designer</title>
     <script>
-      try { document.documentElement.lang = localStorage.getItem('portfolio-language') === 'zh' ? 'zh-CN' : 'en'; } catch {}
+      // Each fresh visit starts in English; in-page language switches stay local.
+      document.documentElement.lang = 'en';
       window.portfolioRuntimeReady = new Promise(resolve => { window.portfolioResolveRuntime = resolve; });
       // Set before first paint; direct case-study links bypass the home greeting.
       if (!location.hash.startsWith('#project/')) {
@@ -33,7 +34,7 @@
     <link rel="stylesheet" href="styles/projects/tencent-cloud-gaming.css?v=20261006-51" />
   <link rel="stylesheet" href="styles/projects/visual-editor.css?v=20261006-51" />
   <link rel="stylesheet" href="styles/projects/gangstar-bite-me.css?v=20261006-51" />
-  <link rel="stylesheet" href="project-template.css?v=20261006-51" />
+  <link rel="stylesheet" href="project-template.css?v=20261006-53" />
   <link rel="stylesheet" href="styles/projects/dnf-zhulang-festival.css?v=20261006-51" />
     <link rel="stylesheet" href="styles/projects/adaptive-app-market.css?v=20261006-51" />
     <link rel="stylesheet" href="styles/projects/adaptive-app-market-2026.css?v=20261006-51" />
@@ -477,6 +478,15 @@
       </div>
     </main>
 
+    <div class="project-preparation" id="projectPreparation" hidden>
+      <div class="project-preparation-paper">
+        <p data-preparation-title></p>
+        <p data-preparation-status role="status">Preparing case study…</p>
+        <div class="project-preparation-track" aria-hidden="true"><span></span></div>
+        <button type="button" data-preparation-retry hidden>Try again</button>
+        <button type="button" data-preparation-cancel>Cancel</button>
+      </div>
+    </div>
     <div class="project-layer" id="projectDetail" aria-hidden="true">
       <div class="project-layer-backdrop" data-project-close aria-hidden="true"></div>
       <button class="project-close" type="button" data-project-close aria-label="Back to selected work">
@@ -500,7 +510,7 @@
             <h2 id="projectCoverOverlayTitle"></h2>
             <p id="projectCoverOverlaySubtitle" hidden></p>
           </div>
-          <div class="project-load-progress" aria-hidden="true"><span></span></div>
+          <div class="project-cover-placeholder" role="status">Loading cover…</div>
         </section>
 
         <section class="project-intro" aria-label="Project introduction">
@@ -678,9 +688,10 @@
     <!-- Start the lightweight greeting before the larger application scripts. -->
     <script src="scripts/home-intro.js?v=20261006-51"></script>
     <script src="vendor/matter.min.js?v=20261006-51"></script>
-    <script src="scripts/i18n/zh-CN.js?v=20261006-52"></script>
+    <script src="scripts/i18n/zh-CN.js?v=20261006-53"></script>
     <script src="scripts/i18n/zh-CN-details.js?v=20261006-51"></script>
     <script src="scripts/image-dimensions.js?v=20261006-51"></script>
+    <script src="scripts/video-dimensions.js?v=20261006-53"></script>
     <script src="scripts/projects/tencent-cloud-gaming.js?v=20261006-51"></script>
     <script src="scripts/projects/visual-editor.js?v=20261006-51"></script>
     <script src="scripts/projects/gangstar-bite-me.js?v=20261006-51"></script>
@@ -688,7 +699,7 @@
     <script src="scripts/home-tilt.js?v=20261006-51"></script>
     <script src="scripts/project-runtime.js?v=20261006-51"></script>
     <script src="scripts/project-background.js?v=20261006-51"></script>
-    <script src="script.js?v=20261006-52"></script>
+    <script src="script.js?v=20261006-53"></script>
     <script src="scripts/home-section-flow.js?v=20261006-51"></script>
     <script src="scripts/paper-geometry.js?v=20261006-51"></script>
     <script src="scripts/grounded-wordmark.js?v=20261006-51"></script>

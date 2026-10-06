@@ -1,6 +1,8 @@
 /* Exact-copy Chinese localization for authored portfolio content.
    Proper nouns stay intact where a project already has an established name. */
 window.zhCNTranslations = new Map([
+  ["Loading cover…", "正在加载封面…"],
+  ["Cover unavailable", "封面暂时无法加载"],
   ["Loading video…", "正在加载视频…"],
   ["Loading audio…", "正在加载音频…"],
   ["Animula Nook — UGC Hub 1.0", "粒粒小人国 — 游戏大厅 1.0"],

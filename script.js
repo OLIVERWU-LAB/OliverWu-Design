@@ -158,7 +158,6 @@ let activeProjectId = null;
 let activeProjectFallbackCover = "none";
 let currentLanguage = "en";
 let projectVideoResetTimer = 0;
-let projectLoadFinishTimer = 0;
 let cursorSuspendedByEmbed = false;
 const projectDataCache = new Map();
 let projectOpenSequence = 0;
@@ -470,14 +469,16 @@ function navigateToSection(event) {
 
 async function loadProjectData(projectId) {
   if (projectDataCache.has(projectId)) return projectDataCache.get(projectId);
-
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 12000);
   const request = fetch(`data/projects/${encodeURIComponent(projectId)}.json?v=20261006-51`, {
     cache: "no-cache",
     headers: { Accept: "application/json" },
+    signal:controller.signal,
   }).then((response) => {
     if (!response.ok) throw new Error(`Project data unavailable: ${projectId}`);
     return response.json();
-  });
+  }).finally(() => clearTimeout(timeout));
 
   projectDataCache.set(projectId, request);
   try {
@@ -488,14 +489,73 @@ async function loadProjectData(projectId) {
   }
 }
 
-function setProjectLoadingState(isLoading, progress = 0) {
+function setProjectLoadingState(isLoading) {
   if (!projectSheet) return;
-  window.clearTimeout(projectLoadFinishTimer);
-  projectLoadFinishTimer = 0;
-  projectSheet.style.setProperty("--project-load-progress", String(clamp(progress, 0, 1)));
-  projectSheet.classList.toggle("is-loading-project", isLoading);
   projectSheet.setAttribute("aria-busy", isLoading ? "true" : "false");
 }
+
+let projectPreparingCard = null;
+let projectPreparationTimer = 0;
+let projectPreparationToken = 0;
+const projectPreparation = document.getElementById('projectPreparation');
+function endProjectPreparation(token) {
+  if (token !== projectPreparationToken) return;
+  clearTimeout(projectPreparationTimer);
+  projectPreparingCard?.removeAttribute('aria-busy');
+  projectPreparingCard = null;
+  projectPreparation.hidden = true;
+  document.body.classList.remove('project-preparing');
+}
+function beginProjectPreparation(card, token, feedback = true) {
+  endProjectPreparation(projectPreparationToken);
+  projectPreparationToken = token;
+  projectPreparingCard = card;
+  card.setAttribute('aria-busy', 'true');
+  document.body.classList.add('project-preparing');
+  projectPreparation.querySelector('[data-preparation-title]').textContent = card.querySelector('h3')?.textContent || 'Selected Project';
+  const status = projectPreparation.querySelector('[data-preparation-status]');
+  status.textContent = currentLanguage === 'zh' ? '正在准备项目详情…' : 'Preparing case study…';
+  projectPreparation.querySelector('[data-preparation-cancel]').textContent = currentLanguage === 'zh' ? '取消' : 'Cancel';
+  projectPreparation.querySelector('[data-preparation-retry]').hidden = true;
+  projectPreparation.classList.remove('has-error');
+  // Cached data should not flash a modal. A pending click is marked immediately.
+  if (feedback) projectPreparationTimer = setTimeout(() => {
+    if (projectPreparationToken !== token || !projectPreparingCard) return;
+    projectPreparation.hidden = false;
+    projectPreparation.querySelector('[data-preparation-cancel]').focus({preventScroll:true});
+  }, 120);
+}
+function cancelProjectPreparation() {
+  if (!projectPreparingCard) return false;
+  const card = projectPreparingCard;
+  projectOpenSequence += 1;
+  endProjectPreparation(projectPreparationToken);
+  if (window.projectRuntime.phase === 'preparing' && !projectDetail.classList.contains('is-open')) {
+    window.projectBackground?.close();
+    window.projectRuntime.begin('closed');
+    window.projectRuntime.reset();
+    releaseProjectContent();
+    activeProjectId = null;
+  }
+  if (!activeProjectId && location.hash.startsWith('#project/')) history.replaceState(null, '', `${location.pathname}${location.search}#work`);
+  card.focus({preventScroll:true});
+  return true;
+}
+function failProjectPreparation(token) {
+  if (token !== projectOpenSequence) return;
+  clearTimeout(projectPreparationTimer);
+  projectPreparation.hidden = false;
+  projectPreparation.classList.add('has-error');
+  projectPreparation.querySelector('[data-preparation-status]').textContent = currentLanguage === 'zh' ? '暂时无法加载，请重试。' : 'Unable to load. Please try again.';
+  const retry = projectPreparation.querySelector('[data-preparation-retry]');
+  retry.textContent = currentLanguage === 'zh' ? '重试' : 'Try again';
+  retry.hidden = false;
+}
+projectPreparation.querySelector('[data-preparation-cancel]').addEventListener('click', () => closeProject());
+projectPreparation.querySelector('[data-preparation-retry]').addEventListener('click', () => {
+  if (projectPreparingCard) openProject(projectPreparingCard);
+});
+document.addEventListener('visibilitychange', () => projectPreparation.classList.toggle('is-paused', document.hidden));
 
 function resetProjectVideo() {
   if (!projectDetailVideo || !projectDetailVideoPlayer) return;
@@ -779,16 +839,16 @@ function renderProjectCover(coverConfig, fallbackBackground = activeProjectFallb
   projectCoverLayers = [];
   projectDissolveLayers = [];
   projectDetailCover.style.backgroundImage = "none";
+  projectDetailCover.classList.add('is-cover-pending');
+  delete projectDetailCover.dataset.coverDecoded;
+  const coverStatus = projectDetailHero.querySelector('.project-cover-placeholder');
+  localizedTextOriginals.delete(coverStatus);
+  coverStatus.textContent = 'Loading cover…';
 
   const configuredLayers = Array.isArray(config?.layers) ? config.layers : [];
   const backgroundSource = safeProjectAsset(config?.background);
   /* When a layered cover already contains a base image, keeping the same
      image on the container creates a second, static background beneath it. */
-  projectDetailCover.style.backgroundImage = configuredLayers.length
-    ? "none"
-    : backgroundSource
-      ? `url("${versionProjectImageAsset(backgroundSource)}")`
-      : "none";
   projectDetailCover.style.backgroundPosition = "center";
   projectDetailCover.style.backgroundSize = "cover";
   const layers = configuredLayers.length
@@ -800,6 +860,7 @@ function renderProjectCover(coverConfig, fallbackBackground = activeProjectFallb
   if (!layers.length) {
     projectDetailCover.classList.add("is-legacy");
     projectDetailCover.style.backgroundImage = fallbackBackground || "none";
+    projectDetailCover.classList.remove('is-cover-pending');
     return Promise.resolve();
   }
 
@@ -854,6 +915,8 @@ function renderProjectCover(coverConfig, fallbackBackground = activeProjectFallb
       mediaLayer.classList.add("is-dissolve-pending");
     }
     mediaLayer.src = versionProjectImageAsset(source);
+    const dimensions = window.portfolioImageDimensions?.[source];
+    if (dimensions) [mediaLayer.width, mediaLayer.height] = dimensions;
     mediaLayer.alt = "";
     mediaLayer.draggable = false;
     mediaLayer.decoding = "async";
@@ -927,36 +990,53 @@ function renderProjectCover(coverConfig, fallbackBackground = activeProjectFallb
   );
   projectCoverLayers = renderedLayers;
   projectDissolveLayers = renderedLayers.filter((layer) => layer.dataset.dissolve === "true");
-  // Reuse the already-downloaded small card while the full cover arrives.
-  // This temporary backing is removed as a group, never left under parallax.
-  projectDetailCover.style.backgroundImage = fallbackBackground || 'none';
+  // Card crops/scales are not detail crops/scales. Keep the authored geometry
+  // with a neutral placeholder instead of morphing a different composition.
+  projectDetailCover.style.backgroundImage = 'none';
 
   /* Resolve layered boundaries independently of the sheet entrance. The
      original artwork remains full resolution, but never blocks a click. */
-  const coverReady = Promise.all(renderedLayers.map((layer) => {
-    if (layer.complete) {
-      if (!layer.naturalWidth) return Promise.resolve();
-      return typeof layer.decode === "function" ? layer.decode().catch(() => {}) : Promise.resolve();
-    }
-    return new Promise((resolve) => {
+  const coverReady = Promise.all(renderedLayers.map(async (layer) => {
+    if (!layer.complete) await new Promise((resolve) => {
       layer.addEventListener("load", resolve, { once: true });
       layer.addEventListener("error", resolve, { once: true });
     });
+    if (layer.naturalWidth) await layer.decode?.().catch(() => {});
   }));
 
   return coverReady.then(() => new Promise((resolve) => {
     requestAnimationFrame(() => {
       if (projectCoverLayers === renderedLayers) {
-        if (renderedLayers.every(layer => layer.naturalWidth > 0)) projectDetailCover.style.backgroundImage = 'none';
-        updateProjectParallax();
-        renderedLayers.forEach((layer) => layer.classList.remove("is-dissolve-pending"));
+        projectDetailCover.dataset.coverDecoded = renderedLayers.every(layer => layer.naturalWidth > 0) ? 'true' : 'error';
+        if (!['entering','preparing'].includes(window.projectRuntime.phase)) revealProjectCover();
       }
       resolve();
     });
   }));
 }
 
+function revealProjectCover() {
+  if (projectDetailCover.dataset.coverDecoded === 'error') {
+    const status = projectDetailHero.querySelector('.project-cover-placeholder');
+    localizedTextOriginals.delete(status);
+    status.textContent = 'Cover unavailable';
+    translatePortfolioTree(status, currentLanguage);
+    return;
+  }
+  if (projectDetailCover.dataset.coverDecoded !== 'true') return;
+  updateProjectParallax();
+  projectCoverLayers.forEach(layer => layer.classList.remove('is-dissolve-pending'));
+  projectDetailCover.classList.remove('is-cover-pending');
+}
+
 function setProjectMediaSource(node, source) {
+  if (node.tagName === 'VIDEO') {
+    const dimensions = window.portfolioVideoDimensions?.[String(source).split('?')[0]];
+    if (dimensions) {
+      [node.width, node.height] = dimensions;
+      node.style.aspectRatio = `${dimensions[0]} / ${dimensions[1]}`;
+    }
+  }
   if (['VIDEO', 'IFRAME', 'AUDIO'].includes(node.tagName)) window.projectRuntime.source(node, source);
   else node.src = source;
 }
@@ -3560,7 +3640,24 @@ function applyProjectData(card, projectCopy = projectFallbackCopy) {
     });
   }
   translatePortfolioTree(projectSheet, currentLanguage);
+  reserveProjectImageGeometry();
   return coverReady;
+}
+
+function reserveProjectImageGeometry() {
+  const plans = [...projectSheet.querySelectorAll('img[src]')].flatMap(image => {
+    const path = new URL(image.src, location.href).pathname;
+    const source = path.slice(path.indexOf('assets/'));
+    const dimensions = window.portfolioImageDimensions?.[source];
+    return dimensions ? [{image,dimensions,auto:getComputedStyle(image).aspectRatio === 'auto'}] : [];
+  });
+  // Read styles as one batch, then write hints as one batch.
+  plans.forEach(({image,dimensions,auto}) => {
+    if (!image.hasAttribute('width') || !image.hasAttribute('height')) [image.width, image.height] = dimensions;
+    // An explicit CSS aspect-ratio:auto overrides the HTML ratio hint. Keep
+    // native-ratio illustrations sized even before their lazy request starts.
+    if (auto) image.style.aspectRatio = `${dimensions[0]} / ${dimensions[1]}`;
+  });
 }
 
 async function openProject(card, options = {}) {
@@ -3569,6 +3666,15 @@ async function openProject(card, options = {}) {
   const projectId = card.dataset.projectId;
   card.removeAttribute('data-cover-pending');
   const openSequence = ++projectOpenSequence;
+  beginProjectPreparation(card, openSequence, options.pushHistory !== false || !projectDetail.classList.contains('is-open'));
+  let projectCopy;
+  try {
+    projectCopy = await loadProjectData(projectId);
+  } catch {
+    failProjectPreparation(openSequence);
+    return;
+  }
+  if (openSequence !== projectOpenSequence) return;
   window.projectRuntime.begin('preparing');
   await window.projectBackground?.prepare(projectId, activeProjectId, options.pushHistory !== false, reduceMotionQuery.matches);
   if (openSequence !== projectOpenSequence) return;
@@ -3593,8 +3699,6 @@ async function openProject(card, options = {}) {
   const shouldPushHistory = options.pushHistory !== false;
   const entryScrollY = Number.isFinite(options.scrollY) ? options.scrollY : window.scrollY;
   const title = card.querySelector(".case-info h3")?.textContent?.trim() || "Selected Project";
-  const context = card.querySelector(".case-details span")?.textContent?.trim() || "Selected Project";
-  const year = card.querySelector(".case-details time")?.textContent?.trim() || "2026";
   const coverImage = card.querySelector(".case-image");
   const cover = coverImage ? window.getComputedStyle(coverImage).backgroundImage : "none";
   const projectIndex = Math.max(0, detailProjectCards.indexOf(card));
@@ -3640,13 +3744,6 @@ async function openProject(card, options = {}) {
   }
   applyProjectRights(null);
   projectReturnScrollY = entryScrollY;
-  const fallbackCompany = /tencent/i.test(context)
-    ? "Tencent"
-    : /rca/i.test(context)
-      ? "Royal College of Art"
-      : /zzu/i.test(context)
-        ? "Zhengzhou University"
-        : "Individual";
   projectReturnFocus = card;
   if (shouldPushHistory) {
     if (parentProjectId) {
@@ -3683,52 +3780,29 @@ async function openProject(card, options = {}) {
     );
   }
 
-  setProjectLoadingState(true, 0.12);
-  projectScroller.scrollTop = requestedProjectScrollTop;
-  updateProjectParallax();
-  projectDetail.setAttribute("aria-hidden", "false");
-  document.body.classList.add("project-open");
-
-  const restoringParent = window.projectBackground?.returning;
-  // Let the compositor move a lightweight card-preview paper immediately.
-  // Heavy chapter construction runs after arrival, not during the transition.
-  const arrived = restoringParent ? Promise.resolve() : new Promise(resolve => {
-    requestAnimationFrame(() => {
-      if (openSequence !== projectOpenSequence || activeProjectId !== projectId) { resolve(); return; }
-      projectDetail.classList.add('is-open');
-      const restored = window.projectBackground?.ready();
-      window.projectRuntime.enter(restored, resolve, resolve);
-      projectSheet.focus({ preventScroll:true });
-    });
-  });
-
-  let projectCopy;
-  try {
-    projectCopy = await loadProjectData(projectId);
-  } catch {
-    projectCopy = {
-      ...projectFallbackCopy,
-      company: fallbackCompany,
-      year,
-    };
+  // Construct once, below the viewport. Network images never gate entrance.
+  // There is no visible provisional title/layout that will later be replaced.
+  applyProjectData(card, projectCopy);
+  // Settle the actual faces before measuring the title and facts. Most are
+  // already loaded by home; Spirited retains its authored project face.
+  if (document.fonts) {
+    const family = projectId === 'spirited-expedition' ? 'DM UI CN' : currentLanguage === 'zh' ? 'ZaoZiGongFang YuanHei' : 'Monument Extended';
+    let fontTimeout;
+    const fontReady = await Promise.race([
+      document.fonts.load(`${family === 'Monument Extended' ? 800 : 400} 44px "${family}"`).then(() => true, () => false),
+      new Promise(resolve => { fontTimeout = setTimeout(() => resolve(false), 8000); }),
+    ]);
+    clearTimeout(fontTimeout);
+    if (!fontReady) { failProjectPreparation(openSequence); return; }
   }
   if (openSequence !== projectOpenSequence || activeProjectId !== projectId) return;
-  setProjectLoadingState(true, 0.46);
-
-  await arrived;
-  if (openSequence !== projectOpenSequence || activeProjectId !== projectId) return;
-  // Rendering is synchronous; its returned cover decode promise intentionally
-  // runs in the background. A closed/superseded page cannot apply late data.
-  applyProjectData(card, projectCopy);
-  if (openSequence !== projectOpenSequence || activeProjectId !== projectId) return;
-  projectSheet.style.setProperty("--project-load-progress", "1");
 
   projectGalleryImages.forEach((image, imageIndex) => {
     if (!image.style.backgroundImage || image.style.backgroundImage === "none") {
       image.style.backgroundImage = galleryCovers[imageIndex] || cover;
     }
   });
-  if (requestedProjectScrollTop > 0) projectScroller.scrollTop = requestedProjectScrollTop;
+  projectScroller.scrollTop = requestedProjectScrollTop;
   updateProjectParallax();
 
   // Prioritize the opening images without gating either response or scrolling.
@@ -3743,23 +3817,25 @@ async function openProject(card, options = {}) {
   });
   if (openSequence !== projectOpenSequence || activeProjectId !== projectId) return;
 
-  setProjectLoadingState(false, 1);
-  projectSheet.style.removeProperty("--project-load-progress");
+  setProjectLoadingState(false);
   const contentReady = () => {
     if (openSequence !== projectOpenSequence || activeProjectId !== projectId) return;
-    if (restoringParent) {
-      projectDetail.classList.add("is-open");
-      const restored = window.projectBackground?.ready();
-      window.projectRuntime.enter(restored, setupNibiruScrollReveal);
-    } else {
-      window.projectRuntime.observeContent();
-      setupNibiruScrollReveal();
-    }
+    endProjectPreparation(openSequence);
+    if (projectDetailCover.dataset.coverDecoded === 'true') revealProjectCover();
+    projectDetail.setAttribute('aria-hidden','false');
+    document.body.classList.add('project-open');
+    projectDetail.classList.add('is-open');
+    const restored = window.projectBackground?.ready();
+    window.projectRuntime.enter(restored, () => { revealProjectCover(); setupNibiruScrollReveal(); });
     projectSheet.focus({ preventScroll: true });
     updateProjectParallax();
   };
-  if (restoringParent) requestAnimationFrame(() => requestAnimationFrame(contentReady));
-  else contentReady();
+  // Scoped enhancers can compose a second layout on their next frame. Finish
+  // that chain and reserve their images before the cut observer's last pass.
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    reserveProjectImageGeometry();
+    requestAnimationFrame(() => requestAnimationFrame(contentReady));
+  }));
 }
 
 function projectChapterFlowOffset(target) {
@@ -4017,8 +4093,7 @@ function finishProjectClose(restoreScrollY = projectReturnScrollY) {
   window.projectRuntime.begin('exiting');
   document.body.classList.remove("project-home-hidden");
   window.projectBackground?.close();
-  setProjectLoadingState(false, 0);
-  projectSheet.style.removeProperty("--project-load-progress");
+  setProjectLoadingState(false);
 
   const closeDuration = reduceMotionQuery.matches ? 0 : 760;
   projectDetail.classList.add("is-closing");
@@ -4056,6 +4131,10 @@ function finishProjectClose(restoreScrollY = projectReturnScrollY) {
 }
 
 function closeProject(options = {}) {
+  if (projectPreparingCard && projectDetail.classList.contains('is-open')
+      && (window.projectBackground.returning || window.projectRuntime.phase === 'preparing')) {
+    endProjectPreparation(projectPreparationToken);
+  } else if (cancelProjectPreparation() && !options.fromHistory) return;
   if (!projectDetail?.classList.contains("is-open")) return;
 
   if (options.fromHistory) {
@@ -4111,7 +4190,7 @@ function localizedCardCopy(card) {
   };
 }
 
-function setLanguage(language, persist = true) {
+function setLanguage(language) {
   // Restore the English baseline before updating nodes owned by other renderers.
   // Otherwise cached originals can overwrite freshly localized labels or audio copy.
   translatePortfolioTree(projectSheet, "en");
@@ -4214,6 +4293,15 @@ function setLanguage(language, persist = true) {
   if (detailFooterLabel) detailFooterLabel.textContent = selectedLanguage === "zh" ? "案例结束" : "END OF CASE STUDY";
   if (detailFooterButton) detailFooterButton.textContent = selectedLanguage === "zh" ? "返回顶部 ↑" : "BACK TO TOP ↑";
 
+  if (projectPreparingCard) {
+    projectPreparation.querySelector('[data-preparation-title]').textContent = projectPreparingCard.querySelector('h3')?.textContent || 'Selected Project';
+    projectPreparation.querySelector('[data-preparation-status]').textContent = projectPreparation.classList.contains('has-error')
+      ? selectedLanguage === 'zh' ? '暂时无法加载，请重试。' : 'Unable to load. Please try again.'
+      : selectedLanguage === 'zh' ? '正在准备项目详情…' : 'Preparing case study…';
+    projectPreparation.querySelector('[data-preparation-cancel]').textContent = selectedLanguage === 'zh' ? '取消' : 'Cancel';
+    projectPreparation.querySelector('[data-preparation-retry]').textContent = selectedLanguage === 'zh' ? '重试' : 'Try again';
+  }
+
   setWorkFilter(projectCardMap?.dataset.activeFilter || "all");
   if (typeof updateSoundDesignLanguage === "function") {
     updateSoundDesignLanguage(selectedLanguage);
@@ -4222,13 +4310,6 @@ function setLanguage(language, persist = true) {
     translatePortfolioTree(projectSheet, selectedLanguage);
   }
 
-  if (persist) {
-    try {
-      window.localStorage.setItem("portfolio-language", selectedLanguage);
-    } catch {
-      // Language still switches when storage is unavailable.
-    }
-  }
 }
 
 function setWorkFilter(filter) {
@@ -5115,13 +5196,7 @@ window.addEventListener("load", () => {
 }, { once: true });
 
 if (languageToggle) {
-  let initialLanguage = "en";
-  try {
-    initialLanguage = window.localStorage.getItem("portfolio-language") || "en";
-  } catch {
-    initialLanguage = "en";
-  }
-  setLanguage(initialLanguage, false);
+  setLanguage("en");
   languageButtons.forEach((button) => button.addEventListener("click", () => {
     setLanguage(button.dataset.languageOption);
   }));
@@ -5150,9 +5225,7 @@ detailProjectCards.forEach((card) => {
   });
 });
 
-/* Prime the small JSON documents while the index is idle. The cover already
-   visible on each card is reused immediately, so opening a case study never
-   exposes a generic template while its deeper media remains lazy-loaded. */
+/* Prime only small JSON documents while idle; no full-detail image warming. */
 const warmProjectDataQueue = detailProjectCards.map((card) => card.dataset.projectId);
 let warmProjectDataBusy = false;
 const warmNextProjectData = () => {
@@ -5163,7 +5236,7 @@ const warmNextProjectData = () => {
   const connection = navigator.connection;
   // Data-saving/slow connections never warm every project in the background.
   if (connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType || "")) return;
-  if (warmProjectDataBusy || document.hidden || document.body.classList.contains('project-open')) return;
+  if (warmProjectDataBusy || document.hidden || document.body.classList.contains('project-open') || document.body.classList.contains('project-preparing')) return;
   const projectId = warmProjectDataQueue.shift();
   if (!projectId) return;
   warmProjectDataBusy = true;
