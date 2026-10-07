@@ -780,15 +780,25 @@ function projectBlockImage(source, alt = "") {
   return image;
 }
 
+const imagePlaceholderSources = new WeakMap();
 function prepareProjectImagePlaceholder(image) {
-  if (image.dataset.imagePlaceholderBound || image.complete && image.naturalWidth) return;
-  image.dataset.imagePlaceholderBound = 'true';
+  const source = image.getAttribute('src');
+  if (!source || image.complete && image.naturalWidth) {
+    image.removeAttribute('data-image-pending'); image.removeAttribute('data-image-error');
+    imagePlaceholderSources.delete(image); return;
+  }
+  if (imagePlaceholderSources.get(image) === source) return;
+  imagePlaceholderSources.set(image, source);
   image.dataset.imagePending = 'true';
   image.addEventListener('load', () => {
+    if (image.getAttribute('src') !== source) return;
     image.removeAttribute('data-image-pending'); image.removeAttribute('data-image-error');
+    imagePlaceholderSources.delete(image);
   }, {once:true});
   const unavailable = () => {
+    if (image.getAttribute('src') !== source) return;
     image.removeAttribute('data-image-pending'); image.dataset.imageError = 'true';
+    imagePlaceholderSources.delete(image);
   };
   image.addEventListener('error', unavailable, {once:true});
   if (image.complete && !image.naturalWidth && image.getAttribute('src')) unavailable();
