@@ -342,28 +342,39 @@
   filter:drop-shadow(0 18px 24px rgba(18,24,58,.26));
 }
 
-/* Brand marks share one optical line; the source assets have very different
-   intrinsic whitespace, so each is compensated at display time. */
+/* Tight source bounds and fixed grid columns align actual brand artwork,
+   without translating individual marks or drawing names in substitute fonts. */
 .project-sheet[data-project-id="adaptive-app-market"] .am-brand-item .am-brand-logo {
+  display:block;
   justify-self:start;
+  width:auto;
+  height:auto;
+  max-width:none;
+  max-height:none;
+  object-fit:contain;
   object-position:left center;
+  transform:none;
+  filter:brightness(0) invert(1);
 }
-.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item:first-child .am-brand-logo {
-  width:34px;
-  height:34px;
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item[data-brand="nubia"] .am-brand-logo {
+  width:78px;
+  height:19.9875px;
 }
-.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item:nth-child(3) .am-brand-logo {
-  width:88px;
-  height:24px;
-  transform:translateX(-21px);
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item[data-brand="tencent"] .am-brand-logo {
+  width:84px;
+  height:16.011px;
 }
-.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item:nth-child(4) .am-brand-logo {
-  width:92px;
-  height:25px;
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item[data-brand="rog"] .am-brand-logo {
+  width:52px;
+  height:27.895px;
 }
-.project-sheet[data-project-id="adaptive-app-market"] .am-brand-wordmark {
-  font-size:18px;
-  line-height:1;
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item[data-brand="redmagic"] .am-brand-logo {
+  width:21.883px;
+  height:30px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item[data-brand="lenovo"] .am-brand-logo {
+  width:80px;
+  height:16.511px;
 }
 
 /* Let the bright chapter field dissolve into the content instead of ending on
@@ -1030,7 +1041,7 @@
   max-height:none;
   object-fit:contain;
 }
-.project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-brand > img[alt="Lenovo"] { width:72px; }
+.project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-brand > img[alt="Lenovo"] { width:72px; height:14.86px; filter:none; }
 .project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-brand > img[alt="ROG"] { width:42px; }
 .project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-brand > img[alt="REDMAGIC"] { height:24.7362px; }
 .project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-brand > img[alt="nubia"] { width:43.333px; }

@@ -20,7 +20,7 @@
       "logo": "assets/media/logo-tencent.svg", "color": "#1b1b1b",
       "detail": "MYAPP DATA API · CONTENT SUPPLIER"
     },
-    { "name": "Lenovo", "logo": "assets/projects/adaptive-app-market/logo-lenovo.svg" },
+    { "name": "Lenovo", "logo": "assets/projects/adaptive-app-market/logo-lenovo-wordmark.svg" },
     { "name": "ROG", "logo": "assets/projects/adaptive-app-market/logo-rog.svg" },
     { "name": "REDMAGIC", "logo": "assets/projects/adaptive-app-market/logo-redmagic-symbol-tight.svg" },
     { "name": "nubia", "logo": "assets/projects/adaptive-app-market/logo-nubia-wordmark-tight.webp" }

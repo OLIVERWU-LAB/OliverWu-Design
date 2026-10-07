@@ -214,14 +214,15 @@
     );
     const brands = el("div", "am-brand-grid");
     [
-      ["01", "nubia", "logo-nubia-wordmark.webp", "MOBILE"],
+      ["01", "nubia", "logo-nubia-wordmark-tight.webp", "MOBILE"],
       ["02", "ROG", "logo-rog.svg", "MOBILE"],
       ["03", "Tencent", "assets/media/logo-tencent.svg", "MOBILE"],
-      ["04", "REDMAGIC", "logo-redmagic-symbol.svg", "MOBILE"],
-      ["05", "Lenovo", "", "HANDHELD"]
+      ["04", "REDMAGIC", "logo-redmagic-symbol-tight.svg", "MOBILE"],
+      ["05", "Lenovo", "logo-lenovo-wordmark.svg", "HANDHELD"]
     ].forEach(([index, name, logo, family]) => {
       const item = el("div", "am-brand-item");
-      const mark = logo ? image(logo, `${name} logo`, "am-brand-logo") : el("strong", "am-brand-wordmark", "Lenovo");
+      item.dataset.brand = name.toLowerCase();
+      const mark = image(logo, `${name} logo`, "am-brand-logo");
       item.append(el("span", "am-brand-index", index), mark, el("span", "am-brand-family", family));
       brands.append(item);
     });
