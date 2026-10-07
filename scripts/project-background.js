@@ -86,7 +86,7 @@
 
   function syncCanvas() {
     if (!parent) return;
-    for (const name of ["--project-canvas-width", "--project-canvas-height", "--project-canvas-left", "--project-canvas-scale", "--project-hairline"]) {
+    for (const name of ["--project-canvas-width", "--project-canvas-height", "--project-canvas-left", "--project-canvas-scale", "--project-embed-inverse-scale", "--project-hairline"]) {
       parent.paper.style.setProperty(name, sheet.style.getPropertyValue(name));
     }
     const scale = Number(sheet.style.getPropertyValue("--project-canvas-scale")) || 1;

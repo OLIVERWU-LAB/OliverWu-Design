@@ -6,11 +6,11 @@ html:has(body.project-open), html:has(dialog[open]) { scroll-snap-type:none; }
    Oversized sections can then scroll through their full trailing gap before snapping.
    The next section's start stays exactly where it was. */
 .page-panel-about,.work-section,.experience-section,.contact-panel { scroll-snap-align:start; scroll-snap-stop:always; scroll-margin-bottom:var(--outer-gap); }
-/* Touch momentum must not force a long paper back to its start. Desktop's
-   confirmed mandatory snap stays unchanged; touch keeps native proximity. */
+/* Touch browsing is ordinary scrolling, independent of browser chrome.
+   Desktop's confirmed mandatory snap stays unchanged. */
 @media (pointer:coarse) {
- html { scroll-snap-type:y proximity; }
- .page-panel-about,.work-section,.experience-section,.contact-panel { scroll-snap-stop:normal; }
+ html { scroll-snap-type:none; }
+ .page-panel-about,.work-section,.experience-section,.contact-panel { scroll-snap-align:none; scroll-snap-stop:normal; }
 }
 .page-panel-about { scroll-margin-top:var(--outer-gap); display:flex; flex-direction:column; min-height:calc(100svh - 2 * var(--outer-gap)); }
 .page-panel-about > .hero { display:flex; flex:1; min-height:0; }

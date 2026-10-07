@@ -146,6 +146,9 @@
     drag = { id:event.pointerId, x:event.clientX, y:event.clientY, width,
       offset:visual + (index + 1) * width, dx:0, lastX:event.clientX,
       lastTime:event.timeStamp, velocity:0, horizontal:false };
+    // Touch has implicit capture on the IMG. Claim the track immediately,
+    // before that implicit capture is processed; pan-y still stays native.
+    if (event.isTrusted) track.setPointerCapture?.(event.pointerId);
   });
   track.addEventListener('pointermove', event => {
     if (!drag || drag.id !== event.pointerId) return;
@@ -155,7 +158,6 @@
       if (Math.abs(dx) < 8 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
       drag.horizontal = true;
       carousel.classList.add('is-dragging');
-      if (event.isTrusted) track.setPointerCapture?.(event.pointerId);
     }
     const dt = event.timeStamp - drag.lastTime;
     if (dt > 0) drag.velocity = (event.clientX - drag.lastX) / dt;
@@ -178,7 +180,10 @@
   }
   track.addEventListener('pointerup', event => endDrag(true, event));
   track.addEventListener('pointercancel', event => endDrag(false, event));
-  track.addEventListener('lostpointercapture', event => endDrag(false, event));
+  track.addEventListener('lostpointercapture', event => {
+    // A former child capture can bubble here; it is not a lost TRACK capture.
+    if (event.target === track && !track.hasPointerCapture?.(event.pointerId)) endDrag(false, event);
+  });
   new IntersectionObserver(([entry]) => {
     visible = entry.isIntersecting && entry.intersectionRatio >= .4;
     if (!visible) endDrag(false);

@@ -626,6 +626,9 @@
    artwork keeps its authored transparency. No shimmer or blur loop. */
 .project-sheet img[data-image-pending] { background:#96969626; }
 .project-media-host { position:relative; }
+/* Only the foreign viewport is counter-zoomed; the 1280px composition stays
+   intact. Clip local overflow without promoting the full sheet to a layer. */
+.project-embed-viewport { display:block; overflow:hidden; padding:0; border:0; }
 .project-sheet iframe[data-media-pending] { visibility:hidden; }
 .project-sheet video[data-media-pending] { background:#969696; }
 .project-media-placeholder { position:absolute; inset:0; z-index:3; display:grid; place-content:center; gap:12px; padding:20px; background:#969696; color:#252525; text-align:center; font:14px/1.4 Arial,sans-serif; pointer-events:none; }

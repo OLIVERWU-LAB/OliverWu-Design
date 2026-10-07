@@ -255,6 +255,7 @@ function updateProjectDetailCanvas(projectId = projectSheet?.dataset.projectId |
   projectSheet.style.setProperty("--project-canvas-height", `${window.innerHeight / scale}px`);
   projectSheet.style.setProperty("--project-canvas-left", `${pageGap / scale}px`);
   projectSheet.style.setProperty("--project-canvas-scale", scale.toFixed(6));
+  projectSheet.style.setProperty("--project-embed-inverse-scale", (1 / scale).toFixed(6));
   projectSheet.style.setProperty("--project-hairline", `${(1 / scale).toFixed(4)}px`);
   window.projectBackground?.syncCanvas();
 }
@@ -876,6 +877,10 @@ function renderProjectCover(coverConfig, fallbackBackground = activeProjectFallb
       : "normal";
     const mediaLayer = document.createElement("img");
     mediaLayer.className = `project-cover-layer project-cover-layer-${kind}`;
+    // Set before src: cover planes take priority over nearby evidence images.
+    mediaLayer.fetchPriority = 'high';
+    mediaLayer.loading = 'eager';
+    mediaLayer.decoding = 'async';
     // Every ordinary 2:1 cover uses one half-speed plane. Layered authored
     // compositions keep their own foreground rates and explicit exceptions.
     const standardCover = projectHeroAspectRatio === 2 && kind === "base"
@@ -3644,6 +3649,36 @@ function applyProjectData(card, projectCopy = projectFallbackCopy) {
   return coverReady;
 }
 
+function prepareProjectEmbedViewports() {
+  // A foreign document needs its own unzoomed design viewport. Keep the
+  // authored outer box, cancel inherited CSS zoom on the iframe only, then
+  // transform that viewport once by the SAME canvas scale. No device sniffing,
+  // polling, provider SDK, contentWindow DOM access or duplicate live players.
+  const plans = [...projectSheet.querySelectorAll('iframe')].flatMap(frame => {
+    if (frame.dataset.embedViewport || !frame.offsetWidth || !frame.offsetHeight) return [];
+    const css = getComputedStyle(frame);
+    return [{ frame, width:parseFloat(css.width) || frame.offsetWidth,
+      height:parseFloat(css.height) || frame.offsetHeight,
+      absolute:css.position === 'absolute', top:css.top, left:css.left,
+      right:css.right, bottom:css.bottom, margin:css.margin }];
+  });
+  plans.forEach(({frame,width,height,absolute,top,left,right,bottom,margin}) => {
+    const viewport = document.createElement('div');
+    viewport.className = 'project-embed-viewport';
+    Object.assign(viewport.style, { width:`${width}px`, height:`${height}px`, margin,
+      position:absolute ? 'absolute' : 'relative' });
+    if (absolute) Object.assign(viewport.style, { top,left,right,bottom });
+    frame.before(viewport);
+    viewport.append(frame);
+    frame.dataset.embedViewport = 'true';
+    Object.assign(frame.style, { position:'absolute', top:'0px', left:'0px',
+      right:'auto', bottom:'auto', width:`${width}px`, height:`${height}px`,
+      maxWidth:'none', maxHeight:'none', margin:'0px',
+      zoom:'var(--project-embed-inverse-scale,1)',
+      transform:'scale(var(--project-canvas-scale,1))', transformOrigin:'0 0' });
+  });
+}
+
 function reserveProjectImageGeometry() {
   const plans = [...projectSheet.querySelectorAll('img[src]')].flatMap(image => {
     const path = new URL(image.src, location.href).pathname;
@@ -3834,6 +3869,7 @@ async function openProject(card, options = {}) {
   // that chain and reserve their images before the cut observer's last pass.
   requestAnimationFrame(() => requestAnimationFrame(() => {
     reserveProjectImageGeometry();
+    prepareProjectEmbedViewports();
     requestAnimationFrame(() => requestAnimationFrame(contentReady));
   }));
 }
@@ -4366,7 +4402,7 @@ function rebuildGrain() {
 }
 
 function createInkBrushes() {
-  if (inkBrushes.length > 0) return;
+  if (!hoverQuery.matches || inkBrushes.length > 0) return;
 
   for (let brushIndex = 0; brushIndex < 10; brushIndex += 1) {
     const brush = document.createElement("canvas");
@@ -4811,7 +4847,6 @@ function updatePhysics(delta) {
   if (reduceMotionQuery.matches) return;
 
   if (!physicsVisible && !document.documentElement.classList.contains('boot-entering')) return;
-  window.homeTilt?.apply(physicsEngine, physicsBodies, delta);
   if (physicsEngine.enableSleeping && physicsBodies.every(body => body.isSleeping && !body.plugin.pendingRelease)) return;
   stepPhysicsWorld(clamp(delta, 8, 1000 / 60));
   renderPhysicsBodies();
@@ -5104,6 +5139,9 @@ function restoreCursorFromEmbed(event) {
 }
 
 window.addEventListener("pointermove", (event) => {
+  // Ink is a mouse/pen-hover affordance, never a touch-scroll side effect.
+  // Keep touch drags scoped to their controls; no cursor, ink or hover kicks.
+  if (event.pointerType === 'touch' || !hoverQuery.matches) return;
   const overProjectClose = event.target instanceof Element
     && Boolean(event.target.closest(".project-close"));
 
@@ -5121,6 +5159,7 @@ window.addEventListener("pointermove", (event) => {
   pointer.x = event.clientX;
   pointer.y = event.clientY;
   pointer.active = true;
+  if (!inkBrushes.length) createInkBrushes();
   addInkDrops(pointer.x, pointer.y);
   kickPhysicsAtPointer(pointer.x, pointer.y, movementX, movementY);
 
