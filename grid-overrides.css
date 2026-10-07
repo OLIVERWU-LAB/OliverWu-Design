@@ -3589,6 +3589,9 @@ body.project-open .cursor-dot {
 /* Spirited Expedition keeps the shared chapter mechanics while using the
    project's supplied artwork and content proportions. */
 .project-sheet[data-project-id="spirited-expedition"] {
+  /* Author once in the 1280px canvas. Container-query lengths plus CSS zoom
+     can be scaled twice by mobile WebKit; fixed design units keep the
+     approved PC composition and let only the shared canvas zoom scale it. */
   --project-game-font: "DM UI CN", Arial, Helvetica, sans-serif;
   /* Project visual system: keep these tokens as the single source of truth. */
   --se-page: #faebc7;
@@ -3700,27 +3703,27 @@ body.project-open .cursor-dot {
 
 .project-sheet[data-project-id="spirited-expedition"] .project-cover-headline strong {
   color: #ff9500;
-  font-size: 2.75cqw;
+  font-size: 35.2px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-cover-headline span {
   color: #f6dfb3;
-  font-size: 1cqw;
+  font-size: 12.8px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-cover-headline .project-cover-headline-emphasis {
   color: #226b8c;
-  font-size: 1.5cqw;
+  font-size: 19.2px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-cover-headline .project-cover-headline-support {
   color: #009cd2;
-  font-size: 1.25cqw;
+  font-size: 16px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-cover-headline .project-cover-headline-quote {
   color: #009cd2;
-  font-size: 2cqw;
+  font-size: 25.6px;
   line-height: 0.75;
 }
 
@@ -3831,12 +3834,12 @@ body.project-open .cursor-dot {
   /* Figma spec is based on a 3200px canvas. CSS filter blur uses a
      standard-deviation radius, so its visual equivalent is approximately
      half of Figma's blur value. Offsets keep the direct 3200px ratio. */
-  --se-title-shadow-light-x: -0.25cqw;
-  --se-title-shadow-light-y: -0.25cqw;
-  --se-title-shadow-light-blur: 0.2234375cqw;
-  --se-title-shadow-dark-x: 0.125cqw;
-  --se-title-shadow-dark-y: 0.125cqw;
-  --se-title-shadow-dark-blur: 0.0890625cqw;
+  --se-title-shadow-light-x: -3.2px;
+  --se-title-shadow-light-y: -3.2px;
+  --se-title-shadow-light-blur: 2.86px;
+  --se-title-shadow-dark-x: 1.6px;
+  --se-title-shadow-dark-y: 1.6px;
+  --se-title-shadow-dark-blur: 1.14px;
   position: relative;
   isolation: isolate;
   display: block;
@@ -3938,7 +3941,7 @@ body.project-open .cursor-dot {
   padding: 0.08em 0.04em 0.2em;
   background: none;
   color: transparent;
-  font-size: 3.75cqw;
+  font-size: 48px;
   -webkit-text-fill-color: transparent;
   text-transform: none;
   white-space: nowrap;
@@ -3966,7 +3969,7 @@ body.project-open .cursor-dot {
   -webkit-text-fill-color: transparent;
   /* CSS strokes are centred on the glyph edge. The fill layer above covers
      the inner half, leaving the requested 18/3200 outer stroke visible. */
-  -webkit-text-stroke: 1.125cqw var(--se-title-edge);
+  -webkit-text-stroke: 14.4px var(--se-title-edge);
   filter: none;
 }
 
@@ -4018,7 +4021,7 @@ body.project-open .cursor-dot {
   color: transparent;
   -webkit-text-fill-color: transparent;
   /* 10.4px centred stroke = 5.2px visible outside the filled glyph. */
-  -webkit-text-stroke: 0.325cqw var(--se-title-edge);
+  -webkit-text-stroke: 4.16px var(--se-title-edge);
   filter:
     drop-shadow(
       var(--se-title-shadow-light-x)
@@ -4880,6 +4883,7 @@ body.project-open .cursor-dot {
 .project-sheet[data-project-id="spirited-expedition"] .project-media-rail-card > img {
   display: block;
   width: 100%;
+  height: auto;
   box-sizing: border-box;
   border: 3.2px solid #35507d;
   border-radius: 15.2px;
@@ -5037,8 +5041,8 @@ body.project-open .cursor-dot {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.45cqw;
-  margin: 0.75cqw 0 0;
+  gap: 5.76px;
+  margin: 9.6px 0 0;
   padding: 0;
   color: #abd5ff;
   font-family: var(--project-game-font);
@@ -5054,7 +5058,7 @@ body.project-open .cursor-dot {
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-content-ui-responsive-system {
-  margin-top: 3.125cqw;
+  margin-top: 40px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-responsive-layout {
@@ -5071,24 +5075,24 @@ body.project-open .cursor-dot {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.3cqw 0 1.3cqw 2.5cqw;
+  padding: 16.64px 0 16.64px 32px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-callout {
-  --project-ui-callout-line-width: 2.15cqw;
+  --project-ui-callout-line-width: 27.52px;
   position: relative;
   display: grid;
-  gap: 0.35cqw;
+  gap: 4.48px;
   color: #fff;
   font-family: var(--project-game-font);
-  font-size: 1.25cqw;
+  font-size: 16px;
   line-height: 1.3;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-callout::before {
   position: absolute;
   top: 0.58em;
-  right: calc(100% + 0.38cqw);
+  right: calc(100% + 4.864px);
   width: var(--project-ui-callout-line-width);
   height: 1px;
   background: rgba(255, 255, 255, 0.8);
@@ -5101,7 +5105,7 @@ body.project-open .cursor-dot {
    farther left while the smartphone leader stays on the outer frame. */
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-callout:nth-child(1),
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-callout:nth-child(3) {
-  --project-ui-callout-line-width: 4.744cqw;
+  --project-ui-callout-line-width: 60.7232px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-callout:nth-child(1) {
@@ -5110,9 +5114,9 @@ body.project-open .cursor-dot {
 
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-callout::after {
   position: absolute;
-  top: calc(0.58em - 0.12cqw);
-  right: calc(100% + 0.22cqw);
-  width: 0.24cqw;
+  top: calc(0.58em - 1.536px);
+  right: calc(100% + 2.816px);
+  width: 3.072px;
   aspect-ratio: 1;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.8);
@@ -5127,12 +5131,12 @@ body.project-open .cursor-dot {
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-callout p {
   margin: 0;
   color: rgba(255, 255, 255, 0.8);
-  font: 400 0.875cqw/1.3 var(--project-game-font);
+  font: 400 11.2px/1.3 var(--project-game-font);
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-content-ui-phone-demo {
   display: block;
-  margin-top: 1.725cqw;
+  margin-top: 22.08px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-phone-stage {
@@ -5157,8 +5161,8 @@ body.project-open .cursor-dot {
   width: 76.3%;
   aspect-ratio: 1526 / 779;
   filter:
-    drop-shadow(0 1.945cqw 0.537cqw rgba(0, 0, 0, 0.1824))
-    drop-shadow(0 0.808cqw 2.3cqw rgba(21, 59, 72, 0.14));
+    drop-shadow(0 24.896px 6.8736px rgba(0, 0, 0, 0.1824))
+    drop-shadow(0 10.3424px 29.44px rgba(21, 59, 72, 0.14));
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-content-ui-phone-demo[data-alignment="right"] .project-ui-phone-device {
@@ -5205,18 +5209,18 @@ body.project-open .cursor-dot {
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-phone-caption {
   display: grid;
   width: 76.3%;
-  gap: 0.625cqw;
+  gap: 8px;
   margin: 0;
   color: rgba(255, 255, 255, 0.8);
   font-family: var(--project-game-font);
-  font-size: 0.875cqw;
+  font-size: 11.2px;
   line-height: 1.35;
 }
 
 .project-sheet[data-project-id="spirited-expedition"]
   .project-content-ui-phone-demo:not([data-caption-placement="side-left"]):not([data-caption-placement="side-right"])
   .project-ui-phone-caption {
-  margin-top: 0.8cqw;
+  margin-top: 10.24px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"]
@@ -5263,14 +5267,14 @@ body.project-open .cursor-dot {
 
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-phone-caption strong {
   color: #fff;
-  font-size: 1.25cqw;
+  font-size: 16px;
   line-height: 1.12;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-content-ui-phone-fan,
 .project-sheet[data-project-id="spirited-expedition"] .project-content-ui-finale {
   width: 100%;
-  margin: 1.725cqw 0 0;
+  margin: 22.08px 0 0;
   color: #fff;
 }
 
@@ -5311,17 +5315,17 @@ body.project-open .cursor-dot {
 
 .project-sheet[data-project-id="spirited-expedition"] .project-content-ui-phone-fan > .project-ui-phone-caption {
   width: var(--se-content-rail);
-  margin: 0.8cqw auto 0;
+  margin: 10.24px auto 0;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-content-ui-phone-pair > .project-ui-phone-caption {
-  gap: 0.625cqw;
+  gap: 8px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-content-ui-phone-pair {
   position: relative;
   z-index: 3;
-  margin-top: 1.725cqw;
+  margin-top: 22.08px;
   background: transparent !important;
 }
 
@@ -5346,7 +5350,7 @@ body.project-open .cursor-dot {
 
 .project-sheet[data-project-id="spirited-expedition"] .project-content-ui-phone-pair > .project-ui-phone-caption {
   width: 100%;
-  margin-top: 0.8cqw;
+  margin-top: 10.24px;
   background: transparent !important;
 }
 
@@ -5375,7 +5379,7 @@ body.project-open .cursor-dot {
 .project-sheet[data-project-id="spirited-expedition"] .project-content-ui-finale {
   position: relative;
   z-index: 1;
-  margin-top: -1cqw;
+  margin-top: -12.8px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-finale-background {
@@ -5426,12 +5430,12 @@ body.project-open .cursor-dot {
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-finale-copy {
-  --se-title-shadow-light-x: -0.25cqw;
-  --se-title-shadow-light-y: -0.25cqw;
-  --se-title-shadow-light-blur: 0.2234375cqw;
-  --se-title-shadow-dark-x: 0.125cqw;
-  --se-title-shadow-dark-y: 0.125cqw;
-  --se-title-shadow-dark-blur: 0.0890625cqw;
+  --se-title-shadow-light-x: -3.2px;
+  --se-title-shadow-light-y: -3.2px;
+  --se-title-shadow-light-blur: 2.86px;
+  --se-title-shadow-dark-x: 1.6px;
+  --se-title-shadow-dark-y: 1.6px;
+  --se-title-shadow-dark-blur: 1.14px;
   position: absolute;
   z-index: 3;
   right: 0;
@@ -5439,7 +5443,7 @@ body.project-open .cursor-dot {
   left: 0;
   display: grid;
   justify-items: center;
-  gap: 1.65cqw;
+  gap: 21.12px;
   padding: 0 4%;
   text-align: center;
 }
@@ -5455,7 +5459,7 @@ body.project-open .cursor-dot {
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-finale-quote {
-  font-size: 2cqw;
+  font-size: 25.6px;
   line-height: 1.35;
 }
 
@@ -5469,7 +5473,7 @@ body.project-open .cursor-dot {
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-finale-subtitle {
   position: relative;
   color: transparent;
-  font-size: 1cqw;
+  font-size: 12.8px;
   line-height: 1.16;
   -webkit-text-fill-color: transparent;
 }
@@ -5491,11 +5495,11 @@ body.project-open .cursor-dot {
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-finale-quote span::before {
-  -webkit-text-stroke: 0.8125cqw var(--se-title-edge);
+  -webkit-text-stroke: 10.4px var(--se-title-edge);
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-finale-subtitle::before {
-  -webkit-text-stroke: 0.325cqw var(--se-title-edge);
+  -webkit-text-stroke: 4.16px var(--se-title-edge);
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-ui-finale-quote span::after,
@@ -5531,12 +5535,12 @@ body.project-open .cursor-dot {
   height: auto;
   margin: 0 auto 35.84px;
   aspect-ratio: 1;
-  border: 0.125cqw solid #713c0f;
+  border: 1.6px solid #713c0f;
   border-radius: 50%;
   background: #713c0f;
   box-shadow:
-    inset 0 0 0 0.22cqw rgba(255, 255, 255, 0.1),
-    0 0.68cqw 1.55cqw rgba(71, 38, 15, 0.34);
+    inset 0 0 0 2.816px rgba(255, 255, 255, 0.1),
+    0 8.704px 19.84px rgba(71, 38, 15, 0.34);
   object-fit: cover;
   animation: project-audio-vinyl-spin 16s linear infinite;
 }
@@ -5544,9 +5548,9 @@ body.project-open .cursor-dot {
 .project-sheet[data-project-id="spirited-expedition"] .project-audio-players {
   display: grid;
   grid-template-rows: repeat(3, minmax(0, 1fr));
-  gap: 2.1cqw;
+  gap: 26.88px;
   width: 100%;
-  height: calc(498px + 1.4cqw);
+  height: calc(498px + 17.92px);
   min-height: 0;
 }
 
@@ -5555,11 +5559,11 @@ body.project-open .cursor-dot {
   min-width: 0;
   min-height: 0;
   overflow: hidden;
-  border-radius: 0.3cqw;
+  border-radius: 3.84px;
   background: var(--project-page-bg);
   box-shadow:
-    0 0.16cqw 0.38cqw rgba(96, 55, 25, 0.12),
-    0 0.55cqw 1.35cqw rgba(96, 55, 25, 0.18);
+    0 2.048px 4.864px rgba(96, 55, 25, 0.12),
+    0 7.04px 17.28px rgba(96, 55, 25, 0.18);
   isolation: isolate;
 }
 
@@ -5586,7 +5590,7 @@ body.project-open .cursor-dot {
   width: 100% !important;
   max-width: none;
   aspect-ratio: 3200 / 1715;
-  margin: -10.5cqw 0 0;
+  margin: -134.4px 0 0;
   overflow: hidden;
   padding: 0;
   background: #faebc7;
@@ -5619,7 +5623,7 @@ body.project-open .cursor-dot {
   left: 0;
   margin: 0;
   color: #945022;
-  font: 400 3cqw/1 var(--project-game-font);
+  font: 400 38.4px/1 var(--project-game-font);
   text-align: center;
 }
 
@@ -5632,16 +5636,16 @@ body.project-open .cursor-dot {
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-audio-credits h5 {
-  margin: 0 0 1.35cqw;
+  margin: 0 0 17.28px;
   color: #ac5e2a;
-  font: 400 1.25cqw/1 var(--project-game-font);
+  font: 400 16px/1 var(--project-game-font);
   text-align: center;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-audio-credits dl {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.82cqw 1.4cqw;
+  gap: 10.496px 17.92px;
   margin: 0;
 }
 
@@ -5656,12 +5660,12 @@ body.project-open .cursor-dot {
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-audio-credits dt {
-  font-size: 0.75cqw;
+  font-size: 9.6px;
   text-align: right;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-audio-credits dd {
-  font-size: 1cqw;
+  font-size: 12.8px;
   text-align: left;
 }
 
@@ -5674,7 +5678,7 @@ body.project-open .cursor-dot {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.7cqw;
+  gap: 8.96px;
 }
 
 @keyframes project-audio-vinyl-spin {
@@ -5690,36 +5694,36 @@ body.project-open .cursor-dot {
 .project-sheet[data-project-id="spirited-expedition"] .project-audio-footer-logo {
   display: block;
   box-sizing: content-box;
-  height: 1.45cqw;
+  height: 18.56px;
   background: #bd926e;
   -webkit-mask: var(--project-audio-logo) center / contain no-repeat;
   mask: var(--project-audio-logo) center / contain no-repeat;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-audio-footer-logo + .project-audio-footer-logo {
-  margin-left: 0.2cqw;
+  margin-left: 2.56px;
   border-left: 1px solid #bd926e;
-  padding-left: 0.9cqw;
+  padding-left: 11.52px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-audio-footer-separator {
   display: block;
   width: 2px;
-  height: 1.45cqw;
+  height: 18.56px;
   flex: 0 0 2px;
   background: #bd926e;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-audio-footer-logo[data-logo-index="0"] {
-  width: 7.1cqw;
+  width: 90.88px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-audio-footer-logo[data-logo-index="1"] {
-  width: 4.6cqw;
+  width: 58.88px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-audio-footer-logo[data-logo-index="2"] {
-  width: 7.1cqw;
+  width: 90.88px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-rights {
@@ -6048,8 +6052,8 @@ body.project-open .cursor-dot {
 
 .project-sheet[data-project-id="spirited-expedition"]
   [data-project-section-title="3"] {
-  height: clamp(68px, 9.09375cqw, 291px);
-  min-height: clamp(68px, 9.09375cqw, 291px);
+  height: clamp(68px, 116.4px, 291px);
+  min-height: clamp(68px, 116.4px, 291px);
   overflow: visible;
   box-shadow: 0 2px 0 #498bcd;
 }

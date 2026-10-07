@@ -805,9 +805,12 @@ function safeSoundCloudPlayer(source) {
   if (typeof source !== "string") return "";
   try {
     const url = new URL(source.trim());
-    return url.protocol === "https:" && url.hostname === "w.soundcloud.com" && url.pathname === "/player/"
-      ? url.href
-      : "";
+    if (url.protocol !== 'https:' || url.hostname !== 'w.soundcloud.com' || url.pathname !== '/player/') return '';
+    // Ask the native widget not to show its app/teaser overlay. SoundCloud
+    // controls availability (including the track owner's plan); never hide
+    // or intercept cross-origin player controls ourselves.
+    url.searchParams.set('show_teaser', 'false');
+    return url.href;
   } catch {
     return "";
   }
@@ -2280,7 +2283,7 @@ function renderProjectBlocks(container, blocks) {
 
           const iframe = document.createElement("iframe");
           iframe.title = "Water Babies by Oliver Wu on SoundCloud";
-          setProjectMediaSource(iframe, `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A${soundCloudTrackId}&color=%2389c9ec&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`);
+          setProjectMediaSource(iframe, safeSoundCloudPlayer(`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A${soundCloudTrackId}&color=%2389c9ec&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`));
           iframe.width = "100%";
           iframe.height = "166";
           iframe.scrolling = "no";
@@ -3156,6 +3159,11 @@ function renderProjectBlocks(container, blocks) {
           bindProjectManagedVideo(media);
         }
         if (!media) return null;
+        // This authored landscape frame must win over metadata's raw width
+        // and height hints; the same frame also applies to the loop copies.
+        if (projectSheet.dataset.projectId === 'spirited-expedition') {
+          media.style.aspectRatio = size === 'large' ? '1116 / 515' : '821 / 378';
+        }
         const caption = document.createElement("figcaption");
         caption.textContent = typeof item?.caption === "string" ? item.caption.trim() : "";
         card.append(media, caption);
