@@ -3787,7 +3787,7 @@ async function openProject(card, options = {}) {
     projectCopy = await loadProjectData(projectId);
   } catch {
     const heading = card.querySelector('h3');
-    const title = localizedTextOriginals.get(heading?.firstChild) || heading?.textContent || 'Selected Project';
+    const title = workCardTitles.get(card) || heading?.textContent || 'Selected Project';
     const preview = getComputedStyle(card.querySelector('.case-image')).backgroundImage;
     const source = preview.match(/url\(["']?([^"')]+)["']?\)/)?.[1];
     const path = source ? new URL(source, location.href).pathname : '';
