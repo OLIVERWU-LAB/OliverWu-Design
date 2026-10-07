@@ -33,7 +33,8 @@ const preferredWorkOrder = [
 ];
 const filterWorkOrders = {
   all: preferredWorkOrder,
-  sound: ["sound-design"],
+  product: ["tencent-cloud-gaming", "adaptive-app-market", "olive-town", "visual-editor", "florahaven", "external-blood-vessel", "cloud-island-device"],
+  sound: ["sound-design", "external-blood-vessel", "water-babies", "swrd"],
 };
 const workCardDescriptors = new Map(projectCards.map((card) => {
   const label = card.querySelector(".case-info > p");
@@ -470,16 +471,14 @@ function navigateToSection(event) {
 
 async function loadProjectData(projectId) {
   if (projectDataCache.has(projectId)) return projectDataCache.get(projectId);
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 12000);
+  // Slow is not failed: let the browser settle the request, without a deadline.
   const request = fetch(`data/projects/${encodeURIComponent(projectId)}.json?v=20261007-54`, {
     cache: "no-cache",
     headers: { Accept: "application/json" },
-    signal:controller.signal,
   }).then((response) => {
     if (!response.ok) throw new Error(`Project data unavailable: ${projectId}`);
     return response.json();
-  }).finally(() => clearTimeout(timeout));
+  });
 
   projectDataCache.set(projectId, request);
   try {
@@ -3831,12 +3830,7 @@ async function openProject(card, options = {}) {
   // already loaded by home; Spirited retains its authored project face.
   if (document.fonts) {
     const family = projectId === 'spirited-expedition' ? 'DM UI CN' : currentLanguage === 'zh' ? 'ZaoZiGongFang YuanHei' : 'Monument Extended';
-    let fontTimeout;
-    const fontReady = await Promise.race([
-      document.fonts.load(`${family === 'Monument Extended' ? 800 : 400} 44px "${family}"`).then(() => true, () => false),
-      new Promise(resolve => { fontTimeout = setTimeout(() => resolve(false), 8000); }),
-    ]);
-    clearTimeout(fontTimeout);
+    const fontReady = await document.fonts.load(`${family === 'Monument Extended' ? 800 : 400} 44px "${family}"`).then(() => true, () => false);
     if (!fontReady) { failProjectPreparation(openSequence); return; }
   }
   if (openSequence !== projectOpenSequence || activeProjectId !== projectId) return;
