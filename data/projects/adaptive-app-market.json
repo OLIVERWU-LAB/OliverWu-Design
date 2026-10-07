@@ -22,8 +22,8 @@
     },
     { "name": "Lenovo", "logo": "assets/projects/adaptive-app-market/logo-lenovo.svg" },
     { "name": "ROG", "logo": "assets/projects/adaptive-app-market/logo-rog.svg" },
-    { "name": "REDMAGIC", "logo": "assets/projects/adaptive-app-market/logo-redmagic-symbol.svg" },
-    { "name": "nubia", "logo": "assets/projects/adaptive-app-market/logo-nubia-wordmark.webp" }
+    { "name": "REDMAGIC", "logo": "assets/projects/adaptive-app-market/logo-redmagic-symbol-tight.svg" },
+    { "name": "nubia", "logo": "assets/projects/adaptive-app-market/logo-nubia-wordmark-tight.webp" }
   ],
   "tags": [
     "App Marketplace",

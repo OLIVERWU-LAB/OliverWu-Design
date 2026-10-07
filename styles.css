@@ -1102,9 +1102,10 @@ a {
 }
 
 /* Refined editorial hierarchy */
-body,
-a {
-  cursor: none;
+@media (hover: hover) and (pointer: fine) {
+  html.pen-cursor-active,
+  html.pen-cursor-active * { cursor: none !important; }
+  html.pen-cursor-active iframe { cursor: auto !important; }
 }
 
 .dot-field {
@@ -1115,7 +1116,7 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 50;
+  z-index: 300;
   width: 13px;
   height: 13px;
   border: 1px solid rgba(255, 255, 255, 0.5);

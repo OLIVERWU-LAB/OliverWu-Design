@@ -2320,10 +2320,6 @@ body.project-open .dot-field {
   z-index: 90;
 }
 
-body.project-open .cursor-dot {
-  z-index: 100;
-}
-
 .project-layer {
   position: fixed;
   inset: 0;

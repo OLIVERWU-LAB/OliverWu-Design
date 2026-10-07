@@ -29,6 +29,8 @@ window.portfolioImageDimensions = {
   "assets/projects/adaptive-app-market/home-card-cover-app-store-2026-jpg-web.webp": [1440,804],
   "assets/projects/adaptive-app-market/logo-lenovo.svg": [104,28],
   "assets/projects/adaptive-app-market/logo-redmagic-symbol.svg": [84,84],
+  "assets/projects/adaptive-app-market/logo-redmagic-symbol-tight.svg": [60.6245,83.1138],
+  "assets/projects/adaptive-app-market/logo-nubia-wordmark-tight.webp": [160,41],
   "assets/projects/adaptive-app-market/logo-rog.svg": [107.937,57.9016],
   "assets/projects/adaptive-app-market/phone-apps-2026-jpg-web.webp": [411,1360],
   "assets/projects/adaptive-app-market/phone-benefits-detail-2026-jpg-web.webp": [411,891],

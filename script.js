@@ -476,7 +476,7 @@ function navigateToSection(event) {
 async function loadProjectData(projectId) {
   if (projectDataCache.has(projectId)) return projectDataCache.get(projectId);
   // Slow is not failed: let the browser settle the request, without a deadline.
-  const request = fetch(`data/projects/${encodeURIComponent(projectId)}.json?v=20261007-60`, {
+  const request = fetch(`data/projects/${encodeURIComponent(projectId)}.json?v=20261008-61`, {
     cache: "no-cache",
     headers: { Accept: "application/json" },
   }).then((response) => {
@@ -689,7 +689,7 @@ function projectBrandMark(source, name, color = "") {
   return mark;
 }
 
-function renderProjectPartners(partners, fallbackContext, partnerLabel = "") {
+function renderProjectPartners(partners, fallbackContext, partnerLabel = "", projectId = "") {
   if (!projectDetailPartners) return;
   const partnerItems = Array.isArray(partners) ? partners : [];
   const renderedPartners = partnerItems.slice(0, 5).flatMap((partner) => {
@@ -761,7 +761,14 @@ function renderProjectPartners(partners, fallbackContext, partnerLabel = "") {
     const label = document.createElement("span");
     label.className = "project-cooperation-label";
     label.textContent = partnerLabel;
-    row.append(label, ...renderedPartners.splice(1));
+    const brands = renderedPartners.splice(1);
+    row.append(label, ...brands.map(brand => {
+      if (projectId !== 'adaptive-app-market') return brand;
+      const item = document.createElement('span');
+      item.className = 'project-cooperation-brand';
+      item.append(brand);
+      return item;
+    }));
     renderedPartners.push(row);
   }
   projectDetailPartners.replaceChildren(...renderedPartners);
@@ -1343,7 +1350,7 @@ function setupProjectMediaRail(track) {
 }
 
 function projectEmbedFrames() {
-  return [...document.querySelectorAll(".project-video-frame, .project-content-video-frame")]
+  return [...document.querySelectorAll(".project-sheet iframe")]
     .filter((frame) => frame.offsetParent !== null);
 }
 
@@ -3662,7 +3669,7 @@ function applyProjectData(card, projectCopy = projectFallbackCopy) {
       ? projectCopy.role.split("/")
       : projectFallbackCopy.roles;
   replaceProjectTextList(projectDetailRoles, roles.slice(0, 6));
-  renderProjectPartners(projectCopy.partners, projectCopy.company || projectFallbackCopy.company, projectCopy.partnerLabel);
+  renderProjectPartners(projectCopy.partners, projectCopy.company || projectFallbackCopy.company, projectCopy.partnerLabel, projectCopy.id);
 
   const tags = Array.isArray(projectCopy.tags) && projectCopy.tags.length
     ? projectCopy.tags.slice(0, 6)
@@ -3743,6 +3750,7 @@ function prepareProjectEmbedViewports() {
   // transform that viewport once by the SAME canvas scale. No device sniffing,
   // polling, provider SDK, contentWindow DOM access or duplicate live players.
   const plans = [...projectSheet.querySelectorAll('iframe')].flatMap(frame => {
+    bindProjectEmbedFrame(frame);
     if (frame.dataset.embedViewport || !frame.offsetWidth || !frame.offsetHeight) return [];
     const css = getComputedStyle(frame);
     return [{ frame, radius:css.borderRadius, width:parseFloat(css.width) || frame.offsetWidth,
@@ -3759,6 +3767,7 @@ function prepareProjectEmbedViewports() {
     if (absolute) Object.assign(viewport.style, { top,left,right,bottom });
     frame.before(viewport);
     viewport.append(frame);
+    bindProjectEmbedFrame(viewport);
     frame.dataset.embedViewport = 'true';
     Object.assign(frame.style, { position:'absolute', top:'0px', left:'0px',
       right:'auto', bottom:'auto', width:`${width}px`, height:`${height}px`,
@@ -5203,7 +5212,7 @@ function suspendCursorForEmbed() {
   lastInkY = -100;
 }
 
-function pointIsNearVideoFrame(clientX, clientY, margin = 14) {
+function pointIsNearVideoFrame(clientX, clientY, margin = 0) {
   if (!document.body.classList.contains('project-open')) return false;
   return projectEmbedFrames().some((frame) => {
     const bounds = frame.getBoundingClientRect();
@@ -5232,10 +5241,7 @@ window.addEventListener("pointermove", (event) => {
   // Ink is a mouse/pen-hover affordance, never a touch-scroll side effect.
   // Keep touch drags scoped to their controls; no cursor, ink or hover kicks.
   if (event.pointerType === 'touch' || !hoverQuery.matches) return;
-  const overProjectClose = event.target instanceof Element
-    && Boolean(event.target.closest(".project-close"));
-
-  if (!overProjectClose && pointIsNearVideoFrame(event.clientX, event.clientY)) {
+  if (event.target instanceof Element && event.target.closest('.project-embed-viewport, iframe')) {
     suspendCursorForEmbed();
     return;
   }
@@ -5270,9 +5276,14 @@ window.addEventListener("pointerleave", () => {
 }, { passive: true });
 
 bindProjectEmbedFrame(projectDetailVideoFrame);
+function syncPenCursorMode() {
+  document.documentElement.classList.toggle('pen-cursor-active', hoverQuery.matches);
+  if (!hoverQuery.matches) suspendCursorForEmbed();
+}
+hoverQuery.addEventListener('change', syncPenCursorMode);
+syncPenCursorMode();
 document.addEventListener("mouseout", (event) => {
-  const enteredVideoPlayer = event.relatedTarget instanceof HTMLIFrameElement
-    && Boolean(event.relatedTarget.closest(".project-video-frame, .project-content-video-frame"));
+  const enteredVideoPlayer = event.relatedTarget instanceof HTMLIFrameElement;
   const crossedIntoVideoBounds = event.relatedTarget === null
     && pointIsNearVideoFrame(event.clientX, event.clientY);
 
@@ -5282,7 +5293,6 @@ window.addEventListener("blur", () => {
   window.setTimeout(() => {
     if (
       document.activeElement instanceof HTMLIFrameElement
-      && document.activeElement.closest(".project-video-frame, .project-content-video-frame")
     ) {
       suspendCursorForEmbed();
     }
