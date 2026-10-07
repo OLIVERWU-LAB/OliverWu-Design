@@ -27,7 +27,7 @@ window.portfolioImageDimensions = {
   "assets/projects/adaptive-app-market/handheld-profile-focus-2026-jpg-web.webp": [960,540],
   "assets/projects/adaptive-app-market/handheld-search-default-2026-jpg-web.webp": [960,540],
   "assets/projects/adaptive-app-market/home-card-cover-app-store-2026-jpg-web.webp": [1440,804],
-  "assets/projects/adaptive-app-market/logo-lenovo-wordmark.svg": [157.0558,32.4141],
+  "assets/projects/adaptive-app-market/logo-lenovo-wordmark-black.svg": [157.0558,32.4141],
   "assets/projects/adaptive-app-market/logo-redmagic-symbol.svg": [84,84],
   "assets/projects/adaptive-app-market/logo-redmagic-symbol-tight.svg": [60.6245,83.1138],
   "assets/projects/adaptive-app-market/logo-nubia-wordmark-tight.webp": [160,41],

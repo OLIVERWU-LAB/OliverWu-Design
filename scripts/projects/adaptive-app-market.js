@@ -218,7 +218,7 @@
       ["02", "ROG", "logo-rog.svg", "MOBILE"],
       ["03", "Tencent", "assets/media/logo-tencent.svg", "MOBILE"],
       ["04", "REDMAGIC", "logo-redmagic-symbol-tight.svg", "MOBILE"],
-      ["05", "Lenovo", "logo-lenovo-wordmark.svg", "HANDHELD"]
+      ["05", "Lenovo", "logo-lenovo-wordmark-black.svg", "HANDHELD"]
     ].forEach(([index, name, logo, family]) => {
       const item = el("div", "am-brand-item");
       item.dataset.brand = name.toLowerCase();
