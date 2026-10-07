@@ -14,6 +14,11 @@
   });
   const critical = [...new Map([...document.querySelectorAll('#heroPhysics img,.backdrop-planet,.backdrop-ground')]
     .map(image => [image.currentSrc || image.src, image])).values()];
+  window.portfolioHomeAssetsSettled = false;
+  const homeAssetsSettled = () => {
+    window.portfolioHomeAssetsSettled = true;
+    document.dispatchEvent(new Event('portfolio:home-assets-settled'));
+  };
   const shell = document.querySelector('.site-shell');
   const arrival = shell?.querySelector('.page-panel-about') || shell;
   let finished = !pending;
@@ -23,10 +28,14 @@
   const covers = new IntersectionObserver(entries => {
     for (const entry of entries) if (entry.isIntersecting) {
       entry.target.removeAttribute('data-cover-pending'); covers.unobserve(entry.target);
+      document.dispatchEvent(new CustomEvent('portfolio:cover-nearby', {detail:entry.target}));
     }
   }, { rootMargin:'1200px 0px', threshold:0 });
   const observeCovers = () => document.querySelectorAll('.case-card[data-cover-pending]').forEach(card => covers.observe(card));
-  if (!pending) { observeCovers(); intro?.remove(); return; }
+  if (!pending) {
+    Promise.all(critical.map(imageReady)).then(homeAssetsSettled);
+    observeCovers(); intro?.remove(); return;
+  }
   // Cancel a native smooth fragment scroll that may have started before the
   // early head script removed the URL hash. One reset, no scroll polling.
   window.scrollTo({ top: 0, behavior: 'instant' });
@@ -90,6 +99,7 @@
   const images = Promise.all(critical.map(img => counted(imageReady(img))));
   const runtime = counted(window.portfolioRuntimeReady || Promise.resolve());
   const ready = Promise.all([images, fonts, runtime]).then(([statuses]) => statuses.every(Boolean) ? 'loaded' : 'partial');
+  ready.then(homeAssetsSettled);
   fonts.then(() => { if (!finished) measureLetters(); });
   root.dataset.bootPhase = 'loading';
   const started = window.portfolioBootStarted || performance.now();

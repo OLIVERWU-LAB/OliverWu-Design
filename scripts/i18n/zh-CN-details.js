@@ -1,6 +1,8 @@
 /* Authored detail-page copy. Keep source text as the key so English is reversible. */
 for (const line of String.raw`
 Partners:	合作方：
+Some project details are temporarily unavailable. You can return and open this project again.	部分项目内容暂时无法加载。你可以返回后重新打开此项目。
+This media is temporarily unavailable.	此媒体暂时无法加载。
 GAME CONTENT · CLOUD GAMING SERVICES	游戏内容 · 云游戏技术服务
 In-Car Gaming	车载游戏
 In-Vehicle HMI	车载人机交互

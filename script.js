@@ -304,8 +304,10 @@ const languageCopy = {
     roleInternDescription: "In-car Cloud Gaming HMI — interaction frameworks for automotive OS and lightweight clients, cross-platform adaptation, controller usability testing and HMI demos. Supported deliveries for Huawei, BMW, and Dongfeng Nissan.",
     degreeMA: "MA Information Experience Design",
     degreeMADescription: "Royal College of Art, London.",
+    degreeMARecognition: "World #1 for Art & Design — QS 2026",
     degreeArchitecture: "Bachelor of Architecture",
     degreeArchitectureDescription: "Zhengzhou University, China.",
+    degreeArchitectureRecognition: "China’s Double First-Class University · Project 211",
     contactKicker: "Let’s make something responsive",
     contactTitle: "Have a project<br />in mind?",
     contactEmailLabel: "Email",
@@ -355,8 +357,10 @@ const languageCopy = {
     roleInternDescription: "车载云游戏 HMI：参与车载 OS 与微端的交互体系搭建、跨平台适配、手柄用户测试及人机 Demo 验证，支持华为、宝马及东风日产等合作项目交付。",
     degreeMA: "信息体验设计硕士",
     degreeMADescription: "英国皇家艺术学院，伦敦。",
+    degreeMARecognition: "QS 2026 艺术与设计学科全球第 1",
     degreeArchitecture: "建筑学学士",
     degreeArchitectureDescription: "郑州大学，中国。",
+    degreeArchitectureRecognition: "国家“双一流”建设高校 · “211工程”重点建设高校",
     contactKicker: "一起打造有回应的体验",
     contactTitle: "有想一起实现的<br />项目吗？",
     contactEmailLabel: "邮箱",
@@ -472,7 +476,7 @@ function navigateToSection(event) {
 async function loadProjectData(projectId) {
   if (projectDataCache.has(projectId)) return projectDataCache.get(projectId);
   // Slow is not failed: let the browser settle the request, without a deadline.
-  const request = fetch(`data/projects/${encodeURIComponent(projectId)}.json?v=20261007-54`, {
+  const request = fetch(`data/projects/${encodeURIComponent(projectId)}.json?v=20261007-60`, {
     cache: "no-cache",
     headers: { Accept: "application/json" },
   }).then((response) => {
@@ -515,8 +519,6 @@ function beginProjectPreparation(card, token, feedback = true) {
   projectPreparation.querySelector('[data-preparation-title]').textContent = card.querySelector('h3')?.textContent || 'Selected Project';
   const status = projectPreparation.querySelector('[data-preparation-status]');
   status.textContent = currentLanguage === 'zh' ? '正在准备项目详情…' : 'Preparing case study…';
-  projectPreparation.querySelector('[data-preparation-retry]').hidden = true;
-  projectPreparation.classList.remove('has-error');
   // Cached data should not flash a modal. A pending click is marked immediately.
   if (feedback) projectPreparationTimer = setTimeout(() => {
     if (projectPreparationToken !== token || !projectPreparingCard) return;
@@ -538,23 +540,11 @@ function cancelProjectPreparation() {
   }
   if (!activeProjectId && location.hash.startsWith('#project/')) history.replaceState(null, '', `${location.pathname}${location.search}#work`);
   card.focus({preventScroll:true});
+  scheduleCoverWarm();
   return true;
-}
-function failProjectPreparation(token) {
-  if (token !== projectOpenSequence) return;
-  clearTimeout(projectPreparationTimer);
-  projectPreparation.hidden = false;
-  projectPreparation.classList.add('has-error');
-  projectPreparation.querySelector('[data-preparation-status]').textContent = currentLanguage === 'zh' ? '暂时无法加载，请重试。' : 'Unable to load. Please try again.';
-  const retry = projectPreparation.querySelector('[data-preparation-retry]');
-  retry.textContent = currentLanguage === 'zh' ? '重试' : 'Try again';
-  retry.hidden = false;
 }
 projectPreparation.addEventListener('click', (event) => {
   if (event.target === projectPreparation) closeProject();
-});
-projectPreparation.querySelector('[data-preparation-retry]').addEventListener('click', () => {
-  if (projectPreparingCard) openProject(projectPreparingCard);
 });
 document.addEventListener('visibilitychange', () => projectPreparation.classList.toggle('is-paused', document.hidden));
 
@@ -786,12 +776,22 @@ function projectBlockImage(source, alt = "") {
   if (dimensions) [image.width, image.height] = dimensions;
   image.loading = "lazy";
   image.decoding = "async";
-  image.dataset.imagePending = 'true';
-  const loaded = () => image.removeAttribute('data-image-pending');
-  image.addEventListener('load', loaded, { once:true });
-  image.addEventListener('error', loaded, { once:true });
-  if (image.complete && image.naturalWidth) loaded();
+  prepareProjectImagePlaceholder(image);
   return image;
+}
+
+function prepareProjectImagePlaceholder(image) {
+  if (image.dataset.imagePlaceholderBound || image.complete && image.naturalWidth) return;
+  image.dataset.imagePlaceholderBound = 'true';
+  image.dataset.imagePending = 'true';
+  image.addEventListener('load', () => {
+    image.removeAttribute('data-image-pending'); image.removeAttribute('data-image-error');
+  }, {once:true});
+  const unavailable = () => {
+    image.removeAttribute('data-image-pending'); image.dataset.imageError = 'true';
+  };
+  image.addEventListener('error', unavailable, {once:true});
+  if (image.complete && !image.naturalWidth && image.getAttribute('src')) unavailable();
 }
 
 function safeProjectAsset(source) {
@@ -824,6 +824,69 @@ function coverNumber(value, fallback, minimum, maximum) {
   const parsedValue = Number(value);
   return Number.isFinite(parsedValue) ? clamp(parsedValue, minimum, maximum) : fallback;
 }
+function standardCoverMotion(ratio, projectId, kind) {
+  if (kind !== 'base' || ['cloud-island-device','spirited-expedition'].includes(projectId)) return null;
+  if (ratio === 2) return {speed:0.5,limit:0.8};
+  if (ratio === 16 / 9) return {speed:0.28,limit:0.45};
+  return null;
+}
+
+// Retain URL readiness, not detached sheets or decoded full-size images.
+const decodedCoverAssets = new Set();
+const warmedCoverAssets = new Set();
+const nearbyCoverQueue = new Set();
+let coverWarmBusy = false;
+let coverWarmScheduled = false;
+function queueNearbyCover(card) {
+  if (!card || card.dataset.locked === 'true' || card.dataset.projectId === 'sound-design') return;
+  nearbyCoverQueue.add(card.dataset.projectId); scheduleCoverWarm();
+}
+function scheduleCoverWarm() {
+  const connection = navigator.connection;
+  if (coverWarmScheduled || coverWarmBusy || !nearbyCoverQueue.size || document.hidden
+    || window.portfolioHomeAssetsSettled === false
+    || document.documentElement.classList.contains('boot-pending')
+    || document.documentElement.classList.contains('boot-entering')
+    || document.body.classList.contains('project-open') || document.body.classList.contains('project-preparing')
+    || connection?.saveData || /(^|-)2g$|^3g$/.test(connection?.effectiveType || '')) return;
+  coverWarmScheduled = true;
+  const run = () => { coverWarmScheduled = false; warmNearbyCover(); };
+  if (window.requestIdleCallback) window.requestIdleCallback(run);
+  else window.setTimeout(run, 250);
+}
+async function warmNearbyCover() {
+  if (coverWarmBusy || document.hidden || document.body.classList.contains('project-open')
+    || document.body.classList.contains('project-preparing')) return;
+  const id = nearbyCoverQueue.values().next().value;
+  if (!id) return;
+  nearbyCoverQueue.delete(id); coverWarmBusy = true;
+  try {
+    const copy = await loadProjectData(id);
+    const layers = copy.cover?.layers?.length ? copy.cover.layers.map(layer => layer.src) : [copy.cover?.background];
+    for (const source of new Set(layers)) {
+      if (document.hidden || document.body.classList.contains('project-open') || document.body.classList.contains('project-preparing')) {
+        nearbyCoverQueue.add(id); break;
+      }
+      const url = versionProjectImageAsset(source);
+      if (!url || warmedCoverAssets.has(url) || decodedCoverAssets.has(new URL(url, location.href).href)) continue;
+      // One low-priority request, no explicit background decode or held Image.
+      await new Promise(resolve => {
+        const image = new Image(); image.fetchPriority = 'low'; image.decoding = 'async';
+        image.onload = () => { warmedCoverAssets.add(url); resolve(); };
+        image.onerror = resolve; image.src = url;
+      });
+    }
+  } catch { /* No automatic retries of a real data failure. */ }
+  finally { coverWarmBusy = false; scheduleCoverWarm(); }
+}
+document.addEventListener('portfolio:cover-nearby', event => queueNearbyCover(event.detail));
+document.addEventListener('portfolio:boot-ready', scheduleCoverWarm);
+document.addEventListener('portfolio:home-assets-settled', scheduleCoverWarm);
+document.addEventListener('visibilitychange', scheduleCoverWarm);
+detailProjectCards.forEach(card => {
+  card.addEventListener('pointerenter', event => { if (event.pointerType !== 'touch') queueNearbyCover(card); });
+  card.addEventListener('focus', () => queueNearbyCover(card));
+});
 
 function renderProjectCover(coverConfig, fallbackBackground = activeProjectFallbackCover) {
   if (!projectDetailCover || !projectDetailHero) return Promise.resolve();
@@ -886,11 +949,10 @@ function renderProjectCover(coverConfig, fallbackBackground = activeProjectFallb
     mediaLayer.decoding = 'async';
     // Every ordinary 2:1 cover uses one half-speed plane. Layered authored
     // compositions keep their own foreground rates and explicit exceptions.
-    const standardCover = projectHeroAspectRatio === 2 && kind === "base"
-      && !["cloud-island-device", "spirited-expedition"].includes(projectSheet.dataset.projectId);
-    mediaLayer.dataset.parallax = String(standardCover ? 0.5 : coverNumber(layer.parallax, 0.12, -0.25, 1.5));
+    const standardMotion = standardCoverMotion(projectHeroAspectRatio, projectSheet.dataset.projectId, kind);
+    mediaLayer.dataset.parallax = String(standardMotion?.speed ?? coverNumber(layer.parallax, 0.12, -0.25, 1.5));
     mediaLayer.dataset.parallaxLimit = String(coverNumber(
-      standardCover ? 0.8 : layer.parallaxLimit,
+      standardMotion?.limit ?? layer.parallaxLimit,
       kind === "base" ? 0.38 : 0.22,
       0,
       0.8,
@@ -1004,19 +1066,23 @@ function renderProjectCover(coverConfig, fallbackBackground = activeProjectFallb
 
   /* Resolve layered boundaries independently of the sheet entrance. The
      original artwork remains full resolution, but never blocks a click. */
+  const previouslyDecoded = renderedLayers.every(layer => decodedCoverAssets.has(layer.src));
   const coverReady = Promise.all(renderedLayers.map(async (layer) => {
     if (!layer.complete) await new Promise((resolve) => {
       layer.addEventListener("load", resolve, { once: true });
       layer.addEventListener("error", resolve, { once: true });
     });
-    if (layer.naturalWidth) await layer.decode?.().catch(() => {});
+    if (layer.naturalWidth) {
+      await layer.decode?.().catch(() => {});
+      decodedCoverAssets.add(layer.src);
+    }
   }));
 
   return coverReady.then(() => new Promise((resolve) => {
     requestAnimationFrame(() => {
       if (projectCoverLayers === renderedLayers) {
         projectDetailCover.dataset.coverDecoded = renderedLayers.every(layer => layer.naturalWidth > 0) ? 'true' : 'error';
-        if (!['entering','preparing'].includes(window.projectRuntime.phase)) revealProjectCover();
+        if (previouslyDecoded || !['entering','preparing'].includes(window.projectRuntime.phase)) revealProjectCover();
       }
       resolve();
     });
@@ -2920,7 +2986,10 @@ function renderProjectBlocks(container, blocks) {
       if (items.length !== 2) return [];
       const pair = document.createElement("div");
       pair.className = "project-video-pair-grid";
-      pair.append(...items);
+      items.forEach(video => {
+        const slot = document.createElement('div'); slot.className = 'project-media-slot';
+        slot.append(video); pair.append(slot);
+      });
       figure.append(pair);
       return [figure];
     }
@@ -3507,6 +3576,7 @@ function applyProjectData(card, projectCopy = projectFallbackCopy) {
   translatePortfolioTree(projectSheet, "en");
   localizedAttributeOriginals = new WeakMap();
   projectSheet.dataset.projectId = projectId;
+  projectSheet.toggleAttribute('data-data-unavailable', Boolean(projectCopy.dataUnavailable));
   // Reset the opt-out every time the shared canvas is reused.
 
   if (projectId === "utopia-2419") prepareUtopiaGrain();
@@ -3665,15 +3735,16 @@ function prepareProjectEmbedViewports() {
   const plans = [...projectSheet.querySelectorAll('iframe')].flatMap(frame => {
     if (frame.dataset.embedViewport || !frame.offsetWidth || !frame.offsetHeight) return [];
     const css = getComputedStyle(frame);
-    return [{ frame, width:parseFloat(css.width) || frame.offsetWidth,
+    return [{ frame, radius:css.borderRadius, width:parseFloat(css.width) || frame.offsetWidth,
       height:parseFloat(css.height) || frame.offsetHeight,
       absolute:css.position === 'absolute', top:css.top, left:css.left,
       right:css.right, bottom:css.bottom, margin:css.margin }];
   });
-  plans.forEach(({frame,width,height,absolute,top,left,right,bottom,margin}) => {
+  plans.forEach(({frame,radius,width,height,absolute,top,left,right,bottom,margin}) => {
     const viewport = document.createElement('div');
     viewport.className = 'project-embed-viewport';
     Object.assign(viewport.style, { width:`${width}px`, height:`${height}px`, margin,
+      borderRadius:radius,
       position:absolute ? 'absolute' : 'relative' });
     if (absolute) Object.assign(viewport.style, { top,left,right,bottom });
     frame.before(viewport);
@@ -3701,6 +3772,7 @@ function reserveProjectImageGeometry() {
     // native-ratio illustrations sized even before their lazy request starts.
     if (auto) image.style.aspectRatio = `${dimensions[0]} / ${dimensions[1]}`;
   });
+  projectSheet.querySelectorAll('img[src]').forEach(prepareProjectImagePlaceholder);
 }
 
 async function openProject(card, options = {}) {
@@ -3714,8 +3786,16 @@ async function openProject(card, options = {}) {
   try {
     projectCopy = await loadProjectData(projectId);
   } catch {
-    failProjectPreparation(openSequence);
-    return;
+    const heading = card.querySelector('h3');
+    const title = localizedTextOriginals.get(heading?.firstChild) || heading?.textContent || 'Selected Project';
+    const preview = getComputedStyle(card.querySelector('.case-image')).backgroundImage;
+    const source = preview.match(/url\(["']?([^"')]+)["']?\)/)?.[1];
+    const path = source ? new URL(source, location.href).pathname : '';
+    projectCopy = { dataUnavailable:true, title,
+      body:'Some project details are temporarily unavailable. You can return and open this project again.',
+      backgroundColor:card.dataset.detailBackground,
+      cover:{ratio:card.dataset.detailRatio,background:path.slice(path.indexOf('assets/'))},
+      sectionCount:1,sections:[{title:'',body:'',caption:'',hideDefaultMedia:true,blocks:[]}] };
   }
   if (openSequence !== projectOpenSequence) return;
   window.projectRuntime.begin('preparing');
@@ -3830,8 +3910,9 @@ async function openProject(card, options = {}) {
   // already loaded by home; Spirited retains its authored project face.
   if (document.fonts) {
     const family = projectId === 'spirited-expedition' ? 'DM UI CN' : currentLanguage === 'zh' ? 'ZaoZiGongFang YuanHei' : 'Monument Extended';
-    const fontReady = await document.fonts.load(`${family === 'Monument Extended' ? 800 : 400} 44px "${family}"`).then(() => true, () => false);
-    if (!fontReady) { failProjectPreparation(openSequence); return; }
+    const fontReady = await document.fonts.load(`${family === 'Monument Extended' ? 800 : 400} 44px "${family}"`).then(faces => faces.length > 0, () => false);
+    if (openSequence !== projectOpenSequence) return;
+    projectSheet.toggleAttribute('data-font-fallback', !fontReady);
   }
   if (openSequence !== projectOpenSequence || activeProjectId !== projectId) return;
 
@@ -4163,6 +4244,7 @@ function finishProjectClose(restoreScrollY = projectReturnScrollY) {
     wakePortfolioFrame();
     activeProjectId = null;
     resetProjectVideo();
+    scheduleCoverWarm();
     projectScroller.scrollTop = 0;
     updateProjectParallax();
     projectReturnFocus?.focus({ preventScroll: true });
@@ -4336,10 +4418,7 @@ function setLanguage(language) {
 
   if (projectPreparingCard) {
     projectPreparation.querySelector('[data-preparation-title]').textContent = projectPreparingCard.querySelector('h3')?.textContent || 'Selected Project';
-    projectPreparation.querySelector('[data-preparation-status]').textContent = projectPreparation.classList.contains('has-error')
-      ? selectedLanguage === 'zh' ? '暂时无法加载，请重试。' : 'Unable to load. Please try again.'
-      : selectedLanguage === 'zh' ? '正在准备项目详情…' : 'Preparing case study…';
-    projectPreparation.querySelector('[data-preparation-retry]').textContent = selectedLanguage === 'zh' ? '重试' : 'Try again';
+    projectPreparation.querySelector('[data-preparation-status]').textContent = selectedLanguage === 'zh' ? '正在准备项目详情…' : 'Preparing case study…';
   }
 
   setWorkFilter(projectCardMap?.dataset.activeFilter || "all");

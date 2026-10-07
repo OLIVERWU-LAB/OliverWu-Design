@@ -7163,9 +7163,7 @@ body.project-open .cursor-dot {
 }
 
 .project-sheet[data-project-id="olive-town"] .project-sheet-cover:not(.is-legacy) {
-  transform:
-    translate3d(0, var(--project-parallax), 0)
-    scale(var(--project-cover-overscroll-scale, 1));
+  transform: scale(var(--project-cover-overscroll-scale, 1));
 }
 
 .project-sheet[data-project-id="olive-town"] .project-sheet-heading {
@@ -8609,6 +8607,7 @@ body.project-open .cursor-dot {
 .project-sheet[data-project-id="swrd"] .project-video-pair-grid video {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 16 / 9;
   border: 0;
   background: #050505;

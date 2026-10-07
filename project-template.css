@@ -621,25 +621,34 @@
 :lang(zh-CN) .project-preparation-paper [data-preparation-title] { font-weight:400; }
 .project-preparation-track { height:2px; overflow:hidden; margin:4px 0 0; background:#1112; }
 .project-preparation-track span { display:block; width:35%; height:100%; background:#111; animation:preparation-scan 1.2s ease-in-out infinite alternate; }
-.project-preparation-paper button { align-self:flex-start; padding:7px 12px; border:1px solid var(--line); background:transparent; color:#111; font:400 12px/1 Arial, sans-serif; }
-.project-preparation.has-error .project-preparation-track { display:none; }
 .project-preparation.is-paused .project-preparation-track span { animation-play-state:paused; }
 @keyframes preparation-scan { from {transform:translateX(0)} to {transform:translateX(185%)} }
 @media (prefers-reduced-motion:reduce) { .project-preparation-track span { animation:none; } }
 
 /* Neutral pending images retain intrinsic geometry; clear on load so alpha
    artwork keeps its authored transparency. No shimmer or blur loop. */
-.project-sheet img[data-image-pending] { background:#96969626; }
+.project-sheet img:is([data-image-pending],[data-image-error]) { background:#96969626; }
 .project-media-host { position:relative; }
+.project-media-slot { min-width:0; }
+.project-video-pair-grid video { height:auto; }
 /* Only the foreign viewport is counter-zoomed; the 1280px composition stays
    intact. Clip local overflow without promoting the full sheet to a layer. */
 .project-embed-viewport { display:block; overflow:hidden; padding:0; border:0; }
 .project-sheet iframe[data-media-pending] { visibility:hidden; }
 .project-sheet video[data-media-pending] { background:#969696; }
 .project-media-placeholder { position:absolute; inset:0; z-index:3; display:grid; place-content:center; gap:12px; padding:20px; background:#969696; color:#252525; text-align:center; font:14px/1.4 Arial,sans-serif; pointer-events:none; }
-.project-media-placeholder::before { content:"▷"; font-size:36px; }
+.project-placeholder-play { display:block; width:40px; height:40px; justify-self:center; }
 .project-media-placeholder small { font-size:11px; color:#404040; }
 .project-media-placeholder[hidden] { display:none; }
+
+/* Actual request errors degrade only the unavailable content. No error modal,
+   retry loop, fabricated facts or additional animation layer. */
+.project-sheet[data-font-fallback] * { font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif !important; }
+.project-sheet[data-data-unavailable] :is(.project-detail-facts,.project-facts,.project-sheet-facts,.project-tags,.project-chapters,#projectDetailFacts,#projectDetailTags) { display:none !important; }
+.project-sheet[data-data-unavailable] .project-intro { display:block !important; padding:40px 140px !important; background:var(--project-page-bg) !important; }
+.project-sheet[data-data-unavailable] .project-sheet-heading { display:block !important; padding:0 !important; }
+.project-sheet[data-data-unavailable] .project-sheet-heading h2 { font:800 48px/1.1 var(--display) !important; }
+.project-sheet[data-data-unavailable] .project-intro p { color:inherit !important; }
 
 /* Motion is opt-in at element level. Text, embeds, audio, video and authored
    backgrounds remain stable unless a project explicitly selects a wrapper. */

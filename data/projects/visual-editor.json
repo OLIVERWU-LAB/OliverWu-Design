@@ -33,8 +33,8 @@
       {
         "src": "assets/projects/visual-editor/cover-background-jpg-web.webp",
         "kind": "base",
-        "parallax": 0,
-        "parallaxLimit": 0
+        "parallax": 0.28,
+        "parallaxLimit": 0.45
       }
     ]
   },

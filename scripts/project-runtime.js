@@ -156,6 +156,7 @@
   }
   function observeContent() {
     sheet.querySelectorAll('img').forEach(image => {
+      if (window.prepareProjectImagePlaceholder) { window.prepareProjectImagePlaceholder(image); return; }
       if (image.complete && image.naturalWidth || image.hasAttribute('data-image-pending')) return;
       image.dataset.imagePending = 'true';
       const done = () => image.removeAttribute('data-image-pending');
@@ -173,6 +174,15 @@
     node.dataset.mediaPending = 'true';
     const controller = new AbortController();
     placeholderListeners.set(node, controller);
+    node.addEventListener('error', () => {
+      if (node.dataset.projectMediaSrc !== url) return;
+      const placeholder = placeholders.get(node);
+      if (placeholder) {
+        const label = placeholder.querySelector('span');
+        label.textContent = 'This media is temporarily unavailable.';
+        window.translatePortfolioTree?.(placeholder, document.documentElement.lang.startsWith('zh') ? 'zh' : 'en');
+      }
+    }, {signal:controller.signal});
     const done = () => {
       if (node.dataset.projectMediaSrc !== url) return;
       node.removeAttribute('data-media-pending');
@@ -202,9 +212,17 @@
       const placeholder = document.createElement('div');
       placeholder.className = 'project-media-placeholder';
       placeholder.setAttribute('aria-hidden','true');
+      // Use the media/clip's authored radius, never a separate rounded style.
+      const radius = [node, host, host.parentElement].filter(Boolean)
+        .map(element => getComputedStyle(element).borderRadius).find(value => value && value !== '0px');
+      if (radius) placeholder.style.borderRadius = radius;
+      const icon = document.createElementNS('http://www.w3.org/2000/svg','svg');
+      icon.setAttribute('viewBox','0 0 40 40'); icon.setAttribute('aria-hidden','true');
+      icon.classList.add('project-placeholder-play');
+      icon.innerHTML = '<circle cx="22" cy="22" r="15" fill="currentColor"/><circle cx="19" cy="19" r="15" fill="#ffede3" stroke="currentColor" stroke-width="1"/><path d="M16 11.5 27 19 16 26.5Z" fill="currentColor"/>';
       const label = document.createElement('span');
       label.textContent = /soundcloud/.test(url) ? 'Loading audio…' : 'Loading video…';
-      placeholder.append(label);
+      placeholder.append(icon,label);
       // Some audio embeds share a parent with a title: cover the media only.
       if (host.querySelectorAll('iframe,video').length === 1 && host.children.length > 1) {
         placeholder.style.inset = `${node.offsetTop}px auto auto ${node.offsetLeft}px`;
