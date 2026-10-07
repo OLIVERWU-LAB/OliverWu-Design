@@ -5091,14 +5091,13 @@ function frame(time) {
   const delta = Math.min(time - previousTime || 16, 32);
   previousTime = time;
   const projectIsOpen = document.body.classList.contains("project-open");
-  const welcomeIsLoading = document.documentElement.classList.contains('boot-pending');
-  // The welcome paints the same grain immediately, but not hidden cursor ink.
-  if (!welcomeIsLoading) updateInk(delta);
+  // Welcome and home share the same mouse ink, grain canvas and frame loop.
+  updateInk(delta);
   if (!projectIsOpen) updatePhysics(delta);
   if (time - lastCanvasFrame >= 30) {
     ctx.clearRect(0, 0, viewportWidth, viewportHeight);
     if (!projectIsOpen) drawBaseGrain(time);
-    if (!welcomeIsLoading) drawInk();
+    drawInk();
     lastCanvasFrame = time;
   }
   // A detail page with no cursor trail has nothing to paint on this canvas.
@@ -5163,7 +5162,10 @@ window.addEventListener("pointermove", (event) => {
   pointer.active = true;
   if (!inkBrushes.length) createInkBrushes();
   addInkDrops(pointer.x, pointer.y);
-  kickPhysicsAtPointer(pointer.x, pointer.y, movementX, movementY);
+  // Welcome input must not wake or displace the still-hidden falling objects.
+  if (!document.documentElement.classList.contains('boot-pending')) {
+    kickPhysicsAtPointer(pointer.x, pointer.y, movementX, movementY);
+  }
 
   if (hoverQuery.matches && !cursorSuspendedByEmbed) {
     cursorDot.classList.add("is-visible");
