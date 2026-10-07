@@ -516,14 +516,13 @@ function beginProjectPreparation(card, token, feedback = true) {
   projectPreparation.querySelector('[data-preparation-title]').textContent = card.querySelector('h3')?.textContent || 'Selected Project';
   const status = projectPreparation.querySelector('[data-preparation-status]');
   status.textContent = currentLanguage === 'zh' ? '正在准备项目详情…' : 'Preparing case study…';
-  projectPreparation.querySelector('[data-preparation-cancel]').textContent = currentLanguage === 'zh' ? '取消' : 'Cancel';
   projectPreparation.querySelector('[data-preparation-retry]').hidden = true;
   projectPreparation.classList.remove('has-error');
   // Cached data should not flash a modal. A pending click is marked immediately.
   if (feedback) projectPreparationTimer = setTimeout(() => {
     if (projectPreparationToken !== token || !projectPreparingCard) return;
     projectPreparation.hidden = false;
-    projectPreparation.querySelector('[data-preparation-cancel]').focus({preventScroll:true});
+    projectPreparation.querySelector('.project-preparation-paper').focus({preventScroll:true});
   }, 120);
 }
 function cancelProjectPreparation() {
@@ -552,7 +551,9 @@ function failProjectPreparation(token) {
   retry.textContent = currentLanguage === 'zh' ? '重试' : 'Try again';
   retry.hidden = false;
 }
-projectPreparation.querySelector('[data-preparation-cancel]').addEventListener('click', () => closeProject());
+projectPreparation.addEventListener('click', (event) => {
+  if (event.target === projectPreparation) closeProject();
+});
 projectPreparation.querySelector('[data-preparation-retry]').addEventListener('click', () => {
   if (projectPreparingCard) openProject(projectPreparingCard);
 });
@@ -4336,7 +4337,6 @@ function setLanguage(language) {
     projectPreparation.querySelector('[data-preparation-status]').textContent = projectPreparation.classList.contains('has-error')
       ? selectedLanguage === 'zh' ? '暂时无法加载，请重试。' : 'Unable to load. Please try again.'
       : selectedLanguage === 'zh' ? '正在准备项目详情…' : 'Preparing case study…';
-    projectPreparation.querySelector('[data-preparation-cancel]').textContent = selectedLanguage === 'zh' ? '取消' : 'Cancel';
     projectPreparation.querySelector('[data-preparation-retry]').textContent = selectedLanguage === 'zh' ? '重试' : 'Try again';
   }
 
