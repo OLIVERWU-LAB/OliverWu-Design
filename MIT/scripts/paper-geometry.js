@@ -104,6 +104,7 @@
       const signature = JSON.stringify(record.detail
         ? { width: geometry.width, height: geometry.height, depth: geometry.depth, seams: geometry.seams }
         : geometry);
+      record.sheet.paperGeometry = geometry;
       const { width: w, height: h, depth: d, seams } = geometry;
       if (signature !== record.signature) {
         record.signature = signature;
@@ -113,7 +114,6 @@
         [...seams].reverse().forEach(y => points.push([0, y + d], [d, y], [0, y - d]));
         record.sheet.style.setProperty("--paper-cut-path", `polygon(${points.map(([x, y]) => `${x}px ${y}px`).join(",")})`);
         record.sheet.classList.add("paper-cut-sheet");
-        record.sheet.paperGeometry = geometry;
         if (record.outline) {
           record.outline.setAttribute("viewBox", `0 0 ${w} ${h}`);
 
@@ -200,6 +200,7 @@
     extensionPath.setAttribute("d", extensionSegments.join(" "));
     syncViewportPath();
     document.documentElement.classList.add("has-paper-geometry");
+    document.dispatchEvent(new Event("portfolio:paper-geometry"));
   }
   function queue() { if (!frame) frame = requestAnimationFrame(update); }
   const sizes = new ResizeObserver(queue);

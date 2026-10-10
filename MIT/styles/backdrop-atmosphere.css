@@ -1,18 +1,33 @@
-/* Three tiny monochrome streaks, never a particle canvas or blurred surface. */
+/* Shared ten gray streaks: transform/opacity only, no particle engine. */
 .backdrop-meteors { position:fixed; inset:0; z-index:1; overflow:clip; pointer-events:none; }
-.backdrop-meteors span { --meteor-angle:32deg; --meteor-travel-x:240px; position:absolute; left:var(--meteor-x); top:var(--meteor-y); width:clamp(100px,12vw,200px); height:1px; background:linear-gradient(90deg,transparent,rgba(72,72,72,.55)); opacity:0; transform-origin:right center; animation:meteor-pass 18s var(--meteor-delay) linear infinite; }
-/* Start at the exposed sky/gutters, not entirely behind the opaque papers. */
-.backdrop-meteors span:nth-child(1) { --meteor-x:calc(0px - clamp(100px,12vw,200px)); --meteor-y:18%; --meteor-delay:2s; }
-.backdrop-meteors span:nth-child(2) { --meteor-x:calc(100% - clamp(100px,12vw,200px)); --meteor-y:8%; --meteor-delay:8s; --meteor-angle:148deg; --meteor-travel-x:-240px; }
-.backdrop-meteors span:nth-child(3) { --meteor-x:32%; --meteor-y:-40px; --meteor-delay:13s; }
+.backdrop-meteors span {
+  position:absolute; left:var(--meteor-x); top:var(--meteor-y);
+  width:clamp(110px,17vw,250px); height:2px;
+  background:linear-gradient(90deg,rgba(48,48,48,.86),rgba(76,76,76,.4) 22%,transparent);
+  border-radius:2px; opacity:0; transform-origin:left center;
+  animation:meteor-pass 9s var(--meteor-delay) linear infinite;
+}
+.backdrop-meteors span:nth-child(1) { --meteor-x:97%; --meteor-y:4%; --meteor-delay:-.2s; }
+.backdrop-meteors span:nth-child(2) { --meteor-x:103%; --meteor-y:26%; --meteor-delay:-1.1s; }
+.backdrop-meteors span:nth-child(3) { --meteor-x:99%; --meteor-y:53%; --meteor-delay:-2s; }
+.backdrop-meteors span:nth-child(4) { --meteor-x:78%; --meteor-y:-12%; --meteor-delay:-2.9s; }
+.backdrop-meteors span:nth-child(5) { --meteor-x:109%; --meteor-y:72%; --meteor-delay:-3.8s; }
+.backdrop-meteors span:nth-child(6) { --meteor-x:55%; --meteor-y:-8%; --meteor-delay:-4.7s; }
+.backdrop-meteors span:nth-child(7) { --meteor-x:94%; --meteor-y:38%; --meteor-delay:-5.6s; }
+.backdrop-meteors span:nth-child(8) { --meteor-x:37%; --meteor-y:-15%; --meteor-delay:-6.5s; }
+.backdrop-meteors span:nth-child(9) { --meteor-x:106%; --meteor-y:15%; --meteor-delay:-7.4s; }
+.backdrop-meteors span:nth-child(10) { --meteor-x:88%; --meteor-y:-4%; --meteor-delay:-8.3s; }
 @keyframes meteor-pass {
-  0% { opacity:0; transform:translate3d(0,0,0) rotate(var(--meteor-angle)); }
-  2% { opacity:.75; }
-  10% { opacity:0; transform:translate3d(var(--meteor-travel-x),150px,0) rotate(var(--meteor-angle)); }
-  100% { opacity:0; transform:translate3d(var(--meteor-travel-x),150px,0) rotate(var(--meteor-angle)); }
+  0% { opacity:0; transform:translate3d(0,0,0) rotate(-45deg); }
+  3% { opacity:.9; }
+  38% { opacity:.7; }
+  44%,100% { opacity:0; transform:translate3d(-108vw,108vw,0) rotate(-45deg); }
 }
 html.boot-pending .backdrop-meteors { visibility:hidden; }
 html.boot-pending .backdrop-meteors span,
 html.backdrop-paused .backdrop-meteors span { animation-play-state:paused; }
-@media(pointer:coarse) { .backdrop-meteors span:nth-child(3) { display:none; } }
 @media(prefers-reduced-motion:reduce) { .backdrop-meteors { display:none; } }
+
+.backdrop-planet { z-index:0; }
+.backdrop-ground { z-index:2; }
+.site-shell { z-index:3; }

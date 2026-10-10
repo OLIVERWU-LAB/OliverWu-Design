@@ -1,0 +1,19 @@
+/* Shared static contour shadows; no filter over sheet media. */
+.paper-contour-shadow { position:absolute; left:0; top:0; width:100%; pointer-events:none; z-index:-1; }
+.paper-contour-shadow svg { position:absolute; overflow:hidden; pointer-events:none; }
+.project-scroller > .paper-contour-shadow { z-index:0; overflow:clip; }
+.project-scroller > .project-sheet { z-index:1; }
+html.boot-pending .site-shell > .paper-contour-shadow,
+html.boot-entering .site-shell > .paper-contour-shadow { visibility:hidden; }
+html.boot-entering .site-shell > .paper-contour-shadow[data-paper="about"] {
+  visibility:visible; animation:home-arrival 720ms cubic-bezier(.18,.82,.16,1) both;
+}
+@media(prefers-reduced-motion:reduce) {
+  html.boot-entering .site-shell > .paper-contour-shadow[data-paper="about"] { animation:none; }
+}
+/* Only these small control surfaces are filtered; their clipped children stay
+   unchanged, including tape motion, text, focus and hit targets. */
+.language-toggle { filter:drop-shadow(0 3px 3px rgba(0,0,0,.25)); }
+.project-back-shadow { position:fixed; top:18px; left:14px; z-index:8; filter:drop-shadow(0 3.75px 3.75px rgba(0,0,0,.25)); pointer-events:none; }
+.project-back-shadow .project-close { position:relative !important; top:0 !important; left:0 !important; pointer-events:auto; }
+@media(max-width:760px) { .project-back-shadow { top:10px; left:8px; } }

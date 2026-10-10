@@ -12734,15 +12734,15 @@ html.has-paper-geometry .contact-panel::after { display:none; }
   clip-path: polygon(3% 4%, 97% 0, 100% 92%, 4% 100%, 0 12%);
   background: rgba(255, 237, 227, .76);
   color: #090909;
-  box-shadow: 0 7px 17px rgba(19,19,19,.2), 0 2px 4px rgba(19,19,19,.12);
+  box-shadow: none;
   backdrop-filter: blur(2px);
   transform: translateX(calc(-100% - 32px)) rotate(-8deg);
-  transition: transform 220ms ease-in, background-color 180ms ease, box-shadow 180ms ease;
+  transition: transform 220ms ease-in, background-color 180ms ease;
 }
 
 .project-layer.is-open .project-close {
   transform:translateX(0) rotate(-1.2deg);
-  transition:transform 420ms cubic-bezier(.22,.61,.36,1), background-color 180ms ease, box-shadow 180ms ease;
+  transition:transform 420ms cubic-bezier(.22,.61,.36,1), background-color 180ms ease;
 }
 .project-layer:not(.is-open) .project-close {
   transform:translateX(calc(-100% - 32px)) rotate(-8deg);
@@ -12764,7 +12764,7 @@ html.has-paper-geometry .contact-panel::after { display:none; }
 .project-layer.is-open .project-close:hover,
 .project-layer.is-open .project-close:focus-visible {
   background: rgba(255, 200, 183, .9);
-  box-shadow: 0 10px 22px rgba(19,19,19,.24), 0 2px 4px rgba(19,19,19,.12);
+  box-shadow: none;
   outline: 0;
   transform: translateY(-2px) rotate(-.4deg);
 }
@@ -12804,13 +12804,13 @@ html.has-paper-geometry .contact-panel::after { display:none; }
   clip-path: polygon(3% 4%, 97% 0, 100% 91%, 6% 100%, 0 12%);
   background: rgba(255, 237, 227, .65);
   color: #090909;
-  box-shadow: 0 5px 13px rgba(19,19,19,.17), 0 1px 3px rgba(19,19,19,.12);
+  box-shadow: none;
   font-family: var(--display);
   font-size: 9px;
   font-weight: 400;
   cursor: pointer;
   backdrop-filter: blur(1.5px);
-  transition: transform 170ms ease, background-color 170ms ease, box-shadow 170ms ease;
+  transition: transform 170ms ease, background-color 170ms ease;
 }
 
 .language-toggle:hover,
@@ -12821,7 +12821,7 @@ html.has-paper-geometry .contact-panel::after { display:none; }
 .language-tab[aria-pressed="true"] {
   z-index: 2;
   background: rgba(255, 200, 183, .86);
-  box-shadow: 0 7px 16px rgba(19,19,19,.2), 0 2px 3px rgba(19,19,19,.1);
+  box-shadow: none;
 }
 .language-tab:first-child[aria-pressed="true"] { transform: translateX(-2px) rotate(-.8deg); }
 .language-tab:last-child[aria-pressed="true"] { transform: translateX(-4px) rotate(.8deg); }
