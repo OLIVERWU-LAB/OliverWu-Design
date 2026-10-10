@@ -1,0 +1,826 @@
+{
+ "id": "gangstar-bite-me",
+ "title": "Bite Me!",
+ "subtitle": "Gangstar Mirage City · Permanent Event",
+ "backgroundColor": "#000000",
+ "summary": "A permanent event for Gangstar Mirage City: a bluffing card game played on a crocodile's teeth. I designed the UX, UI, visual style and characters.",
+ "body": "A permanent event for Gangstar Mirage City — the mobile GTA-style game by Gameloft × Level Infinite, launched in Southeast Asia, the Middle East and Eastern Europe. Bite Me! is a bluffing game played on a toy crocodile's six teeth instead of a gun's six chambers. I defined the style and designed the full stack: UX, UI, visual direction and character art.",
+ "company": "Gameloft × Level Infinite",
+ "companyLabel": "PROJECT CONTEXT",
+ "year": "2026.10.20",
+ "yearLabel": "RELEASE DATE",
+ "roles": [
+  "Interaction Design",
+  "UI Visual Design",
+  "Character Art",
+  "UI Motion Design"
+ ],
+ "partners": [
+  {
+   "name": "Tencent",
+   "logo": "assets/media/logo-tencent.svg", "color": "#ffffff"
+  },
+  {
+   "name": "Gameloft",
+   "logo": "assets/projects/gangstar-bite-me/logo-gameloft-png-web.webp"
+  },
+  {
+   "name": "Level Infinite",
+   "logo": "assets/projects/gangstar-bite-me/logo-levelinfinite-png-web.webp"
+  }
+ ],
+ "tags": [
+  "Game UI",
+  "Event Design",
+  "Character Design",
+  "Visual Design"
+ ],
+ "cover": {
+  "ratio": "2 / 1",
+  "designWidth": 1920,
+  "background": "assets/projects/gangstar-bite-me/cover-background-jpg-web.webp",
+  "layers": [
+   {
+    "src": "assets/projects/gangstar-bite-me/cover-background-jpg-web.webp",
+    "kind": "base",
+    "parallax": 0.5,
+    "parallaxLimit": 0.8
+   }
+  ]
+ },
+ "gallery": [],
+ "sectionCount": 1,
+ "sections": [
+  {
+   "title": "Bite Me!",
+   "body": "",
+   "hideDefaultMedia": true,
+   "blocks": [
+    {
+     "type": "gts-board",
+     "height": 15590,
+     "flowShift": {
+      "after": 4244,
+      "amount": 100
+     },
+     "tile": "assets/projects/gangstar-bite-me/bg-checker-tile-jpg-web.webp",
+     "frame": "assets/projects/gangstar-bite-me/phone-frame-png-web.webp",
+     "tag": "assets/projects/gangstar-bite-me/section-tag-png-web.webp",
+     "zones": [
+      {
+       "kind": "tile",
+       "y": 990,
+       "h": 1080,
+       "origin": -58
+      },
+      {
+       "kind": "blur",
+       "y": 2070,
+       "h": 960,
+       "src": "assets/projects/gangstar-bite-me/bg-home-jpg-web.webp"
+      },
+      {
+       "kind": "tile",
+       "y": 3030,
+       "h": 7112,
+       "origin": -384
+      },
+      {
+       "kind": "strip",
+       "x": -200,
+       "y": 3444,
+       "w": 2320,
+       "h": 694,
+       "r": -11.32,
+       "fill": "rgba(120, 30, 34, .30)"
+      },
+      {
+       "kind": "shade",
+       "y": 5584,
+       "h": 624,
+       "fill": "rgba(120, 30, 34, .27)"
+      },
+      {
+       "kind": "shade",
+       "y": 8056,
+       "h": 206,
+       "fill": "linear-gradient(90deg, rgba(0,0,0,.6) 0 440px, rgba(0,0,0,.15) 880px, transparent 1000px)"
+      },
+      {
+       "kind": "pink",
+       "y": 14714,
+       "h": 876
+      }
+     ],
+     "layers": [
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/moodboard-jpg-web.webp",
+       "z": 10,
+       "alt": "Mood board",
+       "x": 202.2,
+       "y": 41.2,
+       "w": 1516.0,
+       "h": 852.0,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/user-flow-png-web.webp",
+       "z": 11,
+       "alt": "User flow from matchmaking to results",
+       "x": 180.2,
+       "y": 1062.2,
+       "w": 1560.0,
+       "h": 915.0,
+       "r": 0
+      },
+      {
+       "kind": "video",
+       "src": "assets/projects/gangstar-bite-me/clip-01-mp4-web.mp4",
+       "x": 388.6,
+       "y": 2278.7,
+       "w": 1141.7,
+       "h": 549.5,
+       "r": 0,
+       "z": 12,
+       "alt": ""
+      },
+      {
+       "kind": "video",
+       "src": "assets/projects/gangstar-bite-me/clip-03-mp4-web.mp4",
+       "x": 988.8,
+       "y": 3450.6,
+       "w": 1197.9,
+       "h": 576.5,
+       "r": -61.6,
+       "z": 13,
+       "alt": ""
+      },
+      {
+       "kind": "video",
+       "src": "assets/projects/gangstar-bite-me/clip-02-mp4-web.mp4",
+       "x": -13.0,
+       "y": 3293.8,
+       "w": 1197.5,
+       "h": 576.3,
+       "r": -11.32,
+       "z": 14,
+       "alt": ""
+      },
+      {
+       "kind": "video",
+       "src": "assets/projects/gangstar-bite-me/clip-06-mp4-web.mp4",
+       "x": 809.4,
+       "y": 4790.8,
+       "w": 1141.8,
+       "h": 549.5,
+       "r": -7.6,
+       "z": 15,
+       "alt": ""
+      },
+      {
+       "kind": "video",
+       "src": "assets/projects/gangstar-bite-me/clip-04-mp4-web.mp4",
+       "x": 66.3,
+       "y": 4384.6,
+       "w": 1329.1,
+       "h": 639.6,
+       "r": -7.6,
+       "z": 16,
+       "alt": ""
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/out-burst-png-web.webp",
+       "z": 17,
+       "alt": "",
+       "x": -85.9,
+       "y": 5308.1,
+       "w": 698.9,
+       "h": 458.9,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/hands-pointing-png-web.webp",
+       "z": 18,
+       "alt": "",
+       "x": 1484.5,
+       "y": 5359.2,
+       "w": 436.0,
+       "h": 1100.9,
+       "r": 0
+      },
+      {
+       "kind": "video",
+       "src": "assets/projects/gangstar-bite-me/clip-05-mp4-web.mp4",
+       "x": 211.7,
+       "y": 5613.1,
+       "w": 1142.1,
+       "h": 549.6,
+       "r": 5.79,
+       "z": 19,
+       "alt": ""
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/sketch-wireframe-jpg-web.webp",
+       "x": 478.9,
+       "y": 6988.6,
+       "w": 811.3,
+       "h": 592.2,
+       "r": 9.46,
+       "z": 20,
+       "alt": ""
+      },
+      {
+       "kind": "phone",
+       "src": "assets/projects/gangstar-bite-me/screen-victory-jpg-web.webp",
+       "z": 21,
+       "alt": "",
+       "x": 98.3,
+       "y": 6490.1,
+       "w": 1192.8,
+       "h": 574.0,
+       "r": -11.08
+      },
+      {
+       "kind": "phone",
+       "src": "assets/projects/gangstar-bite-me/screen-home-guide-jpg-web.webp",
+       "z": 22,
+       "alt": "",
+       "x": -232.1,
+       "y": 7270.3,
+       "w": 1156.3,
+       "h": 556.5,
+       "r": 12.72
+      },
+      {
+       "kind": "phone",
+       "src": "assets/projects/gangstar-bite-me/screen-guidance-jpg-web.webp",
+       "z": 23,
+       "alt": "",
+       "x": 969.4,
+       "y": 7699.7,
+       "w": 1153.7,
+       "h": 555.2,
+       "r": -18.93
+      },
+      {
+       "kind": "phone",
+       "src": "assets/projects/gangstar-bite-me/screen-eliminated-jpg-web.webp",
+       "z": 24,
+       "alt": "",
+       "x": 951.3,
+       "y": 6907.1,
+       "w": 1191.3,
+       "h": 573.3,
+       "r": -66.81
+      },
+      {
+       "kind": "phone",
+       "src": "assets/projects/gangstar-bite-me/screen-guidance-jpg-web.webp",
+       "z": 25,
+       "alt": "",
+       "x": 1463.8,
+       "y": 8474.1,
+       "w": 702.0,
+       "h": 337.9,
+       "r": -2.99
+      },
+      {
+       "kind": "phone",
+       "src": "assets/projects/gangstar-bite-me/screen-crocodile-jpg-web.webp",
+       "z": 26,
+       "alt": "",
+       "x": 696.9,
+       "y": 8513.7,
+       "w": 702.1,
+       "h": 337.9,
+       "r": -2.96
+      },
+      {
+       "kind": "phone",
+       "src": "assets/projects/gangstar-bite-me/screen-team-up-jpg-web.webp",
+       "z": 27,
+       "alt": "",
+       "x": -70.2,
+       "y": 8553.2,
+       "w": 702.1,
+       "h": 337.9,
+       "r": -2.94
+      },
+      {
+       "kind": "phone",
+       "src": "assets/projects/gangstar-bite-me/screen-home-jpg-web.webp",
+       "x": 1284.5,
+       "y": 8906.9,
+       "w": 702.6,
+       "h": 338.1,
+       "r": -3.0,
+       "z": 28,
+       "alt": ""
+      },
+      {
+       "kind": "phone",
+       "src": "assets/projects/gangstar-bite-me/screen-ingame-claim-jpg-web.webp",
+       "z": 29,
+       "alt": "",
+       "x": 519.6,
+       "y": 8946.7,
+       "w": 702.3,
+       "h": 338.0,
+       "r": -2.95
+      },
+      {
+       "kind": "phone",
+       "src": "assets/projects/gangstar-bite-me/screen-victory-jpg-web.webp",
+       "z": 30,
+       "alt": "",
+       "x": -245.5,
+       "y": 8986.1,
+       "w": 702.4,
+       "h": 338.0,
+       "r": -2.95
+      },
+      {
+       "kind": "phone",
+       "src": "assets/projects/gangstar-bite-me/screen-out-jpg-web.webp",
+       "z": 31,
+       "alt": "",
+       "x": 1498.5,
+       "y": 9304.4,
+       "w": 702.2,
+       "h": 338.0,
+       "r": -2.96
+      },
+      {
+       "kind": "phone",
+       "src": "assets/projects/gangstar-bite-me/screen-invitation-jpg-web.webp",
+       "x": 735.5,
+       "y": 9343.8,
+       "w": 702.3,
+       "h": 338.0,
+       "r": -2.92,
+       "z": 32,
+       "alt": ""
+      },
+      {
+       "kind": "phone",
+       "src": "assets/projects/gangstar-bite-me/screen-eliminated-spectate-jpg-web.webp",
+       "z": 33,
+       "alt": "",
+       "x": -27.3,
+       "y": 9383.1,
+       "w": 702.0,
+       "h": 337.8,
+       "r": -2.95
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/cast-lineup-jpg-web.webp",
+       "z": 34,
+       "alt": "Character line-up",
+       "x": 0.3,
+       "y": 10139.4,
+       "w": 1920.1,
+       "h": 283.0,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/character-01-jpg-web.webp",
+       "z": 35,
+       "alt": "",
+       "x": 109.2,
+       "y": 10449.1,
+       "w": 829.5,
+       "h": 387.8,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/character-05-jpg-web.webp",
+       "z": 36,
+       "alt": "",
+       "x": 981.5,
+       "y": 10449.0,
+       "w": 830.0,
+       "h": 388.0,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/character-02-jpg-web.webp",
+       "z": 37,
+       "alt": "",
+       "x": 108.8,
+       "y": 10836.1,
+       "w": 830.2,
+       "h": 388.1,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/character-06-jpg-web.webp",
+       "z": 38,
+       "alt": "",
+       "x": 982.0,
+       "y": 10836.3,
+       "w": 828.9,
+       "h": 387.5,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/character-03-jpg-web.webp",
+       "z": 39,
+       "alt": "",
+       "x": 109.0,
+       "y": 11223.1,
+       "w": 829.9,
+       "h": 387.9,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/character-07-jpg-web.webp",
+       "z": 40,
+       "alt": "",
+       "x": 981.6,
+       "y": 11223.2,
+       "w": 829.9,
+       "h": 387.9,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/character-04-jpg-web.webp",
+       "z": 41,
+       "alt": "",
+       "x": 109.6,
+       "y": 11611.4,
+       "w": 828.9,
+       "h": 387.5,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/character-08-jpg-web.webp",
+       "z": 42,
+       "alt": "",
+       "x": 981.4,
+       "y": 11611.1,
+       "w": 830.0,
+       "h": 388.0,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/cast-table-left-jpg-web.webp",
+       "z": 43,
+       "alt": "",
+       "x": -0.1,
+       "y": 12069.0,
+       "w": 960.2,
+       "h": 540.1,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/cast-table-right-jpg-web.webp",
+       "z": 44,
+       "alt": "",
+       "x": 960.1,
+       "y": 12069.1,
+       "w": 959.9,
+       "h": 539.9,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/cards-deck-jpg-web.webp",
+       "z": 45,
+       "alt": "",
+       "x": 0.3,
+       "y": 12908.4,
+       "w": 1920.0,
+       "h": 688.0,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/crocodile-poses-jpg-web.webp",
+       "z": 46,
+       "alt": "",
+       "x": 1034.0,
+       "y": 13745.1,
+       "w": 812.8,
+       "h": 812.8,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/crocodile-out-jpg-web.webp",
+       "z": 47,
+       "alt": "",
+       "x": 156.1,
+       "y": 13875.1,
+       "w": 698.7,
+       "h": 458.8,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/crocodile-3d-png-web.webp",
+       "z": 48,
+       "alt": "",
+       "x": 339.6,
+       "y": 14207.4,
+       "w": 875.0,
+       "h": 488.5,
+       "r": 0
+      },
+      {
+       "kind": "img",
+       "src": "assets/projects/gangstar-bite-me/teeth-tokens-png-web.webp",
+       "z": 49,
+       "alt": "",
+       "x": 155.1,
+       "y": 14334.1,
+       "w": 173.8,
+       "h": 170.8,
+       "r": 0
+      }
+     ],
+     "overlays": [
+      {
+       "kind": "tag",
+       "text": "USER FLOW",
+       "x": 0,
+       "y": 1050
+      },
+      {
+       "kind": "tag",
+       "text": "OUT-OF-GAME",
+       "x": 0,
+       "y": 2118
+      },
+      {
+       "kind": "tag",
+       "text": "IN-GAME",
+       "x": 0,
+       "y": 4244
+      },
+      {
+       "kind": "tag",
+       "text": "UI OVERVIEW",
+       "x": 0,
+       "y": 8340
+      },
+      {
+       "kind": "tag",
+       "text": "CHARACTERS",
+       "x": 0,
+       "y": 10090
+      },
+      {
+       "kind": "tag",
+       "text": "CROCODILE DESIGN",
+       "x": 0,
+       "y": 13742
+      },
+      {
+       "kind": "label",
+       "cn": "匹配界面",
+       "en": "MATCH PAGE",
+       "cx": 793.0,
+       "y": 3946
+      },
+      {
+       "kind": "label",
+       "cn": "质疑",
+       "en": "DOUBT",
+       "cx": 1663.0,
+       "y": 4558
+      },
+      {
+       "kind": "label",
+       "cn": "出牌",
+       "en": "PLAY CARD",
+       "cx": 359.0,
+       "y": 5178
+      },
+      {
+       "kind": "label",
+       "cn": "选择牙齿",
+       "en": "PICK A TOOTH",
+       "cx": 349.0,
+       "y": 6240
+      },
+      {
+       "kind": "label",
+       "cn": "新手引导",
+       "en": "GUIDANCE",
+       "cx": 202.0,
+       "y": 7968.0,
+       "align": "left"
+      },
+      {
+       "kind": "label",
+       "cn": "界面总览",
+       "en": "UI OVERVIEW",
+       "cx": 959.0,
+       "y": 9778
+      },
+      {
+       "kind": "label",
+       "cn": "周边设计",
+       "en": "MERCHANDISE",
+       "cx": 241.0,
+       "y": 14516
+      },
+      {
+       "kind": "label",
+       "cn": "结算界面",
+       "en": "SETTLEMENT",
+       "cx": 1670.6,
+       "cy": 6520.4,
+       "r": 21.5
+      },
+      {
+       "kind": "caption",
+       "text": "Liar’s Bar rules, reworked: six chambers become six crocodile teeth, and one bite replaces the bullet.",
+       "cx": 959.0,
+       "y": 1988
+      },
+      {
+       "kind": "caption",
+       "text": "Card and table art borrows from the circus — bold stripes, big-top red.",
+       "cx": 958.0,
+       "y": 13632
+      },
+      {
+       "kind": "caption",
+       "text": "Crocodile three-view",
+       "cx": 1440.0,
+       "y": 14598
+      },
+      {
+       "kind": "para",
+       "x": 202,
+       "y": 8064,
+       "w": 700,
+       "text": "Onboarding walks a new player through one complete round:\nread the claimed hand and decide whether to trust it or call\nthe bluff. Reveal the cards, then press a crocodile tooth\nwhen the challenge is lost. Five teeth are safe; one bites.\nEach prompt appears only when it is needed, rehearsing the\nfull loop once before the player’s first ranked match."
+      },
+      {
+       "kind": "para",
+       "x": 202.0,
+       "y": 9868.0,
+       "w": 1516.0,
+       "text": "The visual system fuses cyberpunk nightlife with the punch of American comic panels, the theatrical tension of a travelling circus and the restraint of premium minimalist vector design. Hard silhouettes, halftone grain, oversized type and saturated red–violet contrasts give every screen a sense of spectacle. A controlled palette, simple geometry and generous negative space keep each bluffing state clear, legible and consistent at mobile scale."
+      },
+      {
+       "kind": "para",
+       "x": 202,
+       "y": 12742,
+       "w": 1516,
+       "text": "Four colours carry the whole cast. Hair, accessories and outfits are all drawn from one palette, so each character reads at a glance across the table and stays legible at the small sizes the lobby uses. The same four hues run through cards, chips and the crocodile itself."
+      },
+      {
+       "kind": "charcap",
+       "text": "An 80s Hollywood diva — elegant, composed, commanding.",
+       "cx": 522,
+       "y": 10795
+      },
+      {
+       "kind": "charcap",
+       "text": "A cold, alluring Asian agent — skilled and observant.",
+       "cx": 522,
+       "y": 11183
+      },
+      {
+       "kind": "charcap",
+       "text": "Cool and aloof outside, blushes the moment she is startled.",
+       "cx": 522,
+       "y": 11571
+      },
+      {
+       "kind": "charcap",
+       "text": "A playful American girl — carefree, then decisive.",
+       "cx": 522,
+       "y": 11959
+      },
+      {
+       "kind": "charcap",
+       "text": "A high-school jock — confident, comically dramatic when scared.",
+       "cx": 1395,
+       "y": 10797
+      },
+      {
+       "kind": "charcap",
+       "text": "A mature Latin man — calm, deep and restrained.",
+       "cx": 1395,
+       "y": 11183
+      },
+      {
+       "kind": "charcap",
+       "text": "The club owner — impeccably dressed, menacing under pressure.",
+       "cx": 1395,
+       "y": 11571
+      },
+      {
+       "kind": "charcap",
+       "text": "A street-fashion youth — loyal, direct and impulsive.",
+       "cx": 1394,
+       "y": 11959
+      },
+      {
+       "kind": "swatches",
+       "x": 874,
+       "y": 12658,
+       "size": 36,
+       "gap": 10,
+       "colors": [
+        "#ffffff",
+        "#8cbedf",
+        "#f885c0",
+        "#8f49ce"
+       ]
+      },
+      {
+       "kind": "logo",
+       "src": "assets/projects/gangstar-bite-me/logo-rabbit-png-web.webp",
+       "x": 349.4,
+       "y": 14796.0,
+       "w": 243,
+       "h": 243
+      },
+      {
+       "kind": "logo",
+       "src": "assets/projects/gangstar-bite-me/logo-peg1-png-web.webp",
+       "x": 615.4,
+       "y": 14799.0,
+       "w": 76,
+       "h": 76
+      },
+      {
+       "kind": "finaletitle",
+       "text": "GANGSTAR MIRAGE CITY",
+       "x": 145.4,
+       "y": 15081.0
+      },
+      {
+       "kind": "logo",
+       "src": "assets/projects/gangstar-bite-me/logo-gameloft-png-web.webp",
+       "x": 189.4,
+       "y": 15213.0,
+       "w": 149,
+       "h": 104
+      },
+      {
+       "kind": "logo",
+       "src": "assets/projects/gangstar-bite-me/logo-dot-png-web.webp",
+       "x": 460.4,
+       "y": 15242.0,
+       "w": 31,
+       "h": 36
+      },
+      {
+       "kind": "logo",
+       "src": "assets/projects/gangstar-bite-me/logo-levelinfinite-png-web.webp",
+       "x": 595.4,
+       "y": 15218.0,
+       "w": 165,
+       "h": 93
+      },
+      {
+       "kind": "release",
+       "text": "Release",
+       "sub": "2026.10.20",
+       "x": 167.4,
+       "y": 15426.0,
+       "w": 608
+      },
+      {
+       "kind": "pinkphone",
+       "x": 940,
+       "y": 14915.0,
+       "w": 860.0,
+       "h": 413.9,
+       "src": "assets/projects/gangstar-bite-me/activity-bg-jpg-web.webp"
+      },
+      {
+       "kind": "caption",
+       "text": "The event entry inside the game's Activities lobby",
+       "cx": 1370.0,
+       "y": 15362.9,
+       "tone": "bright"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

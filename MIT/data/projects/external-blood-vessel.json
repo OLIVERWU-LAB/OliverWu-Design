@@ -1,0 +1,112 @@
+{
+  "id": "external-blood-vessel",
+  "title": "External Blood Vessel",
+  "subtitle": "A Wearable Wireless MIDI Instrument",
+  "backgroundColor": "#666666",
+  "summary": "A wireless MIDI glove that turns hand gestures into notes, chords, drums and real-time musical control.",
+  "body": "External Blood Vessel is a wearable wireless MIDI instrument designed to make electronic performance more physical and expressive. Distance, touch, rotation and motion sensors translate gestures—including swipes, wrist and elbow rotation, rapid downward movement and changes in hand spacing—into notes, chords, percussion and live mix parameters. The project combines a stable wireless system, calibrated sensor mappings and a custom microcontroller circuit with an organically shaped 3D-printed enclosure. Development progressed from exposed cardboard prototypes to a fully assembled instrument, followed by a live audiovisual performance used to evaluate responsiveness, range and playability.",
+  "company": "Collaboration Project",
+  "companyLabel": "PROJECT CONTEXT",
+  "year": "2022",
+  "yearLabel": "PROJECT YEAR",
+  "roles": ["Product Design", "Programming", "Testing", "Music Production and Performance"],
+  "partners": [
+    {
+      "name": "Collaboration",
+      "detail": "Xujia Zheng — 3D Modeling and Form Design",
+      "avatars": [
+        { "src": "assets/projects/external-blood-vessel/portrait-oliver-png-web.webp", "alt": "Oliver Wu" },
+        { "src": "assets/projects/external-blood-vessel/portrait-xujia-png-web.webp", "alt": "Xujia Zheng" }
+      ]
+    }
+  ],
+  "tags": ["Interaction Design", "Physical Computing", "Wearable Interface", "Creative Technology"],
+  "cover": {
+    "ratio": "2 / 1",
+    "designWidth": 2000,
+    "background": "assets/projects/external-blood-vessel/cover-jpg-web.webp",
+    "layers": [
+      {
+        "src": "assets/projects/external-blood-vessel/cover-jpg-web.webp",
+        "kind": "base",
+        "parallax": 0.5,
+        "parallaxLimit": 0.8
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 3,
+  "sections": [
+    {
+      "title": "Performance & Testing",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "video",
+          "provider": "vimeo",
+          "id": "1222443596",
+          "params": "badge=0&autopause=0&player_id=0&app_id=58479&title=1&byline=0&portrait=0",
+          "ratio": "16 / 9",
+          "layout": "full",
+          "title": "Performance Demo — a wearable MIDI cover of Kate Bush’s “Running Up That Hill”.",
+          "caption": "Performance Demo — a wearable MIDI cover of Kate Bush’s “Running Up That Hill”."
+        },
+        {
+          "type": "video",
+          "provider": "vimeo",
+          "id": "1222444084",
+          "params": "badge=0&autopause=0&player_id=0&app_id=58479&title=1&byline=0&portrait=0",
+          "ratio": "16 / 9",
+          "layout": "full",
+          "title": "Functional Prototype Test",
+          "caption": "Functional Prototype Test"
+        }
+      ]
+    },
+    {
+      "title": "Design & Development",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "midi-board-stack",
+          "layout": "full",
+          "images": [
+            { "src": "assets/projects/external-blood-vessel/board-background-jpg-web.webp", "alt": "Background, inspiration and design positioning for the wearable MIDI instrument" },
+            { "src": "assets/projects/external-blood-vessel/board-system-jpg-web.webp", "alt": "System design, circuit architecture, hardware and form sketches" },
+            { "src": "assets/projects/external-blood-vessel/board-programming-jpg-web.webp", "alt": "Programming, sensor calibration and wireless range experiments" },
+            { "src": "assets/projects/external-blood-vessel/board-modeling-jpg-web.webp", "alt": "3D modeling, fabrication and interaction instructions" },
+            { "src": "assets/projects/external-blood-vessel/board-sound-jpg-web.webp", "alt": "Product photography, sound design, mixing and music visualization", "replayFirstVideo": true }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Final Outcome",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "midi-outcome-pair",
+          "layout": "full",
+          "images": [
+            {
+              "src": "assets/projects/external-blood-vessel/outcome-product-jpg-web.webp",
+              "alt": "Wearable wireless MIDI instrument product photograph",
+              "caption": "The final wearable MIDI instrument."
+            },
+            {
+              "src": "assets/projects/external-blood-vessel/outcome-performance-jpg-web.webp",
+              "alt": "Performer using the wireless MIDI glove",
+              "caption": "Live performance and interaction test."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

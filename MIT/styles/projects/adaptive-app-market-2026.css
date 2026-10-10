@@ -1,0 +1,1159 @@
+/* App Market 2.0 — 2026 phone asset and information-architecture pass. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-detail-action {
+  position:absolute;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:5;
+  display:block;
+  width:100%;
+  height:auto;
+  pointer-events:none;
+}
+
+/* Match every primary phone composition to the opening component card. */
+.project-sheet[data-project-id="adaptive-app-market"] :is(
+  .am-phone-component-stage,
+  .am-phone-discovery-layout,
+  .am-apps-composition,
+  .am-profile-flow-stage,
+  .am-search-stage,
+  .am-detail-stage
+) {
+  position:relative;
+  left:50%;
+  box-sizing:border-box;
+  width:calc(100% + 140px);
+  max-width:none;
+  border-radius:42px;
+  transform:translateX(-50%);
+}
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-component-stage {
+  padding-right:70px;
+  padding-left:70px;
+}
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-discovery-layout {
+  grid-template-columns:minmax(0,1fr) 220px;
+  gap:54px;
+  padding:46px 70px;
+  background:
+    radial-gradient(circle at 88% 8%,rgba(92,128,239,.34),transparent 34%),
+    linear-gradient(145deg,#11172f 0%,#1d2b58 58%,#314a78 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 30px 80px rgba(28,37,69,.2);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-loop-devices {
+  gap:34px;
+  padding:0 8px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-discovery-branch {
+  padding-left:20px;
+}
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-composition {
+  grid-template-columns:minmax(0,1fr) 310px;
+  gap:42px;
+  padding:46px 70px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-related {
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  align-items:start;
+  gap:18px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-related .am-mini-screen:nth-child(2) {
+  transform:translateY(-14px);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-related .am-mini-screen:nth-child(1) { transform:translateY(16px); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-related .am-mini-screen:nth-child(3) { transform:translateY(28px); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-related .am-mini-screen-viewport {
+  box-shadow:0 10px 22px rgba(34,48,87,.13);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-related .am-caption {
+  padding-top:12px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-related .am-caption-body {
+  font-size:10px;
+  line-height:1.45;
+}
+
+/* Shared frameless UI sheets for account branches and search states. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-bare-screen {
+  min-width:0;
+  margin:0;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-bare-viewport {
+  position:relative;
+  aspect-ratio:411 / 891;
+  overflow:hidden;
+  border-radius:5.9% / 2.8%;
+  background:#fff;
+  box-shadow:0 22px 48px rgba(30,43,78,.17);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-bare-viewport > img:first-child {
+  display:block;
+  width:100%;
+  height:auto;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-bare-viewport .am-phone-status {
+  top:0;
+  width:100%;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-bare-screen figcaption {
+  padding-top:10px;
+  color:var(--am-ink);
+  font:700 9px/1.2 var(--project-template-copy-font);
+  letter-spacing:.04em;
+  text-align:center;
+}
+
+/* Signed-out sits behind the signed-in phone; four destination screens map to
+   the avatar, notification, update and uninstall entry points. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-flow-stage {
+  display:block;
+  min-height:740px;
+  margin-bottom:88px;
+  overflow:hidden;
+  padding:36px 70px 34px;
+  background:
+    radial-gradient(circle at 88% 10%,rgba(106,101,243,.3),transparent 34%),
+    linear-gradient(145deg,#151a36,#26366a 62%,#395681);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 28px 72px rgba(32,42,75,.2);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-pair {
+  position:absolute;
+  bottom:42px;
+  left:70px;
+  z-index:3;
+  width:430px;
+  height:610px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-pair .am-phone {
+  position:absolute;
+  bottom:0;
+  width:252px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-pair .am-caption {
+  display:block;
+  padding-top:10px;
+  color:#fff;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-pair .am-caption-kicker,
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-pair .am-caption-title {
+  display:block;
+  color:#fff;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-guest .am-caption {
+  width:160px;
+  text-align:left;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-lead .am-caption {
+  width:170px;
+  margin-left:auto;
+  text-align:right;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-guest {
+  left:0;
+  z-index:1;
+  opacity:.72;
+  transform:translateY(18px);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-pair .am-profile-lead {
+  right:0;
+  left:auto;
+  z-index:3;
+  width:252px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-connectors {
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:block;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches {
+  position:absolute;
+  top:24px;
+  right:70px;
+  z-index:4;
+  display:grid;
+  grid-template-columns:repeat(2,138px);
+  gap:20px 24px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches .am-bare-screen {
+  width:138px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches .am-bare-viewport {
+  box-shadow:0 9px 20px rgba(4,11,30,.2);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches .am-bare-screen figcaption {
+  min-height:0;
+  padding:8px 0 0;
+  color:#fff;
+  background:transparent;
+  box-shadow:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches .am-bare-screen:nth-child(3),
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches .am-bare-screen:nth-child(4) {
+  margin-top:8px;
+}
+
+/* Four search outcomes form a centered fan and are intentionally cropped by
+   the lower edge of the card at roughly two thirds of their height. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-copy {
+  margin-top:0;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage {
+  height:420px;
+  margin-bottom:92px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 8%,rgba(114,100,244,.22),transparent 38%),
+    linear-gradient(145deg,#fdfdff,#edf2ff 62%,#e5f7ef);
+  box-shadow:inset 0 0 0 1px rgba(67,83,128,.08),0 28px 72px rgba(42,55,96,.1);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .am-bare-screen {
+  position:absolute;
+  bottom:-155px;
+  left:50%;
+  width:230px;
+  transform-origin:50% 100%;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .am-bare-screen figcaption {
+  position:absolute;
+  top:-34px;
+  left:50%;
+  min-width:94px;
+  padding:0;
+  background:none;
+  box-shadow:none;
+  transform:translateX(-50%);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-1 { z-index:1; opacity:.78; transform:translateX(-128%) rotate(-13deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-2 { z-index:2; opacity:.9; transform:translateX(-76%) rotate(-5deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-3 { bottom:-136px; z-index:5; transform:translateX(-24%) rotate(3deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-4 { z-index:2; opacity:.82; transform:translateX(28%) rotate(11deg); }
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage {
+  grid-template-columns:minmax(0,1fr) 178px;
+  align-items:start;
+  gap:28px;
+  padding:46px 70px;
+  background:
+    radial-gradient(circle at 86% 8%,rgba(91,132,239,.32),transparent 33%),
+    linear-gradient(145deg,#11172f,#1f2f60 60%,#34517d);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 28px 72px rgba(29,39,72,.2);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage .am-state-grid { gap:18px; align-items:start; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage .am-beta-detail { align-self:start; margin-top:82px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage :is(.am-caption-kicker,.am-caption-title,.am-caption-body,.am-beta-note) { color:#fff; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage .am-caption-body { color:rgba(255,255,255,.66); }
+
+/* Dark cards retain readable labels without changing the UI artwork itself. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-discovery-layout :is(.am-caption-kicker,.am-caption-title,.am-caption-body,.am-branch-label) { color:#fff; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-discovery-layout .am-caption-body { color:rgba(255,255,255,.66); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-flow-stage .am-caption-kicker { color:#9fb9ff; }
+
+/* The frameless views use the same proportional corner radius as the physical
+   phone screen, rather than a fixed oversized radius. */
+.project-sheet[data-project-id="adaptive-app-market"] :is(.am-mini-screen-viewport,.am-fan-ui) {
+  border-radius:5.9% / 2.8%;
+}
+
+/* Straight, consistent User Flow connectors and balanced vertical rhythm. */
+.project-sheet[data-project-id="adaptive-app-market"] [data-variant="market-phone-states"] { padding-bottom:28px !important; }
+.project-sheet[data-project-id="adaptive-app-market"] [data-variant="market-phone-flow"] { padding-top:28px !important; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-panel {
+  margin-bottom:82px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step {
+  border-radius:14px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-screen-marquee {
+  padding:16px 0 22px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row {
+  padding:12px 0;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row + .am-marquee-row {
+  margin-top:-26px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-ribbon-phone,
+.project-sheet[data-project-id="adaptive-app-market"] .am-marquee-row.is-reverse .am-ribbon-phone {
+  width:154px;
+}
+/* Three identical groups travel by exactly one group, so the seam is never
+   visible when the animation restarts. */
+@keyframes am-screen-drift {
+  from { transform:translate3d(0,0,0); }
+  to { transform:translate3d(-33.333333%,0,0); }
+}
+
+/* 2026-09-29 visual alignment pass. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-panel {
+  min-height:548px;
+  overflow:hidden;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-statement,
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-grid {
+  position:relative;
+  z-index:3;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metrics {
+  position:absolute;
+  z-index:3;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices {
+  position:absolute;
+  bottom:-62px;
+  left:28px;
+  z-index:2;
+  width:470px;
+  height:230px;
+  pointer-events:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices figure {
+  position:absolute;
+  margin:0;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices .am-caption { display:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices .is-overview-tablet {
+  bottom:8px;
+  left:-18px;
+  width:232px;
+  transform:rotate(-5deg);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices .is-overview-phone {
+  bottom:18px;
+  left:178px;
+  z-index:3;
+  width:92px;
+  transform:rotate(8deg);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices .is-overview-handheld {
+  right:-6px;
+  bottom:28px;
+  width:246px;
+  transform:rotate(3deg);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices :is(.am-phone-shell,.am-tablet-device,.am-handheld-device) {
+  filter:drop-shadow(0 18px 24px rgba(18,24,58,.26));
+}
+
+/* Tight source bounds and fixed grid columns align actual brand artwork,
+   without translating individual marks or drawing names in substitute fonts. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item .am-brand-logo {
+  display:block;
+  justify-self:start;
+  width:auto;
+  height:auto;
+  max-width:none;
+  max-height:none;
+  object-fit:contain;
+  object-position:left center;
+  transform:none;
+  filter:brightness(0) invert(1);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item[data-brand="nubia"] .am-brand-logo {
+  width:70.2px;
+  height:17.98875px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item[data-brand="tencent"] .am-brand-logo {
+  width:84px;
+  height:16.011px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item[data-brand="rog"] .am-brand-logo {
+  width:52px;
+  height:27.895px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item[data-brand="redmagic"] .am-brand-logo {
+  width:21.883px;
+  height:30px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-item[data-brand="lenovo"] .am-brand-logo {
+  width:80px;
+  height:16.511px;
+}
+
+/* Let the bright chapter field dissolve into the content instead of ending on
+   a hard horizontal cut. */
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapters > .project-chapter-titlebar {
+  z-index:1;
+  box-shadow:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapters > .project-chapter-titlebar::before {
+  right:0;
+  bottom:-112px;
+  left:0;
+  z-index:0;
+  height:114px;
+  background:linear-gradient(180deg,rgba(239,236,255,.82) 0%,rgba(235,243,255,.38) 48%,rgba(243,246,251,0) 100%);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter-title-surface { z-index:2; }
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter > header {
+  position:relative;
+  z-index:0;
+  padding-top:58px;
+}
+
+/* The first two phone stories carry the richer blue field; the remaining
+   analysis cards return to the light system surface. */
+.project-sheet[data-project-id="adaptive-app-market"] :is(.am-phone-discovery-layout,.am-apps-composition) {
+  background:
+    radial-gradient(circle at 88% 7%,rgba(199,238,220,.72),transparent 35%),
+    radial-gradient(circle at 58% 100%,rgba(80,164,246,.42),transparent 50%),
+    linear-gradient(138deg,#26368e 0%,#477ddc 52%,#7fbae9 78%,#b8e6d7 120%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),0 28px 68px rgba(39,66,142,.18);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-composition :is(.am-caption-kicker,.am-caption-title,.am-caption-body) { color:#fff; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-composition .am-caption-body { color:rgba(255,255,255,.72); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-related .am-mini-screen-viewport {
+  box-shadow:0 25px 52px rgba(24,38,85,.28);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-flow-stage,
+.project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage {
+  background:
+    radial-gradient(circle at 86% 8%,rgba(118,103,244,.18),transparent 34%),
+    linear-gradient(145deg,#fdfdff,#edf2ff 62%,#e5f7ef);
+  box-shadow:inset 0 0 0 1px rgba(67,83,128,.08),0 28px 72px rgba(42,55,96,.1);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-flow-stage :is(.am-caption-kicker,.am-caption-title),
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches .am-bare-screen figcaption,
+.project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage :is(.am-caption-kicker,.am-caption-title,.am-beta-note) {
+  color:var(--am-ink);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage .am-caption-body { color:var(--am-copy); }
+
+/* Start scrolling almost immediately and complete a full read before the
+   visitor is likely to leave the section. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-discovery-layout .is-scroll-phone .am-phone-shell.is-am-visible .am-phone-screen {
+  animation:am-phone-scroll-responsive 12s cubic-bezier(.62,0,.38,1) -.15s infinite !important;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-primary .am-phone-shell.is-am-visible .am-phone-screen {
+  animation-duration:9.5s !important;
+}
+@keyframes am-phone-scroll-responsive {
+  0%,3% { transform:translate3d(0,0,0); }
+  44%,57% { transform:translate3d(0,calc(-100% + 100cqh),0); }
+  96%,100% { transform:translate3d(0,0,0); }
+}
+
+/* One connector vocabulary: fine, closely-spaced dashes beneath the UI and a
+   circular terminal instead of an arrowhead. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-discovery-branch::before {
+  z-index:0;
+  width:90px;
+  border-top:1px dashed rgba(255,255,255,.7);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-discovery-branch::after {
+  top:calc(44% - 4px);
+  right:calc(100% - 1px);
+  z-index:1;
+  width:7px;
+  height:7px;
+  border:1.5px solid rgba(255,255,255,.9);
+  border-radius:50%;
+  background:#5f84dc;
+  transform:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-discovery-branch .am-mini-screen {
+  position:relative;
+  z-index:2;
+}
+
+/* A wider search fan makes the four intent states read as distinct layers. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-1 { transform:translateX(-136%) rotate(-19deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-2 { transform:translateX(-79%) rotate(-8deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-3 { transform:translateX(-22%) rotate(5deg); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-4 { transform:translateX(35%) rotate(17deg); }
+
+/* The lower handheld comparisons are UI plates, not additional hardware
+   mockups. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld-state-grid { gap:24px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld-state-grid .am-handheld-device {
+  aspect-ratio:16 / 9;
+  filter:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld-state-grid .am-handheld-frame { display:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld-state-grid .am-handheld-screen {
+  position:relative;
+  inset:auto;
+  width:100%;
+  height:100%;
+  border:2px solid #111827;
+  border-radius:18px;
+  box-shadow:0 18px 36px rgba(25,34,58,.16);
+  object-fit:cover;
+}
+
+/* Preserve the panel height while shifting both moving rows down into its
+   visual centre. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-screen-marquee {
+  padding-top:28px;
+  padding-bottom:10px;
+}
+
+
+
+/* 2026-09-29 reference-led precision pass. */
+.project-sheet[data-project-id="adaptive-app-market"] .project-partner-list {
+  align-items:center;
+  gap:16px 24px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-partner-list :is(img, .brand-mark) {
+  display:block;
+  width:auto;
+  height:24px;
+  max-width:112px;
+  object-fit:contain;
+  object-position:left center;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-partner-list :is(img, .brand-mark):nth-child(2) { width:66px; height:28px; }
+.project-sheet[data-project-id="adaptive-app-market"] .project-partner-list :is(img, .brand-mark):nth-child(3) { width:34px; height:34px; }
+.project-sheet[data-project-id="adaptive-app-market"] .project-partner-list :is(img, .brand-mark):nth-child(4) { width:76px; }
+
+/* Pull the business story upward and let the three device formats become the
+   visual anchor along the lower-left edge. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-statement {
+  padding:30px 36px 44px 44px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-statement .am-overline {
+  margin-bottom:42px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-brand-grid {
+  padding:78px 42px 180px 0;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-metrics {
+  bottom:72px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices {
+  bottom:-72px;
+  left:18px;
+  width:520px;
+  height:270px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices .is-overview-tablet {
+  bottom:6px;
+  left:-22px;
+  width:268px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices .is-overview-phone {
+  bottom:13px;
+  left:184px;
+  width:106px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices .is-overview-handheld {
+  right:auto;
+  bottom:24px;
+  left:236px;
+  width:270px;
+}
+
+/* A continuous light field replaces the hard title/footer seam. */
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapters > .project-chapter-titlebar {
+  height:144px;
+  background:
+    radial-gradient(ellipse at 7% -14%,rgba(255,255,255,1),transparent 52%),
+    radial-gradient(ellipse at 82% 0%,rgba(198,232,215,.86),transparent 49%),
+    linear-gradient(100deg,#fff 0%,#edf4ff 47%,#efebff 100%);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapters > .project-chapter-titlebar::before {
+  bottom:-158px;
+  height:162px;
+  background:linear-gradient(180deg,rgba(239,236,255,.88) 0%,rgba(237,243,255,.52) 38%,rgba(243,246,251,0) 100%);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter-title-surface {
+  height:144px;
+  padding-bottom:28px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter-titlebar::after {
+  right:226px;
+  bottom:27px;
+  color:rgba(64,112,231,.075);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter > header {
+  padding-top:8px;
+  padding-bottom:30px;
+  background:linear-gradient(180deg,rgba(239,242,255,.46),rgba(243,246,251,0) 90%);
+}
+
+/* The discovery connector belongs behind the product surfaces. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-loop-devices {
+  position:relative;
+  z-index:3;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-discovery-branch {
+  position:relative;
+  z-index:1;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-discovery-branch::before {
+  z-index:-1;
+  border-top-width:1.3px;
+  border-top-style:dashed;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-discovery-branch::after {
+  z-index:-1;
+}
+
+/* Reach the end quickly, keep the end hold brief, then return smoothly. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-discovery-layout .is-scroll-phone .am-phone-shell.is-am-visible .am-phone-screen {
+  animation-duration:10.5s !important;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-primary .am-phone-shell.is-am-visible .am-phone-screen {
+  animation-duration:7.8s !important;
+}
+@keyframes am-phone-scroll-responsive {
+  0%,2% { transform:translate3d(0,0,0); }
+  44%,49% { transform:translate3d(0,calc(-100% + 100cqh),0); }
+  98%,100% { transform:translate3d(0,0,0); }
+}
+
+/* Profile destinations follow the four real source rows and use the same
+   staggered rhythm as the supplied layout sketch. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-guest {
+  opacity:.55;
+  transform:translateY(42px);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches .am-bare-screen:nth-child(1) { transform:translateY(-18px); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches .am-bare-screen:nth-child(2) { transform:translateY(30px); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches .am-bare-screen:nth-child(3) { margin-top:8px; transform:translateY(-10px); }
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches .am-bare-screen:nth-child(4) { margin-top:8px; transform:translateY(52px); }
+
+/* Smaller UI thumbnails retain proportionally smaller radii. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-bare-viewport,
+.project-sheet[data-project-id="adaptive-app-market"] :is(.am-mini-screen-viewport,.am-fan-ui) {
+  border-radius:3.8% / 1.8%;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage .am-beta-detail .am-mini-screen-viewport {
+  border-radius:3% / 1.4%;
+}
+
+/* Search outcomes open farther on the right; labels form one purple,
+   right-aligned annotation system. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .am-bare-screen figcaption {
+  right:0;
+  left:auto;
+  min-width:0;
+  color:#7358d8;
+  text-align:right;
+  transform:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-3 {
+  bottom:-151px;
+  transform:translateX(-22%) rotate(5deg);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-4 {
+  bottom:-177px;
+  transform:translateX(35%) rotate(17deg);
+}
+
+/* Editorial user journey: alternating filled waves, ghosted counter-waves
+   and alternating top/bottom annotations. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-panel {
+  height:620px;
+  margin-top:10px;
+  margin-bottom:92px;
+  overflow:visible;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-panel > svg {
+  inset:0;
+  width:100%;
+  height:100%;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step {
+  width:220px;
+  border-radius:0;
+  padding:0;
+  background:transparent;
+  box-shadow:none;
+  backdrop-filter:none;
+  transform:translateX(-50%);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(1) { top:2%; left:8.333%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(2) { top:78%; left:28.472%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(3) { top:2%; left:48.611%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(4) { top:78%; left:68.75%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(5) { top:2%; left:88.889%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step strong {
+  display:block;
+  color:var(--am-ink);
+  font:750 19px/1.2 var(--project-template-copy-font);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step p {
+  margin:9px 0 0;
+  color:var(--am-copy);
+  font:400 11.5px/1.55 var(--project-template-copy-font);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step {
+  text-align:center;
+}
+
+/* 2026-09-30 measured alignment pass. */
+
+/* Enlarge and pull the overview hardware into one tighter left-hand cluster. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices {
+  bottom:-72px;
+  left:18px;
+  width:560px;
+  height:310px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices .is-overview-tablet {
+  bottom:6px;
+  left:10px;
+  width:316px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices .is-overview-phone {
+  bottom:13px;
+  left:205px;
+  width:125px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices .is-overview-handheld {
+  right:auto;
+  bottom:24px;
+  left:100px;
+  width:320px;
+}
+
+/* Render the chapter colour field as one continuous pseudo-layer. The title
+   bar itself is transparent, so no rectangular lower edge can be exposed. */
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapters > .project-chapter-titlebar {
+  overflow:visible;
+  background:transparent;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapters > .project-chapter-titlebar::before {
+  top:0;
+  right:0;
+  bottom:-174px;
+  left:0;
+  z-index:0;
+  height:auto;
+  background:
+    radial-gradient(ellipse at 7% 0%,rgba(255,255,255,1) 0%,rgba(255,255,255,.82) 24%,transparent 58%),
+    radial-gradient(ellipse at 82% 0%,rgba(198,232,215,.88) 0%,transparent 56%),
+    linear-gradient(180deg,rgba(239,242,255,.96) 0%,rgba(239,240,255,.78) 48%,rgba(241,245,251,.34) 74%,rgba(243,246,251,0) 100%);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter > header {
+  z-index:2;
+  margin-top:-18px;
+  padding-top:0;
+  padding-bottom:30px;
+  background:transparent;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-chapter > header p {
+  color:#68718a;
+}
+
+/* The Games branch starts exactly on the FROM GAMES label baseline. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-discovery-branch::before {
+  top:4px;
+  z-index:0;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-discovery-branch::after {
+  top:0;
+  z-index:0;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-branch-label {
+  position:relative;
+  z-index:2;
+}
+
+/* Keep all four account destinations inside the card and route each dashed
+   path all the way to its destination edge. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches {
+  top:50%;
+  right:70px;
+  padding-bottom:44px;
+  transform:translateY(-50%);
+  grid-template-columns:repeat(2,136px);
+  column-gap:56px;
+  row-gap:32px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches .am-bare-screen {
+  width:136px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches .am-bare-screen:nth-child(1) {
+  transform:translateY(0);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches .am-bare-screen:nth-child(2) {
+  transform:translateY(44px);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches .am-bare-screen:nth-child(3) {
+  margin-top:0;
+  transform:translateY(0);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-profile-branches .am-bare-screen:nth-child(4) {
+  margin-top:0;
+  transform:translateY(44px);
+}
+
+/* Lower the two outer search results and tuck every annotation closer to the
+   upper-left portion of its own screen. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .am-bare-screen figcaption {
+  top:-22px;
+  right:18px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-1 {
+  bottom:-185px;
+  transform:translateX(-136%) rotate(-25deg);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-2 {
+  bottom:-148px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-3 {
+  bottom:-148px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-4 {
+  bottom:-190px;
+  transform:translateX(35%) rotate(25deg);
+}
+
+/* Journey annotations use one rule: the text's left edge equals the vertical
+   stem position. The fifth lobe gets extra horizontal room and its number is
+   centered in that lobe. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step {
+  width:220px;
+  text-align:left;
+  transform:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(1) { top:5%; left:4.167%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(2) { top:84%; left:22.222%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(3) { top:5%; left:40.278%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(4) { top:84%; left:58.333%; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(5) { top:5%; left:77.083%; }
+
+/* Balance both moving rows vertically and remove the gap before Tablet. */
+.project-sheet[data-project-id="adaptive-app-market"] [data-variant="market-phone-flow"] {
+  padding-bottom:0 !important;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-screen-marquee {
+  margin-bottom:0;
+  padding-top:36px;
+  padding-bottom:0;
+}
+
+/* One compact controller vocabulary: same outer circle, comparable internal
+   mark sizes, and less visual weight than the content cards above. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-step {
+  min-height:190px;
+  padding:22px 17px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon {
+  width:46px;
+  height:46px;
+  margin-bottom:34px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon text {
+  font-size:26px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-index {
+  top:24px;
+}
+
+/* 2026-09-30 supplied-artwork and product-label pass. */
+
+/* The supplied composition now owns the complete first Phone card; the former
+   extracted component tiles and hand mockup are intentionally removed. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-component-hero {
+  position:relative;
+  left:50%;
+  width:calc(100% + 140px);
+  margin:0;
+  overflow:hidden;
+  border-radius:42px;
+  background:#eef2ff;
+  box-shadow:inset 0 0 0 1px rgba(54,70,112,.08),0 30px 80px rgba(41,55,96,.11);
+  transform:translateX(-50%);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-phone-component-hero img {
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* Project Context uses a compact two-line hierarchy without changing the
+   height of the facts table: Tencent/MyApp above, four hardware brands below. */
+.project-sheet[data-project-id="adaptive-app-market"] .project-partner-list {
+  display:flex;
+  flex-direction:column;
+  flex-wrap:nowrap;
+  align-items:flex-start;
+  gap:6px;
+  height:56px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-partner-copy.has-logo {
+  grid-column:1 / -1;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-partner-copy.has-logo :is(img, .brand-mark) {
+  width:78px;
+  height:18px;
+  filter:brightness(0);
+  object-fit:contain;
+  object-position:left center;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-partner-copy.has-logo > span {
+  color:#7a8295;
+  white-space:pre-line;
+}
+
+/* Handheld product context becomes a compact merchandise tag. The dashed
+   leader sits below the hardware layer and terminates inside the device. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld-hero {
+  position:relative;
+  padding-top:90px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld-hero > .am-handheld {
+  position:relative;
+  z-index:2;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context-connector {
+  position:absolute;
+  inset:0;
+  z-index:1;
+  display:block;
+  width:100%;
+  height:100%;
+  overflow:visible;
+  pointer-events:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context-connector path {
+  fill:none;
+  stroke:rgba(68,85,128,.58);
+  stroke-width:1.4;
+  stroke-dasharray:6 7;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context-connector circle {
+  fill:#fff;
+  stroke:#6377aa;
+  stroke-width:1.5;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context {
+  position:absolute;
+  top:0;
+  left:38px;
+  z-index:3;
+  display:block;
+  width:270px;
+  border:1px solid rgba(84,103,147,.24);
+  border-radius:12px 12px 12px 4px;
+  padding:14px 17px 13px 25px;
+  background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(235,241,255,.9));
+  box-shadow:0 16px 34px rgba(38,53,92,.12);
+  clip-path:polygon(0 0,calc(100% - 17px) 0,100% 17px,100% 100%,0 100%);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context::before {
+  position:absolute;
+  top:17px;
+  left:9px;
+  width:7px;
+  height:7px;
+  border:1px solid rgba(70,89,132,.5);
+  border-radius:50%;
+  background:#f3f6fb;
+  content:"";
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context .am-overline {
+  display:block;
+  margin:0 0 7px;
+  color:#6b70dd;
+  font-size:8px;
+  letter-spacing:.13em;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context > strong {
+  display:block;
+  color:var(--am-ink);
+  font:800 22px/1 var(--display);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context > p {
+  margin:8px 0 0;
+  color:var(--am-copy);
+  font:500 10.5px/1.45 var(--project-template-copy-font);
+}
+
+/* The overview handheld sits behind the tablet, rotates counter-clockwise and
+   shifts right while preserving the enlarged three-device cluster. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices .is-overview-tablet { z-index:3; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices .is-overview-phone { z-index:4; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices .is-overview-handheld {
+  left:136px;
+  z-index:1;
+  transform:rotate(-10deg);
+  transform-origin:50% 60%;
+}
+
+/* Scale the complete controller symbols—outer white circle and inner mark—as
+   one unit, so their existing proportions remain intact. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-controller-icon {
+  width:37px;
+  height:37px;
+}
+
+/* 2026-09-30 partner-row and handheld-label refinement. */
+.project-sheet[data-project-id="adaptive-app-market"] .project-fact-company {
+  border-right:var(--project-hairline,1px) solid var(--am-line) !important;
+  padding-right:24px;
+  padding-left:24px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-partner-list {
+  justify-content:start;
+  width:100%;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-partner-copy.has-logo {
+  min-height:0 !important;
+  border:0 !important;
+  padding:0 !important;
+  gap:9px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-partner-copy.has-logo :is(img, .brand-mark) {
+  width:82px;
+  height:18px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-partner-copy.has-logo > span {
+  font:var(--project-context-note-font);
+  letter-spacing:var(--project-context-note-tracking);
+  white-space:nowrap;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-row { gap:10px; }
+.project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-brand {
+  display:flex;
+  align-items:center;
+  flex:0 0 auto;
+  height:27px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-brand + .project-cooperation-brand {
+  border-left:var(--project-hairline,1px) solid rgba(36,43,58,.24);
+  padding-left:10px;
+}
+/* Tight asset bounds keep visible logo-to-divider gaps symmetric. Brand art
+   stays at its previous visible size; other overview logos retain their sources. */
+.project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-brand > img {
+  width:auto;
+  height:auto;
+  max-width:none;
+  max-height:none;
+  object-fit:contain;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-brand > img[alt="Lenovo"] { width:72px; height:14.86px; filter:none; }
+.project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-brand > img[alt="ROG"] { width:42px; }
+.project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-brand > img[alt="REDMAGIC"] { height:24.7362px; }
+.project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-brand > img[alt="nubia"] { width:43.333px; }
+
+.project-sheet[data-project-id="adaptive-app-market"] .am-positioning-devices .is-overview-handheld {
+  bottom:46px;
+  left:166px;
+  transform:rotate(-10deg);
+}
+
+.project-sheet[data-project-id="adaptive-app-market"] [data-variant="market-handheld-video"] > .project-content-copy {
+  position:relative;
+  z-index:3;
+  margin-bottom:10px;
+  transform:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context.is-inline {
+  position:relative;
+  top:auto;
+  left:auto;
+  grid-area:body;
+  width:320px;
+  z-index:3;
+  justify-self:end;
+  box-sizing:border-box;
+  height:127px;
+  min-height:0;
+  padding:24px 28px 24px 38px;
+  border:0;
+  border-radius:0;
+  background:transparent url("../../assets/projects/adaptive-app-market/product-tag-frame.svg?v=4") center / 100% 100% no-repeat;
+  box-shadow:none;
+  filter:drop-shadow(0 16px 22px rgba(38,53,92,.1));
+  clip-path:none;
+  transform:translateY(-26px);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context.is-inline::before {
+  top:27px;
+  left:15px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-handheld-hero {
+  z-index:1;
+  margin-top:-14px;
+  padding-top:22px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context-connector {
+  top:-72px;
+  right:0;
+  bottom:auto;
+  left:0;
+  z-index:0;
+  height:180px;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-device-context-connector path {
+  stroke-width:1.5;
+  stroke-dasharray:6 6;
+}
+
+/* Search establishes the corner standard for every frameless phone UI.
+   Remove the legacy fixed 17px clip which made smaller related views look
+   more rounded than the search screens. */
+.project-sheet[data-project-id="adaptive-app-market"] :is(
+  .am-discovery-branch,
+  .am-apps-related,
+  .am-profile-branches,
+  .am-search-stage,
+  .am-beta-detail
+) :is(.am-mini-screen-viewport,.am-bare-viewport) {
+  border-radius:3.8% / 1.8%;
+  clip-path:none;
+}
+.project-sheet[data-project-id="adaptive-app-market"] :is(
+  .am-discovery-branch,
+  .am-apps-related,
+  .am-profile-branches,
+  .am-search-stage,
+  .am-beta-detail
+) :is(.am-mini-screen-viewport,.am-bare-viewport) > img:first-child {
+  border-radius:inherit;
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-detail-stage .am-beta-detail .am-mini-screen-viewport {
+  border-radius:3.8% / 1.8%;
+  clip-path:none;
+}
+
+/* Apps uses a shorter, nearly pause-free reading loop so the return motion is
+   apparent before a visitor leaves the section. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-apps-primary .am-phone-shell.is-am-visible .am-phone-screen {
+  animation:am-apps-scroll-tight 6.4s cubic-bezier(.58,.02,.42,.98) -.1s infinite !important;
+}
+@keyframes am-apps-scroll-tight {
+  0%,1% { transform:translate3d(0,0,0); }
+  46%,47.5% { transform:translate3d(0,calc(-100% + 100cqh),0); }
+  99%,100% { transform:translate3d(0,0,0); }
+}
+
+/* Final optical pass: the search fan uses an even four-step rotation rhythm,
+   while the journey axes land on the page's 32px background grid. */
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-1 {
+  transform:translateX(-136%) rotate(-21deg);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-2 {
+  transform:translateX(-79%) rotate(-7deg);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-3 {
+  transform:translateX(-22%) rotate(7deg);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-search-stage .is-search-4 {
+  transform:translateX(35%) rotate(21deg);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(1) { left:65px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(2) { left:289px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(3) { left:513px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(4) { left:737px; }
+.project-sheet[data-project-id="adaptive-app-market"] .am-journey-step:nth-of-type(5) { left:993px; }

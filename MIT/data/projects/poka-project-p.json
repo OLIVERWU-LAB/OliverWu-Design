@@ -1,0 +1,228 @@
+{
+  "id": "poka-project-p",
+  "title": "POKA / PROJECT P",
+  "subtitle": "A Solarpunk Open-World Game Concept",
+  "backgroundColor": "#eef2f2",
+  "summary": "A collaborative open-world RPG concept that turns a solarpunk world of high-altitude settlements, ecological signals and shared infrastructure into an explorable interaction system.",
+  "statement": "Designing the interface between a living planet, a network of builders and the player who connects them.",
+  "body": "POKA is a solarpunk anime open-world RPG set on Pracia, a planet where a collective ecological signal intensifies at lower altitudes and drives local creatures into aggression. Human settlements survive above 2,500 metres, while the player—an explorer from the second pioneer fleet—moves between isolated communities to investigate the signal, restore infrastructure and uncover a new answer to the Fermi paradox.\n\nDeveloped for a Tencent Photon newcomer competition, the project combines exploration, industrial simulation and character-driven storytelling. My contribution focused on translating the team’s world and gameplay systems into player-facing experiences: game concept and mechanics planning, market and user research, HUD and system UI interaction design, and high-fidelity gameplay previsualisation.",
+  "company": "Tencent Photon Newcomer Competition",
+  "companyLabel": "PROJECT CONTEXT",
+  "partners": [
+    {
+      "name": "Tencent Games",
+      "logo": "assets/media/logo-tencent.svg", "color": "#164cd9"
+    },
+    {
+      "name": "LIGHTSPEED STUDIOS",
+      "logo": "assets/projects/poka-project-p/lightspeed-logo-official-png-web.webp"
+    },
+    {
+      "name": "Tencent Newcomer Competition · FANTA",
+      "detail": "Seven-person team: Game Designer · Character Artist · Environment Artist · 3D Artist · Technical Artist · Animator · VFX Artist"
+    }
+  ],
+  "year": "2025",
+  "yearLabel": "PROJECT YEAR",
+  "roles": [
+    "Game UX",
+    "HUD Design",
+    "Game Worldbuilding"
+  ],
+  "tags": [
+    "Game UX",
+    "Interaction Design",
+    "Worldbuilding",
+    "Concept Development"
+  ],
+  "cover": {
+    "ratio": "2 / 1",
+    "designWidth": 2000,
+    "background": "assets/projects/poka-project-p/cover-jpg-web.webp",
+    "layers": [
+      {
+        "src": "assets/projects/poka-project-p/cover-jpg-web.webp",
+        "kind": "base",
+        "parallax": 0.5,
+        "parallaxLimit": 0.8
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 1,
+  "sections": [
+    {
+      "title": "",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "poka-manifesto",
+          "layout": "full",
+          "kicker": "PLANET PRACIA · 2,500 M ABOVE THE SIGNAL",
+          "title": "A bright future is\nsomething we build together.",
+          "paragraphs": [
+            "In a genre crowded with ruined futures, POKA begins from optimism: green technology, shared resources and settlements sustained through cooperation rather than extraction.",
+            "The player is not a conqueror but a connector. Exploration reveals resources and outposts; restored links allow regional production networks and communities to grow together."
+          ],
+          "loop": [
+            "Explore",
+            "Settle",
+            "Connect",
+            "Grow"
+          ]
+        },
+        {
+          "type": "poka-loop-video",
+          "layout": "full",
+          "provider": "vimeo",
+          "videoId": "1224230364",
+          "alt": "POKA · PROJECT P | Solarpunk Open-World Game Concept PV",
+          "title": "PROMOTION VIDEO",
+          "caption": "Hand-drawn original art · Selected motion generated with AI",
+          "titlePosition": "before"
+        },
+        {
+          "type": "poka-collage",
+          "layout": "full",
+          "kicker": "CONCEPT ART · WORLD BUILDING",
+          "title": "A world built above\nthe signal.",
+          "body": "Selected environment, settlement and expedition studies establish the scale, atmosphere and working life of Pracia.",
+          "items": [
+            {
+              "src": "assets/projects/poka-project-p/concept-01-jpg-web.webp",
+              "alt": "High-altitude Pracia settlement concept art",
+              "label": "HIGH-ALTITUDE SETTLEMENT"
+            },
+            {
+              "src": "assets/projects/poka-project-p/concept-02-jpg-web.webp",
+              "alt": "Pracia mountain ecology concept art",
+              "label": "LIVING ECOLOGY"
+            },
+            {
+              "src": "assets/projects/poka-project-p/concept-03-jpg-web.webp",
+              "alt": "Pracia world and settlement structure study",
+              "label": "WORLD STRUCTURE"
+            },
+            {
+              "src": "assets/projects/poka-project-p/concept-04-jpg-web.webp",
+              "alt": "Pioneer crew interior concept art",
+              "label": "PIONEER CREW"
+            },
+            {
+              "src": "assets/projects/poka-project-p/concept-05-jpg-web.webp",
+              "alt": "Pioneer crew beneath an expedition aircraft",
+              "label": "FIELD EXPEDITION"
+            }
+          ]
+        },
+        {
+          "type": "poka-collage",
+          "layout": "full",
+          "variant": "characters",
+          "kicker": "SELECTED CHARACTER STUDIES",
+          "title": "Bodies shaped by the\nwork they do.",
+          "body": "Rather than presenting the full character catalogue, this selection focuses on silhouette, protective equipment and the visual language of Pracia’s field workers.",
+          "items": [
+            {
+              "src": "assets/projects/poka-project-p/character-01-jpg-web.webp",
+              "alt": "POKA protagonist character design sheet",
+              "label": "CHARACTER · PROTAGONIST"
+            },
+            {
+              "src": "assets/projects/poka-project-p/character-02-jpg-web.webp",
+              "alt": "POKA field uniform character studies",
+              "label": "CHARACTER · FIELD UNIFORMS"
+            },
+            {
+              "src": "assets/projects/poka-project-p/character-03-jpg-web.webp",
+              "alt": "POKA expedition equipment and tool studies",
+              "label": "EQUIPMENT · FIELD TOOLS"
+            },
+            {
+              "src": "assets/projects/poka-project-p/character-04-jpg-web.webp",
+              "alt": "POKA expedition weapon design studies",
+              "label": "EQUIPMENT · WEAPON SYSTEM"
+            }
+          ]
+        },
+        {
+          "type": "poka-process-pair",
+          "layout": "full",
+          "kicker": "IN-ENGINE PROTOTYPE CAPTURE",
+          "title": "PROTOTYPE DEMONSTRATIONS",
+          "items": [
+            {
+              "src": "assets/projects/poka-project-p/process-01-mp4-web.mp4",
+              "alt": "POKA environment and vehicle previsualisation",
+              "caption": "IDLE STATE"
+            },
+            {
+              "src": "assets/projects/poka-project-p/process-02-mp4-web.mp4",
+              "alt": "POKA character and environment previsualisation",
+              "caption": "COMBAT ATTACK"
+            }
+          ]
+        },
+        {
+          "type": "poka-ui-showcase",
+          "layout": "full",
+          "kicker": "MY CORE CONTRIBUTION · INTERACTION DESIGN",
+          "title": "One world. Multiple\ninterface states.",
+          "body": "I translated exploration, construction, vehicle and combat systems into contextual HUD states. Information density and controls shift with the player’s activity, allowing the interface to support the world instead of sitting on top of it.",
+          "items": [
+            {
+              "src": "assets/projects/poka-project-p/ui-01-jpg-web.webp",
+              "alt": "Exploration HUD and companion interaction",
+              "label": "EXPLORATION · COMPANION"
+            },
+            {
+              "src": "assets/projects/poka-project-p/ui-02-jpg-web.webp",
+              "alt": "Construction system interface",
+              "label": "CONSTRUCTION · SYSTEM STATE"
+            },
+            {
+              "src": "assets/projects/poka-project-p/ui-03-jpg-web.webp",
+              "alt": "Resource and settlement interface",
+              "label": "RESOURCE · SETTLEMENT"
+            },
+            {
+              "src": "assets/projects/poka-project-p/ui-04-jpg-web.webp",
+              "alt": "In-world gameplay interaction mockup",
+              "label": "IN-WORLD INTERACTION"
+            },
+            {
+              "src": "assets/projects/poka-project-p/ui-05-jpg-web.webp",
+              "alt": "Drone flight HUD",
+              "label": "VEHICLE · DRONE FLIGHT"
+            },
+            {
+              "src": "assets/projects/poka-project-p/ui-06-jpg-web.webp",
+              "alt": "Interior exploration HUD",
+              "label": "EXPLORATION"
+            },
+            {
+              "src": "assets/projects/poka-project-p/ui-07-jpg-web.webp",
+              "alt": "Combat and navigation interface",
+              "label": "EXPLORATION"
+            },
+            {
+              "src": "assets/projects/poka-project-p/ui-08-jpg-web.webp",
+              "alt": "Equipment and action interface",
+              "label": "EXPLORATION"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "layout": "narrow",
+          "variant": "poka-closing",
+          "title": "From worldbuilding to a playable interface",
+          "body": "The final concept connected planning, visual development and 3D previsualisation through one interaction language—giving the team a shared picture of how Pracia would feel in the player’s hands.",
+          "caption": "POKA / PROJECT P · TENCENT PHOTON NEWCOMER COMPETITION"
+        }
+      ]
+    }
+  ]
+}

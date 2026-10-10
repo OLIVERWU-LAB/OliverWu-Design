@@ -1,0 +1,149 @@
+{
+  "id": "adaptive-app-market",
+  "title": "App Market 2.0",
+  "subtitle": "An Adaptive Storefront Across Phone, Tablet and Handheld",
+  "backgroundColor": "#F3F6FB",
+  "summary": "A system-level app marketplace that adapts one product foundation to partner brands and three device families.",
+  "body": "App Market 2.0 connects domestic application content from Tencent MyApp with the system layer of partner devices. The experience keeps one product architecture while adapting brand color, density and interaction patterns across phones, tablets and Lenovo's C700 handheld. The work spans discovery, game-specific detail states, benefits, search, downloads and app lifecycle management.",
+  "company": "Tencent × Partner Device Brands",
+  "companyLabel": "PROJECT CONTEXT", "partnerLabel": "Partners:",
+  "year": "2026",
+  "yearLabel": "PROJECT YEAR",
+  "roles": [
+    "Experience Design",
+    "Cross-Device UI/UX",
+    "Design System"
+  ],
+  "partners": [
+    {
+      "name": "Tencent",
+      "logo": "assets/media/logo-tencent.svg", "color": "#1b1b1b",
+      "detail": "MYAPP DATA API · CONTENT SUPPLIER"
+    },
+    { "name": "Lenovo", "logo": "assets/projects/adaptive-app-market/logo-lenovo-wordmark-black.svg" },
+    { "name": "ROG", "logo": "assets/projects/adaptive-app-market/logo-rog.svg" },
+    { "name": "REDMAGIC", "logo": "assets/projects/adaptive-app-market/logo-redmagic-symbol-tight.svg" },
+    { "name": "nubia", "logo": "assets/projects/adaptive-app-market/logo-nubia-wordmark-tight.webp" }
+  ],
+  "tags": [
+    "App Marketplace",
+    "Multi-Device UX",
+    "Design System",
+    "Interaction Design"
+  ],
+  "cover": {
+    "ratio": "16 / 9",
+    "designWidth": 2752,
+    "background": "assets/projects/adaptive-app-market/cover-app-store-2026-jpg-web.webp",
+    "layers": [
+      {
+        "src": "assets/projects/adaptive-app-market/cover-app-store-2026-jpg-web.webp",
+        "kind": "base",
+        "parallax": 0.28,
+        "parallaxLimit": 0.45
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 3,
+  "sections": [
+    {
+      "title": "Phone",
+      "body": "The phone experience carries the full product system: discovery, search, app details, campaign states, benefits, downloads and management.",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "text",
+          "variant": "market-positioning",
+          "title": "One App Market, Five Brand Systems",
+          "body": "A shared product foundation connects Tencent MyApp content to five device-brand expressions while color and surface treatment adapt to each system.",
+          "caption": "PRODUCT FOUNDATION / ADAPTIVE BRAND LAYER"
+        },
+        {
+          "type": "text",
+          "variant": "market-phone-components",
+          "title": "A Flexible Storefront Is Built from Reusable Content Modules",
+          "body": "The phone system is not one long composition. Navigation, rankings, editorial stories, campaigns and app shelves are designed as independent modules that can be recombined around each partner brand.",
+          "caption": "PHONE / COMPONENT ARCHITECTURE"
+        },
+        {
+          "type": "text",
+          "variant": "market-phone-loop",
+          "title": "Discovery Stays Continuous",
+          "body": "Home and Games are long discovery surfaces. The device frame keeps status and navigation fixed while content travels through the viewport.",
+          "caption": "PHONE / HOME AND GAMES"
+        },
+        {
+          "type": "text",
+          "variant": "market-phone-states",
+          "title": "One Detail Template, Different Business Moments",
+          "body": "The detail system supports a generic game page, membership benefits, pre-registration and live campaign content without changing the core interaction model.",
+          "caption": "DETAIL SYSTEM / GENERIC, PRE-ORDER AND CAMPAIGN STATES"
+        },
+        {
+          "type": "text",
+          "variant": "market-phone-flow",
+          "title": "A User Journey from Discovery to Everyday Use",
+          "body": "Discovery, evaluation, installation, activation and account care form one continuous experience rather than a collection of isolated pages.",
+          "caption": "EXPERIENCE JOURNEY / DISCOVER, EVALUATE, ACTIVATE, RETURN"
+        }
+      ]
+    },
+    {
+      "title": "Tablet",
+      "body": "The tablet experience preserves the same product model, then recomposes it for landscape viewing, denser shelves and longer viewing distance.",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "text",
+          "variant": "market-tablet-hero",
+          "title": "Recompose the Hierarchy, Do Not Simply Enlarge It",
+          "body": "A persistent side rail, wider content modules and horizontal groupings turn the phone hierarchy into a native landscape experience.",
+          "caption": "TABLET / LANDSCAPE INFORMATION ARCHITECTURE"
+        },
+        {
+          "type": "text",
+          "variant": "market-tablet-grid",
+          "title": "The Same System Supports Different Discovery Tasks",
+          "body": "Featured content, charts, perks and focused recommendations share one grid while keeping each task visually distinct.",
+          "caption": "TABLET / FEATURED, CHARTS, GAMES AND PERKS"
+        }
+      ]
+    },
+    {
+      "title": "Handheld",
+      "body": "On the Lenovo C700, the storefront becomes controller-first: focus, navigation and confirmation must remain clear at a distance without touch.",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "text",
+          "variant": "market-handheld-video",
+          "title": "A Storefront Built Around Focus, Not Touch",
+          "body": "Three working loops show the home experience, messages and game details inside the handheld hardware rather than as detached video rectangles.",
+          "caption": "HANDHELD / LIVE INTERACTION LOOPS"
+        },
+        {
+          "type": "text",
+          "variant": "market-handheld-states",
+          "title": "Every State Keeps the Next Action Visible",
+          "body": "Profile, search and Games reuse the same cyan focus ring and persistent controller legend, so account actions, direct intent and discovery all remain readable at a distance.",
+          "caption": "HANDHELD / ACCOUNT, SEARCH AND DISCOVERY"
+        },
+        {
+          "type": "text",
+          "variant": "market-handheld-flow",
+          "title": "Controller Language Becomes Part of the Interface",
+          "body": "Directional movement, continuous browsing, confirmation, return, download and quick search form one stable interaction grammar across the product.",
+          "caption": "INTERACTION MODEL / MOVE, INSPECT, CONFIRM, RETURN"
+        },
+        {
+          "type": "text",
+          "variant": "market-design-system",
+          "title": "One Specification Holds the Whole Product Together",
+          "body": "The complete system closes the case study: brand variables, type, icons and reusable components keep phone, tablet and handheld coherent without flattening their differences.",
+          "caption": "FINAL SYSTEM / BRAND, COLOR, TYPE AND COMPONENTS"
+        }
+      ]
+    }
+  ]
+}

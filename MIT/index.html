@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Oliver Wu — Experience designer working across product, interaction and sound."
+    />
+    <title>Oliver Wu — MIT Application Portfolio</title>
+    <script>
+      // Each fresh visit starts in English; in-page language switches stay local.
+      document.documentElement.lang = 'en';
+      window.portfolioRuntimeReady = new Promise(resolve => { window.portfolioResolveRuntime = resolve; });
+      // Set before first paint; direct case-study links bypass the home greeting.
+      if (!location.hash.startsWith('#project/')) {
+        // Cancel native fragment jumps before the browser discovers #work.
+        // Fresh home loads always reveal the first paper; in-page links still work.
+        history.scrollRestoration = 'manual';
+        history.replaceState({ ...history.state, portfolioAnchor: 'top' }, '', `${location.pathname}${location.search}`);
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        document.documentElement.classList.add('boot-pending');
+        window.portfolioBootStarted = performance.now();
+        window.portfolioBootFallback = setTimeout(() => {
+          document.documentElement.classList.remove('boot-pending', 'boot-entering');
+          document.dispatchEvent(new Event('portfolio:boot-ready'));
+        }, 16000);
+      }
+    </script>
+    <link rel="stylesheet" href="styles.css?v=20261010-65" />
+    <link rel="stylesheet" href="grid-overrides.css?v=20261010-65" />
+  <link rel="stylesheet" href="styles/projects/the-red-dawn.css?v=20261006-51" />
+  <link rel="stylesheet" href="styles/projects/show-e-motions.css?v=20261010-65" />
+    <link rel="stylesheet" href="styles/projects/tencent-cloud-gaming.css?v=20261006-51" />
+  <link rel="stylesheet" href="styles/projects/visual-editor.css?v=20261006-51" />
+  <link rel="stylesheet" href="styles/projects/gangstar-bite-me.css?v=20261006-51" />
+  <link rel="stylesheet" href="project-template.css?v=20261010-64" />
+  <link rel="stylesheet" href="styles/projects/dnf-zhulang-festival.css?v=20261006-51" />
+    <link rel="stylesheet" href="styles/projects/adaptive-app-market.css?v=20261008-62" />
+    <link rel="stylesheet" href="styles/projects/adaptive-app-market-2026.css?v=20261008-63" />
+    <link rel="stylesheet" href="styles/projects/sound-design.css?v=20261007-54" />
+    <link rel="stylesheet" href="styles/projects/water-babies.css?v=20261006-51" />
+    <link rel="stylesheet" href="styles/resume-picker.css?v=20261007-54" />
+    <link rel="stylesheet" href="styles/home-sections.css?v=20261007-55" />
+    <link rel="stylesheet" href="styles/project-background.css?v=20261010-64" />
+    <link rel="stylesheet" href="styles/home-intro.css?v=20261006-51" />
+    <link rel="stylesheet" href="styles/backdrop-atmosphere.css?v=20261010-65a" />
+  </head>
+  <body>
+    <div class="home-intro" id="homeIntro" role="status" aria-live="polite" aria-label="Preparing portfolio">
+      <div class="home-intro-content">
+        <p data-intro-copy style="visibility:hidden">Hi! I'm Designer Oliver Wu.</p>
+      </div>
+    </div>
+    <canvas id="dotField" class="dot-field" aria-hidden="true"></canvas>
+    <div class="backdrop-meteors" aria-hidden="true"><span></span><span></span><span></span></div>
+    <img decoding="async" fetchpriority="high"
+      class="backdrop-planet"
+      data-backdrop-src="assets/media/resume-planet-png-web.webp"
+      alt=""
+      aria-hidden="true"
+    />
+    <img decoding="async" fetchpriority="high"
+      class="backdrop-ground"
+      data-backdrop-src="assets/media/resume-moon-ground-png-web.webp"
+      alt=""
+      aria-hidden="true"
+    />
+    <div id="cursorDot" class="cursor-dot" aria-hidden="true"></div>
+    <div class="language-toggle" id="languageToggle" role="group" aria-label="Language selection" data-language="en">
+      <button class="language-tab" type="button" data-language-option="en" aria-pressed="true"><svg class="tape-outline" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M3 4 97 0 100 91 6 100 0 12Z" /></svg>EN</button>
+      <button class="language-tab" type="button" data-language-option="zh" aria-pressed="false"><svg class="tape-outline" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M3 4 97 0 100 91 6 100 0 12Z" /></svg>中</button>
+    </div>
+
+    <main class="site-shell">
+      <div class="page-panel page-panel-about">
+        <header class="site-header" aria-label="Oliver Wu animated wordmark">
+          <div class="kinetic-wordmark" role="img" aria-label="Oliver Wu">
+            <div class="kinetic-wordmark-track" aria-hidden="true">
+              <span class="kinetic-letter" style="--letter-index:0">O</span>
+              <span class="kinetic-letter" style="--letter-index:1">L</span>
+              <span class="kinetic-letter" style="--letter-index:2">I</span>
+              <span class="kinetic-letter" style="--letter-index:3">V</span>
+              <span class="kinetic-letter" style="--letter-index:4">E</span>
+              <span class="kinetic-letter" style="--letter-index:5">R</span>
+              <span class="kinetic-space"></span>
+              <span class="kinetic-letter" style="--letter-index:6">W</span>
+              <span class="kinetic-letter" style="--letter-index:7">U</span>
+            </div>
+          </div>
+        </header>
+
+        <nav class="index-nav" aria-label="Portfolio navigation">
+          <a href="#work"><span data-i18n="navWork">Selected Work</span><span>↗</span></a>
+          <a href="#experience"><span data-i18n="navExperience">Experience</span><span>↗</span></a>
+          <a href="#contact"><span data-i18n="navContact">Contact</span><span>↗</span></a>
+        </nav>
+
+        <section class="hero" id="top" aria-labelledby="heroTitle">
+          <div class="hero-copy" id="about">
+          <p class="kicker" data-i18n="heroRole">Experience Design · Product Design · Game UX · HMI</p>
+          <h1 id="heroTitle" data-i18n-html="heroTitle"><span class="hero-title-line">I design experiences,</span><span class="hero-title-line">end to end.</span></h1>
+          <p class="hero-intro" data-i18n="heroIntro">
+            Across products and games, I shape how systems work, feel, and respond—through
+            UX, visual design, sound, and code.
+          </p>
+          <button class="hero-resume" type="button" data-resume-open aria-haspopup="dialog" aria-controls="resumePicker">
+            <span data-i18n="resume">Download Résumé</span>
+            <span aria-hidden="true">PDF ↓</span>
+          </button>
+          <div class="artifact-playground" id="heroPhysics" aria-label="Interactive design objects">
+            <figure class="gravity-object object-portrait">
+              <img decoding="async" fetchpriority="high" src="assets/media/designer-portrait-jpg-web.webp" alt="Portrait of Oliver Wu" />
+              <figcaption data-i18n="portraitCaption">Hi, I'm designer Oliver Wu.</figcaption>
+            </figure>
+            <figure class="gravity-object object-synth" aria-hidden="true">
+              <img decoding="async" fetchpriority="high" src="assets/media/float-synth-paper-png-web.webp" alt="" width="1440" height="827" />
+            </figure>
+            <figure class="gravity-object object-phone" aria-hidden="true">
+              <img decoding="async" fetchpriority="high" src="assets/media/float-phone-paper-png-web.webp" alt="" width="386" height="710" />
+            </figure>
+            <figure class="gravity-object object-tablet" aria-hidden="true">
+              <img decoding="async" fetchpriority="high" src="assets/media/float-tablet-paper-png-web.webp" alt="" width="713" height="906" />
+            </figure>
+            <figure class="gravity-object object-laptop" aria-hidden="true">
+              <img decoding="async" fetchpriority="high" src="assets/media/float-laptop-paper-png-web.webp" alt="" width="1107" height="1274" />
+            </figure>
+            <figure class="gravity-object object-camera" aria-hidden="true">
+              <img decoding="async" fetchpriority="high" src="assets/media/float-camera-paper-png-web.webp" alt="" width="776" height="493" />
+            </figure>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-lg" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip.svg?v=20261006-51" alt="" width="40" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-sm" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-medium.svg?v=20261006-51" alt="" width="48" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
+            <span class="gravity-object gravity-star star-xs" aria-hidden="true"><img decoding="async" fetchpriority="high" src="assets/media/float-paperclip-small.svg?v=20261006-51" alt="" width="60" height="122" /></span>
+          </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="work-section" id="work" aria-labelledby="workTitle">
+        <div class="section-marquee">
+          <span data-i18n="selectedWork">Selected Work</span>
+          <strong id="workTitle" data-i18n="selectedWork">Selected Work</strong>
+          <span data-i18n="selectedWork">Selected Work</span>
+        </div>
+
+        <div class="work-filters" role="group" aria-label="Filter selected work">
+          <button class="work-filter is-active" type="button" data-filter="all" aria-pressed="true" data-i18n="filterAll">Featured</button>
+          <button class="work-filter" type="button" data-filter="embodied" aria-pressed="false" data-i18n="filterEmbodied">Embodied Interaction</button>
+          <button class="work-filter" type="button" data-filter="worlds" aria-pressed="false" data-i18n="filterWorlds">Worlds &amp; Systems</button>
+          <button class="work-filter" type="button" data-filter="sound" aria-pressed="false" data-i18n="filterSound">Sound Design</button>
+          <button class="work-filter" type="button" data-filter="other" aria-pressed="false" data-i18n="filterOther">Other Works</button>
+        </div>
+
+        <div class="case-map" aria-label="Selected portfolio projects">
+          <article class="case-card case-featured" data-category="featured embodied sound" data-project-id="external-blood-vessel" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open External Blood Vessel case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#666666">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-11"></div></div></div>
+            <div class="case-info">
+              <p>01 / Wearable Music Technology</p>
+              <h3>External Blood Vessel</h3>
+              <div class="case-details"><span>Collaboration Project</span><time datetime="2022">2022</time></div>
+            </div>
+          </article>
+
+          <article class="case-card case-featured" data-category="featured embodied sound" data-project-id="water-babies" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Water Babies case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#000000">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-12"></div></div></div>
+            <div class="case-info">
+              <p>02 / Interactive Installation</p>
+              <h3>Water Babies</h3>
+              <div class="case-details"><span>Collaboration Project</span><time datetime="2023">2023</time></div>
+            </div>
+          </article>
+
+          <article class="case-card case-featured" data-category="featured embodied" data-project-id="show-e-motions" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Show-E-Motions case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#f4f3ed">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-16"></div></div></div>
+            <div class="case-info">
+              <p>03 / Affective Wearable</p>
+              <h3>Show-E-Motions</h3>
+              <div class="case-details"><span>RCA Collaborative Project</span><time datetime="2024">2024</time></div>
+            </div>
+          </article>
+
+          <article class="case-card case-featured" data-category="featured embodied" data-project-id="the-red-dawn" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open The Red Dawn case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#000000">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-15"></div></div></div>
+            <div class="case-info">
+              <p>04 / Critical Installation</p>
+              <h3>The Red Dawn</h3>
+              <div class="case-details"><span>RCA Individual Project</span><time datetime="2024">2024</time></div>
+            </div>
+          </article>
+
+          <article class="case-card case-featured" data-category="featured worlds" data-project-id="cloud-island-device" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Cloud Island Device case study" data-cover-pending data-detail-ratio="3000 / 2335" data-detail-background="#000000">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-10"></div></div></div>
+            <div class="case-info">
+              <p>05 / Environmental Systems</p>
+              <h3>Cloud Island Device</h3>
+              <div class="case-details"><span>Individual Project</span><time datetime="2022">2022</time></div>
+            </div>
+          </article>
+
+          <article class="case-card case-featured" data-category="featured worlds" data-project-id="olive-town" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Olive Town case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#E9DAC6">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-09"></div></div></div>
+            <div class="case-info">
+              <p>06 / Urban Systems</p>
+              <h3>Olive Town</h3>
+              <div class="case-details"><span>Individual Project</span><time datetime="2022">2022</time></div>
+            </div>
+          </article>
+
+          <article class="case-card case-featured" data-category="featured worlds" data-project-id="tencent-cloud-gaming" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open In-Car Gaming case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#071011">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-hmi"></div></div></div>
+            <div class="case-info">
+              <p>07 / In-Vehicle HMI</p>
+              <h3>In-Car Gaming</h3>
+              <div class="case-details"><span>Tencent · Cockpit Experience</span><time datetime="2024">2024</time></div>
+            </div>
+          </article>
+
+          <article class="case-card case-featured" data-category="featured worlds" data-project-id="spirited-expedition" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Spirited Expedition case study" data-cover-pending data-detail-ratio="3 / 2" data-detail-background="#FAEBC7">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-07"><img loading="lazy" decoding="async" class="project-card-layer project-card-flower" src="assets/projects/spirited-expedition/home-card-guardian-flower-webp-web.webp" alt="" /><img loading="lazy" decoding="async" class="project-card-layer project-card-handheld" src="assets/projects/spirited-expedition/home-card-gameplay-handheld-webp-web.webp" alt="" /></div></div></div>
+            <div class="case-info">
+              <p>08 / Game Experience</p>
+              <h3>Spirited Expedition</h3>
+              <div class="case-details"><span>Tencent Project</span><time datetime="2026">2026</time></div>
+            </div>
+          </article>
+
+          <article class="case-card" data-category="featured worlds" data-project-id="utopia-2419" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Utopia 2419 case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#030303">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-05"></div></div></div>
+            <div class="case-info">
+              <p>09 / Interactive Storytelling</p>
+              <h3>Utopia 2419</h3>
+              <div class="case-details"><span>Individual Project</span><time datetime="2022">2022</time></div>
+            </div>
+          </article>
+
+          <article class="case-card case-featured" data-category="featured worlds" data-project-id="gangstar-bite-me" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Bite Me! case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#000000">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-19"></div></div></div>
+            <div class="case-info">
+              <p>10 / Game Event UI</p>
+              <h3>Bite Me!</h3>
+              <div class="case-details"><span>Gangstar Mirage City</span><time datetime="2026">2026</time></div>
+            </div>
+          </article>
+
+          <article hidden class="case-card case-featured" data-category="other" data-project-id="adaptive-app-market" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open App Market 2.0 case study" data-cover-pending data-detail-ratio="16 / 9" data-detail-background="#F3F6FB">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-app-market"></div></div></div>
+            <div class="case-info">
+              <p>11 / Cross-Device App Marketplace</p>
+              <h3>App Market 2.0</h3>
+              <div class="case-details"><span>Tencent · Experience Design</span><time datetime="2026">2026</time></div>
+            </div>
+          </article>
+
+          <article hidden class="case-card case-featured" data-category="other" data-project-id="visual-editor" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Skill: Visual Editor case study" data-cover-pending data-detail-ratio="16 / 9" data-detail-background="#f5f4f1">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-18"></div></div></div>
+            <div class="case-info">
+              <p>12 / AI Design Tool</p>
+              <h3>Skill: Visual Editor</h3>
+              <div class="case-details"><span>Individual Project</span><time datetime="2026">2026</time></div>
+            </div>
+          </article>
+
+          <article hidden class="case-card" data-category="other" data-project-id="florahaven" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open FloraHaven case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#D7DBC8">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-08"></div></div></div>
+            <div class="case-info">
+              <p>13 / Spatial Computing</p>
+              <h3>FloraHaven</h3>
+              <div class="case-details"><span>Individual Project</span><time datetime="2024">2024</time></div>
+            </div>
+          </article>
+
+          <article hidden class="case-card case-featured" data-category="other" data-project-id="poka-project-p" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open POKA Project P case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#eef2f2">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-14"></div></div></div>
+            <div class="case-info">
+              <p>14 / Game UX &amp; Worldbuilding</p>
+              <h3>POKA / Project P</h3>
+              <div class="case-details"><span>Tencent Project</span><time datetime="2025">2025</time></div>
+            </div>
+          </article>
+
+          <article hidden class="case-card case-featured" data-category="other" data-project-id="dnf-zhulang-festival" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open DNF Summer Wave Festival case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#D8CCB6">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-dnf"></div></div></div>
+            <div class="case-info">
+              <p>15 / Seasonal Game Experience</p>
+              <h3>DNF: Summer Wave Festival</h3>
+              <div class="case-details"><span>Tencent · Interaction Design</span><time datetime="2026">2026</time></div>
+            </div>
+          </article>
+
+          <article hidden class="case-card case-featured" data-category="sound other" data-project-id="swrd" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Still Waters Run Deep case study" data-cover-pending data-detail-ratio="2 / 1" data-detail-background="#000000">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-13"></div></div></div>
+            <div class="case-info">
+              <p>16 / Immersive VR Experience</p>
+              <h3>Still Waters Run Deep</h3>
+              <div class="case-details"><span>Collaboration Project</span><time datetime="2024">2024</time></div>
+            </div>
+          </article>
+
+          <article hidden class="case-card case-featured" data-category="sound" data-project-id="sound-design" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open Sound Design — Selected Works" data-cover-pending data-detail-ratio="16 / 9" data-detail-background="#f5f4f1">
+            <div class="case-frame" data-corner-label="↗"><div class="case-media" aria-hidden="true"><div class="case-image project-cover-sound-design"></div></div></div>
+            <div class="case-info">
+              <p>17 / Sound Design Portfolio</p>
+              <h3>Sound Design — Selected Works</h3>
+              <div class="case-details"><span>Music · Interaction · Immersive Audio</span><time datetime="2026">2022—2026</time></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="experience-section" id="experience" aria-labelledby="experienceTitle">
+        <div class="section-marquee experience-marquee">
+          <span data-i18n="experience">Experience</span>
+          <strong id="experienceTitle" data-i18n="experience">Experience</strong>
+          <span data-i18n="experience">Experience</span>
+        </div>
+        <div class="experience-grid">
+          <article class="company-item">
+            <span data-i18n="roleCurrentDates">Dec 2024—Present</span>
+            <div class="experience-position">
+              <h3 data-i18n="roleCurrent">Interaction Designer</h3>
+              <p class="experience-note" data-i18n="roleCurrentNote">(Visual and audio design on selected projects)</p>
+              <svg class="organization-logo company-logo brand-mark" width="362" height="69" preserveAspectRatio="xMinYMid meet" viewBox="0 0 1086 207" role="img" aria-label="Tencent logo"><use href="assets/media/logo-tencent.svg#mark"></use></svg>
+            </div>
+            <p class="experience-organization" data-i18n="organizationTencent">Tencent</p>
+            <p data-i18n="roleCurrentDescription">Projects include In-car Cloud Gaming, Animula Nook UGC Lobby, Multi-brand App Marketplace, League of Legends CN: Spirited Expedition &amp; Shen Ji Miao Suan, DNF Wave Festival, Gangstar Mirage City, T-Game (confidential, with Riot Games), and other live-ops and mini-games for Tencent Charity, QQ Farm, Honor of Kings, and Rust Mobile.</p>
+          </article>
+          <article class="company-item">
+            <span data-i18n="roleInternDates">May—Aug 2024</span>
+            <div class="experience-position">
+              <h3 data-i18n="roleIntern">Interaction Design Intern</h3>
+              <svg class="organization-logo company-logo brand-mark" width="362" height="69" preserveAspectRatio="xMinYMid meet" viewBox="0 0 1086 207" role="img" aria-label="Tencent logo"><use href="assets/media/logo-tencent.svg#mark"></use></svg>
+            </div>
+            <p class="experience-organization" data-i18n="organizationTencent">Tencent</p>
+            <p data-i18n="roleInternDescription">In-car Cloud Gaming HMI — interaction frameworks for automotive OS and lightweight clients, cross-platform adaptation, controller usability testing and HMI demos. Supported deliveries for Huawei, BMW, and Dongfeng Nissan.</p>
+          </article>
+          <article class="education-item">
+            <span>2023—2024</span>
+            <div class="experience-position">
+              <h3 data-i18n="degreeMA">MA Information Experience Design</h3>
+              <svg class="organization-logo school-logo school-logo-rca brand-mark" width="193" height="96" preserveAspectRatio="xMinYMid meet" viewBox="0 0 579 288" role="img" aria-label="Royal College of Art logo"><use href="assets/media/logo-rca.svg#mark"></use></svg>
+            </div>
+            <p class="experience-organization" data-i18n="degreeMADescription">Royal College of Art, London.</p>
+            <p data-i18n="degreeMARecognition">World #1 for Art &amp; Design — QS 2026</p>
+          </article>
+          <article class="education-item">
+            <span>2018—2023</span>
+            <div class="experience-position">
+              <h3 data-i18n="degreeArchitecture">Bachelor of Architecture</h3>
+              <img loading="lazy" decoding="async" class="organization-logo school-logo school-logo-zzu" src="assets/media/logo-zzu-png-web.webp" alt="Zhengzhou University logo" />
+            </div>
+            <p class="experience-organization" data-i18n="degreeArchitectureDescription">Zhengzhou University, China.</p>
+            <p data-i18n="degreeArchitectureRecognition">China’s Double First-Class University · Project 211</p>
+          </article>
+        </div>
+      </section>
+
+      <div class="page-panel contact-panel">
+        <section class="contact-section" id="contact">
+          <div class="contact-main">
+            <div class="contact-copy">
+              <p class="kicker" data-i18n="contactKicker">Let’s make something responsive</p>
+              <h2 data-i18n-html="contactTitle">Have a project<br />in mind?</h2>
+              <p class="contact-availability" data-i18n="availability">Available for selected collaborations and new opportunities.</p>
+            </div>
+            <div class="contact-person">
+              <img decoding="async" fetchpriority="high" src="assets/media/designer-portrait-jpg-web.webp" alt="Portrait of Oliver Wu" width="480" height="480" />
+            </div>
+          </div>
+          <div class="contact-bottom">
+          <div class="contact-moments" aria-label="People and moments photographs">
+            <div class="contact-moments-heading"><span data-i18n="contactMomentsTitle">People & moments</span></div>
+            <div class="contact-moments-track">
+              <figure class="contact-moment"><img loading="lazy" decoding="async" src="assets/media/contact-moments/01-rural-teaching-jpg-web.webp" alt="" width="800" height="450" /></figure>
+              <figure class="contact-moment"><img src="assets/media/contact-moments/02-tencent-team-jpg-web.webp" alt="" width="800" height="450" loading="lazy" /></figure>
+              <figure class="contact-moment"><img src="assets/media/contact-moments/03-live-performance-jpg-web.webp" alt="" width="800" height="450" loading="lazy" /></figure>
+              <figure class="contact-moment"><img src="assets/media/contact-moments/04-team-celebration-jpg-web.webp" alt="" width="800" height="450" loading="lazy" /></figure>
+              <figure class="contact-moment"><img src="assets/media/contact-moments/05-royal-college-of-art-jpg-web.webp" alt="" width="800" height="450" loading="lazy" /></figure>
+              <figure class="contact-moment"><img src="assets/media/contact-moments/06-graduation-jpg-web.webp" alt="" width="800" height="450" loading="lazy" /></figure>
+              <figure class="contact-moment"><img src="assets/media/contact-moments/07-travel-friends-jpg-web.webp" alt="" width="800" height="450" loading="lazy" /></figure>
+            </div>
+            <p class="contact-moments-caption"><span class="contact-moments-description"></span><time class="contact-moments-year"></time></p>
+            <div class="contact-carousel-dots" aria-label="Photo selection">
+              <button type="button" aria-label="1 / 7" aria-pressed="true"></button>
+              <button type="button" aria-label="2 / 7" aria-pressed="false"></button>
+              <button type="button" aria-label="3 / 7" aria-pressed="false"></button>
+              <button type="button" aria-label="4 / 7" aria-pressed="false"></button>
+              <button type="button" aria-label="5 / 7" aria-pressed="false"></button>
+              <button type="button" aria-label="6 / 7" aria-pressed="false"></button>
+              <button type="button" aria-label="7 / 7" aria-pressed="false"></button>
+            </div>
+          </div>
+          <div class="contact-links">
+            <div class="contact-location"><span data-i18n="contactLocationLabel">Based in</span><strong data-i18n="contactLocationValue">Shenzhen, China</strong></div>
+            <a href="mailto:oliverwu813@gmail.com"><span class="contact-link-copy"><span data-i18n="contactEmailLabel">Email</span><span>oliverwu813@gmail.com</span></span><span class="contact-link-arrow" aria-hidden="true">↗</span></a>
+            <a href="https://www.linkedin.com/in/oliver-wu-980236249/" target="_blank" rel="noopener noreferrer"><span class="contact-link-copy"><span>LinkedIn</span><span data-i18n="contactLinkedInAction">View profile</span></span><span class="contact-link-arrow" aria-hidden="true">↗</span></a>
+            <a href="https://soundcloud.com/oliver-wu-220146389" target="_blank" rel="noopener noreferrer"><span class="contact-link-copy"><span>SoundCloud</span><span data-i18n="contactSoundCloudAction">Listen to my work</span></span><span class="contact-link-arrow" aria-hidden="true">↗</span></a>
+          </div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <a class="brand-mark" href="#top">OLIVER WU</a>
+          <p data-i18n="footerPractice">Product / Experience / Sound</p>
+          <p>© 2026 Oliver Wu</p>
+        </footer>
+      </div>
+    </main>
+
+    <div class="project-preparation" id="projectPreparation" hidden>
+      <div class="project-preparation-paper" tabindex="-1">
+        <p data-preparation-title></p>
+        <p data-preparation-status role="status">Preparing case study…</p>
+        <div class="project-preparation-track" aria-hidden="true"><span></span></div>
+      </div>
+    </div>
+    <div class="project-layer" id="projectDetail" aria-hidden="true">
+      <div class="project-layer-backdrop" data-project-close aria-hidden="true"></div>
+      <button class="project-close" type="button" data-project-close aria-label="Back to selected work">
+        <svg class="tape-outline" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M3 4 97 0 100 92 4 100 0 12Z" /></svg>
+        <svg class="project-back-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M2 10.5 10.5 3v4H15a7 7 0 0 1 7 7v7h-4v-7a3 3 0 0 0-3-3h-4.5v4L2 10.5Z" />
+        </svg>
+        <span data-project-back-label>Back</span>
+      </button>
+      <div class="project-scroller" id="projectScroller">
+      <article
+        class="project-sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="projectDetailTitle"
+        tabindex="-1"
+      >
+        <section class="project-sheet-hero">
+          <div class="project-sheet-cover" id="projectDetailCover" aria-hidden="true"></div>
+          <div class="project-cover-title-overlay" aria-hidden="true">
+            <h2 id="projectCoverOverlayTitle"></h2>
+            <p id="projectCoverOverlaySubtitle" hidden></p>
+          </div>
+          <div class="project-cover-placeholder" role="status">Loading cover…</div>
+        </section>
+
+        <section class="project-intro" aria-label="Project introduction">
+          <div class="project-sheet-heading">
+            <div class="project-title-lockup">
+              <img loading="lazy" decoding="async" class="project-title-decoration project-title-rule project-title-rule-left" src="assets/projects/spirited-expedition/title-side-rule.svg" alt="" aria-hidden="true" />
+              <img loading="lazy" decoding="async" class="project-title-decoration project-title-rule project-title-rule-right" src="assets/projects/spirited-expedition/title-side-rule.svg" alt="" aria-hidden="true" />
+              <div class="project-title-mark">
+                <img loading="lazy" decoding="async" class="project-title-decoration project-title-accent project-title-accent-left" src="assets/projects/spirited-expedition/title-triangle-accent.svg" alt="" aria-hidden="true" />
+                <img loading="lazy" decoding="async" class="project-title-decoration project-title-accent project-title-accent-right" src="assets/projects/spirited-expedition/title-triangle-accent.svg" alt="" aria-hidden="true" />
+                <h2 id="projectDetailTitle">Adaptive Research Board</h2>
+              </div>
+              <p class="project-detail-subtitle" id="projectDetailSubtitle" hidden></p>
+            </div>
+          </div>
+
+          <div class="project-tag-register">
+            <ul class="project-tags" id="projectDetailTags" aria-label="Project tags">
+              <li>#SPATIAL UX</li>
+              <li>#HUMAN–AI</li>
+              <li>#LIVE SYSTEM</li>
+            </ul>
+          </div>
+
+          <div class="project-introduction">
+            <p id="projectDetailIntroduction">
+              Adaptive Research Board explores how environmental data, spatial interaction and
+              expressive feedback can form one coherent care experience.
+            </p>
+          </div>
+
+          <div class="project-rights" id="projectDetailRights" hidden>
+            <img loading="lazy" decoding="async" id="projectDetailRightsLogo" src="" alt="" />
+            <p id="projectDetailRightsText"></p>
+          </div>
+
+          <aside class="project-facts" id="projectDetailFacts" data-fact-count="3" aria-label="Project information">
+            <div class="project-fact project-fact-roles">
+              <span>MY ROLE</span>
+              <ul class="project-role-list" id="projectDetailRoles">
+                <li>Interaction Design</li>
+                <li>System Design</li>
+                <li>Audio Design</li>
+              </ul>
+            </div>
+            <div class="project-fact project-fact-company">
+              <span id="projectDetailCompanyLabel">PROJECT CONTEXT</span>
+              <div class="project-partner-list" id="projectDetailPartners">
+                <img loading="lazy" decoding="async" src="assets/media/logo-tencent.svg" alt="Tencent" />
+              </div>
+            </div>
+            <div class="project-fact project-fact-game" id="projectDetailGameFact" hidden>
+              <span id="projectDetailGameLabel">BASE GAME</span>
+              <div class="project-game-lockup" id="projectDetailGameLockup">
+                <img loading="lazy" decoding="async" id="projectDetailGameLogo" src="" alt="" />
+                <strong id="projectDetailGameName"></strong>
+              </div>
+            </div>
+            <div class="project-fact project-fact-year" id="projectDetailYearFact">
+              <span id="projectDetailYearLabel">PROJECT YEAR</span>
+              <strong id="projectDetailYear">2025</strong>
+            </div>
+            <div class="project-fact project-fact-release" id="projectDetailReleaseFact" hidden>
+              <span>RELEASE DATE</span>
+              <strong id="projectDetailReleaseDate"></strong>
+            </div>
+          </aside>
+
+        </section>
+
+        <section class="project-video" id="projectDetailVideo" aria-label="Project film" hidden>
+          <div class="project-video-frame">
+            <iframe
+              id="projectDetailVideoPlayer"
+              title="Project film"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="project-video-caption" id="projectDetailVideoCaption">
+            A short demonstration of the project in motion.
+          </p>
+        </section>
+
+        <section class="project-chapters" aria-label="Case study chapters">
+          <h3 class="project-chapter-titlebar" data-project-section-title="0"><span class="project-chapter-title-surface">Context</span></h3>
+          <article class="project-chapter">
+            <header>
+              <p data-project-section-body="0">Research, constraints and the central design question establish why the project needed to exist.</p>
+            </header>
+            <figure>
+              <div class="project-gallery-image" data-project-image="0" aria-hidden="true"></div>
+              <figcaption data-project-caption="0">CONTEXT / RESEARCH AND SYSTEM LANDSCAPE</figcaption>
+            </figure>
+            <div class="project-content-blocks" data-project-blocks="0"></div>
+          </article>
+
+          <h3 class="project-chapter-titlebar" data-project-section-title="1"><span class="project-chapter-title-surface">Concept</span></h3>
+          <article class="project-chapter">
+            <header>
+              <p data-project-section-body="1">The system turns findings into an interface model, interaction principles and a testable prototype.</p>
+            </header>
+            <figure>
+              <div class="project-gallery-image" data-project-image="1" aria-hidden="true"></div>
+              <figcaption data-project-caption="1">CONCEPT / SYSTEM LOGIC AND DESIGN DIRECTION</figcaption>
+            </figure>
+            <div class="project-content-blocks" data-project-blocks="1"></div>
+          </article>
+
+          <h3 class="project-chapter-titlebar" data-project-section-title="2"><span class="project-chapter-title-surface">User Experience</span></h3>
+          <article class="project-chapter">
+            <header>
+              <p data-project-section-body="2">Final behaviours, visual language, sound and reflection show how the system performs as one experience.</p>
+            </header>
+            <figure>
+              <div class="project-gallery-image" data-project-image="2" aria-hidden="true"></div>
+              <figcaption data-project-caption="2">USER EXPERIENCE / FLOW, STATES AND INTERACTION</figcaption>
+            </figure>
+            <div class="project-content-blocks" data-project-blocks="2"></div>
+          </article>
+
+          <h3 class="project-chapter-titlebar" data-project-section-title="3"><span class="project-chapter-title-surface">UI &amp; Visual</span></h3>
+          <article class="project-chapter">
+            <header>
+              <p data-project-section-body="3">The interface language turns system states into clear, expressive and buildable visual feedback.</p>
+            </header>
+            <figure>
+              <div class="project-gallery-image" data-project-image="3" aria-hidden="true"></div>
+              <figcaption data-project-caption="3">UI &amp; VISUAL / COMPONENTS, HIERARCHY AND MOTION</figcaption>
+            </figure>
+            <div class="project-content-blocks" data-project-blocks="3"></div>
+          </article>
+
+          <h3 class="project-chapter-titlebar" data-project-section-title="4"><span class="project-chapter-title-surface">Audio Design</span></h3>
+          <article class="project-chapter">
+            <header>
+              <p data-project-section-body="4">Audio communicates change, priority and atmosphere as an integrated part of the interaction system.</p>
+            </header>
+            <figure>
+              <div class="project-gallery-image" data-project-image="4" aria-hidden="true"></div>
+              <figcaption data-project-caption="4">AUDIO DESIGN / FEEDBACK, MATERIAL AND EXPERIENCE</figcaption>
+            </figure>
+            <div class="project-content-blocks" data-project-blocks="4"></div>
+          </article>
+        </section>
+
+        <footer class="project-sheet-footer">
+          <span>END OF CASE STUDY</span>
+          <button type="button" data-project-top>BACK TO TOP ↑</button>
+        </footer>
+      </article>
+      </div>
+    </div>
+
+    <dialog class="resume-picker" id="resumePicker" aria-labelledby="resumePickerTitle" tabindex="-1">
+      <div class="resume-picker-paper">
+        <div class="resume-picker-surface">
+        <canvas class="resume-picker-noise" aria-hidden="true"></canvas>
+        <h2 id="resumePickerTitle" data-i18n="resumePickerTitle">Download Résumé</h2>
+        <div class="resume-picker-options">
+          <a class="resume-picker-option" href="assets/media/resumes/Oliver-Wu-Resume-English.pdf" download="Oliver-Wu-Resume-English.pdf">
+            <span data-i18n="resumeEnglish">English Version</span><span aria-hidden="true">PDF ↓</span>
+          </a>
+          <a class="resume-picker-option" href="assets/media/resumes/Oliver-Wu-Resume-Chinese.pdf" download="Oliver-Wu-Resume-Chinese.pdf">
+            <span data-i18n="resumeChinese">Chinese Version</span><span aria-hidden="true">PDF ↓</span>
+          </a>
+        </div>
+        </div>
+        <button class="resume-picker-close" type="button" data-resume-close aria-label="Close résumé selector"><span aria-hidden="true">×</span></button>
+      </div>
+    </dialog>
+
+    <!-- Start the lightweight greeting before the larger application scripts. -->
+    <script src="scripts/home-intro.js?v=20261007-60"></script>
+    <script src="vendor/matter.min.js?v=20261006-51"></script>
+    <script src="scripts/i18n/zh-CN.js?v=20261008-61"></script>
+    <script src="scripts/i18n/zh-CN-details.js?v=20261007-60"></script>
+    <script src="scripts/image-dimensions.js?v=20261008-63"></script>
+    <script src="scripts/video-dimensions.js?v=20261006-53"></script>
+    <script src="scripts/projects/tencent-cloud-gaming.js?v=20261006-51"></script>
+    <script src="scripts/projects/visual-editor.js?v=20261006-51"></script>
+    <script src="scripts/projects/gangstar-bite-me.js?v=20261006-51"></script>
+    <script src="scripts/projects/sound-design.js?v=20261006-51"></script>
+    <script src="scripts/project-runtime.js?v=20261010-64"></script>
+    <script src="scripts/project-background.js?v=20261007-55"></script>
+    <script src="script.js?v=20261010-65-mit"></script>
+    <script src="scripts/home-section-flow.js?v=20261007-55"></script>
+    <script src="scripts/paper-geometry.js?v=20261010-65"></script>
+    <script src="scripts/backdrop-atmosphere.js?v=20261010-65"></script>
+    <script src="scripts/grounded-wordmark.js?v=20261007-54"></script>
+    <script src="scripts/resume-picker.js?v=20261006-51"></script>
+    <script src="scripts/projects/dnf-zhulang-festival.js?v=20261006-51"></script>
+    <script src="scripts/projects/adaptive-app-market.js?v=20261010-64"></script>
+    <script>window.portfolioResolveRuntime(); delete window.portfolioResolveRuntime;</script>
+  </body>
+</html>

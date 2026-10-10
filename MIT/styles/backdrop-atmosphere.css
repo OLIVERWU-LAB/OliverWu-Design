@@ -1,0 +1,18 @@
+/* Three tiny monochrome streaks, never a particle canvas or blurred surface. */
+.backdrop-meteors { position:fixed; inset:0; z-index:1; overflow:clip; pointer-events:none; }
+.backdrop-meteors span { --meteor-angle:32deg; --meteor-travel-x:240px; position:absolute; left:var(--meteor-x); top:var(--meteor-y); width:clamp(100px,12vw,200px); height:1px; background:linear-gradient(90deg,transparent,rgba(72,72,72,.55)); opacity:0; transform-origin:right center; animation:meteor-pass 18s var(--meteor-delay) linear infinite; }
+/* Start at the exposed sky/gutters, not entirely behind the opaque papers. */
+.backdrop-meteors span:nth-child(1) { --meteor-x:calc(0px - clamp(100px,12vw,200px)); --meteor-y:18%; --meteor-delay:2s; }
+.backdrop-meteors span:nth-child(2) { --meteor-x:calc(100% - clamp(100px,12vw,200px)); --meteor-y:8%; --meteor-delay:8s; --meteor-angle:148deg; --meteor-travel-x:-240px; }
+.backdrop-meteors span:nth-child(3) { --meteor-x:32%; --meteor-y:-40px; --meteor-delay:13s; }
+@keyframes meteor-pass {
+  0% { opacity:0; transform:translate3d(0,0,0) rotate(var(--meteor-angle)); }
+  2% { opacity:.75; }
+  10% { opacity:0; transform:translate3d(var(--meteor-travel-x),150px,0) rotate(var(--meteor-angle)); }
+  100% { opacity:0; transform:translate3d(var(--meteor-travel-x),150px,0) rotate(var(--meteor-angle)); }
+}
+html.boot-pending .backdrop-meteors { visibility:hidden; }
+html.boot-pending .backdrop-meteors span,
+html.backdrop-paused .backdrop-meteors span { animation-play-state:paused; }
+@media(pointer:coarse) { .backdrop-meteors span:nth-child(3) { display:none; } }
+@media(prefers-reduced-motion:reduce) { .backdrop-meteors { display:none; } }

@@ -1,0 +1,93 @@
+{
+  "id": "swrd",
+  "title": "Still Waters Run Deep",
+  "subtitle": "Sound and Music for an Immersive VR Experience",
+  "backgroundColor": "#000000",
+  "summary": "A collaborative VR experiment that synchronises an underwater environment with 30 Hz and 432 Hz sound frequencies to support meditation, relaxation and psychological restoration.",
+  "statement": "Using sound and immersive space to guide the body toward a slower, more meditative state.",
+  "body": "Created with two Digital Direction peers at the Royal College of Art in 2024, Still Waters Run Deep explores the intersection of immersive media and psychological healing. An underwater world built in Unreal Engine surrounds the audience with synchronised visual motion and a dual-frequency soundscape centred on 30 Hz and 432 Hz. Rather than treating sound as accompaniment, the project uses low-frequency resonance, texture and spatial movement as active tools for regulating attention and encouraging deep relaxation. The work was presented at the IRCAM Forum in Paris.",
+  "company": "Collaboration",
+  "companyLabel": "PROJECT CONTEXT",
+  "year": "2024",
+  "yearLabel": "PROJECT YEAR",
+  "roles": [
+    "Sound Design",
+    "Music Design and Production"
+  ],
+  "partners": [
+    {
+      "name": "Collaboration",
+      "detail": "Polina Ami Kosele — Unreal Engine\nItsnoteodora — Concept and Zine"
+    }
+  ],
+  "tags": [
+    "VR Experience",
+    "Immersive Media",
+    "Sound Design",
+    "Wellbeing"
+  ],
+  "cover": {
+    "ratio": "2 / 1",
+    "designWidth": 2000,
+    "background": "assets/projects/swrd/cover-jpg-web.webp",
+    "layers": [
+      {
+        "src": "assets/projects/swrd/cover-jpg-web.webp",
+        "kind": "base",
+        "parallax": 0.5,
+        "parallaxLimit": 0.8
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 1,
+  "sections": [
+    {
+      "title": "",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "video-pair",
+          "layout": "full",
+          "items": [
+            {
+              "src": "assets/projects/swrd/process-left-m4v-web.mp4",
+              "alt": "Still Waters Run Deep underwater audiovisual process clip"
+            },
+            {
+              "src": "assets/projects/swrd/process-right-m4v-web.mp4",
+              "alt": "Still Waters Run Deep immersive VR environment clip"
+            }
+          ]
+        },
+        {
+          "type": "video",
+          "provider": "youtube",
+          "id": "MtmEv7KFHcY",
+          "params": "si=2UsQQcq5WSldhqER&start=5&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3",
+          "ratio": "16 / 9",
+          "layout": "full",
+          "title": "Still Waters Run Deep — Project Demonstration",
+          "caption": "Project Demonstration"
+        },
+        {
+          "type": "soundcloud-stack",
+          "layout": "full",
+          "title": "",
+          "tracks": [
+            {
+              "title": "432 Hz — Surface Within",
+              "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2391778497&color=%23588ce4&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+            },
+            {
+              "title": "30 Hz — Beneath the Current",
+              "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2391778494&color=%23588ce4&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

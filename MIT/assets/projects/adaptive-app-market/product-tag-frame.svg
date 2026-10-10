@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="127" viewBox="0 0 320 127" fill="none">
+  <defs>
+    <linearGradient id="tagFill" x1="18" y1="8" x2="300" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity=".98"/>
+      <stop offset="1" stop-color="#EBF1FF" stop-opacity=".94"/>
+    </linearGradient>
+  </defs>
+  <path d="M14 1H296L319 24V113C319 120.18 313.18 126 306 126H14C6.82 126 1 120.18 1 113V14C1 6.82 6.82 1 14 1Z" fill="url(#tagFill)" stroke="#66789F" stroke-opacity=".32"/>
+</svg>

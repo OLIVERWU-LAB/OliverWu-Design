@@ -1,0 +1,3 @@
+/* Visual editor save target.
+   Everything the editor writes lands between VE:BEGIN / VE:END markers below.
+   This file must stay linked AFTER css/main.css. */

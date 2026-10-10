@@ -1,0 +1,407 @@
+/* Gangstar Mirage City — project-only styles.
+   The body of the case study is ONE board that replicates the user's Figma
+   layout (1920 wide). It is drawn at 1920 units and scaled to the shared
+   1280px canvas (factor 2/3), so every coordinate in the JSON reads 1:1
+   against Figma. Shared cover, tags, description, fact table and footer stay
+   on the template; only their colours are adapted to the black page. */
+
+.case-card[data-project-id="gangstar-bite-me"] .project-cover-19,
+.project-cover-19 {
+  background: url("../../assets/projects/gangstar-bite-me/home-card-cover-background-jpg-web.webp") center / cover no-repeat;
+  filter: none;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] {
+  --gts-ink: #f4f1f1;
+  --gts-dim: #b7b7b7;
+  --gts-line: rgba(255, 255, 255, .16);
+  --gts-scale: calc(1280 / 1920);
+  background: #000;
+  color: var(--gts-ink);
+}
+
+/* ---------- shared opening on black ---------- */
+.project-sheet[data-project-id="gangstar-bite-me"] .project-intro {
+  border: 0;
+  background: #000;
+  color: var(--gts-ink);
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .project-tag-register {
+  background: transparent;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .project-tags li {
+  border-color: rgba(255, 255, 255, .22);
+  background: rgba(255, 255, 255, .03);
+  color: var(--gts-ink);
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .project-introduction > p {
+  color: var(--gts-dim);
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .project-facts,
+.project-sheet[data-project-id="gangstar-bite-me"] .project-facts > .project-fact {
+  border-color: var(--gts-line);
+  color: var(--gts-ink);
+}
+
+/* Partner marks in the fact table: all three flattened to white at one height. */
+.project-sheet[data-project-id="gangstar-bite-me"] .project-partner-list {
+  align-items: center;
+  gap: 18px;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .project-partner-list :is(img, .brand-mark) {
+  width: auto;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  opacity: .92;
+}
+
+/* Gameloft and Level Infinite are much denser marks than the Tencent
+   wordmark, so they need ~1.4x the height to stay legible next to it. */
+.project-sheet[data-project-id="gangstar-bite-me"]
+  .project-partner-list :is(img, .brand-mark)[src*="logo-gameloft"],
+.project-sheet[data-project-id="gangstar-bite-me"]
+  .project-partner-list :is(img, .brand-mark)[src*="logo-levelinfinite"] {
+  height: 29px;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .project-fact > span {
+  color: #ff333d;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .project-role-list li,
+.project-sheet[data-project-id="gangstar-bite-me"] .project-fact strong,
+.project-sheet[data-project-id="gangstar-bite-me"] .project-partner-list strong {
+  color: var(--gts-ink);
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .project-sheet-footer {
+  border-top: 1px solid var(--gts-line);
+  background: #000;
+  color: var(--gts-dim);
+}
+
+/* ---------- body: the board carries all titles itself ---------- */
+.project-sheet[data-project-id="gangstar-bite-me"] .project-chapters {
+  padding: 0;
+  background: #000;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .project-chapter-titlebar,
+.project-sheet[data-project-id="gangstar-bite-me"] .project-chapter > header {
+  display: none;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .project-chapter {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #000;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .project-content-blocks {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .project-content-gts-board {
+  position: relative;
+  width: 1280px;
+  height: calc(var(--gts-board-h) * var(--gts-scale));
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-board {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  overflow: hidden;
+  background: #000;
+  transform: scale(var(--gts-scale));
+  transform-origin: 0 0;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-board > * {
+  position: absolute;
+}
+
+/* ---------- background zones ---------- */
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-zone {
+  left: 0;
+  width: 1920px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* 39099 is a seamless vertical tile: repeat it down the zone, keeping the
+   phase measured on the Figma board so seams land where they land there. */
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-zone-tile {
+  background-image: var(--gts-tile);
+  background-repeat: repeat-y;
+  background-size: 1920px 1141px;
+}
+
+/* Figma: home background + layer fill #000 @ 35% + background blur 10 on a
+   1920 board. Figma's blur value is ~2σ, so it lands as blur(4px) here —
+   the value that matched the exported board best. Inset -24px keeps the
+   blurred edge from fading to transparent. */
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-zone-blur .gts-blur-art {
+  position: absolute;
+  inset: -24px;
+  background-position: center;
+  background-size: 1968px 1008px;
+  filter: blur(4px);
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-zone-blur .gts-blur-veil {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .35);
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-zone-shade,
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-zone-strip {
+  z-index: 2;
+}
+
+/* Character tables and the sketch ship with a 1px white edge baked in; clip
+   it so no hairline shows against the black page. */
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-layer[src*="character-"],
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-layer[src*="sketch-wireframe"] {
+  clip-path: inset(0 2px 2px 0);
+}
+
+/* Finale gradient, sampled from the board along its top-right → bottom-left
+   diagonal. */
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-zone-pink {
+  background: linear-gradient(
+    to bottom left,
+    #ff70ca 0%,
+    #f66ac3 25%,
+    #f45cbd 30%,
+    #ee57b7 50%,
+    #e252ab 64%,
+    #ed4eb4 75%,
+    #e44ba7 85%,
+    #bf317b 95%,
+    #ab2262 100%
+  );
+}
+
+/* ---------- image layers ---------- */
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-layer {
+  display: block;
+  max-width: none;
+  object-fit: fill;
+  transform-origin: 50% 50%;
+}
+
+/* Phone: screen sits UNDER the Spirited Expedition frame. The frame PNG is
+   1526×779 with a 1473×709 hole at (26, 36); the layer box is the hole, so
+   the frame is extended by those ratios. Screen corners follow the hole. */
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-phone {
+  transform-origin: 50% 50%;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-phone-screen {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 6.8% / 14.1%;
+  background: #111;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-phone-screen img,
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-phone-screen video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: fill;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-phone-frame {
+  position: absolute;
+  top: -3.64%;
+  left: -1.752%;
+  width: 103.504%;
+  height: 107.28%;
+  background: var(--gts-frame) center / 100% 100% no-repeat;
+  pointer-events: none;
+}
+
+/* ---------- live overlays ---------- */
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-tag {
+  z-index: 80;
+  display: flex;
+  align-items: flex-start;
+  min-width: 328px;
+  height: 86px;
+  padding: 25px 104px 0 32px;
+  margin-left: -4px;
+  background: var(--gts-tag) left top / 100% 100% no-repeat;
+  color: #f4f1d8;
+  -webkit-text-stroke: 4px #3a070b;
+  paint-order: stroke fill;
+  text-shadow: 5px 5px 0 #3a070b;
+  font: 800 34px/1 var(--display);
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-label {
+  z-index: 80;
+  display: grid;
+  justify-items: center;
+  row-gap: 9px;
+  color: #d9cfcf;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+/* The onboarding label reads left-aligned against its paragraph. */
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-label.is-left {
+  justify-items: start;
+  text-align: left;
+  transform: translateX(0);
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-label.is-left .gts-label-cn,
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-label.is-left .gts-label-en {
+  text-align: left;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-label-cn {
+  font: 700 24px/28px "Songti SC", "STSong", "Noto Serif SC", serif;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-label-en {
+  font: 700 24px/26px "Times New Roman", Times, serif;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-caption,
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-para {
+  z-index: 80;
+  margin: 0;
+  color: var(--gts-dim);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-caption {
+  font-size: 23.25px;
+  line-height: 30px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+/* The activity-entry line under the pink phone must read white, not grey. */
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-caption.is-bright {
+  color: #fff;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-caption.is-warm {
+  color: #afa3a3;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-para {
+  color: #bbb6b5;
+  font-size: 23.25px;
+  line-height: 32px;
+  letter-spacing: -.01em;
+  white-space: pre-line;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-swatches {
+  z-index: 80;
+  display: flex;
+  gap: 10px;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-swatches span {
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 0 0 2px #000;
+}
+
+/* Character captions sit under each portrait table — one line, centred. */
+/* Character captions are printed ON the red table, centred on it, one line. */
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-charcap {
+  z-index: 80;
+  margin: 0;
+  color: #fdf6f4;
+  font: 20px/26px Arial, Helvetica, sans-serif;
+  text-align: center;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+/* Pink finale: one phone centred, activity screen inside; logos + title left. */
+/* The finale phone uses the board's shared bezel artwork; it only needs a
+   lift off the pink field. The screen stays under the bezel. */
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-pinkphone {
+  z-index: 60;
+  filter: drop-shadow(0 18px 40px rgba(60, 0, 30, .35));
+}
+
+/* Partner marks are flattened to white; the game icon and the PEGI badge keep
+   their own colour (they are artwork, not logos). */
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-logo {
+  z-index: 80;
+  object-fit: contain;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-logo[src*="logo-gameloft"],
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-logo[src*="logo-levelinfinite"],
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-logo[src*="logo-dot"] {
+  filter: brightness(0) invert(1);
+}
+
+/* "Release / 10.20" with a hairline rule either side of the word. */
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-release {
+  z-index: 80;
+  display: grid;
+  justify-items: center;
+  row-gap: 2px;
+  color: #f9d9ec;
+  font: 700 30px/1.15 "Times New Roman", Times, serif;
+  text-align: center;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-release-word {
+  position: relative;
+  padding: 0 26px;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-release-word::before,
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-release-word::after {
+  position: absolute;
+  top: 56%;
+  width: 216px;
+  height: 1px;
+  background: rgba(255, 255, 255, .8);
+  content: "";
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-release-word::before { right: 100%; }
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-release-word::after { left: 100%; }
+
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-finaletitle {
+  z-index: 80;
+  color: #fff;
+  font: 800 40px/1 var(--display);
+  letter-spacing: .02em;
+  text-shadow:
+    10px 10px 0 #a10076,
+    0 0 72px #f6f3da;
+  -webkit-text-stroke: 1px #ff39cb;
+}

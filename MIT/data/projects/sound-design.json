@@ -1,0 +1,195 @@
+{
+  "id": "sound-design",
+  "title": "Sound Design — Selected Works",
+  "titleZh": "声音设计作品选",
+  "subtitle": "Music, Interaction and Immersive Sound",
+  "subtitleZh": "音乐、交互与沉浸式声音",
+  "backgroundColor": "#f5f4f1",
+  "summary": "A focused collection of original music, interactive sound systems and immersive audiovisual work across five projects.",
+  "summaryZh": "五个项目汇集原创音乐、交互声音系统与沉浸式视听体验，呈现一套聚焦声音的创作实践。",
+  "body": "Five projects, one sound practice: composing original scores, mapping gesture and voice into sound, and shaping immersive environments where audio carries interaction, atmosphere and narrative.",
+  "bodyZh": "五个项目，共同构成一套以声音为核心的实践：创作原创配乐，将手势与声音映射为实时反馈，并构建由音频承载交互、氛围与叙事的沉浸式环境。",
+  "company": "Selected Practice",
+  "companyLabel": "COLLECTION",
+  "year": "2022—2026",
+  "yearLabel": "PROJECT YEARS",
+  "roles": ["Sound Design", "Music Production", "Interactive Audio"],
+  "tags": ["SOUND DESIGN", "ORIGINAL MUSIC", "INTERACTIVE AUDIO"],
+  "cover": {
+    "ratio": "16 / 9",
+    "designWidth": 1600,
+    "background": "assets/projects/sound-design/cover-headphones-v3-png-web.webp",
+    "layers": [
+      {
+        "src": "assets/projects/sound-design/cover-headphones-v3-png-web.webp",
+        "kind": "base",
+        "parallax": 0,
+        "parallaxLimit": 0
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 1,
+  "sections": [
+    {
+      "title": "",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "sound-showcase",
+          "layout": "full",
+          "items": [
+            {
+              "projectId": "external-blood-vessel",
+              "index": "01",
+              "title": "External Blood Vessel",
+              "subtitle": "A Wearable Wireless MIDI\nInstrument",
+              "subtitleZh": "可穿戴无线 MIDI 乐器",
+              "year": "2022",
+              "accent": "#ff4a5e",
+              "description": "A wireless MIDI glove turns distance, touch, rotation and motion into notes, chords, percussion and live mix parameters. Sound is generated through the performer’s body rather than added after the interaction.",
+              "descriptionZh": "这只无线 MIDI 手套将距离、触摸、旋转与动作映射为音符、和弦、打击乐和实时混音参数，让声音直接由表演者的身体动作生成，而不是在交互之后附加。",
+              "cover": "assets/projects/external-blood-vessel/outcome-product-jpg-web.webp",
+              "video": {
+                "provider": "vimeo",
+                "id": "1222443596",
+                "title": "Performance Demo — Running Up That Hill",
+                "titleZh": "演出示范 — Running Up That Hill"
+              }
+            },
+            {
+              "projectId": "spirited-expedition",
+              "index": "02",
+              "title": "Spirited Expedition",
+              "subtitle": "Original Music for Wild Rift CN",
+              "subtitleZh": "为《英雄联盟手游》中国版创作的原创音乐",
+              "year": "2025",
+              "accent": "#8ebbd0",
+              "description": "A three-track event score combines live acoustic ukulele, traditional Caribbean instruments and synthesizer soundscapes, moving from relaxed island discovery to battle and boss tension.",
+              "descriptionZh": "三首活动配乐融合原声尤克里里、加勒比传统乐器与合成器声景，从轻松的岛屿探索逐步推进至战斗和 Boss 对抗。",
+              "cover": "assets/projects/spirited-expedition/figma-audio-artwork-jpg-web.webp",
+              "video": {
+                "provider": "vimeo",
+                "id": "1215449393",
+                "title": "High-Fidelity UI Demo with Original Sound",
+                "titleZh": "高保真 UI 与原创声音演示"
+              },
+              "tracks": [
+                {
+                  "title": "Dawn of the Isle — Main Menu BGM",
+                  "titleZh": "黎明之岛 — 主菜单 BGM",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2324711624&color=%23669fb5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                },
+                {
+                  "title": "Cute Breakout — Normal Battle BGM",
+                  "titleZh": "可爱突围 — 常规战斗 BGM",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2324711627&color=%23669fb5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                },
+                {
+                  "title": "The Looming Threat — Boss Battle BGM",
+                  "titleZh": "威胁迫近 — Boss 战 BGM",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2324711621&color=%23669fb5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                }
+              ]
+            },
+            {
+              "projectId": "water-babies",
+              "index": "03",
+              "title": "Water Babies",
+              "subtitle": "Voice, Presence and Fluid Intelligence",
+              "subtitleZh": "声音、在场与流体智能",
+              "year": "2023",
+              "accent": "#42e5df",
+              "description": "A sensing and translation system maps audience presence and voice into a real-time field of fluid imagery, light and sound, turning frequency and movement into a non-verbal dialogue.",
+              "descriptionZh": "系统感知观众的在场与声音，并将其映射为实时流体影像、光线与声场，让频率和动作形成一场非语言的对话。",
+              "cover": "assets/projects/water-babies/cover-jpg-web.webp",
+              "video": {
+                "provider": "vimeo",
+                "id": "1222596918",
+                "title": "Water Babies — Live Installation",
+                "titleZh": "Water Babies — 现场装置"
+              },
+              "tracks": [
+                {
+                  "title": "Water Babies — Interactive Soundscape",
+                  "titleZh": "Water Babies — 交互声景",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2391424677&color=%232affff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                }
+              ]
+            },
+            {
+              "projectId": "swrd",
+              "index": "04",
+              "title": "Still Waters Run Deep",
+              "subtitle": "Sound for an Immersive VR Experience",
+              "subtitleZh": "沉浸式 VR 体验的声音设计",
+              "year": "2024",
+              "accent": "#588ce4",
+              "description": "A dual-frequency soundscape centred on 30 Hz and 432 Hz synchronises with an underwater VR environment. Resonance, texture and spatial movement guide attention toward a slower, meditative state.",
+              "descriptionZh": "以 30 Hz 与 432 Hz 为核心的双频声场与水下 VR 环境同步，通过共振、质感与空间运动，引导注意力进入更缓慢、冥想式的状态。",
+              "cover": "assets/projects/swrd/cover-jpg-web.webp",
+              "video": {
+                "provider": "youtube",
+                "id": "MtmEv7KFHcY",
+                "title": "Still Waters Run Deep — Project Demonstration",
+                "titleZh": "Still Waters Run Deep — 项目演示"
+              },
+              "tracks": [
+                {
+                  "title": "432 Hz — Surface Within",
+                  "titleZh": "432 Hz — 水面之内",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2391778497&color=%23588ce4&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                },
+                {
+                  "title": "30 Hz — Beneath the Current",
+                  "titleZh": "30 Hz — 潜流之下",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2391778494&color=%23588ce4&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                }
+              ]
+            },
+            {
+              "projectId": "utopia-2419",
+              "index": "05",
+              "title": "UTOPIA 2419",
+              "subtitle": "An Original Score for Interactive Fiction",
+              "subtitleZh": "互动叙事原创配乐",
+              "year": "2022",
+              "accent": "#ef503d",
+              "description": "Ten original compositions trace memory, revolt, exile and the silence that follows an impossible ideal, giving a branching dystopian narrative its emotional continuity.",
+              "descriptionZh": "十首原创作品贯穿记忆、反抗、流亡，以及理想破灭后的寂静，为分支式反乌托邦叙事建立连贯的情绪线索。",
+              "cover": "assets/projects/utopia-2419/cover-jpg-web.webp",
+              "loopVideos": [
+                {
+                  "src": "assets/projects/utopia-2419/process-01-mp4-web.mp4",
+                  "alt": "UTOPIA 2419 visual and sound process loop one"
+                },
+                {
+                  "src": "assets/projects/utopia-2419/process-02-mp4-web.mp4",
+                  "alt": "UTOPIA 2419 visual and sound process loop two"
+                },
+                {
+                  "src": "assets/projects/utopia-2419/process-03-mp4-web.mp4",
+                  "alt": "UTOPIA 2419 visual and sound process loop three"
+                }
+              ],
+              "tracks": [
+                { "title": "2419.I — Undertow", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392485462&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
+                { "title": "Elsewhere", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474620&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
+                { "title": "Reverse Space", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474629&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
+                { "title": "2419.II — A Century Passes", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392485465&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
+                { "title": "Utopia", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474617&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
+                { "title": "Underneath", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474632&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
+                { "title": "Exile", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474626&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
+                { "title": "2419.III — Nothing Weighs", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392485459&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
+                { "title": "Reverse Ocean", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474623&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
+                { "title": "Still Here", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474635&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
