@@ -637,7 +637,11 @@
 .project-sheet iframe[data-media-pending] { visibility:hidden; }
 .project-sheet video[data-media-pending] { background:#969696; }
 .project-media-placeholder { position:absolute; inset:0; z-index:3; display:grid; place-content:center; gap:12px; padding:20px; background:#969696; color:#252525; text-align:center; font:14px/1.4 Arial,sans-serif; pointer-events:none; }
-.project-placeholder-play { display:block; width:40px; height:40px; justify-self:center; }
+.project-placeholder-wait { display:block; width:40px; height:40px; justify-self:center; }
+.project-placeholder-ring { transform-origin:20px 20px; animation:project-placeholder-turn 1.4s linear infinite; animation-play-state:paused; }
+.project-media-placeholder[data-runtime-active]:not([data-media-error]) .project-placeholder-ring { animation-play-state:running; }
+@keyframes project-placeholder-turn { to { transform:rotate(360deg); } }
+@media(prefers-reduced-motion:reduce) { .project-placeholder-ring { animation:none; } }
 .project-media-placeholder small { font-size:11px; color:#404040; }
 .project-media-placeholder[hidden] { display:none; }
 

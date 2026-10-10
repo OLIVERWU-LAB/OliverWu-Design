@@ -11,25 +11,27 @@ const sectionNavigationLinks = [
 const workFilterButtons = [...document.querySelectorAll(".work-filter")];
 const projectCards = [...document.querySelectorAll(".case-card[data-category]")];
 const preferredWorkOrder = [
-  "animula-nook-ugc",
-  "teemo-roguelike",
-  "tencent-cloud-gaming",
-  "spirited-expedition",
-  "adaptive-app-market",
-  "gangstar-bite-me",
-  "olive-town",
+  // Full application portfolio: embodied interaction and prototype evidence
+  // first. The offline work exporter keeps its separate commercial order.
+  "external-blood-vessel",
+  "water-babies",
+  "show-e-motions",
+  "swrd",
+  "cloud-island-device",
   "visual-editor",
   "florahaven",
-  "sound-design",
-  "external-blood-vessel",
-  "dnf-zhulang-festival",
-  "poka-project-p",
-  "water-babies",
-  "swrd",
-  "utopia-2419",
-  "show-e-motions",
-  "cloud-island-device",
+  "olive-town",
   "the-red-dawn",
+  "utopia-2419",
+  "sound-design",
+  "tencent-cloud-gaming",
+  "adaptive-app-market",
+  "spirited-expedition",
+  "poka-project-p",
+  "dnf-zhulang-festival",
+  "gangstar-bite-me",
+  "animula-nook-ugc",
+  "teemo-roguelike",
 ];
 const filterWorkOrders = {
   all: preferredWorkOrder,

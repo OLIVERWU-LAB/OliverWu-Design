@@ -30,7 +30,11 @@
   function syncMedia(node) {
     if (!node.isConnected || !media.has(node)) return;
     const active = eligible() && visible.has(node);
+    placeholders.get(node)?.toggleAttribute('data-runtime-active', active && !reduced.matches);
     if (active && node.dataset.projectMediaSrc && !node.hasAttribute('src')) {
+      // Our observer already gates activation. A second native lazy gate can
+      // stall a counter-zoomed iframe in mobile WebKit after it becomes visible.
+      if (node.tagName === 'IFRAME') node.loading = 'eager';
       node.src = node.dataset.projectMediaSrc;
     }
     if (node.tagName === 'VIDEO') {
@@ -121,6 +125,14 @@
       playerUrl.searchParams.set('origin', location.origin);
       url = playerUrl.href;
     }
+    if (node.tagName === 'IFRAME' && /^https:\/\/player\.vimeo\.com\/video\//.test(url)
+      && !['spirited-expedition', 'sound-design'].includes(sheet.dataset.projectId)) {
+      const playerUrl = new URL(url);
+      playerUrl.searchParams.set('title', '1');
+      playerUrl.searchParams.set('byline', '0');
+      playerUrl.searchParams.set('portrait', '0');
+      url = playerUrl.href;
+    }
     node.dataset.projectMediaSrc = url;
     prepareMediaPlaceholder(node, url);
     if (node.tagName === 'VIDEO') {
@@ -163,7 +175,7 @@
       image.addEventListener('load', done, {once:true});
       image.addEventListener('error', done, {once:true});
     });
-    sheet.querySelectorAll('.project-chapter,.sound-project').forEach(node => {
+    sheet.querySelectorAll('.project-chapter,.sound-project,.project-chapter-titlebar').forEach(node => {
       if (!chapters.has(node)) { chapters.add(node); observer.observe(node); }
     });
     refresh();
@@ -178,6 +190,8 @@
       if (node.dataset.projectMediaSrc !== url) return;
       const placeholder = placeholders.get(node);
       if (placeholder) {
+        placeholder.removeAttribute('data-runtime-active');
+        placeholder.dataset.mediaError = 'true';
         const label = placeholder.querySelector('span');
         label.textContent = 'This media is temporarily unavailable.';
         window.translatePortfolioTree?.(placeholder, document.documentElement.lang.startsWith('zh') ? 'zh' : 'en');
@@ -189,14 +203,12 @@
       placeholders.get(node)?.remove(); placeholders.delete(node);
       controller.abort(); placeholderListeners.delete(node);
     };
-    const vimeo = /^https:\/\/player\.vimeo\.com\//.test(url);
     if (node.tagName === 'VIDEO') node.addEventListener('loadeddata', done, {signal:controller.signal});
     else node.addEventListener('load', () => {
       if (node.dataset.projectMediaSrc !== url || !node.hasAttribute('src')) return;
-      if (!vimeo) { done(); return; }
-      // The frame document can load before the actual player UI. Ask the
-      // provider's existing message bridge, without a second player SDK.
-      node.contentWindow?.postMessage({ method:'ping' }, 'https://player.vimeo.com');
+      // Reveal the provider's own loading/error UI on document load. Do not
+      // hide a usable player forever when its optional ready message is lost.
+      done();
     }, {signal:controller.signal});
     // Renderers set sources before appending. One microtask, no polling.
     Promise.resolve().then(() => {
@@ -218,8 +230,8 @@
       if (radius) placeholder.style.borderRadius = radius;
       const icon = document.createElementNS('http://www.w3.org/2000/svg','svg');
       icon.setAttribute('viewBox','0 0 40 40'); icon.setAttribute('aria-hidden','true');
-      icon.classList.add('project-placeholder-play');
-      icon.innerHTML = '<circle cx="22" cy="22" r="15" fill="currentColor"/><circle cx="19" cy="19" r="15" fill="#ffede3" stroke="currentColor" stroke-width="1"/><path d="M16 11.5 27 19 16 26.5Z" fill="currentColor"/>';
+      icon.classList.add('project-placeholder-wait');
+      icon.innerHTML = '<circle cx="20" cy="20" r="15" fill="none" stroke="currentColor" stroke-width="1" opacity=".28"/><g class="project-placeholder-ring"><path d="M20 5a15 15 0 0 1 15 15" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="35" cy="20" r="2" fill="#ffede3" stroke="currentColor" stroke-width="1"/></g>';
       const label = document.createElement('span');
       label.textContent = /soundcloud/.test(url) ? 'Loading audio…' : 'Loading video…';
       placeholder.append(icon,label);
@@ -230,6 +242,7 @@
         placeholder.style.height = `${node.offsetHeight}px`;
       }
       host.append(placeholder); placeholders.set(node, placeholder);
+      placeholder.toggleAttribute('data-runtime-active', eligible() && visible.has(node) && !reduced.matches);
       window.translatePortfolioTree?.(placeholder, document.documentElement.lang.startsWith('zh') ? 'zh' : 'en');
     });
   }

@@ -51,7 +51,13 @@
 .project-layer .project-sheet .project-chapter:not([data-runtime-visible]) *::before,
 .project-layer .project-sheet .project-chapter:not([data-runtime-visible]) *::after,
 .project-layer .project-sheet .project-chapter:not([data-runtime-visible])::before,
-.project-layer .project-sheet .project-chapter:not([data-runtime-visible])::after {
+.project-layer .project-sheet .project-chapter:not([data-runtime-visible])::after,
+.project-layer .project-sheet :is(.sound-project,.project-chapter-titlebar):not([data-runtime-visible]),
+.project-layer .project-sheet :is(.sound-project,.project-chapter-titlebar):not([data-runtime-visible]) *,
+.project-layer .project-sheet :is(.sound-project,.project-chapter-titlebar):not([data-runtime-visible])::before,
+.project-layer .project-sheet :is(.sound-project,.project-chapter-titlebar):not([data-runtime-visible])::after,
+.project-layer .project-sheet :is(.sound-project,.project-chapter-titlebar):not([data-runtime-visible]) *::before,
+.project-layer .project-sheet :is(.sound-project,.project-chapter-titlebar):not([data-runtime-visible]) *::after {
   animation-play-state: paused !important;
 }
 @media(prefers-reduced-motion:reduce) {

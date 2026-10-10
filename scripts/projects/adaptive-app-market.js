@@ -579,15 +579,23 @@
   const alignProfileConnections = () => {
     const stage = sheet.querySelector('.am-profile-flow-stage');
     const svg = stage?.querySelector('.am-profile-connectors');
-    const matrix = svg?.getScreenCTM();
-    if (!matrix || !svg.getBoundingClientRect().width) return;
-    const inverse = matrix.inverse();
+    if (!svg) return;
+    const bounds = svg.getBoundingClientRect();
+    const box = svg.viewBox.baseVal;
+    if (!bounds.width || !bounds.height) return;
+    // Client rects share one coordinate system on WebKit, including CSS zoom.
+    // Respect the existing xMidYMid/meet letterboxing; getScreenCTM can omit
+    // ancestor zoom on mobile Safari and push the bent endpoints off canvas.
+    const unit = Math.min(bounds.width / box.width, bounds.height / box.height);
+    const originX = bounds.left + (bounds.width - box.width * unit) / 2;
+    const originY = bounds.top + (bounds.height - box.height * unit) / 2;
+    const point = (x, y) => ({x:(x-originX)/unit+box.x, y:(y-originY)/unit+box.y});
     const paths = svg.querySelectorAll('path');
     [[0, '.is-topic', 154], [2, '.is-uninstall', 486]].forEach(([index, selector, sourceY]) => {
       const target = stage.querySelector(`${selector} .am-bare-viewport`);
       if (!target) return;
       const rect = target.getBoundingClientRect();
-      const end = new DOMPoint(rect.left, rect.top).matrixTransform(inverse);
+      const end = point(rect.left, rect.top);
       paths[index].setAttribute('d', `M440 ${sourceY} H${end.x.toFixed(3)}`);
     });
     [[1, '.is-topic', '.is-updates', 452], [3, '.is-uninstall', '.is-settings', 584]].forEach(([index, leftSelector, rightSelector, sourceY]) => {
@@ -598,7 +606,7 @@
       const rightRect = right.getBoundingClientRect();
       const scale = rightRect.width / right.offsetWidth;
       const endY = Math.min(rightRect.bottom - 12 * scale, Math.max(rightRect.top + 12 * scale, leftRect.bottom + 16 * scale));
-      const end = new DOMPoint(rightRect.left, endY).matrixTransform(inverse);
+      const end = point(rightRect.left, endY);
       paths[index].setAttribute('d', `M440 ${sourceY} H565 V${end.y.toFixed(3)} H${end.x.toFixed(3)}`);
     });
   };
@@ -606,6 +614,7 @@
   // Measure the rendered circle, including SVG letterboxing and canvas zoom.
   // The grid travels with the content, so alignment remains stable on scroll.
   const alignJourneyGrid = () => {
+    if (sheet.dataset.projectId !== projectId) return;
     alignProfileConnections();
     const panel = sheet.querySelector('.am-journey-panel');
     const circle = panel?.querySelector('circle[r="7"]');
@@ -621,11 +630,18 @@
     const dy = Math.round(y / 32) * 32 + .5 - y;
     panel.style.transform = `translate(${dx}px, ${dy}px)`;
   };
-  const journeyResizeObserver = new ResizeObserver(() => requestAnimationFrame(alignJourneyGrid));
+  // Coalesce a burst of image loads/resizes into one layout pass. All geometry
+  // is sheet-relative, so scrolling does not require measuring it again.
+  let geometryFrame = 0;
+  const scheduleGeometry = () => {
+    if (sheet.dataset.projectId === projectId && !geometryFrame) {
+      geometryFrame = requestAnimationFrame(() => { geometryFrame = 0; alignJourneyGrid(); });
+    }
+  };
+  const journeyResizeObserver = new ResizeObserver(scheduleGeometry);
   journeyResizeObserver.observe(sheet);
-  sheet.addEventListener('scroll', alignJourneyGrid, {passive:true});
-  sheet.addEventListener('load', () => requestAnimationFrame(alignJourneyGrid), true);
-  document.fonts.ready.then(() => requestAnimationFrame(alignJourneyGrid));
+  sheet.addEventListener('load', scheduleGeometry, true);
+  document.fonts.ready.then(scheduleGeometry);
 
   const bindVisibility = () => {
     visibilityObserver?.disconnect();
