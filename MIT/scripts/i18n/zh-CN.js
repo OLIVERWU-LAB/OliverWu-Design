@@ -144,7 +144,7 @@ window.zhCNTranslations = new Map([
   ["Design & Development", "设计与开发"],
   ["Final Outcome", "最终成果"],
   ["Collaboration", "合作成员"],
-  ["Xujia Zheng — 3D Modeling and Form Design", "郑栩嘉 — 3D 建模与形态设计"],
+  ["Xujia Zheng — 3D Modeling and Form Design", "Xujia Zheng — 3D 建模与形态设计"],
   ["Performance Demo — a wearable MIDI cover of Kate Bush’s “Running Up That Hill”.", "表演演示 — 使用可穿戴 MIDI 乐器重新演绎 Kate Bush 的《Running Up That Hill》。"],
   ["Functional Prototype Test", "功能原型测试"],
   ["Background, inspiration and design positioning for the wearable MIDI instrument", "可穿戴 MIDI 乐器的背景、灵感与设计定位"],
@@ -370,7 +370,7 @@ window.zhCNTranslations = new Map([
   ["Water Babies installation construction and final audience experience", "水之婴的装置搭建与最终观众体验"],
 
   ["Using sound and immersive space to guide the body toward a slower, more meditative state.", "通过声音与沉浸空间，引导身体进入更缓慢、更具冥想感的状态。"],
-  ["Polina Ami Kosele — Unreal Engine\nItsnoteodora — Concept and Zine", "Polina Ami Kosele — Unreal Engine\nItsnoteodora — 概念与 Zine"],
+  ["Polina Ami Kosele — Unreal Engine\nItsnoteodora — Concept and Zine", "Polina Ami Kosele — Unreal Engine\nItsnoteodora — 概念与独立小刊物"],
   ["VR Experience", "VR 体验"],
   ["Still Waters Run Deep underwater audiovisual process clip", "静水流深水下视听过程片段"],
   ["Still Waters Run Deep immersive VR environment clip", "静水流深沉浸式 VR 环境片段"],

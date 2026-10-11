@@ -3593,6 +3593,7 @@ body.project-open .dot-field {
      can be scaled twice by mobile WebKit; fixed design units keep the
      approved PC composition and let only the shared canvas zoom scale it. */
   --project-game-font: "DM UI CN", Arial, Helvetica, sans-serif;
+  --display: var(--project-game-font);
   /* Project visual system: keep these tokens as the single source of truth. */
   --se-page: #faebc7;
   --se-title-edge: #153b48;
@@ -3831,6 +3832,8 @@ body.project-open .dot-field {
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-title-lockup {
+  --se-title-rule-inset: 16.28125%;
+  --se-title-accent-top: -25.307692%;
   /* Figma spec is based on a 3200px canvas. CSS filter blur uses a
      standard-deviation radius, so its visual equivalent is approximately
      half of Figma's blur value. Offsets keep the direct 3200px ratio. */
@@ -3847,6 +3850,13 @@ body.project-open .dot-field {
   width: 100%;
   aspect-ratio: 3200 / 260;
   margin: 0 auto;
+}
+
+/* The Chinese wordmark is shorter and has taller ink at the accent positions.
+   Keep the original English composition; only align the Chinese ornaments. */
+html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .project-title-lockup {
+  --se-title-rule-inset: 24.2875%;
+  --se-title-accent-top: calc(-41.461538% + 3px);
 }
 
 .project-title-mark {
@@ -3901,17 +3911,17 @@ body.project-open .dot-field {
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-title-rule-left {
-  left: 16.28125%;
+  left: var(--se-title-rule-inset);
   transform: translateY(-50%);
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-title-rule-right {
-  right: 16.28125%;
+  right: var(--se-title-rule-inset);
   transform: translateY(-50%) scaleX(-1);
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-title-accent {
-  top: -25.307692%;
+  top: var(--se-title-accent-top);
   z-index: 2;
   width: 4.095%;
   filter: none;

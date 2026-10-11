@@ -10,10 +10,10 @@ In-Vehicle HMI	车载人机交互
 Cloud Gaming	云游戏
 Cloud Gaming · Pioneer × START	云游戏 · 先锋 × START
 In-vehicle entertainment	车载娱乐
-Visual Design & Visualization: 杰杰	视觉设计&可视化：杰杰
+Visual Design & Visualization: JieJie	视觉设计&可视化：JieJie
 Soundscape Design: fabia	音景设计：fabia
-Biological Sound Design: Oliver	生物声音设计：Oliver
-Scriptwriting: Hadas, fabia, Oliver	剧本设计：Hadas, fabia, Oliver
+Biological Sound Design: Oliver (me)	生物声音设计：Oliver（我）
+Scriptwriting: Hadas, fabia, Oliver (me)	剧本设计：Hadas, fabia, Oliver（我）
 Evolution	产品演进
 TO BUSINESS	面向车企
 TO CUSTOMER	面向用户

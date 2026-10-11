@@ -68,22 +68,22 @@ html[lang="zh-CN"] :is(
   .sound-project-header h3,
   .sound-project-context h4
 ) {
-  font-family: "ZaoZiGongFang YuanHei", "Monument Extended", "Arial Black", sans-serif !important;
+  font-family: var(--display) !important;
   font-weight: 400 !important;
   letter-spacing: .035em !important;
 }
 
 html[lang="zh-CN"] .project-sheet :is(h1, h2, h3, h4, h5, h6) {
-  font-family: "ZaoZiGongFang YuanHei", "Monument Extended", "Arial Black", sans-serif !important;
+  font-family: var(--display) !important;
   font-weight: 400 !important;
   letter-spacing: .035em !important;
 }
 
 .project-localized-art-title { display: none; }
-html[lang="zh-CN"] .has-image-title .project-chapter-title-surface > img { display: none; }
-html[lang="zh-CN"] .has-image-title .project-localized-art-title {
+html[lang="zh-CN"] .project-sheet:not([data-project-id="spirited-expedition"]) .has-image-title .project-chapter-title-surface > img { display: none; }
+html[lang="zh-CN"] .project-sheet:not([data-project-id="spirited-expedition"]) .has-image-title .project-localized-art-title {
   display: block;
-  font: 400 42px/1.25 "ZaoZiGongFang YuanHei", sans-serif;
+  font: 400 42px/1.25 var(--display);
   letter-spacing: .035em;
   color: #603719;
 }
