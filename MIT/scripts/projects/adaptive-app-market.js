@@ -660,10 +660,12 @@
       visibilityObserver?.disconnect();
       return;
     }
+    let contentChanged = false;
     Object.entries(renderers).forEach(([variant, renderer]) => {
       sheet.querySelectorAll(`[data-variant="${variant}"]:not([data-am-enhanced])`).forEach((block) => {
         renderer(block);
         block.dataset.amEnhanced = "true";
+        contentChanged = true;
       });
     });
     const overviewBlocks = [
@@ -677,7 +679,11 @@
         sheet.querySelector(".project-chapters")?.prepend(overview);
       }
       overview.replaceChildren(...overviewBlocks);
+      contentChanged = true;
     }
+    // Device captions are created after the shared sheet's first translation.
+    // Localize once per composition, not on observer callbacks from translation.
+    if (contentChanged && typeof translatePortfolioTree === "function") translatePortfolioTree(sheet);
     bindVisibility();
     requestAnimationFrame(alignJourneyGrid);
   };
