@@ -12664,10 +12664,9 @@ body.project-open .dot-field {
   stroke-width:1px;
   vector-effect:non-scaling-stroke;
 }
-/* The SAME contour uses a viewport-sized SVG on touch devices. Its cached
-   path follows document scrolling; no parallel fixed rails through notches. */
+/* The single document contour scrolls natively with the paper on every device.
+   No fixed touch overlay or scroll-event translation. */
 @media (pointer:coarse) {
-  .paper-edge-extensions { position:fixed; }
   /* Keep ground pixels beyond the transient browser-toolbar boundary.
      Equal height/bottom changes preserve the visible top of the image. */
   .backdrop-ground { bottom:-80px; height:calc(36vh + 80px); }

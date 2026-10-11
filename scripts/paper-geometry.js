@@ -15,8 +15,11 @@
   extensionOutline.setAttribute("preserveAspectRatio", "none");
   const extensionPath = document.createElementNS(NS, "path");
   extensionOutline.append(extensionPath);
-  // Attach outside the offset body: these coordinates are document coordinates.
-  document.documentElement.append(extensionOutline);
+  // Share the paper's native document-scrolling ancestor. A fixed SVG moved
+  // by scroll events trails asynchronous touch scrolling on the compositor.
+  // Keep document-space path coordinates; compensate the body's origin once
+  // per layout pass, never per scroll frame.
+  document.body.append(extensionOutline);
   // A viewport-sized one-shot outline travels WITH the first paper. The long
   // document SVG stays still/offscreen; do not promote it to a huge GPU layer.
   const arrivalOutline = document.createElementNS(NS, "svg");
@@ -44,19 +47,6 @@
     return { sheet, detail, outline, holeGroup, seams: seams.map(([sel, edge]) => ({ node: sheet.querySelector(sel), edge })).filter(item => item.node), signature: "" };
   }).filter(Boolean);
   let frame;
-  let scrollFrame;
-  const touchViewport = matchMedia('(pointer:coarse)');
-  function syncViewportPath() {
-    scrollFrame = null;
-    if (touchViewport.matches) {
-      extensionPath.setAttribute('transform', `translate(0 ${-window.scrollY})`);
-    } else {
-      extensionPath.removeAttribute('transform');
-    }
-  }
-  function queueViewportPath() {
-    if (touchViewport.matches && !scrollFrame) scrollFrame = requestAnimationFrame(syncViewportPath);
-  }
   function measure({ sheet, seams, detail }) {
     const rect = sheet.getBoundingClientRect();
     const width = sheet.offsetWidth;
@@ -193,12 +183,13 @@
         extensionSegments.push(path);
       }
     }
-    const svgHeight = touchViewport.matches ? window.innerHeight : documentHeight;
-    extensionOutline.setAttribute("viewBox", `0 0 ${window.innerWidth} ${svgHeight}`);
+    const bodyRect = document.body.getBoundingClientRect();
+    extensionOutline.style.left = `${-(bodyRect.left + window.scrollX)}px`;
+    extensionOutline.style.top = `${-(bodyRect.top + window.scrollY)}px`;
+    extensionOutline.setAttribute("viewBox", `0 0 ${window.innerWidth} ${documentHeight}`);
     extensionOutline.setAttribute("width", String(window.innerWidth));
-    extensionOutline.setAttribute("height", String(svgHeight));
+    extensionOutline.setAttribute("height", String(documentHeight));
     extensionPath.setAttribute("d", extensionSegments.join(" "));
-    syncViewportPath();
     document.documentElement.classList.add("has-paper-geometry");
     document.dispatchEvent(new Event("portfolio:paper-geometry"));
   }
@@ -213,11 +204,8 @@
   if (sheet) new MutationObserver(queue).observe(sheet, { childList: true, subtree: true, attributes: true, attributeFilter: ["data-project-id", "class"] });
   new MutationObserver(queue).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
   window.addEventListener("resize", queue, { passive: true });
-  window.addEventListener('scroll', queueViewportPath, {passive:true});
   // Browser toolbar changes do not necessarily resize the layout viewport.
   window.visualViewport?.addEventListener('resize', queue, {passive:true});
-  window.visualViewport?.addEventListener('scroll', queueViewportPath, {passive:true});
-  touchViewport.addEventListener('change', queue);
   document.fonts.ready.then(queue);
   document.fonts.addEventListener("loadingdone", queue);
   document.addEventListener('portfolio:boot-enter', () => {

@@ -33,7 +33,7 @@
   }
   function paint(root,g,sheet) {
     const {width:w,height:h,depth}=g;
-    const dy=w*15/1696, sigma=w*7.5/1696, pad=Math.ceil(dy+sigma*4);
+    const dy=w*10/1696, sigma=w*7.5/1696, pad=Math.ceil(dy+sigma*4);
     const band=Math.min(h/2,depth+pad);
     const tiles=[[-pad,-pad,w+pad*2,band+pad],[-pad,h-band,w+pad*2,band+pad],
       [-pad,band,band+pad,Math.max(0,h-band*2)],[w-band,band,band+pad,Math.max(0,h-band*2)]];
