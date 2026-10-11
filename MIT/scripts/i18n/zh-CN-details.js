@@ -5,6 +5,7 @@ Some project details are temporarily unavailable. You can return and open this p
 This media is temporarily unavailable.	此媒体暂时无法加载。
 GAME CONTENT · CLOUD GAMING SERVICES	游戏内容 · 云游戏技术服务
 In-Car Gaming	车载游戏
+Tencent In-Car Gaming	腾讯车载游戏
 In-Vehicle HMI	车载人机交互
 Cloud Gaming	云游戏
 Cloud Gaming · Pioneer × START	云游戏 · 先锋 × START

@@ -47,6 +47,7 @@
     return { sheet, detail, outline, holeGroup, seams: seams.map(([sel, edge]) => ({ node: sheet.querySelector(sel), edge })).filter(item => item.node), signature: "" };
   }).filter(Boolean);
   let frame;
+  let homePull = 0;
   function measure({ sheet, seams, detail }) {
     const rect = sheet.getBoundingClientRect();
     const width = sheet.offsetWidth;
@@ -77,9 +78,11 @@
       depth: f(depth),
       seams: ys.map(f),
       scale,
+      homePull: detail ? 0 : homePull,
       pageLeft: rect.left + window.scrollX,
       pageRight: rect.right + window.scrollX,
-      pageTop: rect.top + window.scrollY - arrivalTranslation,
+      pageTop: rect.top + window.scrollY - arrivalTranslation
+        + (detail ? 0 : (window.portfolioLockedHomeY || 0) - homePull),
     };
   }
   function update() {
@@ -138,7 +141,8 @@
         // Preserve layout dimensions while handing the bottom boundary to SVG.
         record.sheet.querySelectorAll('.hero, .case-card, .experience-grid > article').forEach(node => {
           const atBottom = node.getClientRects().length > 0
-            && Math.abs(node.getBoundingClientRect().bottom - geometry.pageTop + window.scrollY - h * geometry.scale) < 1.5;
+            && Math.abs(node.getBoundingClientRect().bottom - geometry.pageTop + window.scrollY
+              + (window.portfolioLockedHomeY || 0) - homePull - h * geometry.scale) < 1.5;
           node.classList.toggle('paper-bottom-edge', atBottom);
         });
       }
@@ -188,7 +192,7 @@
     }
     const bodyRect = document.body.getBoundingClientRect();
     extensionOutline.style.left = `${-(bodyRect.left + window.scrollX)}px`;
-    extensionOutline.style.top = `${-(bodyRect.top + window.scrollY)}px`;
+    extensionOutline.style.top = `calc(${-(bodyRect.top + window.scrollY + (window.portfolioLockedHomeY || 0))}px + var(--home-edge-pull,0px))`;
     extensionOutline.setAttribute("viewBox", `0 0 ${window.innerWidth} ${documentHeight}`);
     extensionOutline.setAttribute("width", String(window.innerWidth));
     extensionOutline.setAttribute("height", String(documentHeight));
@@ -209,6 +213,57 @@
   window.addEventListener("resize", queue, { passive: true });
   // Browser toolbar changes do not necessarily resize the layout viewport.
   window.visualViewport?.addEventListener('resize', queue, {passive:true});
+  // iOS can rubber-band its root canvas outside painted document bounds.
+  // Cancel only outward edge drags; retain native interior scrolling/pinch.
+  // Relative top shifts avoid promoting a many-screen document to a GPU layer.
+  const coarse = matchMedia('(pointer:coarse)');
+  const reduced = matchMedia('(prefers-reduced-motion:reduce)');
+  let edgeTouch = null, edgeReturnTimer = 0;
+  const root = document.documentElement;
+  function writeHomePull(value) {
+    homePull = value;
+    root.style.setProperty('--home-edge-pull', `${value}px`);
+  }
+  function endEdgeTouch() {
+    edgeTouch = null;
+    if (!homePull) return;
+    root.classList.add('home-edge-settling');
+    writeHomePull(0);
+    clearTimeout(edgeReturnTimer);
+    edgeReturnTimer = setTimeout(() => { root.classList.remove('home-edge-settling'); queue(); }, reduced.matches ? 0 : 240);
+  }
+  document.addEventListener('touchstart', event => {
+    if (!coarse.matches || event.touches.length !== 1) { endEdgeTouch(); return; }
+    const t = event.touches[0];
+    edgeTouch = {x:t.clientX,y:t.clientY,lastY:t.clientY,maxY:Math.max(0,root.scrollHeight-window.innerHeight)};
+    clearTimeout(edgeReturnTimer);
+    root.classList.remove('home-edge-settling');
+    writeHomePull(0);
+  }, {passive:true});
+  document.addEventListener('touchmove', event => {
+    if (!edgeTouch || event.touches.length !== 1) return;
+    const t=event.touches[0],delta=t.clientY-edgeTouch.lastY;
+    edgeTouch.lastY=t.clientY;
+    const vertical=Math.abs(t.clientY-edgeTouch.y)>=Math.abs(t.clientX-edgeTouch.x);
+    if (!vertical) return;
+    if (document.body.classList.contains('project-open')) {
+      // In-app WebKit must not hand unused detail momentum to the root page.
+      if (!event.target.closest?.('.project-scroller') || window.projectRuntime?.phase !== 'idle') {
+        if (event.cancelable) event.preventDefault();
+      }
+      return;
+    }
+    if (root.matches('.boot-pending,.boot-entering') || event.target.closest?.('dialog,.project-preparation')) return;
+    const outward=(window.scrollY<=1 && delta>0) || (window.scrollY>=edgeTouch.maxY-1 && delta<0);
+    if (!outward && !homePull) return;
+    if (event.cancelable) event.preventDefault();
+    if (!reduced.matches) {
+      const next=homePull+delta*.28;
+      writeHomePull(Math.max(-64,Math.min(64,homePull && Math.sign(next)!==Math.sign(homePull) ? 0 : next)));
+    }
+  }, {passive:false});
+  document.addEventListener('touchend', endEdgeTouch, {passive:true});
+  document.addEventListener('touchcancel', endEdgeTouch, {passive:true});
   document.fonts.ready.then(queue);
   document.fonts.addEventListener("loadingdone", queue);
   document.addEventListener('portfolio:boot-enter', () => {

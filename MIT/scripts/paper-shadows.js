@@ -62,7 +62,7 @@
       const detail=sheet.classList.contains('project-sheet');
       const rect=detail?sheet.getBoundingClientRect():null;
       return {sheet,g,detail,left:detail?rect.left-scrollerRect.left:g.pageLeft-shellRect.left-window.scrollX,
-        top:detail?rect.top-scrollerRect.top+scroller.scrollTop:g.pageTop-shellRect.top-window.scrollY};
+        top:detail?rect.top-scrollerRect.top+scroller.scrollTop:g.pageTop-shellRect.top-window.scrollY-(window.portfolioLockedHomeY || 0)+(g.homePull || 0)};
     }).filter(Boolean);
     for(const {sheet,g,detail,left,top} of jobs) {
       let record=roots.get(sheet);

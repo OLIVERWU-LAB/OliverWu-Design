@@ -63,16 +63,22 @@
       const sourceImage = opener?.querySelector(":scope > img");
       if (!sourceImage) return;
       titlebar.classList.add("is-dnf-activity-title", `is-activity-${index + 1}`);
+      // The titlebar/banner survives Back, but the chapter body is rebuilt.
+      // Hide THIS opener before reusing the previous banner on repeated entry.
+      opener.classList.add("is-dnf-banner-source");
       if (titlebar.previousElementSibling?.classList.contains("dnf-activity-banner")) return;
       const banner = document.createElement("figure");
       banner.className = `dnf-activity-banner is-activity-${index + 1}`;
       const image = document.createElement("img");
       image.src = sourceImage.currentSrc || sourceImage.src;
       image.alt = sourceImage.alt;
+      if (sourceImage.hasAttribute("width") && sourceImage.hasAttribute("height")) {
+        image.width = sourceImage.width;
+        image.height = sourceImage.height;
+      }
       image.decoding = "async";
       image.draggable = false;
       banner.append(image);
-      opener.classList.add("is-dnf-banner-source");
       titlebar.before(banner);
     });
     // Shared captions are plain text. Separate title/body without changing other projects.

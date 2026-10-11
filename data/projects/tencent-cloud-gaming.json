@@ -1,10 +1,16 @@
 {
   "id": "tencent-cloud-gaming",
-  "title": "In-Car Gaming",
+  "title": "Tencent In-Car Gaming",
   "subtitle": "Bringing Cloud Gaming to the Smart Cockpit",
   "backgroundColor": "#071011",
   "summary": "An in-vehicle cloud gaming experience developed through research, OEM integration, interaction exploration and a multi-screen consumer platform.",
   "body": "An in-car display is not an ordinary screen. Seat position, reach, input devices and the surrounding environment reshape how people discover and play. The platform was developed in cooperation with car companies and mobility partners including BMW, Dongfeng Nissan, Zeekr and Huawei. This case study follows the project in its original iteration sequence—from research and an OEM-integrated 1.0, through the unreleased 1.5 exploration, to the broader 2.0 platform system.",
+  "rights": {
+    "logo": "assets/projects/tencent-cloud-gaming/tencent-cargame-logo.webp",
+    "logoAlt": "腾讯车游 / Tencent CarGame",
+    "width": 433,
+    "height": 110
+  },
   "company": "Tencent",
   "companyLabel": "PROJECT CONTEXT", "partnerLabel": "Partners:",
   "year": "2024",

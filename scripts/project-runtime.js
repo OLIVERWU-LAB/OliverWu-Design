@@ -188,6 +188,9 @@
     icon.setAttribute('aria-hidden', 'true');
     const ring = document.createElement('span');
     ring.className = 'project-placeholder-ring';
+    // Both strokes use radius14, with the paper dot on the same centreline.
+    // Rotate the HTML box, never a zoom-sensitive SVG group.
+    ring.innerHTML = '<svg viewBox="0 0 40 40" width="40" height="40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1" opacity=".28"/><path d="M20 6 A14 14 0 0 1 20 34" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="20" cy="6" r="2.5" fill="#ffede3" stroke="currentColor" stroke-width="1"/></svg>';
     icon.append(ring);
     return icon;
   }

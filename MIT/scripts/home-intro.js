@@ -6,12 +6,6 @@
   const pending = root.classList.contains('boot-pending');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-  // No decorative download in the initial HTML. Preload behind the flat
-  // greeting, decode before entry, and reveal it with the first paper.
-  document.querySelectorAll('[data-backdrop-src]').forEach(image => {
-    image.src = image.dataset.backdropSrc;
-    image.removeAttribute('data-backdrop-src');
-  });
   const critical = [...new Map([...document.querySelectorAll('#heroPhysics img,.backdrop-planet,.backdrop-ground')]
     .map(image => [image.currentSrc || image.src, image])).values()];
   window.portfolioHomeAssetsSettled = false;
@@ -96,7 +90,11 @@
     document.fonts.load('400 24px "ZaoZiGongFang YuanHei"', chinese ? greeting : '中'),
   ] : [Promise.resolve(),Promise.resolve(),Promise.resolve()];
   const fonts = Promise.all(fontJobs.map(job => counted(job.catch(() => []))));
-  const images = Promise.all(critical.map(img => counted(imageReady(img))));
+  const imageJobs = new Map(critical.map(img => [img, counted(imageReady(img))]));
+  const images = Promise.all(imageJobs.values());
+  // Reuse the counted jobs: no second request, decode or progress counter.
+  const backdropReady = Promise.all(critical.filter(img => img.matches('.backdrop-planet,.backdrop-ground'))
+    .map(img => imageJobs.get(img))).then(() => root.classList.add('boot-backdrop-ready'));
   const runtime = counted(window.portfolioRuntimeReady || Promise.resolve());
   const ready = Promise.all([images, fonts, runtime]).then(([statuses]) => statuses.every(Boolean) ? 'loaded' : 'partial');
   ready.then(homeAssetsSettled);
@@ -106,12 +104,13 @@
   const writing = (async () => {
     // Start with the final font where possible; a failed font never blocks entry.
     const writingFace = fontJobs[chinese ? 2 : 1].catch(() => []);
-    await Promise.race([writingFace, sleep(2500)]);
+    await Promise.race([Promise.all([writingFace, backdropReady]), sleep(2500)]);
     if (finished) return;
     measureLetters();
     window.addEventListener('resize', measureLetters);
     // The initial HTML and reduced-motion glyphs stay hidden until this gate.
     // Keep the approved 2.5s fallback; never flash the unsplit initial sentence.
+    root.dataset.bootWriting = 'started';
     copy.style.visibility = 'visible';
     intro.classList.add('intro-writing');
     await sleep(reduced.matches ? 0 : (letters.length - 1) * 40 + 200 + 150);

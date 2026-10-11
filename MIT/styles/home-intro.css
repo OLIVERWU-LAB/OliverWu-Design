@@ -4,9 +4,8 @@ html.boot-pending .case-card[data-cover-pending] .case-image,
 html.cover-lazy-enabled .case-card[data-cover-pending] .case-image { background-image:none !important; }
 html.boot-pending, html.boot-entering { overflow:hidden; }
 html.boot-pending body, html.boot-entering body { overflow:hidden; }
-html.boot-pending :is(.backdrop-planet,.backdrop-ground) { visibility:hidden; }
-html.boot-pending .backdrop-planet { animation-play-state:paused; }
-html.boot-entering :is(.backdrop-planet,.backdrop-ground) { animation:backdrop-arrival 320ms ease-out both; }
+html.boot-pending:not(.boot-backdrop-ready) :is(.backdrop-planet,.backdrop-ground) { visibility:hidden; }
+html.boot-pending:not(.boot-backdrop-ready) .backdrop-planet { animation-play-state:paused; }
 /* Never expose later papers through the arriving first viewport. */
 html.boot-entering .site-shell > :not(.page-panel-about) { visibility:hidden; }
 html.boot-pending,html.boot-entering { scroll-snap-type:none; scroll-behavior:auto; }
@@ -54,7 +53,6 @@ html.boot-entering .home-arrival-outline {
 .home-arrival-outline path { fill:none; stroke:var(--line); stroke-width:1px; vector-effect:non-scaling-stroke; }
 html.boot-entering .language-toggle { animation:language-arrival 600ms 100ms cubic-bezier(.18,.82,.16,1) both; }
 @keyframes intro-away { to { opacity:0; } }
-@keyframes backdrop-arrival { from { opacity:0; } }
 @keyframes intro-write { from { opacity:0; transform:translateY(2px); clip-path:inset(0 100% 0 0); } to { opacity:1; transform:translateY(0); clip-path:inset(0); } }
 @keyframes intro-wave { 0%,20%,100% { transform:translateY(0); } 10% { transform:translateY(-.5em); } }
 @keyframes home-arrival { from { transform:translate3d(0,100vh,0); } to { transform:translate3d(0,0,0); } }

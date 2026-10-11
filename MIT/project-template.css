@@ -640,9 +640,8 @@
 .project-sheet video[data-media-pending] { background:#969696; }
 .project-media-placeholder { position:absolute; inset:0; z-index:3; display:grid; place-content:center; gap:12px; padding:20px; background:#969696; color:#252525; text-align:center; font:14px/1.4 Arial,sans-serif; pointer-events:none; }
 .project-placeholder-wait { position:relative; display:block; flex:none; width:40px; height:40px; justify-self:center; }
-.project-placeholder-wait::before { content:""; position:absolute; inset:5px; border:1px solid currentColor; border-radius:50%; opacity:.28; }
-.project-placeholder-ring { position:absolute; inset:5px; box-sizing:border-box; border:3px solid transparent; border-top-color:currentColor; border-right-color:currentColor; border-radius:50%; transform-origin:50% 50%; animation:project-placeholder-turn 1.4s linear infinite; animation-play-state:paused; }
-.project-placeholder-ring::after { content:""; position:absolute; width:4px; height:4px; right:-3px; top:calc(50% - 3px); border:1px solid currentColor; border-radius:50%; background:#ffede3; }
+.project-placeholder-ring { position:absolute; inset:0; transform-origin:50% 50%; animation:project-placeholder-turn 1.4s linear infinite; animation-play-state:paused; }
+.project-placeholder-ring svg { display:block; width:100%; height:100%; overflow:visible; }
 .project-media-placeholder[data-runtime-active]:not([data-media-error]) .project-placeholder-ring { animation-play-state:running; }
 .project-layer[data-runtime="idle"]:not([data-runtime-visibility="hidden"]) .project-sheet-hero[data-runtime-visible]:has(.is-cover-pending) .project-placeholder-ring { animation-play-state:running; }
 @keyframes project-placeholder-turn { to { transform:rotate(360deg); } }

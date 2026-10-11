@@ -126,12 +126,17 @@ let viewportWidth = window.innerWidth;
 let viewportHeight = window.innerHeight;
 let dpr = 1;
 let grainPattern = null;
+const grainImage = grainCtx.createImageData(grainSize, grainSize);
 let lastGrainUpdate = -100;
 let lastCanvasFrame = -100;
 let previousTime = 0;
 let inkDrops = [];
 let lastInkX = -100;
 let lastInkY = -100;
+let inkNeedsPaint = false;
+let paintedInkBounds = null;
+const pointerKick = { pending:false, x:0, y:0, movementX:0, movementY:0 };
+const quietClips = [], floorContacts = new Set(), supportedClips = new Set();
 let physicsEngine = null;
 let physicsBodies = [];
 let physicsWalls = [];
@@ -392,7 +397,7 @@ const projectCardChineseCopy = {
   "poka-project-p": { descriptor: "游戏 UX 与世界观构建", context: "腾讯项目", title: "POKA / P 计划" },
   "the-red-dawn": { descriptor: "批判性装置", context: "皇家艺术学院个人项目", title: "赤色黎明" },
   "show-e-motions": { descriptor: "情感可穿戴设备", context: "皇家艺术学院合作项目", title: "情绪显影" },
-  "tencent-cloud-gaming": { descriptor: "车载 HMI", context: "腾讯 · 座舱体验", title: "车载游戏" },
+  "tencent-cloud-gaming": { descriptor: "车载 HMI", context: "腾讯 · 座舱体验", title: "腾讯车载游戏" },
   "dnf-zhulang-festival": { descriptor: "季节性游戏体验", context: "腾讯 · 交互设计", title: "DNF：逐浪夏日祭" },
   "adaptive-app-market": { descriptor: "跨设备应用市场", context: "腾讯 · 体验设计", title: "应用商店 2.0" },
   "visual-editor": { descriptor: "AI 设计工具", context: "个人项目", title: "Skill 可视化编辑器" },
@@ -3555,7 +3560,9 @@ function applyProjectRights(rights) {
 
   const logo = safeProjectAsset(rights?.logo);
   const text = typeof rights?.text === "string" ? rights.text.trim() : "";
-  if (!logo || !text) {
+  // This persistent image must not inherit another logo's reserved ratio.
+  projectDetailRightsLogo.style.removeProperty("aspect-ratio");
+  if (!logo) {
     projectDetailRights.hidden = true;
     projectDetailRightsLogo.src = "";
     projectDetailRightsLogo.alt = "";
@@ -3565,7 +3572,14 @@ function applyProjectRights(rights) {
 
   projectDetailRightsLogo.src = versionProjectImageAsset(logo);
   projectDetailRightsLogo.alt = typeof rights.logoAlt === "string" ? rights.logoAlt.trim() : "";
+  if (Number.isFinite(rights.width) && Number.isFinite(rights.height)) {
+    [projectDetailRightsLogo.width, projectDetailRightsLogo.height] = [rights.width, rights.height];
+  } else {
+    projectDetailRightsLogo.removeAttribute("width");
+    projectDetailRightsLogo.removeAttribute("height");
+  }
   projectDetailRightsText.textContent = text;
+  projectDetailRightsText.hidden = !text;
   projectDetailRights.hidden = false;
 }
 
@@ -3970,6 +3984,10 @@ async function openProject(card, options = {}) {
     endProjectPreparation(openSequence);
     if (projectDetailCover.dataset.coverDecoded === 'true') revealProjectCover();
     projectDetail.setAttribute('aria-hidden','false');
+    if (matchMedia('(pointer:coarse)').matches && !document.body.classList.contains('project-open')) {
+      window.portfolioLockedHomeY = window.scrollY;
+      document.body.style.setProperty('--home-scroll-lock-top', `${-window.scrollY}px`);
+    }
     document.body.classList.add('project-open');
     projectDetail.classList.add('is-open');
     const restored = window.projectBackground?.ready();
@@ -4274,6 +4292,11 @@ function finishProjectClose(restoreScrollY = projectReturnScrollY) {
     projectDetail.classList.remove("is-closing");
     window.projectBackground?.clearParent();
     document.body.classList.remove("project-open");
+    if (window.portfolioLockedHomeY !== undefined) {
+      delete window.portfolioLockedHomeY;
+      document.body.style.removeProperty('--home-scroll-lock-top');
+      window.scrollTo({top:restoreScrollY,left:0,behavior:'instant'});
+    }
     window.projectRuntime.begin('closed');
     window.projectRuntime.reset();
     releaseProjectContent();
@@ -4502,7 +4525,7 @@ function setWorkFilter(filter) {
 }
 
 function rebuildGrain() {
-  const image = grainCtx.createImageData(grainSize, grainSize);
+  const image = grainImage;
   const pixels = image.data;
 
   for (let index = 0; index < pixels.length; index += 4) {
@@ -4863,8 +4886,19 @@ function buildPhysicsWorld() {
 }
 
 function nudgeUnsupportedPhysicsClips(delta) {
-  const floorContacts = new Set();
-  const supportedClips = new Set();
+  quietClips.length = 0;
+  for (const body of physicsBodies) {
+    if (!body.plugin.portfolioClip) continue;
+    if (!body.isSensor && !body.plugin.pendingRelease
+      && body.speed < 0.18 && body.angularSpeed < 0.006
+      && Math.abs(Math.sin(body.angle)) < 0.18) quietClips.push(body);
+    else body.plugin.uprightRestTime = 0;
+  }
+  // Moving clips cannot need this balance correction. Avoid scanning their
+  // contacts during the entrance burst; reuse buffers for settled candidates.
+  if (!quietClips.length) return;
+  floorContacts.clear();
+  supportedClips.clear();
   const recordContact = (body, other) => {
     if (!body.plugin.portfolioClip) return;
     if (other === physicsWalls[1]) floorContacts.add(body);
@@ -4875,17 +4909,8 @@ function nudgeUnsupportedPhysicsClips(delta) {
     recordContact(pair.bodyA, pair.bodyB);
     recordContact(pair.bodyB, pair.bodyA);
   }
-  for (const body of physicsBodies) {
-    if (!body.plugin.portfolioClip) continue;
-    let onFloor = false;
-    let supported = false;
-    if (!body.isSensor && !body.plugin.pendingRelease
-      && Math.abs(Math.sin(body.angle)) < 0.18
-      && body.speed < 0.18 && body.angularSpeed < 0.006) {
-      onFloor = floorContacts.has(body);
-      supported = supportedClips.has(body);
-    }
-    if (!onFloor || supported) {
+  for (const body of quietClips) {
+    if (!floorContacts.has(body) || supportedClips.has(body)) {
       body.plugin.uprightRestTime = 0;
       continue;
     }
@@ -4942,12 +4967,13 @@ function stepPhysicsSubstep(delta) {
 
 function renderPhysicsBodies() {
   for (const body of physicsBodies) {
+    if (body.isSleeping && body.plugin.lastTransform) continue;
     const element = body.plugin.portfolioElement;
     const objectWidth = body.plugin.portfolioWidth;
     const objectHeight = body.plugin.portfolioHeight;
     const offsetY = body.plugin.portfolioOffsetY || 0;
-    const x = body.position.x + Math.sin(body.angle) * offsetY - objectWidth / 2;
-    const y = body.position.y - Math.cos(body.angle) * offsetY - objectHeight / 2;
+    const x = body.position.x + (offsetY ? Math.sin(body.angle) * offsetY : 0) - objectWidth / 2;
+    const y = body.position.y - (offsetY ? Math.cos(body.angle) * offsetY : 0) - objectHeight / 2;
     const transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) rotate(${body.angle.toFixed(4)}rad)`;
     if (body.plugin.lastTransform !== transform) {
       element.style.transform = transform;
@@ -4965,7 +4991,9 @@ function updatePhysics(delta) {
 
   if (!physicsVisible && !document.documentElement.classList.contains('boot-entering')) return;
   if (physicsEngine.enableSleeping && physicsBodies.every(body => body.isSleeping && !body.plugin.pendingRelease)) return;
-  stepPhysicsWorld(clamp(delta, 8, 1000 / 60));
+  // Follow elapsed time at both low and high display refresh rates. The same
+  // <=120Hz collision substeps remain; bound long stalls instead of catching up.
+  stepPhysicsWorld(clamp(delta, 0, 50));
   renderPhysicsBodies();
 }
 
@@ -5081,6 +5109,7 @@ function addInkDrops(x, y) {
   }
 
   inkDrops.length = Math.min(inkDrops.length, 92);
+  inkNeedsPaint = true;
   wakePortfolioFrame();
   lastInkX = x;
   lastInkY = y;
@@ -5088,11 +5117,13 @@ function addInkDrops(x, y) {
 
 function updateInk(delta) {
   const motionScale = reduceMotionQuery.matches ? 2.4 : 1;
+  let alive = 0;
   for (const drop of inkDrops) {
     drop.life -= delta * 0.00105 * motionScale;
     drop.y += drop.drift * Math.min(delta / 16, 2);
+    if (drop.life > 0) inkDrops[alive++] = drop;
   }
-  inkDrops = inkDrops.filter((drop) => drop.life > 0);
+  inkDrops.length = alive;
 }
 
 function drawBaseGrain(time, target = ctx, width = viewportWidth, height = viewportHeight) {
@@ -5123,11 +5154,10 @@ function drawInk() {
     const life = Math.pow(drop.life, 1.35);
     const taper = 1 - index / Math.max(1, inkDrops.length - 1);
     const taperedSize = drop.size * (0.34 + Math.pow(taper, 0.58) * 0.66);
-    ctx.save();
     ctx.globalAlpha = life * (0.3 + taper * 0.24);
-    ctx.translate(drop.x, drop.y);
-    ctx.rotate(drop.rotation);
-    ctx.scale(drop.stretchX, drop.stretchY);
+    const cos = Math.cos(drop.rotation), sin = Math.sin(drop.rotation);
+    ctx.setTransform(dpr * cos * drop.stretchX, dpr * sin * drop.stretchX,
+      -dpr * sin * drop.stretchY, dpr * cos * drop.stretchY, dpr * drop.x, dpr * drop.y);
     ctx.drawImage(
       brush,
       -taperedSize / 2,
@@ -5135,22 +5165,36 @@ function drawInk() {
       taperedSize,
       taperedSize,
     );
-    ctx.restore();
   }
 
   ctx.restore();
+}
+
+function inkBounds() {
+  if (!inkDrops.length) return null;
+  let left = viewportWidth, top = viewportHeight, right = 0, bottom = 0;
+  for (const drop of inkDrops) {
+    // Circumscribe the original bitmap, including every rotated soft edge.
+    const radius = drop.size * Math.hypot(drop.stretchX, drop.stretchY) / 2 + 2;
+    left = Math.min(left, drop.x - radius); top = Math.min(top, drop.y - radius);
+    right = Math.max(right, drop.x + radius); bottom = Math.max(bottom, drop.y + radius);
+  }
+  return { left:Math.max(0, Math.floor(left)), top:Math.max(0, Math.floor(top)),
+    right:Math.min(viewportWidth, Math.ceil(right)), bottom:Math.min(viewportHeight, Math.ceil(bottom)) };
 }
 
 function resizeCanvas() {
   viewportWidth = window.innerWidth;
   viewportHeight = window.innerHeight;
   dpr = 1;
-  canvas.width = Math.floor(viewportWidth * dpr);
-  canvas.height = Math.floor(viewportHeight * dpr);
-  canvas.style.width = `${viewportWidth}px`;
-  canvas.style.height = `${viewportHeight}px`;
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  rebuildGrain();
+  const width = Math.floor(viewportWidth * dpr), height = Math.floor(viewportHeight * dpr);
+  if (canvas.width !== width || canvas.height !== height || !grainPattern) {
+    canvas.width = width; canvas.height = height;
+    canvas.style.width = `${viewportWidth}px`; canvas.style.height = `${viewportHeight}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    paintedInkBounds = null;
+    rebuildGrain();
+  }
 
   if (physicsPlayground) {
     const bounds = physicsPlayground.getBoundingClientRect();
@@ -5198,14 +5242,21 @@ document.addEventListener('portfolio:boot-ready', () => { resizeCanvas(); previo
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) {
     cancelAnimationFrame(portfolioFrame); portfolioFrame = 0; previousTime = 0;
+    pointerKick.pending = false; pointerKick.movementX = 0; pointerKick.movementY = 0;
   } else wakePortfolioFrame();
 });
 function frame(time) {
   portfolioFrame = 0;
   if (document.hidden) return;
-  const delta = Math.min(time - previousTime || 16, 32);
+  const delta = previousTime ? Math.min(Math.max(0, time - previousTime), 50) : 1000 / 60;
   previousTime = time;
   const projectIsOpen = document.body.classList.contains("project-open");
+  if (pointerKick.pending) {
+    if (!projectIsOpen && physicsVisible && !document.documentElement.classList.contains('boot-pending')) {
+      kickPhysicsAtPointer(pointerKick.x, pointerKick.y, pointerKick.movementX, pointerKick.movementY);
+    }
+    pointerKick.pending = false; pointerKick.movementX = 0; pointerKick.movementY = 0;
+  }
   // Welcome and home share the same mouse ink, grain canvas and frame loop.
   updateInk(delta);
   if (!projectIsOpen) updatePhysics(delta);
@@ -5214,6 +5265,24 @@ function frame(time) {
     if (!projectIsOpen) drawBaseGrain(time);
     drawInk();
     lastCanvasFrame = time;
+    paintedInkBounds = inkBounds();
+    inkNeedsPaint = false;
+  } else if (inkNeedsPaint) {
+    // New input reaches the next existing frame, not the next grain interval.
+    // Repaint only its footprint, using the same grain phase to avoid seams.
+    const bounds = inkBounds(), previous = paintedInkBounds || bounds;
+    if (bounds && previous) {
+      const x = Math.min(bounds.left, previous.left), y = Math.min(bounds.top, previous.top);
+      const width = Math.max(bounds.right, previous.right) - x;
+      const height = Math.max(bounds.bottom, previous.bottom) - y;
+      if (width > 0 && height > 0) {
+        ctx.save(); ctx.beginPath(); ctx.rect(x, y, width, height); ctx.clip();
+        ctx.clearRect(x, y, width, height);
+        if (!projectIsOpen) drawBaseGrain(lastCanvasFrame);
+        drawInk(); ctx.restore();
+      }
+    }
+    paintedInkBounds = bounds; inkNeedsPaint = false;
   }
   // A detail page with no cursor trail has nothing to paint on this canvas.
   // Leave its last (empty) frame in place rather than clear the viewport 30Hz.
@@ -5222,6 +5291,7 @@ function frame(time) {
 }
 
 function suspendCursorForEmbed() {
+  pointerKick.pending = false; pointerKick.movementX = 0; pointerKick.movementY = 0;
   cursorSuspendedByEmbed = true;
   pointer.active = false;
   cursorDot.classList.remove("is-visible");
@@ -5275,8 +5345,11 @@ window.addEventListener("pointermove", (event) => {
   if (!inkBrushes.length) createInkBrushes();
   addInkDrops(pointer.x, pointer.y);
   // Welcome input must not wake or displace the still-hidden falling objects.
-  if (!document.documentElement.classList.contains('boot-pending')) {
-    kickPhysicsAtPointer(pointer.x, pointer.y, movementX, movementY);
+  if (!document.body.classList.contains('project-open') && physicsVisible
+    && !document.documentElement.classList.contains('boot-pending')) {
+    pointerKick.pending = true; pointerKick.x = pointer.x; pointerKick.y = pointer.y;
+    pointerKick.movementX += movementX; pointerKick.movementY += movementY;
+    wakePortfolioFrame();
   }
 
   if (hoverQuery.matches && !cursorSuspendedByEmbed) {
@@ -5286,6 +5359,7 @@ window.addEventListener("pointermove", (event) => {
 }, { passive: true });
 
 window.addEventListener("pointerleave", () => {
+  pointerKick.pending = false; pointerKick.movementX = 0; pointerKick.movementY = 0;
   pointer.active = false;
   cursorDot.classList.remove("is-visible");
   lastInkX = -100;
@@ -5460,10 +5534,10 @@ projectScroller?.addEventListener('touchmove', event => {
     if (event.cancelable) event.preventDefault();
     return;
   }
-  if (reduceMotionQuery.matches) return;
-  if (dy <= 0 || Math.abs(dx) > Math.abs(dy) || projectScroller.scrollTop > 1) { projectTouchPull = null; return; }
+  // Retain the gesture while it reads normally: it may reach the bottom later.
+  if (Math.abs(dx) > Math.abs(dy) || projectScroller.scrollTop > 1 || delta <= 0) return;
   if (event.cancelable) event.preventDefault();
-  if (delta > 0) kickProjectTopPull(-delta);
+  if (!reduceMotionQuery.matches) kickProjectTopPull(-delta);
 }, { passive:false });
 projectScroller?.addEventListener('touchend', () => { projectTouchPull = null; }, { passive:true });
 projectScroller?.addEventListener('touchcancel', () => { projectTouchPull = null; }, { passive:true });

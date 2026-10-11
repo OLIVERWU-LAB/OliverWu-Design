@@ -1,13 +1,13 @@
 /* Tencent Cloud Gaming — project-only dark editorial system.
    The shared portfolio template and all existing projects remain untouched. */
 .project-cover-hmi {
-  background: url("../../assets/projects/tencent-cloud-gaming/home-card-cover-background-webp-web.webp") center top / 115% auto no-repeat;
+  background: url("../../assets/projects/tencent-cloud-gaming/home-card-tencent-incar-gaming.webp") center / cover no-repeat;
   filter: none;
 }
 
 .case-card[data-project-id="tencent-cloud-gaming"] .project-cover-hmi {
-  background-position: center top;
-  background-size: 115% auto;
+  background-position: center;
+  background-size: cover;
   filter: none;
   transform-origin: 50% 0;
 }
@@ -137,6 +137,20 @@
   max-width: none;
   color: #d8e1de;
   text-align: left;
+}
+
+.project-sheet[data-project-id="tencent-cloud-gaming"] .project-rights {
+  padding: 0 140px 54px;
+  background: transparent;
+}
+
+.project-sheet[data-project-id="tencent-cloud-gaming"] .project-rights img {
+  width: 216.5px;
+  height: auto;
+}
+
+.project-sheet[data-project-id="tencent-cloud-gaming"] .project-rights p[hidden] {
+  display: none;
 }
 
 .project-sheet[data-project-id="tencent-cloud-gaming"] .project-facts {
@@ -1439,54 +1453,41 @@
   .project-chapter-titlebar::after {
   position: absolute;
   top: 0;
-  right: -8%;
-  left: -8%;
+  right: 0;
+  left: 0;
   width: auto;
-  height: 470px;
+  height: 360px;
   z-index: 0;
   content: "";
-  /* Two off-canvas sources leak in from the upper corners. Each source has a
-     hot white core, a coloured middle bloom and a long soft falloff so the
-     result reads as light entering the scene rather than a flat colour wash. */
+  /* One shared ellipse, centred inside the sheet: the two visible edge lights
+     belong to the same arc. Ease the tint and opacity continuously into white;
+     do not fade the outer white rim back into the dark sheet. */
   background:
     radial-gradient(
-      ellipse 22% 32% at 2% -3%,
-      rgba(255, 255, 255, .88) 0%,
-      color-mix(in srgb, var(--hmi-accent) 88%, transparent) 16%,
-      color-mix(in srgb, var(--hmi-accent) 34%, transparent) 42%,
-      transparent 73%
-    ),
-    radial-gradient(
-      ellipse 24% 35% at 98% 0%,
-      rgba(255, 255, 255, .92) 0%,
-      color-mix(in srgb, var(--hmi-accent) 92%, transparent) 17%,
-      color-mix(in srgb, var(--hmi-accent) 38%, transparent) 44%,
-      transparent 74%
-    ),
-    radial-gradient(
-      ellipse 58% 112% at -8% -26%,
-      color-mix(in srgb, var(--hmi-accent) 36%, transparent) 0%,
-      color-mix(in srgb, var(--hmi-accent) 15%, transparent) 48%,
-      transparent 79%
-    ),
-    radial-gradient(
-      ellipse 64% 118% at 108% -22%,
-      color-mix(in srgb, var(--hmi-accent) 40%, transparent) 0%,
-      color-mix(in srgb, var(--hmi-accent) 16%, transparent) 50%,
-      transparent 80%
+      ellipse 64% 150% at 50% 100%,
+      color-mix(in srgb, var(--hmi-accent) 0%, transparent) 56%,
+      color-mix(in srgb, var(--hmi-accent) 2%, transparent) 62%,
+      color-mix(in srgb, var(--hmi-accent) 6%, transparent) 68%,
+      color-mix(in srgb, var(--hmi-accent) 13%, transparent) 74%,
+      color-mix(in srgb, var(--hmi-accent) 24%, transparent) 80%,
+      color-mix(in srgb, var(--hmi-accent) 39%, transparent) 85%,
+      color-mix(in srgb, var(--hmi-accent) 58%, transparent) 89%,
+      color-mix(in srgb, var(--hmi-accent) 79%, transparent) 92%,
+      var(--hmi-accent) 94%,
+      color-mix(in srgb, var(--hmi-accent) 91%, #ffffff) 95%,
+      color-mix(in srgb, var(--hmi-accent) 72%, #ffffff) 96.5%,
+      color-mix(in srgb, var(--hmi-accent) 46%, #ffffff) 98%,
+      color-mix(in srgb, var(--hmi-accent) 20%, #ffffff) 99.5%,
+      color-mix(in srgb, var(--hmi-accent) 5%, #ffffff) 101%,
+      #ffffff 102.5%
     );
   background-size: 100% 100%;
   background-position: 0 0;
   background-repeat: no-repeat;
-  filter: blur(14px) saturate(1.14) brightness(1.08);
-  opacity: .94;
-  mix-blend-mode: screen;
+  /* Static alpha taper prevents the light plane ending in a rectangular edge. */
+  -webkit-mask-image: linear-gradient(#000 0%, #000b 24%, transparent 100%);
+  mask-image: linear-gradient(#000 0%, #000b 24%, transparent 100%);
   pointer-events: none;
-  transform: translate3d(0, 0, 0) scale(1);
-  transform-origin: 50% 0;
-  animation: hmi-title-leak-breathe 15s ease-in-out infinite;
-  -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, .94) 46%, transparent 96%);
-  mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, .94) 46%, transparent 96%);
 }
 
 .project-sheet[data-project-id="tencent-cloud-gaming"]
@@ -1504,20 +1505,6 @@
     0 2px 7px rgba(0, 0, 0, .7),
     0 0 10px color-mix(in srgb, var(--hmi-accent) 40%, transparent),
     0 0 24px color-mix(in srgb, var(--hmi-accent) 18%, transparent);
-}
-
-@keyframes hmi-title-leak-breathe {
-  0%,
-  100% {
-    opacity: .9;
-    filter: blur(14px) saturate(1.1) brightness(1.02);
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    opacity: 1;
-    filter: blur(18px) saturate(1.18) brightness(1.13);
-    transform: translate3d(0, 0, 0) scale(1.035, 1.055);
-  }
 }
 
 .project-sheet[data-project-id="tencent-cloud-gaming"]
@@ -1903,10 +1890,6 @@
     transition: none;
   }
 
-  .project-sheet[data-project-id="tencent-cloud-gaming"]
-    .project-chapter-titlebar::after {
-    animation: none;
-  }
 }
 
 /* Gradient accents (2026-09-28, adopted from the copy 3 experiment).

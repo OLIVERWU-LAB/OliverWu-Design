@@ -11,15 +11,15 @@
   border-radius:50%; opacity:0; transform-origin:left center;
   animation:meteor-pass var(--meteor-cycle) var(--meteor-delay) linear infinite;
 }
-.backdrop-meteors span:nth-child(1) { --meteor-x:calc(100% + 8px); --meteor-y:7%; --meteor-cycle:6.7s; --meteor-delay:4.9s; --meteor-weight:1; --meteor-length:1.14; --meteor-peak:.92; --meteor-slope:1; --meteor-angle:-45deg; }
-.backdrop-meteors span:nth-child(2) { --meteor-x:calc(100% + 27px); --meteor-y:24%; --meteor-cycle:8.3s; --meteor-delay:7.25s; --meteor-weight:.68; --meteor-length:.85; --meteor-peak:.76; --meteor-slope:.87; --meteor-angle:-41deg; }
+.backdrop-meteors span:nth-child(1) { --meteor-x:calc(100% + 8px); --meteor-y:7%; --meteor-cycle:6.7s; --meteor-delay:-.35s; --meteor-weight:1; --meteor-length:1.14; --meteor-peak:.92; --meteor-slope:1; --meteor-angle:-45deg; }
+.backdrop-meteors span:nth-child(2) { --meteor-x:calc(100% + 27px); --meteor-y:24%; --meteor-cycle:8.3s; --meteor-delay:-.62s; --meteor-weight:.68; --meteor-length:.85; --meteor-peak:.76; --meteor-slope:.87; --meteor-angle:-41deg; }
 .backdrop-meteors span:nth-child(3) { --meteor-x:77%; --meteor-y:-12px; --meteor-cycle:7.4s; --meteor-delay:1.8s; --meteor-weight:.75; --meteor-length:1.02; --meteor-peak:.83; --meteor-slope:1.11; --meteor-angle:-48deg; }
 .backdrop-meteors span:nth-child(4) { --meteor-x:calc(var(--page-shell-edge) + 48px); --meteor-y:10%; --meteor-cycle:10.7s; --meteor-delay:7.6s; --meteor-weight:.8; --meteor-length:.94; --meteor-peak:.85; --meteor-slope:.94; --meteor-angle:-43deg; }
-.backdrop-meteors span:nth-child(5) { --meteor-x:calc(100% + 15px); --meteor-y:15%; --meteor-cycle:7.9s; --meteor-delay:7.78s; --meteor-weight:.73; --meteor-length:1.27; --meteor-peak:.82; --meteor-slope:1.04; --meteor-angle:-46deg; }
+.backdrop-meteors span:nth-child(5) { --meteor-x:calc(100% + 15px); --meteor-y:15%; --meteor-cycle:7.9s; --meteor-delay:-.85s; --meteor-weight:.73; --meteor-length:1.27; --meteor-peak:.82; --meteor-slope:1.04; --meteor-angle:-46deg; }
 .backdrop-meteors span:nth-child(6) { --meteor-x:36%; --meteor-y:-21px; --meteor-cycle:9.6s; --meteor-delay:.3s; --meteor-weight:1; --meteor-length:1.18; --meteor-peak:.91; --meteor-slope:.9; --meteor-angle:-42deg; }
-.backdrop-meteors span:nth-child(7) { --meteor-x:calc(100% + 3px); --meteor-y:35%; --meteor-cycle:6.2s; --meteor-delay:.8s; --meteor-weight:.67; --meteor-length:.78; --meteor-peak:.78; --meteor-slope:1.07; --meteor-angle:-47deg; }
+.backdrop-meteors span:nth-child(7) { --meteor-x:calc(100% + 3px); --meteor-y:35%; --meteor-cycle:6.2s; --meteor-delay:-.48s; --meteor-weight:.67; --meteor-length:.78; --meteor-peak:.78; --meteor-slope:1.07; --meteor-angle:-47deg; }
 .backdrop-meteors span:nth-child(8) { --meteor-x:calc(var(--page-shell-edge) + 79px); --meteor-y:26%; --meteor-cycle:11.1s; --meteor-delay:2.9s; --meteor-weight:.7; --meteor-length:1.06; --meteor-peak:.79; --meteor-slope:1; --meteor-angle:-45deg; }
-.backdrop-meteors span:nth-child(9) { --meteor-x:93%; --meteor-y:-8px; --meteor-cycle:8.9s; --meteor-delay:6.65s; --meteor-weight:.82; --meteor-length:.91; --meteor-peak:.87; --meteor-slope:.96; --meteor-angle:-44deg; }
+.backdrop-meteors span:nth-child(9) { --meteor-x:93%; --meteor-y:-8px; --meteor-cycle:8.9s; --meteor-delay:-.3s; --meteor-weight:.82; --meteor-length:.91; --meteor-peak:.87; --meteor-slope:.96; --meteor-angle:-44deg; }
 .backdrop-meteors span:nth-child(10) { --meteor-x:58%; --meteor-y:-28px; --meteor-cycle:12.3s; --meteor-delay:9.9s; --meteor-weight:.69; --meteor-length:1.12; --meteor-peak:.77; --meteor-slope:1.07; --meteor-angle:-47deg; }
 @keyframes meteor-pass {
   0% { opacity:0; transform:translate3d(0,0,0) rotate(var(--meteor-angle)); }
@@ -27,10 +27,12 @@
   14.444444% { opacity:var(--meteor-peak); }
   21.111111%,100% { opacity:0; transform:translate3d(calc(0px - var(--meteor-travel)),calc(var(--meteor-travel) * var(--meteor-slope)),0) rotate(var(--meteor-angle)); }
 }
-/* Start at the next natural pass only after the complete home arrival.
-   No paused negative phase can be exposed halfway through a streak. */
-html:is(.boot-pending,.boot-entering) .backdrop-meteors { visibility:hidden; }
-html:is(.boot-pending,.boot-entering) .backdrop-meteors span { animation-name:none; }
+/* Start the populated right-side phase with the actual welcome lettering,
+   not during the font wait. Keep that same sky running through paper entry. */
+html.boot-pending:not(.boot-backdrop-ready) .backdrop-meteors,
+html.boot-pending:not([data-boot-writing]) .backdrop-meteors { visibility:hidden; }
+html.boot-pending:not(.boot-backdrop-ready) .backdrop-meteors span,
+html.boot-pending:not([data-boot-writing]) .backdrop-meteors span { animation-name:none; }
 html.backdrop-paused .backdrop-meteors span { animation-play-state:paused; }
 @media(prefers-reduced-motion:reduce) { .backdrop-meteors { display:none; } }
 
