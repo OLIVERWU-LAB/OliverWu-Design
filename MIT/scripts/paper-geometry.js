@@ -96,6 +96,9 @@
         : geometry);
       record.sheet.paperGeometry = geometry;
       const { width: w, height: h, depth: d, seams } = geometry;
+      if (record.detail) {
+        record.sheet.parentElement?.style.setProperty('--project-scroll-height', `${h * geometry.scale}px`);
+      }
       if (signature !== record.signature) {
         record.signature = signature;
         const points = [[0, 0], [w, 0]];

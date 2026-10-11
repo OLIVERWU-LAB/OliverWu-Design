@@ -6,6 +6,7 @@
   const NS='http://www.w3.org/2000/svg';
   const shell=document.querySelector('.site-shell');
   const scroller=document.querySelector('.project-scroller');
+  const detailContent=document.querySelector('.project-scroll-content') || scroller;
   const sheets=[...document.querySelectorAll('.page-panel-about,.work-section,.experience-section,.contact-panel,.project-sheet')];
   const roots=new Map();
   let serial=0;
@@ -67,7 +68,7 @@
       let record=roots.get(sheet);
       if(!record) {
         const root=document.createElement('div');root.className='paper-contour-shadow';root.setAttribute('aria-hidden','true');
-        (detail?scroller:shell).prepend(root);record={root,signature:''};roots.set(sheet,record);
+        (detail?detailContent:shell).prepend(root);record={root,signature:''};roots.set(sheet,record);
       }
       const signature=JSON.stringify([g.width,g.height,g.depth,g.seams,g.scale]);
       const {root}=record;

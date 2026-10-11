@@ -12670,6 +12670,18 @@ body.project-open .dot-field {
   /* Keep ground pixels beyond the transient browser-toolbar boundary.
      Equal height/bottom changes preserve the visible top of the image. */
   .backdrop-ground { bottom:-80px; height:calc(36vh + 80px); }
+  /* Native iOS rubber-band exposes the ROOT backing, outside the document's
+     rasterized SVG. Paint the two continuations there, not a scroll-following
+     overlay. Opaque body backing hides these rails during normal scrolling,
+     so cutouts retain only their actual diagonal contour. Reuse cached ground
+     pixels to avoid a plain root-colour strip during toolbar transitions. */
+  html:not(.boot-pending):not(.boot-entering):not(:has(body.project-open)) {
+    background-image:linear-gradient(var(--line),var(--line)),linear-gradient(var(--line),var(--line)),url("assets/media/resume-moon-ground-png-web.webp");
+    background-size:1px 100%,1px 100%,100vw calc(36vh + 80px);
+    background-position:calc(var(--page-shell-edge) - .5px) 0,calc(100% - var(--page-shell-edge) + .5px) 0,center calc(100% + 80px);
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+  }
 }
 .site-shell,
 .paper-edge-extensions { opacity:1; visibility:visible; transition:none; }

@@ -175,10 +175,21 @@
       image.addEventListener('load', done, {once:true});
       image.addEventListener('error', done, {once:true});
     });
-    sheet.querySelectorAll('.project-chapter,.sound-project,.project-chapter-titlebar').forEach(node => {
+    sheet.querySelectorAll('.project-chapter,.sound-project,.project-chapter-titlebar,.project-sheet-hero').forEach(node => {
       if (!chapters.has(node)) { chapters.add(node); observer.observe(node); }
     });
     refresh();
+  }
+  // Rotate an HTML border box, not an SVG group with absolute user-space
+  // origins. WebKit's inherited CSS zoom otherwise shifts the rotation axis.
+  function waitIcon() {
+    const icon = document.createElement('div');
+    icon.className = 'project-placeholder-wait';
+    icon.setAttribute('aria-hidden', 'true');
+    const ring = document.createElement('span');
+    ring.className = 'project-placeholder-ring';
+    icon.append(ring);
+    return icon;
   }
   function prepareMediaPlaceholder(node, url) {
     if (!['VIDEO','IFRAME'].includes(node.tagName) || node.dataset.placeholderBound) return;
@@ -192,7 +203,7 @@
       if (placeholder) {
         placeholder.removeAttribute('data-runtime-active');
         placeholder.dataset.mediaError = 'true';
-        const label = placeholder.querySelector('span');
+        const label = placeholder.querySelector('.project-loading-label');
         label.textContent = 'This media is temporarily unavailable.';
         window.translatePortfolioTree?.(placeholder, document.documentElement.lang.startsWith('zh') ? 'zh' : 'en');
       }
@@ -228,11 +239,9 @@
       const radius = [node, host, host.parentElement].filter(Boolean)
         .map(element => getComputedStyle(element).borderRadius).find(value => value && value !== '0px');
       if (radius) placeholder.style.borderRadius = radius;
-      const icon = document.createElementNS('http://www.w3.org/2000/svg','svg');
-      icon.setAttribute('viewBox','0 0 40 40'); icon.setAttribute('aria-hidden','true');
-      icon.classList.add('project-placeholder-wait');
-      icon.innerHTML = '<circle cx="20" cy="20" r="15" fill="none" stroke="currentColor" stroke-width="1" opacity=".28"/><g class="project-placeholder-ring"><path d="M20 5a15 15 0 0 1 15 15" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="35" cy="20" r="2" fill="#ffede3" stroke="currentColor" stroke-width="1"/></g>';
+      const icon = waitIcon();
       const label = document.createElement('span');
+      label.className = 'project-loading-label';
       label.textContent = /soundcloud/.test(url) ? 'Loading audio…' : 'Loading video…';
       placeholder.append(icon,label);
       // Some audio embeds share a parent with a title: cover the media only.
@@ -264,7 +273,7 @@
   document.addEventListener('visibilitychange', refresh);
   reduced.addEventListener('change', refresh);
   window.projectRuntime = {
-    begin, reset, source, bind, enter, refresh, observeContent,
+    begin, reset, source, bind, enter, refresh, observeContent, waitIcon,
     get phase() { return phase; },
     animate(node, callback, dispose) {
       animations.set(node, { callback, dispose }); observer.observe(node); schedule();

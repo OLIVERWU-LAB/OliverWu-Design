@@ -171,6 +171,16 @@ html:has(body.project-open), html:has(dialog[open]) { scroll-snap-type:none; }
 .project-layer[data-runtime="entering"] .project-scroller,
 .project-layer[data-runtime="exiting"] .project-scroller { will-change:transform; }
 .project-layer.is-open .project-scroller { transform:translate3d(0,0,0); }
+.project-scroll-content {
+  position:relative;
+  width:100%;
+  height:var(--project-scroll-height,100%);
+  min-height:100%;
+  /* Keep zoomed descendants/filter bounds out of the native scroll range.
+     The unzoomed wrapper ends at the actual visible footer, not SVG overflow. */
+  overflow:hidden;
+  contain:layout paint;
+}
 .project-sheet { position:relative !important; inset:auto !important; min-height:100%; overflow:visible !important; transform:none !important; transition:none; }
 .project-sheet.is-desktop-canvas { height:auto !important; min-height:var(--project-canvas-height,100%) !important; margin-left:var(--project-canvas-left,14px); }
 /* Cutting only the hero/table/footer left the backing sheet visible. The

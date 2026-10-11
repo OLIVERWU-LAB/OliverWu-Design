@@ -929,7 +929,9 @@ function renderProjectCover(coverConfig, fallbackBackground = activeProjectFallb
   delete projectDetailCover.dataset.coverDecoded;
   const coverStatus = projectDetailHero.querySelector('.project-cover-placeholder');
   localizedTextOriginals.delete(coverStatus);
-  coverStatus.textContent = 'Loading cover…';
+  const coverLabel = document.createElement('span');
+  coverLabel.textContent = 'Loading cover…';
+  coverStatus.replaceChildren(window.projectRuntime.waitIcon(), coverLabel);
 
   const configuredLayers = Array.isArray(config?.layers) ? config.layers : [];
   const backgroundSource = safeProjectAsset(config?.background);
@@ -3924,9 +3926,11 @@ async function openProject(card, options = {}) {
     );
   }
 
-  // Construct once, below the viewport. Network images never gate entrance.
+  // Construct once with final geometry. Give the real cover a short head start,
+  // never an error deadline: slow requests continue after the paper opens.
   // There is no visible provisional title/layout that will later be replaced.
-  applyProjectData(card, projectCopy);
+  const coverReady = applyProjectData(card, projectCopy);
+  const coverGate = waitForProjectCover(coverReady);
   // Settle the actual faces before measuring the title and facts. Most are
   // already loaded by home; Spirited retains its authored project face.
   if (document.fonts) {
@@ -3937,6 +3941,9 @@ async function openProject(card, options = {}) {
   }
   if (openSequence !== projectOpenSequence || activeProjectId !== projectId) return;
 
+  await coverGate;
+  if (openSequence !== projectOpenSequence || activeProjectId !== projectId) return;
+
   projectGalleryImages.forEach((image, imageIndex) => {
     if (!image.style.backgroundImage || image.style.backgroundImage === "none") {
       image.style.backgroundImage = galleryCovers[imageIndex] || cover;
@@ -3945,7 +3952,7 @@ async function openProject(card, options = {}) {
   projectScroller.scrollTop = requestedProjectScrollTop;
   updateProjectParallax();
 
-  // Prioritize the opening images without gating either response or scrolling.
+  // Promote nearby evidence only after the cover's priority window.
   const scrollerTop = projectScroller.getBoundingClientRect().top;
   const firstPaintImages = [...projectSheet.querySelectorAll('img')].filter(image => {
     const rect = image.getBoundingClientRect();
@@ -3977,6 +3984,14 @@ async function openProject(card, options = {}) {
     prepareProjectEmbedViewports();
     requestAnimationFrame(() => requestAnimationFrame(contentReady));
   }));
+}
+
+function waitForProjectCover(ready, milliseconds = 1800) {
+  return new Promise(resolve => {
+    const timer = window.setTimeout(resolve, milliseconds);
+    Promise.resolve(ready).then(() => { window.clearTimeout(timer); resolve(); },
+      () => { window.clearTimeout(timer); resolve(); });
+  });
 }
 
 function projectChapterFlowOffset(target) {
@@ -5430,7 +5445,7 @@ projectScroller?.addEventListener("wheel", respondToProjectTopPull, { passive: t
 // pinned; ordinary vertical reading, multi-touch and pinch zoom are untouched.
 let projectTouchPull = null;
 projectScroller?.addEventListener('touchstart', event => {
-  if (event.touches.length !== 1 || projectScroller.scrollTop > 1 || reduceMotionQuery.matches
+  if (event.touches.length !== 1
     || window.projectRuntime?.phase !== 'idle') { projectTouchPull = null; return; }
   const touch = event.touches[0];
   projectTouchPull = { x:touch.clientX, y:touch.clientY, lastY:touch.clientY };
@@ -5438,10 +5453,16 @@ projectScroller?.addEventListener('touchstart', event => {
 projectScroller?.addEventListener('touchmove', event => {
   if (!projectTouchPull || event.touches.length !== 1 || window.projectRuntime?.phase !== 'idle') return;
   const touch = event.touches[0], dx = touch.clientX-projectTouchPull.x, dy = touch.clientY-projectTouchPull.y;
-  if (dy <= 0 || Math.abs(dx) > Math.abs(dy) || projectScroller.scrollTop > 1) { projectTouchPull = null; return; }
-  if (event.cancelable) event.preventDefault();
   const delta = touch.clientY-projectTouchPull.lastY;
   projectTouchPull.lastY = touch.clientY;
+  const atBottom = projectScroller.scrollTop + projectScroller.clientHeight >= projectScroller.scrollHeight - 1;
+  if (delta < 0 && Math.abs(dy) >= Math.abs(dx) && atBottom) {
+    if (event.cancelable) event.preventDefault();
+    return;
+  }
+  if (reduceMotionQuery.matches) return;
+  if (dy <= 0 || Math.abs(dx) > Math.abs(dy) || projectScroller.scrollTop > 1) { projectTouchPull = null; return; }
+  if (event.cancelable) event.preventDefault();
   if (delta > 0) kickProjectTopPull(-delta);
 }, { passive:false });
 projectScroller?.addEventListener('touchend', () => { projectTouchPull = null; }, { passive:true });

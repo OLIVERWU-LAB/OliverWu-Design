@@ -1,8 +1,8 @@
 /* Shared static contour shadows; no filter over sheet media. */
 .paper-contour-shadow { position:absolute; left:0; top:0; width:100%; pointer-events:none; z-index:-1; }
 .paper-contour-shadow svg { position:absolute; overflow:hidden; pointer-events:none; }
-.project-scroller > .paper-contour-shadow { z-index:0; overflow:clip; }
-.project-scroller > .project-sheet { z-index:1; }
+.project-scroll-content > .paper-contour-shadow { z-index:0; overflow:hidden; }
+.project-scroll-content > .project-sheet { z-index:1; }
 html.boot-pending .site-shell > .paper-contour-shadow,
 html.boot-entering .site-shell > .paper-contour-shadow { visibility:hidden; }
 html.boot-entering .site-shell > .paper-contour-shadow[data-paper="about"] {
