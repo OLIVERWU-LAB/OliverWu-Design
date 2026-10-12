@@ -1,6 +1,9 @@
 /* Exact-copy Chinese localization for authored portfolio content.
    Proper nouns stay intact where a project already has an established name. */
 window.zhCNTranslations = new Map([
+  ["Audio connection failed.", "音频连接失败"],
+  ["Video connection failed.", "视频连接失败"],
+  ["Reconnect", "重新连接"],
   ["Loading cover…", "正在加载封面…"],
   ["Cover unavailable", "封面暂时无法加载"],
   ["Loading video…", "正在加载视频…"],
@@ -185,7 +188,7 @@ window.zhCNTranslations = new Map([
 
   ["A Solarpunk Open-World Game Concept", "太阳朋克开放世界游戏概念"],
   ["A collaborative open-world RPG concept that turns a solarpunk world of high-altitude settlements, ecological signals and shared infrastructure into an explorable interaction system.", "一项合作完成的开放世界 RPG 概念，将高海拔聚落、生态信号与共享基础设施构成的太阳朋克世界，转化为可探索的交互系统。"],
-  ["POKA is a solarpunk anime open-world RPG set on Pracia, a planet where a collective ecological signal intensifies at lower altitudes and drives local creatures into aggression. Human settlements survive above 2,500 metres, while the player—an explorer from the second pioneer fleet—moves between isolated communities to investigate the signal, restore infrastructure and uncover a new answer to the Fermi paradox.\n\nDeveloped for a Tencent Photon newcomer competition, the project combines exploration, industrial simulation and character-driven storytelling. My contribution focused on translating the team’s world and gameplay systems into player-facing experiences: game concept and mechanics planning, market and user research, HUD and system UI interaction design, and high-fidelity gameplay previsualisation.", "POKA 是一款太阳朋克动画风格的开放世界 RPG，故事发生在普拉西亚星球。这里的群体生态信号会随海拔降低而增强，并使当地生物陷入攻击状态。人类聚落只能在海拔 2,500 米以上生存；玩家作为第二批拓荒舰队的探索者，往返于彼此隔绝的社区之间，调查异常信号、修复基础设施，并寻找费米悖论的新答案。\n\n项目为腾讯光子新人赛而创作，结合探索、工业模拟与角色驱动叙事。我的工作重点是把团队构建的世界观和玩法系统转化为玩家可感知的体验，包括游戏概念与机制规划、市场和用户研究、HUD 与系统 UI 交互设计，以及高保真玩法预演。"],
+  ["POKA is a solarpunk anime open-world RPG set on Pracia, a planet where a collective ecological signal intensifies at lower altitudes and drives local creatures into aggression. Human settlements survive above 2,500 metres, while the player—an explorer from the second pioneer fleet—moves between isolated communities to investigate the signal, restore infrastructure and uncover a new answer to the Fermi paradox.\n\nDeveloped for a Tencent Photon newcomer competition, the project combines exploration, industrial simulation and character-driven storytelling. My contribution focused on translating the team’s world and gameplay systems into player-facing experiences: game concept and mechanics planning, market and user research, HUD and system UI interaction design, and high-fidelity gameplay previsualisation.\n\nAt the Tencent Newcomer Competition, POKA received the Project Gold Award and the People’s Choice Award, and I received the Outstanding Individual Award.","POKA 是一款太阳朋克动画风格的开放世界 RPG，故事发生在普拉西亚星球。这里的群体生态信号会随海拔降低而增强，并使当地生物陷入攻击状态。人类聚落只能在海拔 2,500 米以上生存；玩家作为第二批拓荒舰队的探索者，往返于彼此隔绝的社区之间，调查异常信号、修复基础设施，并寻找费米悖论的新答案。\n\n项目为腾讯光子新人赛而创作，结合探索、工业模拟与角色驱动叙事。我的工作重点是把团队构建的世界观和玩法系统转化为玩家可感知的体验，包括游戏概念与机制规划、市场和用户研究、HUD 与系统 UI 交互设计，以及高保真玩法预演。\n\n在腾讯新人赛中，POKA 获得项目金奖和大众人气奖，我个人获得最佳优秀个人奖。"],
 
   ["A Wearable Interface for Radical Emotional Visibility", "让情绪彻底可见的可穿戴界面"],
   ["A heart-rate-driven garment that turns private physiological change into a public, moving image.", "一件由心率驱动的服装，把私密的生理变化转化为公开的动态影像。"],

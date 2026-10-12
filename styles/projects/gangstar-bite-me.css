@@ -397,6 +397,9 @@
 
 .project-sheet[data-project-id="gangstar-bite-me"] .gts-finaletitle {
   z-index: 80;
+  width: max-content;
+  text-align: center;
+  transform: translateX(-50%);
   color: #fff;
   font: 800 40px/1 var(--display);
   letter-spacing: .02em;

@@ -13,6 +13,7 @@
   const frameActivity = new WeakMap();
   const placeholders = new Map();
   const placeholderListeners = new Map();
+  const mediaRecovery = new Map();
   let phase = 'closed', timer = 0, raf = 0, generation = 0, previousTime = 0;
   let onArrival = null;
   let onCancelArrival = null;
@@ -108,11 +109,21 @@
     visible = new WeakSet();
     placeholderListeners.forEach(controller => controller.abort()); placeholderListeners.clear();
     placeholders.forEach(placeholder => placeholder.remove()); placeholders.clear();
+    mediaRecovery.forEach(entry => entry.controls?.remove()); mediaRecovery.clear();
     chapters.forEach(node => node.removeAttribute('data-runtime-visible')); chapters.clear();
     animations.forEach(entry => entry.dispose?.()); animations.clear();
     cancelAnimationFrame(raf); raf = 0; previousTime = 0;
   }
   function source(node, url) {
+    // Rebinding a single media node releases its old UI/listeners. It never
+    // resets the detail sheet, another track or the homepage.
+    if (mediaRecovery.has(node)) {
+      mediaRecovery.get(node).controls?.remove(); mediaRecovery.delete(node);
+      placeholderListeners.get(node)?.abort(); placeholderListeners.delete(node);
+      placeholders.get(node)?.remove(); placeholders.delete(node);
+      delete node.dataset.placeholderBound;
+      node.removeAttribute('src');
+    }
     if (!url) {
       node.removeAttribute('src'); delete node.dataset.projectMediaSrc;
       node.removeAttribute('data-media-pending'); delete node.dataset.placeholderBound;
@@ -167,6 +178,7 @@
     timer = setTimeout(arrive, 840);
   }
   function observeContent() {
+    layoutMediaRecovery();
     sheet.querySelectorAll('img').forEach(image => {
       if (window.prepareProjectImagePlaceholder) { window.prepareProjectImagePlaceholder(image); return; }
       if (image.complete && image.naturalWidth || image.hasAttribute('data-image-pending')) return;
@@ -188,11 +200,50 @@
     icon.setAttribute('aria-hidden', 'true');
     const ring = document.createElement('span');
     ring.className = 'project-placeholder-ring';
-    // Both strokes use radius14, with the paper dot on the same centreline.
+    // Both strokes use radius14. Positive CSS rotation is clockwise, so the
+    // dot leads at the arc's end (20,34), not its trailing start (20,6).
     // Rotate the HTML box, never a zoom-sensitive SVG group.
-    ring.innerHTML = '<svg viewBox="0 0 40 40" width="40" height="40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1" opacity=".28"/><path d="M20 6 A14 14 0 0 1 20 34" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="20" cy="6" r="2.5" fill="#ffede3" stroke="currentColor" stroke-width="1"/></svg>';
+    ring.innerHTML = '<svg viewBox="0 0 40 40" width="40" height="40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1" opacity=".28"/><path d="M20 6 A14 14 0 0 1 20 34" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="20" cy="34" r="2.5" fill="#ffede3" stroke="currentColor" stroke-width="1"/></svg>';
     icon.append(ring);
     return icon;
+  }
+  function mediaCopy(element, english, chinese) {
+    // Runtime status can change after localization. Explicit pairs avoid a
+    // translated text node becoming the English source of the next status.
+    element.dataset.projectCopyEn = english;
+    element.dataset.projectCopyZh = chinese;
+    element.textContent = document.documentElement.lang.startsWith('zh') ? chinese : english;
+  }
+  function mediaStatus(entry, state) {
+    entry.state = state;
+    if (!entry.controls) return;
+    entry.controls.dataset.mediaState = state;
+    if (state === 'error') {
+      placeholders.get(entry.node)?.remove(); placeholders.delete(entry.node);
+      entry.node.dataset.mediaPending = 'true';
+    } else if (state === 'ready' || state === 'unconfirmed') {
+      entry.node.removeAttribute('data-media-pending');
+      placeholders.get(entry.node)?.remove(); placeholders.delete(entry.node);
+    }
+  }
+  function layoutMediaRecovery() {
+    for (const [node, entry] of mediaRecovery) {
+      if (!entry.controls || !node.isConnected) continue;
+      const viewport = node.closest('.project-embed-viewport');
+      const host = viewport || node.parentElement;
+      if (!host) continue;
+      host.classList.add('project-media-host');
+      if (entry.controls.parentElement !== host) host.append(entry.controls);
+      if (viewport) Object.assign(entry.controls.style, {inset:'0',width:'auto',height:'auto'});
+      else if (host.querySelectorAll('iframe,video').length === 1 && host.children.length > 1) {
+        Object.assign(entry.controls.style, {inset:node.offsetTop+'px auto auto '+node.offsetLeft+'px',width:node.offsetWidth+'px',height:node.offsetHeight+'px'});
+      }
+      const placeholder = placeholders.get(node);
+      if (viewport && placeholder && placeholder.parentElement !== viewport) {
+        viewport.append(placeholder);
+        Object.assign(placeholder.style, {inset:'0', width:'auto', height:'auto'});
+      }
+    }
   }
   function prepareMediaPlaceholder(node, url) {
     if (!['VIDEO','IFRAME'].includes(node.tagName) || node.dataset.placeholderBound) return;
@@ -200,74 +251,106 @@
     node.dataset.mediaPending = 'true';
     const controller = new AbortController();
     placeholderListeners.set(node, controller);
-    node.addEventListener('error', () => {
-      if (node.dataset.projectMediaSrc !== url) return;
-      const placeholder = placeholders.get(node);
-      if (placeholder) {
-        placeholder.removeAttribute('data-runtime-active');
-        placeholder.dataset.mediaError = 'true';
-        const label = placeholder.querySelector('.project-loading-label');
-        label.textContent = 'This media is temporarily unavailable.';
-        window.translatePortfolioTree?.(placeholder, document.documentElement.lang.startsWith('zh') ? 'zh' : 'en');
-      }
-    }, {signal:controller.signal});
+    const entry = {node, url, state:'waiting', loaded:false};
+    mediaRecovery.set(node, entry);
+    const current = () => mediaRecovery.get(node) === entry && node.dataset.projectMediaSrc === url;
     const done = () => {
-      if (node.dataset.projectMediaSrc !== url) return;
+      if (!current()) return;
       node.removeAttribute('data-media-pending');
       placeholders.get(node)?.remove(); placeholders.delete(node);
-      controller.abort(); placeholderListeners.delete(node);
+      mediaStatus(entry, 'ready');
     };
+    node.addEventListener('error', () => {
+      if (current()) mediaStatus(entry, 'error');
+    }, {signal:controller.signal});
     if (node.tagName === 'VIDEO') node.addEventListener('loadeddata', done, {signal:controller.signal});
     else node.addEventListener('load', () => {
-      if (node.dataset.projectMediaSrc !== url || !node.hasAttribute('src')) return;
-      // Reveal the provider's own loading/error UI on document load. Do not
-      // hide a usable player forever when its optional ready message is lost.
-      done();
+      if (!current() || !node.hasAttribute('src') || node.src !== new URL(url,location.href).href) return;
+      entry.loaded = true;
+      if (entry.state !== 'error') {
+        node.removeAttribute('data-media-pending');
+        placeholders.get(node)?.remove(); placeholders.delete(node);
+        mediaStatus(entry, 'unconfirmed');
+      }
+      const origin = new URL(url,location.href).origin;
+      // Optional provider signals; foreign error documents also fire load.
+      // Manual retry stays available without a SDK, polling or timeout rule.
+      if (origin === 'https://w.soundcloud.com') {
+        node.contentWindow?.postMessage(JSON.stringify({method:'addEventListener',value:'error'}),origin);
+        node.contentWindow?.postMessage(JSON.stringify({method:'getCurrentSound',value:null}),origin);
+      } else if (origin === 'https://player.vimeo.com') {
+        node.contentWindow?.postMessage({method:'addEventListener',value:'error'},origin);
+      }
     }, {signal:controller.signal});
     // Renderers set sources before appending. One microtask, no polling.
     Promise.resolve().then(() => {
-      if (!node.isConnected || !node.parentElement || !node.hasAttribute('data-media-pending')) return;
-      if (node.tagName === 'VIDEO' && node.poster) {
-        // Reuse the same cached request as the native poster. A reduced-motion
-        // video must reveal its still even when no playback is requested.
-        const poster = new Image();
-        poster.onload = done; poster.src = node.poster;
-      }
-      const host = node.parentElement;
+      if (!node.isConnected || !node.parentElement || !current() || controller.signal.aborted) return;
+      const host = node.closest('.project-embed-viewport') || node.parentElement;
       host.classList.add('project-media-host');
-      const placeholder = document.createElement('div');
-      placeholder.className = 'project-media-placeholder';
-      placeholder.setAttribute('aria-hidden','true');
-      // Use the media/clip's authored radius, never a separate rounded style.
-      const radius = [node, host, host.parentElement].filter(Boolean)
-        .map(element => getComputedStyle(element).borderRadius).find(value => value && value !== '0px');
-      if (radius) placeholder.style.borderRadius = radius;
-      const icon = waitIcon();
-      const label = document.createElement('span');
-      label.className = 'project-loading-label';
-      label.textContent = /soundcloud/.test(url) ? 'Loading audio…' : 'Loading video…';
-      placeholder.append(icon,label);
-      // Some audio embeds share a parent with a title: cover the media only.
-      if (host.querySelectorAll('iframe,video').length === 1 && host.children.length > 1) {
-        placeholder.style.inset = `${node.offsetTop}px auto auto ${node.offsetLeft}px`;
-        placeholder.style.width = `${node.offsetWidth}px`;
-        placeholder.style.height = `${node.offsetHeight}px`;
+      if (entry.state === 'waiting') {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'project-media-placeholder';
+        placeholder.setAttribute('aria-hidden','true');
+        const radius = [node,host,host.parentElement].filter(Boolean)
+          .map(element=>getComputedStyle(element).borderRadius).find(value=>value && value !== '0px');
+        if (radius) placeholder.style.borderRadius = radius;
+        const label = document.createElement('span');
+        label.className = 'project-loading-label';
+        label.textContent = /soundcloud/.test(url) ? 'Loading audio…' : 'Loading video…';
+        placeholder.append(waitIcon(),label);
+        if (host.querySelectorAll('iframe,video').length === 1 && host.children.length > 1) {
+          Object.assign(placeholder.style, {inset:node.offsetTop+'px auto auto '+node.offsetLeft+'px',width:node.offsetWidth+'px',height:node.offsetHeight+'px'});
+        }
+        host.append(placeholder); placeholders.set(node,placeholder);
+        placeholder.toggleAttribute('data-runtime-active',eligible() && visible.has(node) && !reduced.matches);
+        window.translatePortfolioTree?.(placeholder,document.documentElement.lang.startsWith('zh')?'zh':'en');
+        if (node.tagName === 'VIDEO' && node.poster) {
+          const poster = new Image();
+          poster.onload = () => { if (entry.state === 'waiting') done(); };
+          poster.src = node.poster;
+        }
       }
-      host.append(placeholder); placeholders.set(node, placeholder);
-      placeholder.toggleAttribute('data-runtime-active', eligible() && visible.has(node) && !reduced.matches);
-      window.translatePortfolioTree?.(placeholder, document.documentElement.lang.startsWith('zh') ? 'zh' : 'en');
+      const controls = document.createElement('div');
+      controls.className = 'project-media-recovery';
+      entry.controls = controls;
+      const status = document.createElement('span');
+      status.className = 'project-media-recovery-copy';
+      status.setAttribute('role','status');
+      const audio = node.tagName === 'IFRAME' && /^https:\/\/w\.soundcloud\.com\/player\//.test(url);
+      mediaCopy(status,audio ? 'Audio connection failed.' : 'Video connection failed.',audio ? '音频连接失败' : '视频连接失败');
+      const retry = document.createElement('button');
+      entry.retry = retry;
+      retry.type = 'button'; retry.className = 'project-media-reconnect';
+      retry.setAttribute('aria-label','Reconnect'); retry.setAttribute('title','Reconnect');
+      retry.innerHTML = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18.4 17.2 A8.2 8.2 0 1 1 18.4 6.8" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><path d="M21 3v8h-8Z" fill="currentColor"/></svg>';
+      retry.addEventListener('click', () => {
+        if (!eligible() || !node.isConnected || !current()) return;
+        const target = new URL(url,location.href);
+        target.searchParams.set('_portfolio_retry',String((Number(target.searchParams.get('_portfolio_retry'))||0)+1));
+        source(node,target.href);
+        Promise.resolve().then(()=>mediaRecovery.get(node)?.retry?.focus({preventScroll:true}));
+      }, {signal:controller.signal});
+      controls.append(retry,status); host.append(controls);
+      window.translatePortfolioTree?.(controls,document.documentElement.lang.startsWith('zh')?'zh':'en');
+      mediaStatus(entry,entry.state);
+      layoutMediaRecovery();
     });
   }
   window.addEventListener('message', event => {
-    if (event.origin !== 'https://player.vimeo.com') return;
+    if (!['https://player.vimeo.com','https://w.soundcloud.com','https://www.youtube.com','https://www.youtube-nocookie.com'].includes(event.origin)) return;
     let data;
     try { data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data; } catch { return; }
-    if (!data || !['ready','loaded'].includes(data.event) && data.method !== 'ping') return;
-    for (const [node, placeholder] of placeholders) {
-      if (node.tagName === 'IFRAME' && node.contentWindow === event.source) {
-        node.removeAttribute('data-media-pending'); placeholder.remove(); placeholders.delete(node);
-        placeholderListeners.get(node)?.abort(); placeholderListeners.delete(node); break;
-      }
+    const method = data?.method || data?.event;
+    if (!['error','onError','ready','onReady','loaded','getCurrentSound','ping'].includes(method)) return;
+    for (const [node,entry] of mediaRecovery) {
+      if (!node.isConnected || node.tagName !== 'IFRAME' || node.contentWindow !== event.source
+        || node.dataset.projectMediaSrc !== entry.url || node.src !== new URL(entry.url,location.href).href
+        || new URL(entry.url,location.href).origin !== event.origin) continue;
+      if (method === 'error' || method === 'onError') mediaStatus(entry,'error');
+      else if (event.origin === 'https://w.soundcloud.com') {
+        if (entry.loaded && (method === 'ready' || method === 'getCurrentSound' && (data.value?.id || data.value?.urn))) mediaStatus(entry,'ready');
+      } else mediaStatus(entry,'ready');
+      break;
     }
   });
   scroller.addEventListener('transitionend', event => {

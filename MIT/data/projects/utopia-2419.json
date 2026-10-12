@@ -52,7 +52,7 @@
             "The feeling of nostalgia is deeper than sadness.",
             "It swept into every corner of the past like the tide, and then set off countless regrets."
           ],
-          "chinese": "献给童年自由的理想。怀念的感觉比悲伤来得更彻骨，它像潮水漫入过去的每个角落，而后掀起无数遗憾。"
+          "chinese": "献给童年自由的理想，\n怀念的感觉比悲伤来得更彻骨，\n它像潮水漫涌入过去的每个角落，而后掀起无数遗憾。"
         },
         {
           "type": "video",
@@ -295,8 +295,8 @@
         {
           "type": "utopia-closing",
           "layout": "narrow",
-          "english": "I made this project during one of the lowest periods of my life. To anyone living through the pain of a shattered dream: you are not alone.",
-          "chinese": "这个项目诞生于我人生的低谷。献给所有正在经历幻梦破碎之痛的人：你们并不孤单。"
+          "english": "I made this project during one of the lowest periods of my life.\nTo anyone living through the pain of a shattered dream: you are not alone.",
+          "chinese": "这个项目诞生于我人生的低谷。\n献给所有正在经历幻梦破碎之痛的人：你们并不孤单。"
         }
       ]
     }

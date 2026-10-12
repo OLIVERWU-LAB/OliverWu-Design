@@ -352,6 +352,19 @@
 .project-media-placeholder small { font-size:11px; color:#404040; }
 .project-media-placeholder[hidden] { display:none; }
 
+/* Recovery stays inside the authored media box: no extra footer or height. */
+.project-sheet iframe[data-project-media-src^="https://w.soundcloud.com/player/"] { background:#969696; color:#252525; }
+.project-media-recovery { position:absolute; inset:0; z-index:4; display:flex; justify-content:flex-end; align-items:flex-start; gap:8px; padding:8px; box-sizing:border-box; pointer-events:none; color:#242424; font:14px/1.4 var(--project-game-font, var(--project-template-copy-font, Arial, sans-serif)); }
+.project-media-recovery-copy { display:none; }
+.project-sheet .project-media-reconnect { display:grid; place-items:center; flex:none; width:28px; height:28px; padding:4px; border:0; border-radius:50%; background:#f5f0e7e6; color:#242424; cursor:inherit; pointer-events:auto; }
+.project-media-reconnect svg { display:block; width:18px; height:18px; }
+.project-sheet .project-media-reconnect:hover { background:#ffdfcd; }
+.project-media-reconnect:focus-visible { outline:2px solid #242424; outline-offset:2px; }
+.project-media-recovery[data-media-state="error"] { flex-direction:column; justify-content:center; align-items:center; gap:12px; padding:20px; background:#969696; color:#252525; text-align:center; }
+.project-media-recovery[data-media-state="error"] .project-media-recovery-copy { display:block; }
+.project-media-recovery[data-media-state="error"] .project-media-reconnect { width:40px; height:40px; background:transparent; color:inherit; }
+.project-media-recovery[data-media-state="error"] .project-media-reconnect svg { width:28px; height:28px; }
+
 /* Actual request errors degrade only the unavailable content. No error modal,
    retry loop, fabricated facts or additional animation layer. */
 .project-sheet[data-font-fallback] * { font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif !important; }

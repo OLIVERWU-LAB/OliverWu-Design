@@ -139,6 +139,7 @@ function renderGangstarBlock(block) {
       node.style.top = `${item.y}px`;
     } else if (item.kind === "label") {
       node = gtsEl("div", `gts-label${item.align === "left" ? " is-left" : ""}`);
+      node.setAttribute("translate", "no");
       node.append(gtsEl("span", "gts-label-cn", item.cn || ""), gtsEl("span", "gts-label-en", item.en || ""));
       node.style.left = `${item.cx}px`;
       if (typeof item.cy === "number") {
@@ -176,7 +177,7 @@ function renderGangstarBlock(block) {
       node.append(gtsEl("span", "gts-release-word", item.text || ""), gtsEl("span", "gts-release-date", item.sub || ""));
     } else if (item.kind === "finaletitle") {
       node = gtsEl("div", "gts-finaletitle", item.text || "");
-      node.style.left = `${item.x}px`; node.style.top = `${item.y}px`;
+      node.style.left = `${item.cx}px`; node.style.top = `${item.y}px`;
     } else if (item.kind === "swatches") {
       node = gtsEl("div", "gts-swatches");
       node.style.left = `${item.x}px`;

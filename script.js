@@ -256,7 +256,14 @@ function translatePortfolioTree(root, language = currentLanguage) {
   while (walker.nextNode()) textNodes.push(walker.currentNode);
   textNodes.forEach((node) => {
     const parent = node.parentElement;
-    if (!parent || parent.closest("script, style, iframe, noscript, code, pre, [data-sound-copy-en]")) return;
+    if (!parent || parent.closest("script, style, iframe, noscript, code, pre, [translate='no'], [data-sound-copy-en]")) return;
+    // Authored bilingual quotations select their two lines explicitly, instead
+    // of translating an already bilingual pair into duplicate Chinese copy.
+    if (parent.dataset?.projectCopyEn !== undefined) {
+      node.nodeValue = language === "zh" ? parent.dataset.projectCopyZh : parent.dataset.projectCopyEn;
+      parent.lang = (language === "zh") !== (parent.dataset.projectCopyInverted !== undefined) ? "zh-CN" : "en";
+      return;
+    }
     if (language === "zh") {
       if (!localizedTextOriginals.has(node)) localizedTextOriginals.set(node, node.nodeValue);
       node.nodeValue = translateValue(localizedTextOriginals.get(node));
@@ -522,7 +529,7 @@ function navigateToSection(event) {
 async function loadProjectData(projectId) {
   if (projectDataCache.has(projectId)) return projectDataCache.get(projectId);
   // Slow is not failed: let the browser settle the request, without a deadline.
-  const request = fetch(`data/projects/${encodeURIComponent(projectId)}.json?v=20261008-61`, {
+  const request = fetch(`data/projects/${encodeURIComponent(projectId)}.json?v=20261012-90`, {
     cache: "no-cache",
     headers: { Accept: "application/json" },
   }).then((response) => {
@@ -698,6 +705,16 @@ function localizedProjectLabel(label, language = currentLanguage) {
     "COLLABORATION": "合作项目",
   };
   return labels[normalized] || label;
+}
+
+function projectBilingualParagraph(english, chinese, inverted = false) {
+  const paragraph = document.createElement("p");
+  paragraph.dataset.projectCopyEn = inverted ? chinese : english;
+  paragraph.dataset.projectCopyZh = inverted ? english : chinese;
+  if (inverted) paragraph.setAttribute("data-project-copy-inverted", "");
+  paragraph.textContent = currentLanguage === "zh" ? paragraph.dataset.projectCopyZh : paragraph.dataset.projectCopyEn;
+  paragraph.lang = (currentLanguage === "zh") !== inverted ? "zh-CN" : "en";
+  return paragraph;
 }
 
 function localizedProjectValue(projectCopy, key, fallback = "", language = currentLanguage) {
@@ -2021,15 +2038,14 @@ function renderProjectBlocks(container, blocks) {
       quote.className = "project-utopia-epigraph-copy";
       const english = document.createElement("div");
       english.className = "project-utopia-epigraph-english";
-      (Array.isArray(block.english) ? block.english : []).slice(0, 4).forEach((line) => {
-        const paragraph = document.createElement("p");
-        paragraph.textContent = String(line || "").trim();
+      const englishLines = (Array.isArray(block.english) ? block.english : []).slice(0, 4);
+      const chineseLines = typeof block.chinese === "string" ? block.chinese.trim().split("\n") : [];
+      englishLines.forEach((line, index) => {
+        const paragraph = projectBilingualParagraph(String(line || "").trim(), chineseLines[index] || "");
         if (paragraph.textContent) english.append(paragraph);
       });
-      const chinese = document.createElement("p");
+      const chinese = projectBilingualParagraph(englishLines.join("\n"), chineseLines.join(""), true);
       chinese.className = "project-utopia-epigraph-chinese";
-      chinese.lang = "zh-CN";
-      chinese.textContent = typeof block.chinese === "string" ? block.chinese.trim() : "";
       quote.append(english, chinese);
       figure.append(quote);
       return [figure];
@@ -2182,11 +2198,10 @@ function renderProjectBlocks(container, blocks) {
     if (type === "utopia-closing") {
       const copy = document.createElement("blockquote");
       copy.className = "project-utopia-closing-copy";
-      const english = document.createElement("p");
-      english.textContent = typeof block.english === "string" ? block.english.trim() : "";
-      const chinese = document.createElement("p");
-      chinese.lang = "zh-CN";
-      chinese.textContent = typeof block.chinese === "string" ? block.chinese.trim() : "";
+      const englishCopy = typeof block.english === "string" ? block.english.trim() : "";
+      const chineseCopy = typeof block.chinese === "string" ? block.chinese.trim() : "";
+      const english = projectBilingualParagraph(englishCopy, chineseCopy);
+      const chinese = projectBilingualParagraph(englishCopy, chineseCopy, true);
       copy.append(english, chinese);
       figure.append(copy);
       return [figure];

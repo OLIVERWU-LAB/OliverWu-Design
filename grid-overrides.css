@@ -9164,21 +9164,22 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
 .project-utopia-closing-copy p:first-child {
   margin: 0;
   color: #fff0bd;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", "Songti SC", "STSong", serif;
   font-size: 28.16px;
   font-style: italic;
   line-height: 1.35;
-  text-wrap: balance;
+  white-space: pre-line;
 }
 
 .project-utopia-closing-copy p:last-child {
   max-width: 760px;
   margin: 38.4px auto 0;
   color: rgba(255, 238, 198, 0.68);
-  font-family: "Songti SC", "STSong", serif;
+  font-family: Georgia, "Songti SC", "STSong", serif;
   font-size: 13.44px;
   letter-spacing: 0.06em;
   line-height: 1.85;
+  white-space: pre-line;
 }
 
 .project-sheet[data-project-id="utopia-2419"] .project-sheet-footer,
@@ -11306,18 +11307,19 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
 .project-sheet[data-project-id="utopia-2419"] .project-utopia-epigraph-english p,
 .project-sheet[data-project-id="utopia-2419"] .project-utopia-synopsis-copy p {
   color: #fff0bd;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", "Songti SC", "STSong", serif;
   font-size: 28.16px;
   font-style: italic;
   line-height: 1.35;
 }
 .project-sheet[data-project-id="utopia-2419"] .project-utopia-epigraph-chinese {
   color: rgba(255, 238, 198, 0.68);
-  font-family: "Songti SC", "STSong", serif;
+  font-family: Georgia, "Songti SC", "STSong", serif;
   font-size: 13.44px;
   font-style: normal;
   letter-spacing: 0.06em;
   line-height: 1.85;
+  white-space: pre-line;
 }
 
 
