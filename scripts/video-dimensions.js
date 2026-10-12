@@ -168,18 +168,6 @@ window.portfolioVideoDimensions = {
     1280,
     720
   ],
-  "assets/projects/show-e-motions/cold-loop-mp4-web.mp4": [
-    1920,
-    1080
-  ],
-  "assets/projects/show-e-motions/color-loop-mp4-web.mp4": [
-    1920,
-    1080
-  ],
-  "assets/projects/show-e-motions/slow-loop-mp4-web.mp4": [
-    1920,
-    1080
-  ],
   "assets/projects/spirited-expedition/ui-demo-defeat-mp4-web.mp4": [
     1280,
     588
@@ -307,10 +295,6 @@ window.portfolioVideoDimensions = {
   "assets/projects/tencent-cloud-gaming/v2-store-member-mp4-web.mp4": [
     1272,
     720
-  ],
-  "assets/projects/the-red-dawn/recruitment-film-vertical-mp4-web.mp4": [
-    1080,
-    1920
   ],
   "assets/projects/utopia-2419/process-01-mp4-web.mp4": [
     852,

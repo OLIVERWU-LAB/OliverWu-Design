@@ -11,32 +11,73 @@ const sectionNavigationLinks = [
 const workFilterButtons = [...document.querySelectorAll(".work-filter")];
 const projectCards = [...document.querySelectorAll(".case-card[data-category]")];
 const preferredWorkOrder = [
-  // Full application portfolio: embodied interaction and prototype evidence
-  // first. The offline work exporter keeps its separate commercial order.
-  "external-blood-vessel",
-  "water-babies",
-  "show-e-motions",
-  "swrd",
-  "cloud-island-device",
-  "visual-editor",
-  "florahaven",
-  "olive-town",
-  "the-red-dawn",
-  "utopia-2419",
-  "sound-design",
+  "animula-nook-ugc",
+  "teemo-roguelike",
   "tencent-cloud-gaming",
   "adaptive-app-market",
   "spirited-expedition",
-  "poka-project-p",
-  "dnf-zhulang-festival",
   "gangstar-bite-me",
-  "animula-nook-ugc",
-  "teemo-roguelike",
+  "visual-editor",
+  "olive-town",
+  "external-blood-vessel",
+  "dnf-zhulang-festival",
+  "florahaven",
+  "poka-project-p",
+  "water-babies",
+  "utopia-2419",
+  "cloud-island-device",
+  "swrd",
+  "sound-design",
 ];
 const filterWorkOrders = {
-  all: preferredWorkOrder,
-  product: ["tencent-cloud-gaming", "adaptive-app-market", "olive-town", "visual-editor", "florahaven", "external-blood-vessel", "cloud-island-device"],
-  sound: ["sound-design", "external-blood-vessel", "water-babies", "swrd"],
+  "all": [
+    "animula-nook-ugc",
+    "teemo-roguelike",
+    "tencent-cloud-gaming",
+    "adaptive-app-market",
+    "spirited-expedition",
+    "gangstar-bite-me",
+    "visual-editor",
+    "olive-town",
+    "external-blood-vessel",
+    "dnf-zhulang-festival",
+    "florahaven",
+    "poka-project-p",
+    "water-babies",
+    "utopia-2419",
+    "cloud-island-device",
+    "swrd"
+  ],
+  "product": [
+    "tencent-cloud-gaming",
+    "adaptive-app-market",
+    "olive-town",
+    "visual-editor",
+    "florahaven",
+    "external-blood-vessel",
+    "cloud-island-device"
+  ],
+  "sound": [
+    "sound-design",
+    "external-blood-vessel",
+    "water-babies",
+    "swrd"
+  ],
+  "game": [
+    "animula-nook-ugc",
+    "teemo-roguelike",
+    "spirited-expedition",
+    "gangstar-bite-me",
+    "dnf-zhulang-festival",
+    "poka-project-p",
+    "utopia-2419"
+  ],
+  "art": [
+    "external-blood-vessel",
+    "water-babies",
+    "swrd",
+    "cloud-island-device"
+  ]
 };
 const workCardDescriptors = new Map(projectCards.map((card) => {
   const label = card.querySelector(".case-info > p");
@@ -395,8 +436,6 @@ const projectCardChineseCopy = {
   "water-babies": { descriptor: "交互装置", context: "合作项目", title: "水之婴" },
   swrd: { descriptor: "沉浸式 VR 体验", context: "合作项目", title: "静水流深" },
   "poka-project-p": { descriptor: "游戏 UX 与世界观构建", context: "腾讯项目", title: "POKA / P 计划" },
-  "the-red-dawn": { descriptor: "批判性装置", context: "皇家艺术学院个人项目", title: "赤色黎明" },
-  "show-e-motions": { descriptor: "情感可穿戴设备", context: "皇家艺术学院合作项目", title: "情绪显影" },
   "tencent-cloud-gaming": { descriptor: "车载 HMI", context: "腾讯 · 座舱体验", title: "腾讯车载游戏" },
   "dnf-zhulang-festival": { descriptor: "季节性游戏体验", context: "腾讯 · 交互设计", title: "DNF：逐浪夏日祭" },
   "adaptive-app-market": { descriptor: "跨设备应用市场", context: "腾讯 · 体验设计", title: "应用商店 2.0" },
@@ -4510,7 +4549,7 @@ function setWorkFilter(filter) {
   orderedCards.forEach((card) => {
     projectCardMap?.append(card);
     const categories = card.dataset.category.split(/\s+/);
-    const isVisible = selectedFilter === "all" || categories.includes(selectedFilter);
+    const isVisible = (selectedFilter === "all" ? selectedOrderIndex.has(card.dataset.projectId) : categories.includes(selectedFilter));
     card.hidden = !isVisible;
     card.dataset.visibleColumn = isVisible && visibleIndex % 2 === 1 ? "right" : "left";
     if (!isVisible) return;
