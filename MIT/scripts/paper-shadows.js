@@ -1,5 +1,5 @@
 // Static contour shadows reuse the existing paper-geometry layout pass.
-// Four non-overlapping narrow SVG tiles bound the blur surface to the perimeter,
+// Non-overlapping narrow SVG tiles bound the blur surface to the perimeter,
 // not a full-height image/filter of the whole case study. No scroll listener,
 // extra observer, timer, RAF, clones of media, or animation loop.
 (() => {
@@ -36,25 +36,73 @@
     const {width:w,height:h,depth}=g;
     const dy=w*10/1696, sigma=w*7.5/1696, pad=Math.ceil(dy+sigma*4);
     const band=Math.min(h/2,depth+pad);
-    const tiles=[[-pad,-pad,w+pad*2,band+pad],[-pad,h-band,w+pad*2,band+pad],
-      [-pad,band,band+pad,Math.max(0,h-band*2)],[w-band,band,band+pad,Math.max(0,h-band*2)]];
-    const path=contour(g,sheet), fragment=document.createDocumentFragment();
+    const tiles=[[-pad,-pad,w+pad*2,band+pad],[-pad,h-band,w+pad*2,band+pad]];
+    // Bound each filter surface, including on very long mobile case studies.
+    // A narrow but document-height SVG can still exceed WebKit raster limits.
+    const detail=sheet.classList.contains('project-sheet');
+    const step=detail ? 1024/Math.max(g.scale,.01) : Math.max(1,h-band*2);
+    for(let y=band;y<h-band;y+=step) {
+      const height=Math.min(step,h-band-y);
+      tiles.push([-pad,y,band+pad,height],[w-band,y,band+pad,height]);
+    }
+    const path=contour(g,sheet);
+    const existing=[...(root.children || [])];
+    const reuse=detail && existing.length>0 && existing.every(svg=>svg.paperShadowParts);
+    const fragment=reuse ? null : document.createDocumentFragment();
+    let index=0;
     for(const [x,y,width,height] of tiles) {
       if(!height)continue;
+      const previous=existing[index++];
+      if(reuse && previous) {
+        const {filter,clip,ink}=previous.paperShadowParts;
+        previous.setAttribute('viewBox',`${x} ${y} ${width} ${height}`);
+        Object.assign(previous.style,{left:`${x*g.scale}px`,top:`${y*g.scale}px`,width:`${width*g.scale}px`,height:`${height*g.scale}px`});
+        for(const [key,value] of Object.entries({x:x-pad,y:y-pad,width:width+pad*2,height:height+pad*2}))filter.setAttribute(key,String(value));
+        filter.children[0].setAttribute('stdDeviation',String(sigma));
+        filter.children[1].setAttribute('dy',String(dy));
+        clip.setAttribute('d',`M${x} ${y}h${width}v${height}h${-width}Z ${path}`);
+        ink.setAttribute('d',path);
+        continue;
+      }
       const id=`paper-shadow-${++serial}`;
       const svg=svgNode('svg',{'aria-hidden':'true',viewBox:`${x} ${y} ${width} ${height}`,preserveAspectRatio:'none'});
       Object.assign(svg.style,{left:`${x*g.scale}px`,top:`${y*g.scale}px`,width:`${width*g.scale}px`,height:`${height*g.scale}px`});
       const defs=svgNode('defs');
+      // Paint only outside the real paper contour, never a solid interior
+      // rectangle that can become exposed during native WebView overscroll.
+      const clip=svgNode('clipPath',{id:`${id}-outside`,clipPathUnits:'userSpaceOnUse'});
+      const outside=svgNode('path',{d:`M${x} ${y}h${width}v${height}h${-width}Z ${path}`,'clip-rule':'evenodd'});
+      clip.append(outside);
       const filter=svgNode('filter',{id,filterUnits:'userSpaceOnUse',x:x-pad,y:y-pad,width:width+pad*2,height:height+pad*2,'color-interpolation-filters':'sRGB'});
       filter.append(svgNode('feGaussianBlur',{in:'SourceAlpha',stdDeviation:sigma,result:'soft'}),
         svgNode('feOffset',{in:'soft',dy,result:'offset'}),svgNode('feFlood',{'flood-color':'black','flood-opacity':.25,result:'ink'}),
         svgNode('feComposite',{in:'ink',in2:'offset',operator:'in'}));
-      defs.append(filter);svg.append(defs,svgNode('path',{d:path,fill:'black','fill-rule':'evenodd',filter:`url(#${id})`}));
-      fragment.append(svg);
+      const ink=svgNode('path',{d:path,fill:'black','fill-rule':'evenodd',filter:`url(#${id})`});
+      defs.append(filter);
+      if(detail) {
+        defs.append(clip);
+        const group=svgNode('g',{'clip-path':`url(#${id}-outside)`});
+        group.append(ink);svg.append(defs,group);
+        svg.paperShadowParts={filter,clip:outside,ink};
+      } else svg.append(defs,ink);
+      if(reuse)root.append(svg);else fragment.append(svg);
     }
-    root.replaceChildren(fragment);
+    if(reuse)for(const svg of existing.slice(index))svg.remove();
+    if(!reuse)root.replaceChildren(fragment);
   }
-  function sync() {
+  function sync(event) {
+    if(event?.detail?.detailOnly) {
+      const sheet=sheets.find(sheet=>sheet.classList.contains('project-sheet'));
+      const record=roots.get(sheet), g=sheet?.paperGeometry;
+      if(record && g) {
+        const left=record.root.firstElementChild?.style.marginLeft || '0px';
+        paint(record.root,g,sheet);
+        for(const svg of record.root.children)if(!svg.style.marginLeft)svg.style.marginLeft=left;
+        record.signature=JSON.stringify([g.width,g.height,g.depth,g.seams,g.scale]);
+        record.root.style.height=`${g.height*g.scale}px`;
+      }
+      return;
+    }
     // Read positions first; write afterwards, only when shared geometry changes.
     const shellRect=shell.getBoundingClientRect(), scrollerRect=scroller.getBoundingClientRect();
     const jobs=sheets.map(sheet=>{

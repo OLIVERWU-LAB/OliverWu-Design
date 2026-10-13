@@ -216,8 +216,12 @@
   }
   function mediaStatus(entry, state) {
     entry.state = state;
-    if (!entry.controls) return;
-    entry.controls.dataset.mediaState = state;
+    if (entry.status) {
+      const audio = entry.url.startsWith('https://w.soundcloud.com/');
+      mediaCopy(entry.status, audio ? 'Audio connection failed.' : 'Video connection failed.',
+        audio ? '音频连接失败' : '视频连接失败');
+    }
+    if (entry.controls) entry.controls.dataset.mediaState = state;
     if (state === 'error') {
       placeholders.get(entry.node)?.remove(); placeholders.delete(entry.node);
       entry.node.dataset.mediaPending = 'true';
@@ -251,7 +255,7 @@
     node.dataset.mediaPending = 'true';
     const controller = new AbortController();
     placeholderListeners.set(node, controller);
-    const entry = {node, url, state:'waiting', loaded:false};
+    const entry = {node, url, state:'waiting'};
     mediaRecovery.set(node, entry);
     const current = () => mediaRecovery.get(node) === entry && node.dataset.projectMediaSrc === url;
     const done = () => {
@@ -261,25 +265,29 @@
       mediaStatus(entry, 'ready');
     };
     node.addEventListener('error', () => {
+      if (node.tagName === 'VIDEO' && (!node.error || node.error.code === 1)) return;
       if (current()) mediaStatus(entry, 'error');
     }, {signal:controller.signal});
-    if (node.tagName === 'VIDEO') node.addEventListener('loadeddata', done, {signal:controller.signal});
+    if (node.tagName === 'VIDEO') {
+      node.addEventListener('loadeddata', done, {signal:controller.signal});
+      node.addEventListener('loadedmetadata', done, {signal:controller.signal});
+    }
     else node.addEventListener('load', () => {
       if (!current() || !node.hasAttribute('src') || node.src !== new URL(url,location.href).href) return;
-      entry.loaded = true;
-      if (entry.state !== 'error') {
-        node.removeAttribute('data-media-pending');
-        placeholders.get(node)?.remove(); placeholders.delete(node);
-        mediaStatus(entry, 'unconfirmed');
-      }
       const origin = new URL(url,location.href).origin;
-      // Optional provider signals; foreign error documents also fire load.
-      // Manual retry stays available without a SDK, polling or timeout rule.
+      // Show the loaded document even if its message bridge stays silent.
+      // Cross-origin silence cannot prove that a player has failed.
+      if (!['error','ready'].includes(entry.state)) mediaStatus(entry, 'unconfirmed');
       if (origin === 'https://w.soundcloud.com') {
+        node.contentWindow?.postMessage(JSON.stringify({method:'addEventListener',value:'ready'}),origin);
         node.contentWindow?.postMessage(JSON.stringify({method:'addEventListener',value:'error'}),origin);
         node.contentWindow?.postMessage(JSON.stringify({method:'getCurrentSound',value:null}),origin);
       } else if (origin === 'https://player.vimeo.com') {
         node.contentWindow?.postMessage({method:'addEventListener',value:'error'},origin);
+        node.contentWindow?.postMessage({method:'addEventListener',value:'loaded'},origin);
+      } else if (/^https:\/\/www\.youtube(?:-nocookie)?\.com$/.test(origin)) {
+        node.contentWindow?.postMessage(JSON.stringify({event:'listening',id:node.id || 'portfolio-player'}),origin);
+        node.contentWindow?.postMessage(JSON.stringify({event:'command',func:'addEventListener',args:['onError']}),origin);
       }
     }, {signal:controller.signal});
     // Renderers set sources before appending. One microtask, no polling.
@@ -314,6 +322,7 @@
       controls.className = 'project-media-recovery';
       entry.controls = controls;
       const status = document.createElement('span');
+      entry.status = status;
       status.className = 'project-media-recovery-copy';
       status.setAttribute('role','status');
       const audio = node.tagName === 'IFRAME' && /^https:\/\/w\.soundcloud\.com\/player\//.test(url);
@@ -327,8 +336,13 @@
         if (!eligible() || !node.isConnected || !current()) return;
         const target = new URL(url,location.href);
         target.searchParams.set('_portfolio_retry',String((Number(target.searchParams.get('_portfolio_retry'))||0)+1));
+        // Recreate only this browsing context (not its element/listeners).
+        // Old queued postMessages then cannot impersonate the new attempt.
+        if (node.tagName === 'IFRAME') {
+          const parent = node.parentElement, next = node.nextSibling;
+          node.remove(); node.removeAttribute('src'); parent.insertBefore(node,next);
+        }
         source(node,target.href);
-        Promise.resolve().then(()=>mediaRecovery.get(node)?.retry?.focus({preventScroll:true}));
       }, {signal:controller.signal});
       controls.append(retry,status); host.append(controls);
       window.translatePortfolioTree?.(controls,document.documentElement.lang.startsWith('zh')?'zh':'en');
@@ -346,9 +360,19 @@
       if (!node.isConnected || node.tagName !== 'IFRAME' || node.contentWindow !== event.source
         || node.dataset.projectMediaSrc !== entry.url || node.src !== new URL(entry.url,location.href).href
         || new URL(entry.url,location.href).origin !== event.origin) continue;
-      if (method === 'error' || method === 'onError') mediaStatus(entry,'error');
+      if (method === 'error' || method === 'onError') {
+        // Once the widget has confirmed itself, a later playback/control
+        // message must not cover an already usable player.
+        if (entry.state === 'ready') continue;
+        // Vimeo reports rejected API operations through the same error event.
+        // A failed pause/subscription is not a failed video connection.
+        if (event.origin === 'https://player.vimeo.com' && data.data?.method && !['loadVideo','embed'].includes(data.data.method)) continue;
+        if (method === 'onError' && ![2,5,100,101,150,153].includes(Number(data.info))) continue;
+        mediaStatus(entry,'error');
+      }
       else if (event.origin === 'https://w.soundcloud.com') {
-        if (entry.loaded && (method === 'ready' || method === 'getCurrentSound' && (data.value?.id || data.value?.urn))) mediaStatus(entry,'ready');
+        // READY can arrive before the outer iframe's load event.
+        if (method === 'ready' || method === 'getCurrentSound' && (data.value?.id || data.value?.urn)) mediaStatus(entry,'ready');
       } else mediaStatus(entry,'ready');
       break;
     }

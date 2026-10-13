@@ -4114,7 +4114,6 @@ function updateProjectParallax() {
   const canvasViewportHeight = window.innerHeight / canvasScale;
   const scrollTop = Math.max(0, rawScrollTop) / canvasScale;
   const overscroll = Math.max(0, -rawScrollTop) / canvasScale;
-  const pullDistance = reduceMotionQuery.matches ? 0 : Math.max(overscroll, projectTopPull / canvasScale);
   const heroWidth = projectDetailHero.clientWidth;
   const coverTitleHeight = projectCoverOverlayTitle?.closest(".project-cover-title-overlay")?.offsetHeight || 0;
   const layerHeights = new Map(projectDissolveLayers.map((layer) => [layer, layer.offsetHeight]));
@@ -4136,12 +4135,7 @@ function updateProjectParallax() {
     : 0;
   const finaleOffset = reduceMotionQuery.matches ? 0 : -finaleOverflow * finaleProgress;
   const progress = clamp(scrollTop / Math.max(1, canvasViewportHeight * 0.92), 0, 1);
-  const isFloraHaven = projectSheet.dataset.projectId === "florahaven";
   const usesFlatCoverParallax = projectSheet.dataset.projectId === "cloud-island-device";
-  const heroPullDistance = isFloraHaven
-    ? Math.min(pullDistance * (16 / 3), 60)
-    : pullDistance;
-  const coverPullDistance = isFloraHaven ? pullDistance : 0;
   const parallaxOffset = reduceMotionQuery.matches
     ? 0
     : Math.min(
@@ -4149,15 +4143,10 @@ function updateProjectParallax() {
       canvasViewportHeight * (usesFlatCoverParallax ? 0.5 : 0.38),
     );
   const heroBaseHeight = Math.max(1, heroWidth / projectHeroAspectRatio);
-  const heroHeight = heroBaseHeight + heroPullDistance;
-  const overscrollScale = reduceMotionQuery.matches
-    ? 1
-    : 1 + Math.min(
-      (pullDistance / heroBaseHeight) * (isFloraHaven ? 2.1 : 0.58),
-      isFloraHaven ? 0.12 : 0.1,
-    );
-  const scale = (reduceMotionQuery.matches ? 1.04 : 1.08 - progress * 0.045)
-    + (overscrollScale - 1);
+  const pullDistance = reduceMotionQuery.matches ? 0 : Math.max(overscroll, projectTopPull / canvasScale);
+  const heroHeight = heroBaseHeight + (projectSheet.dataset.projectId === 'florahaven'
+    ? Math.min(pullDistance * (16 / 3), 60) : pullDistance);
+  const scale = reduceMotionQuery.matches ? 1.04 : 1.08 - progress * 0.045;
 
   const layerStates = projectCoverLayers.map((layer) => {
     const layerSpeed = coverNumber(layer.dataset.parallax, 0.12, -0.25, 1.5);
@@ -4173,15 +4162,13 @@ function updateProjectParallax() {
     return { layer, layerOffset };
   });
 
-  projectDetailHero?.style.setProperty("--project-hero-pull", `${heroPullDistance.toFixed(2)}px`);
   const coverTitleHeightValue = `${coverTitleHeight.toFixed(2)}px`;
   if (projectDetailHero?.style.getPropertyValue("--project-cover-title-height") !== coverTitleHeightValue) {
     projectDetailHero?.style.setProperty("--project-cover-title-height", coverTitleHeightValue);
   }
   projectDetailCover.style.setProperty("--project-parallax", `${parallaxOffset.toFixed(2)}px`);
-  projectDetailCover.style.setProperty("--project-cover-pull", `${coverPullDistance.toFixed(2)}px`);
   projectDetailCover.style.setProperty("--project-scale", scale.toFixed(4));
-  projectDetailCover.style.setProperty("--project-cover-overscroll-scale", overscrollScale.toFixed(4));
+  updateProjectCoverPull(overscroll, heroBaseHeight, canvasScale);
   finaleBackground?.style.setProperty("--project-ui-finale-offset", `${finaleOffset.toFixed(2)}px`);
   layerStates.forEach(({ layer, layerOffset }) => {
     layer.style.setProperty("--cover-layer-parallax", `${layerOffset.toFixed(2)}px`);
@@ -4231,14 +4218,35 @@ function updateProjectParallax() {
   updateProjectStickyChapters();
 }
 
+function updateProjectCoverPull(overscroll = 0, heroBaseHeight = projectDesktopCanvasWidth / projectHeroAspectRatio,
+  canvasScale = Number.parseFloat(projectSheet.style.getPropertyValue('--project-canvas-scale')) || 1) {
+  // Preserve the approved sheet movement. Spring frames only update its three
+  // visual variables; they do not traverse chapters or measure the long page.
+  const pull = reduceMotionQuery.matches ? 0 : Math.max(overscroll, projectTopPull / canvasScale);
+  const flora = activeProjectId === 'florahaven';
+  const heroPull = flora ? Math.min(pull * (16 / 3), 60) : pull;
+  const scale = 1 + Math.min(pull / Math.max(1, heroBaseHeight) * (flora ? 2.1 : .58), flora ? .12 : .1);
+  projectDetailHero.style.setProperty('--project-hero-pull', `${heroPull.toFixed(2)}px`);
+  projectDetailCover.style.setProperty('--project-cover-pull', `${(flora ? pull : 0).toFixed(2)}px`);
+  projectDetailCover.style.setProperty('--project-cover-overscroll-scale', scale.toFixed(4));
+  window.updateProjectPaperPull?.(Number(heroPull.toFixed(2)));
+}
+
 function settleProjectTopPull() {
   if (projectTopPullFrame) return;
-  const settle = () => {
+  let previous = 0;
+  const settle = time => {
     const isFloraHaven = activeProjectId === "florahaven";
-    projectTopPullTarget *= isFloraHaven ? 0.62 : 0.86;
-    projectTopPullVelocity += (projectTopPullTarget - projectTopPull) * (isFloraHaven ? 0.28 : 0.13);
-    projectTopPullVelocity *= isFloraHaven ? 0.58 : 0.76;
-    projectTopPull += projectTopPullVelocity;
+    let elapsed = previous ? Math.min(50, time - previous) / (1000 / 60) : 1;
+    previous = time;
+    while (elapsed > 0) {
+      const step = Math.min(1, elapsed);
+      projectTopPullTarget *= Math.pow(isFloraHaven ? 0.62 : 0.86, step);
+      projectTopPullVelocity += (projectTopPullTarget - projectTopPull) * (isFloraHaven ? 0.28 : 0.13) * step;
+      projectTopPullVelocity *= Math.pow(isFloraHaven ? 0.58 : 0.76, step);
+      projectTopPull += projectTopPullVelocity * step;
+      elapsed -= step;
+    }
 
     if (
       Math.abs(projectTopPullTarget) < 0.08
@@ -4249,7 +4257,7 @@ function settleProjectTopPull() {
       projectTopPullTarget = 0;
       projectTopPullVelocity = 0;
     }
-    updateProjectParallax();
+    updateProjectCoverPull();
     if (projectTopPull || projectTopPullTarget || projectTopPullVelocity) {
       projectTopPullFrame = requestAnimationFrame(settle);
     } else {
@@ -4280,10 +4288,9 @@ function kickProjectTopPull(deltaY) {
 function respondToProjectTopPull(event) {
   if (!projectSheet || reduceMotionQuery.matches || event.deltaY >= 0) return;
 
-  if (projectScroller.scrollTop <= 1) {
-    kickProjectTopPull(event.deltaY);
-    return;
-  }
+  const remaining = -event.deltaY - projectScroller.scrollTop;
+  if (projectScroller.scrollTop <= 1) { kickProjectTopPull(event.deltaY); return; }
+  if (remaining > 0) { kickProjectTopPull(-remaining); return; }
 
   /* A wheel event fires before its default scroll is applied. Check on the
      next frame so a gesture that arrives from the body at scrollTop 0 still
@@ -4291,13 +4298,16 @@ function respondToProjectTopPull(event) {
   cancelAnimationFrame(projectTopArrivalFrame);
   projectTopArrivalFrame = requestAnimationFrame(() => {
     projectTopArrivalFrame = 0;
-    if (projectScroller?.scrollTop <= 1) {
-      kickProjectTopPull(event.deltaY);
-    }
+    if (projectScroller?.scrollTop <= 1) kickProjectTopPull(-Math.min(6, -event.deltaY * .2));
   });
 }
 
 function queueProjectParallax() {
+  // Some embedded WebViews ignore overscroll-behavior during momentum. Bound
+  // to the unzoomed wrapper, not overflow contributed by filters/zoomed media.
+  const max = Math.max(0, projectScroller.firstElementChild.offsetHeight - projectScroller.clientHeight);
+  const bounded = clamp(projectScroller.scrollTop, 0, max);
+  if (projectScroller.scrollTop !== bounded) projectScroller.scrollTop = bounded;
   cancelAnimationFrame(projectScrollFrame);
   projectScrollFrame = requestAnimationFrame(updateProjectParallax);
 }
@@ -4332,12 +4342,13 @@ function finishProjectClose(restoreScrollY = projectReturnScrollY) {
   projectTopPull = 0;
   projectTopPullTarget = 0;
   projectTopPullVelocity = 0;
+  projectDetailHero?.style.setProperty('--project-hero-pull','0px');
+  window.updateProjectPaperPull?.(0);
   cancelAnimationFrame(projectTopArrivalFrame);
   projectTopArrivalFrame = 0;
   cancelAnimationFrame(projectTopPullFrame);
   projectTopPullFrame = 0;
   projectSheet.querySelectorAll("video").forEach((video) => video.pause());
-  projectDetailHero?.style.setProperty("--project-hero-pull", "0px");
   cursorSuspendedByEmbed = false;
   cursorDot.classList.remove("is-visible");
   window.scrollTo(0, restoreScrollY);
@@ -5569,8 +5580,8 @@ projectSectionTitles.forEach((title, chapterIndex) => {
 
 projectScroller?.addEventListener("scroll", queueProjectParallax, { passive: true });
 projectScroller?.addEventListener("wheel", respondToProjectTopPull, { passive: true });
-// A touch pull at the top stretches only the cover. The native scroller stays
-// pinned; ordinary vertical reading, multi-touch and pinch zoom are untouched.
+// Native scrolling hands its unused edge movement to the original sheet pull.
+// Ordinary vertical reading, multi-touch and pinch zoom are untouched.
 let projectTouchPull = null;
 projectScroller?.addEventListener('touchstart', event => {
   if (event.touches.length !== 1
@@ -5583,15 +5594,18 @@ projectScroller?.addEventListener('touchmove', event => {
   const touch = event.touches[0], dx = touch.clientX-projectTouchPull.x, dy = touch.clientY-projectTouchPull.y;
   const delta = touch.clientY-projectTouchPull.lastY;
   projectTouchPull.lastY = touch.clientY;
-  const atBottom = projectScroller.scrollTop + projectScroller.clientHeight >= projectScroller.scrollHeight - 1;
-  if (delta < 0 && Math.abs(dy) >= Math.abs(dx) && atBottom) {
+  const maxScroll = Math.max(0, projectScroller.firstElementChild.offsetHeight - projectScroller.clientHeight);
+  if (delta < 0 && Math.abs(dy) >= Math.abs(dx) && projectScroller.scrollTop - delta >= maxScroll) {
     if (event.cancelable) event.preventDefault();
+    projectScroller.scrollTop = maxScroll;
     return;
   }
   // Retain the gesture while it reads normally: it may reach the bottom later.
-  if (Math.abs(dx) > Math.abs(dy) || projectScroller.scrollTop > 1 || delta <= 0) return;
+  if (Math.abs(dx) > Math.abs(dy) || projectScroller.scrollTop - delta > 0 || delta <= 0) return;
+  const remaining = delta - projectScroller.scrollTop;
   if (event.cancelable) event.preventDefault();
-  if (!reduceMotionQuery.matches) kickProjectTopPull(-delta);
+  projectScroller.scrollTop = 0;
+  if (!reduceMotionQuery.matches) kickProjectTopPull(-remaining);
 }, { passive:false });
 projectScroller?.addEventListener('touchend', () => { projectTouchPull = null; }, { passive:true });
 projectScroller?.addEventListener('touchcancel', () => { projectTouchPull = null; }, { passive:true });

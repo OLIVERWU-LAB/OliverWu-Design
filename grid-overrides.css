@@ -2506,7 +2506,7 @@ body.project-open .dot-field {
   inset: -72px -38.4px;
   background-position: center;
   background-size: cover;
-  transform: translate3d(0, var(--project-parallax), 0) scale(var(--project-scale));
+  transform: translate3d(0, var(--project-parallax), 0) scale(calc(var(--project-scale) + var(--project-cover-overscroll-scale, 1) - 1));
   transform-origin: 50% 50%;
   will-change: transform;
 }
@@ -3476,7 +3476,6 @@ body.project-open .dot-field {
   --project-hero-pull: 0px;
   box-sizing: content-box;
   padding-bottom: var(--project-hero-pull);
-  will-change: padding-bottom;
 }
 
 .project-cover-layer {

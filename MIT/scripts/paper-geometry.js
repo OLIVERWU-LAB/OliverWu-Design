@@ -46,8 +46,35 @@
     }
     return { sheet, detail, outline, holeGroup, seams: seams.map(([sel, edge]) => ({ node: sheet.querySelector(sel), edge })).filter(item => item.node), signature: "" };
   }).filter(Boolean);
+  const detailRecord = records.find(record => record.detail);
+  const detailHero = document.querySelector('.project-sheet-hero');
   let frame;
   let homePull = 0;
+  function cutPath({width:w, height:h, depth:d, seams}) {
+    const points = [[0,0],[w,0]];
+    seams.forEach(y => points.push([w,y-d],[w-d,y],[w,y+d]));
+    points.push([w,h],[0,h]);
+    [...seams].reverse().forEach(y => points.push([0,y+d],[d,y],[0,y-d]));
+    return `polygon(${points.map(([x,y]) => `${x}px ${y}px`).join(',')})`;
+  }
+  function writeDetailGeometry(record, geometry) {
+    record.sheet.paperGeometry = geometry;
+    const {width:w, height:h, depth:d, seams} = geometry;
+    record.sheet.parentElement?.style.setProperty('--project-scroll-height', `${h * geometry.scale}px`);
+    const signature = JSON.stringify([w,h,d,seams]);
+    if (signature === record.signature) return;
+    record.signature = signature;
+    record.sheet.style.setProperty('--paper-cut-path', cutPath(geometry));
+    if (!record.sheet.classList.contains('paper-cut-sheet')) record.sheet.classList.add('paper-cut-sheet');
+  }
+  window.updateProjectPaperPull = pull => {
+    if (!detailRecord?.baseGeometry || detailRecord.projectId !== detailRecord.sheet.dataset.projectId
+      || detailRecord.pull === pull) return;
+    detailRecord.pull = pull;
+    const base = detailRecord.baseGeometry;
+    writeDetailGeometry(detailRecord, {...base, height:base.height + pull, seams:base.seams.map(y => y + pull)});
+    document.dispatchEvent(new CustomEvent('portfolio:paper-geometry', {detail:{detailOnly:true}}));
+  };
   function measure({ sheet, seams, detail }) {
     const rect = sheet.getBoundingClientRect();
     const width = sheet.offsetWidth;
@@ -92,23 +119,22 @@
     records.forEach(record => {
       const geometry = measure(record);
       if (!geometry) return;
+      if (record.detail) {
+        const pull = Number.parseFloat(detailHero?.style.getPropertyValue('--project-hero-pull')) || 0;
+        record.baseGeometry = {...geometry, height:geometry.height-pull, seams:geometry.seams.map(y => y-pull)};
+        record.projectId = record.sheet.dataset.projectId;
+        record.pull = pull;
+        writeDetailGeometry(record, geometry);
+        return;
+      }
       // A viewport translation never changes a detail sheet's local cuts.
       // Do not rebuild its full clip polygon while it is sliding onscreen.
-      const signature = JSON.stringify(record.detail
-        ? { width: geometry.width, height: geometry.height, depth: geometry.depth, seams: geometry.seams }
-        : geometry);
+      const signature = JSON.stringify(geometry);
       record.sheet.paperGeometry = geometry;
       const { width: w, height: h, depth: d, seams } = geometry;
-      if (record.detail) {
-        record.sheet.parentElement?.style.setProperty('--project-scroll-height', `${h * geometry.scale}px`);
-      }
       if (signature !== record.signature) {
         record.signature = signature;
-        const points = [[0, 0], [w, 0]];
-        seams.forEach(y => points.push([w, y - d], [w - d, y], [w, y + d]));
-        points.push([w, h], [0, h]);
-        [...seams].reverse().forEach(y => points.push([0, y + d], [d, y], [0, y - d]));
-        record.sheet.style.setProperty("--paper-cut-path", `polygon(${points.map(([x, y]) => `${x}px ${y}px`).join(",")})`);
+        record.sheet.style.setProperty("--paper-cut-path", cutPath(geometry));
         record.sheet.classList.add("paper-cut-sheet");
         if (record.outline) {
           record.outline.setAttribute("viewBox", `0 0 ${w} ${h}`);
@@ -201,7 +227,13 @@
     document.dispatchEvent(new Event("portfolio:paper-geometry"));
   }
   function queue() { if (!frame) frame = requestAnimationFrame(update); }
-  const sizes = new ResizeObserver(queue);
+  const sizes = new ResizeObserver(entries => {
+    // Pull frames already move the cached seams in the same frame. Avoid
+    // measuring the full document again; real layout changes still update.
+    if (entries.every(({target}) => target.closest('.project-sheet'))
+      && Number.parseFloat(detailHero?.style.getPropertyValue('--project-hero-pull')) > 0) return;
+    queue();
+  });
   records.forEach(({ sheet, seams }) => {
     sizes.observe(sheet);
     seams.forEach(({node}) => sizes.observe(node));

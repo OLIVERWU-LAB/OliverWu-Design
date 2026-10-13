@@ -176,9 +176,9 @@ html:has(body.project-open), html:has(dialog[open]) { scroll-snap-type:none; }
   width:100%;
   height:var(--project-scroll-height,100%);
   min-height:100%;
-  /* Keep zoomed descendants/filter bounds out of the native scroll range.
-     The unzoomed wrapper ends at the actual visible footer, not SVG overflow. */
-  overflow:hidden;
+  /* Clip overflow without creating a second scroll container: tall-cover
+     sticky titles must belong to the actual viewport scroller. */
+  overflow:clip;
   contain:layout paint;
 }
 .project-sheet { position:relative !important; inset:auto !important; min-height:100%; overflow:visible !important; transform:none !important; transition:none; }
