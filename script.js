@@ -12,7 +12,6 @@ const workFilterButtons = [...document.querySelectorAll(".work-filter")];
 const projectCards = [...document.querySelectorAll(".case-card[data-category]")];
 const preferredWorkOrder = [
   "animula-nook-ugc",
-  "teemo-roguelike",
   "tencent-cloud-gaming",
   "adaptive-app-market",
   "spirited-expedition",
@@ -20,9 +19,10 @@ const preferredWorkOrder = [
   "visual-editor",
   "olive-town",
   "external-blood-vessel",
-  "dnf-zhulang-festival",
   "florahaven",
+  "dnf-zhulang-festival",
   "poka-project-p",
+  "teemo-roguelike",
   "water-babies",
   "utopia-2419",
   "cloud-island-device",
@@ -32,7 +32,6 @@ const preferredWorkOrder = [
 const filterWorkOrders = {
   "all": [
     "animula-nook-ugc",
-    "teemo-roguelike",
     "tencent-cloud-gaming",
     "adaptive-app-market",
     "spirited-expedition",
@@ -40,9 +39,10 @@ const filterWorkOrders = {
     "visual-editor",
     "olive-town",
     "external-blood-vessel",
-    "dnf-zhulang-festival",
     "florahaven",
+    "dnf-zhulang-festival",
     "poka-project-p",
+    "teemo-roguelike",
     "water-babies",
     "utopia-2419",
     "cloud-island-device",

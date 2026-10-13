@@ -616,9 +616,10 @@
 }
 
 .project-sheet[data-project-id="tencent-cloud-gaming"] [data-variant="research-questions"] .hmi-card > figcaption {
-  grid-template-columns: 118px 1.1fr .9fr;
-  align-items: center;
-  gap: 28px;
+  grid-template-columns: 118px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-items: start;
+  gap: 7px 28px;
   min-height: 112px;
   margin: 0;
   padding: 20px 26px;
@@ -1360,17 +1361,6 @@
   color: #d8e1de;
   font-size: 15.5px;
   line-height: 1.65;
-}
-
-/* Question labels stay compact at the left; each question and answer now form
-   one vertical reading unit instead of two competing horizontal columns. */
-.project-sheet[data-project-id="tencent-cloud-gaming"]
-  [data-variant="research-questions"] figcaption {
-  grid-template-columns: 118px minmax(0, 1fr);
-  grid-template-rows: auto auto;
-  align-items: start;
-  column-gap: 28px;
-  row-gap: 7px;
 }
 
 .project-sheet[data-project-id="tencent-cloud-gaming"]
