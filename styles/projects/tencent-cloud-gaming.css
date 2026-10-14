@@ -618,6 +618,7 @@
 .project-sheet[data-project-id="tencent-cloud-gaming"] [data-variant="research-questions"] .hmi-card > figcaption {
   grid-template-columns: 118px minmax(0, 1fr);
   grid-template-rows: auto auto;
+  align-content: center;
   align-items: start;
   gap: 7px 28px;
   min-height: 112px;
