@@ -58,7 +58,7 @@
    "blocks": [
     {
      "type": "gts-board",
-     "height": 15590,
+     "height": 15662,
      "flowShift": {
       "after": 4244,
       "amount": 100
@@ -109,7 +109,7 @@
       {
        "kind": "pink",
        "y": 14714,
-       "h": 876
+       "h": 948
       }
      ],
      "layers": [
@@ -753,7 +753,7 @@
        "kind": "logo",
        "src": "assets/projects/gangstar-bite-me/logo-rabbit-png-web.webp",
        "x": 349.4,
-       "y": 14796.0,
+       "y": 14832.0,
        "w": 243,
        "h": 243
       },
@@ -761,7 +761,7 @@
        "kind": "logo",
        "src": "assets/projects/gangstar-bite-me/logo-peg1-png-web.webp",
        "x": 615.4,
-       "y": 14799.0,
+       "y": 14835.0,
        "w": 76,
        "h": 76
       },
@@ -769,13 +769,13 @@
        "kind": "finaletitle",
        "text": "GANGSTAR MIRAGE CITY",
        "cx": 470.9,
-       "y": 15081.0
+       "y": 15117.0
       },
       {
        "kind": "logo",
        "src": "assets/projects/gangstar-bite-me/logo-gameloft-png-web.webp",
        "x": 189.4,
-       "y": 15213.0,
+       "y": 15249.0,
        "w": 149,
        "h": 104
       },
@@ -783,7 +783,7 @@
        "kind": "logo",
        "src": "assets/projects/gangstar-bite-me/logo-dot-png-web.webp",
        "x": 460.4,
-       "y": 15242.0,
+       "y": 15278.0,
        "w": 31,
        "h": 36
       },
@@ -791,7 +791,7 @@
        "kind": "logo",
        "src": "assets/projects/gangstar-bite-me/logo-levelinfinite-png-web.webp",
        "x": 595.4,
-       "y": 15218.0,
+       "y": 15254.0,
        "w": 165,
        "h": 93
       },
@@ -800,22 +800,33 @@
        "text": "Release",
        "sub": "2026.10.20",
        "x": 167.4,
-       "y": 15426.0,
+       "y": 15462.0,
        "w": 608
       },
       {
        "kind": "pinkphone",
-       "x": 940,
-       "y": 14915.0,
-       "w": 860.0,
-       "h": 413.9,
-       "src": "assets/projects/gangstar-bite-me/activity-bg-jpg-web.webp"
+       "x": 962,
+       "y": 14770.42,
+       "w": 784,
+       "h": 352.8,
+       "src": "assets/projects/gangstar-bite-me/activity-bg-jpg-web.webp",
+       "alt": "Bite Me! system interaction entry in the game’s Activities lobby"
+      },
+      {
+       "kind": "pinkphone",
+       "x": 962,
+       "y": 15184.42,
+       "w": 784,
+       "h": 352.8,
+       "src": "assets/projects/gangstar-bite-me/entry-popup-jpg-web.webp",
+       "alt": "Bite Me! promotional popup shown over gameplay"
       },
       {
        "kind": "caption",
-       "text": "The event entry inside the game's Activities lobby",
-       "cx": 1370.0,
-       "y": 15362.9,
+       "text": "Event entry (top); Pop-up (bottom)",
+       "cn": "活动入口（上）；拍脸图（下）",
+       "cx": 1354,
+       "y": 15588.42,
        "tone": "bright"
       }
      ]

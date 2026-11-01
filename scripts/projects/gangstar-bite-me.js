@@ -151,6 +151,10 @@ function renderGangstarBlock(block) {
     } else if (item.kind === "caption") {
       const tone = item.tone === "warm" ? " is-warm" : item.tone === "bright" ? " is-bright" : "";
       node = gtsEl("p", `gts-caption${tone}`, item.text || "");
+      if (typeof item.cn === "string") {
+        node.dataset.projectCopyEn = item.text || "";
+        node.dataset.projectCopyZh = item.cn;
+      }
       node.style.left = `${item.cx}px`;
       node.style.top = `${item.y}px`;
       if (item.size) node.style.fontSize = `${item.size}px`;

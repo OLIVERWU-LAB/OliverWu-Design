@@ -345,12 +345,17 @@
   white-space: nowrap;
 }
 
-/* Pink finale: one phone centred, activity screen inside; logos + title left. */
+/* Pink finale: two stacked phones with captions; logos + title left. */
 /* The finale phone uses the board's shared bezel artwork; it only needs a
    lift off the pink field. The screen stays under the bezel. */
 .project-sheet[data-project-id="gangstar-bite-me"] .gts-pinkphone {
   z-index: 60;
   filter: drop-shadow(0 18px 40px rgba(60, 0, 30, .35));
+}
+
+/* Extend the finale screens beneath the left bezel to hide a fine seam. */
+.project-sheet[data-project-id="gangstar-bite-me"] .gts-pinkphone > .gts-phone-screen {
+  left: -2px;
 }
 
 /* Partner marks are flattened to white; the game icon and the PEGI badge keep
