@@ -14,33 +14,38 @@ const preferredWorkOrder = [
   "external-blood-vessel",
   "water-babies",
   "show-e-motions",
+  "sound-design",
   "the-red-dawn",
-  "cloud-island-device",
-  "olive-town",
-  "tencent-cloud-gaming",
-  "spirited-expedition",
-  "utopia-2419",
-  "gangstar-bite-me",
-  "adaptive-app-market",
-  "visual-editor",
-  "florahaven",
-  "poka-project-p",
-  "dnf-zhulang-festival",
   "swrd",
-  "sound-design"
+  "tencent-cloud-gaming",
+  "cloud-island-device",
+  "spirited-expedition",
+  "gangstar-bite-me",
+  "utopia-2419",
+  "florahaven",
+  "visual-editor",
+  "olive-town",
+  "poka-project-p",
+  "adaptive-app-market"
 ];
 const filterWorkOrders = {
   "all": [
     "external-blood-vessel",
     "water-babies",
     "show-e-motions",
+    "sound-design",
     "the-red-dawn",
-    "cloud-island-device",
-    "olive-town",
+    "swrd",
     "tencent-cloud-gaming",
+    "cloud-island-device",
     "spirited-expedition",
+    "gangstar-bite-me",
     "utopia-2419",
-    "gangstar-bite-me"
+    "florahaven",
+    "visual-editor",
+    "olive-town",
+    "poka-project-p",
+    "adaptive-app-market"
   ],
   "embodied": [
     "external-blood-vessel",
@@ -48,27 +53,28 @@ const filterWorkOrders = {
     "show-e-motions",
     "the-red-dawn"
   ],
-  "worlds": [
-    "cloud-island-device",
-    "olive-town",
-    "utopia-2419",
-    "tencent-cloud-gaming",
-    "spirited-expedition",
-    "gangstar-bite-me"
-  ],
   "sound": [
     "sound-design",
     "external-blood-vessel",
     "water-babies",
+    "utopia-2419",
+    "swrd",
+    "spirited-expedition"
+  ],
+  "worlds": [
+    "spirited-expedition",
+    "cloud-island-device",
+    "gangstar-bite-me",
+    "utopia-2419",
+    "poka-project-p",
     "swrd"
   ],
-  "other": [
-    "adaptive-app-market",
-    "visual-editor",
+  "interfaces": [
+    "tencent-cloud-gaming",
+    "olive-town",
     "florahaven",
-    "poka-project-p",
-    "dnf-zhulang-festival",
-    "swrd"
+    "adaptive-app-market",
+    "visual-editor"
   ]
 };
 const workCardDescriptors = new Map(projectCards.map((card) => {
@@ -333,10 +339,10 @@ const languageCopy = {
     resumeEnglish: "English Version",
     resumeChinese: "Chinese Version",
     selectedWork: "Selected Work",
-    filterAll: "Featured",
+    filterAll: "All",
     filterEmbodied: "Embodied Interaction",
-    filterWorlds: "Worlds & Systems",
-    filterOther: "Other Works",
+    filterWorlds: "Games & Worldbuilding",
+    filterInterfaces: "Interfaces & Tools",
     filterGame: "Games",
     filterProduct: "Products & Systems",
     filterArt: "Art",
@@ -389,10 +395,10 @@ const languageCopy = {
     resumeEnglish: "英文版",
     resumeChinese: "中文版",
     selectedWork: "精选作品",
-    filterAll: "精选",
+    filterAll: "全部",
     filterEmbodied: "具身交互",
-    filterWorlds: "世界构建与系统设计",
-    filterOther: "其他作品",
+    filterWorlds: "游戏与世界构建",
+    filterInterfaces: "界面与工具",
     filterGame: "游戏",
     filterProduct: "产品与系统",
     filterArt: "艺术",
@@ -442,7 +448,6 @@ const projectCardChineseCopy = {
   "the-red-dawn": { descriptor: "批判性装置", context: "皇家艺术学院个人项目", title: "赤色黎明" },
   "show-e-motions": { descriptor: "情感可穿戴设备", context: "皇家艺术学院合作项目", title: "情绪显影" },
   "tencent-cloud-gaming": { descriptor: "车载 HMI", context: "腾讯 · 座舱体验", title: "腾讯车载游戏" },
-  "dnf-zhulang-festival": { descriptor: "季节性游戏体验", context: "腾讯 · 交互设计", title: "DNF：逐浪夏日祭" },
   "adaptive-app-market": { descriptor: "跨设备应用市场", context: "腾讯 · 体验设计", title: "应用商店 2.0" },
   "visual-editor": { descriptor: "AI 设计工具", context: "个人项目", title: "Skill 可视化编辑器" },
   "gangstar-bite-me": { descriptor: "游戏活动 UI", context: "Gangstar Mirage City", title: "鳄鱼咬一口！" },
@@ -4554,7 +4559,7 @@ function setLanguage(language) {
 }
 
 function setWorkFilter(filter) {
-  const selectedFilter = ["embodied", "worlds", "sound", "other"].includes(filter) ? filter : "all";
+  const selectedFilter = ["embodied", "sound", "worlds", "interfaces"].includes(filter) ? filter : "all";
   if (projectCardMap) projectCardMap.dataset.activeFilter = selectedFilter;
   const selectedOrder = filterWorkOrders[selectedFilter] || preferredWorkOrder;
   const selectedOrderIndex = new Map(selectedOrder.map((projectId, index) => [projectId, index]));
@@ -4573,7 +4578,7 @@ function setWorkFilter(filter) {
   orderedCards.forEach((card) => {
     projectCardMap?.append(card);
     const categories = card.dataset.category.split(/\s+/);
-    const isVisible = categories.includes(selectedFilter === "all" ? "featured" : selectedFilter);
+    const isVisible = selectedFilter === "all" || categories.includes(selectedFilter);
     card.hidden = !isVisible;
     card.dataset.visibleColumn = isVisible && visibleIndex % 2 === 1 ? "right" : "left";
     if (!isVisible) return;
