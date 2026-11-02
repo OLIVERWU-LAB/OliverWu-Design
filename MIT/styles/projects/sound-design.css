@@ -41,6 +41,16 @@
 .project-sheet[data-project-id="sound-design"] .sound-project--utopia-2419 {
   --sound-bg: #000;
 }
+.project-sheet[data-project-id="sound-design"] .sound-project--divine-stratagem {
+  --sound-bg: #edf2e9;
+  --sound-ink: #25382f;
+  --sound-muted: #52665c;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project--bridget {
+  --sound-bg: #101b30;
+  --sound-ink: #eeeef2;
+  --sound-muted: #b5bdcc;
+}
 .project-sheet[data-project-id="sound-design"] .sound-project-header,
 .project-sheet[data-project-id="sound-design"] .sound-project-layout {
   width: 1000px; margin-right: auto; margin-left: auto;
@@ -86,6 +96,25 @@
 }
 .project-sheet[data-project-id="sound-design"] .sound-project-context p {
   margin: 0; font: 15.5px/1.65 Arial, Helvetica, sans-serif; color: var(--sound-muted);
+  white-space: pre-line;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project--story-textile .sound-project-context h4 {
+  margin-top: 0;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project-context .sound-project-credits {
+  margin-top: 22px; font-size: 12px; line-height: 1.6; color: var(--sound-ink);
+}
+.project-sheet[data-project-id="sound-design"] .sound-storyboard,
+.project-sheet[data-project-id="sound-design"] .sound-textile {
+  margin: 0;
+}
+.project-sheet[data-project-id="sound-design"] .sound-storyboard img,
+.project-sheet[data-project-id="sound-design"] .sound-textile img {
+  display: block; width: 100%; height: auto; max-width: 100%;
+}
+.project-sheet[data-project-id="sound-design"] .sound-story-textile-pair {
+  display: grid; grid-template-columns: minmax(0, 1238fr) minmax(0, 527fr);
+  gap: 24px; align-items: start; width: 100%;
 }
 .project-sheet[data-project-id="sound-design"] .sound-project-embeds {
   display: grid; gap: 30px; min-width: 0;
@@ -109,6 +138,16 @@
 .project-sheet[data-project-id="sound-design"] .project-content-video-frame { width: 100%; margin: 0; }
 .project-sheet[data-project-id="sound-design"] .project-content-video-frame iframe {
   display: block; width: 100%; height: 100%; border: 0;
+}
+/* Same native-preview edge correction as the full External Blood Vessel page. */
+.project-sheet[data-project-id="sound-design"] .sound-project--external-blood-vessel .project-content-video-frame {
+  position: relative; overflow: hidden;
+}
+.project-sheet[data-project-id="sound-design"] .sound-project--external-blood-vessel .project-content-video-frame iframe[data-project-media-src*="/1222443596?"] {
+  position: absolute;
+  inset: 0 auto 0 calc(-2 * var(--project-hairline, 1px));
+  width: calc(100% + 2 * var(--project-hairline, 1px));
+  height: calc(100% + 1.125 * var(--project-hairline, 1px));
 }
 .project-sheet[data-project-id="sound-design"] .project-content-utopia-video-trio { padding: 0; }
 .project-sheet[data-project-id="sound-design"] .project-utopia-video-trio-grid {

@@ -5,16 +5,24 @@
   "subtitle": "Music, Interaction and Immersive Sound",
   "subtitleZh": "音乐、交互与沉浸式声音",
   "backgroundColor": "#f5f4f1",
-  "summary": "A focused collection of original music, interactive sound systems and immersive audiovisual work across five projects.",
-  "summaryZh": "五个项目汇集原创音乐、交互声音系统与沉浸式视听体验，呈现一套聚焦声音的创作实践。",
-  "body": "Five projects, one sound practice: composing original scores, mapping gesture and voice into sound, and shaping immersive environments where audio carries interaction, atmosphere and narrative.",
-  "bodyZh": "五个项目，共同构成一套以声音为核心的实践：创作原创配乐，将手势与声音映射为实时反馈，并构建由音频承载交互、氛围与叙事的沉浸式环境。",
+  "summary": "Seven projects spanning original music, interactive sound systems, immersive environments and illustrated storytelling.",
+  "summaryZh": "七个项目汇集原创音乐、交互声音系统、沉浸式环境与插画叙事。",
+  "body": "Seven projects, one sound practice: composing original scores, mapping gesture and voice into sound, and using music to carry atmosphere, memory and narrative across games, installations and illustrated worlds.",
+  "bodyZh": "七个项目，共同构成一套以声音为核心的实践：创作原创配乐，将手势与声音映射为实时反馈，并通过音乐在游戏、装置与插画世界中承载氛围、记忆与叙事。",
   "company": "Selected Practice",
   "companyLabel": "COLLECTION",
   "year": "2022—2026",
   "yearLabel": "PROJECT YEARS",
-  "roles": ["Sound Design", "Music Production", "Interactive Audio"],
-  "tags": ["SOUND DESIGN", "ORIGINAL MUSIC", "INTERACTIVE AUDIO"],
+  "roles": [
+    "Sound Design",
+    "Music Production",
+    "Interactive Audio"
+  ],
+  "tags": [
+    "SOUND DESIGN",
+    "ORIGINAL MUSIC",
+    "INTERACTIVE AUDIO"
+  ],
   "cover": {
     "ratio": "16 / 9",
     "designWidth": 1600,
@@ -95,8 +103,35 @@
               ]
             },
             {
+              "projectId": "divine-stratagem",
+              "title": "Divine Stratagem",
+              "titleZh": "神机妙算",
+              "subtitle": "Original Music for Wild Rift CN · Lunar New Year 2026",
+              "subtitleZh": "《英雄联盟手游》中国版 · 2026 新春活动原创配乐",
+              "year": "2026",
+              "accent": "#91b4a0",
+              "description": "Two instrumental tracks combine traditional Chinese acoustic instruments with cinematic soundscapes, moving from the main menu into play while shaping an ancient Chinese atmosphere of ceremony and strategy.",
+              "descriptionZh": "两首纯器乐作品融合中国传统原声乐器与电影感声景，从主菜单延伸到局内，以音乐营造庄重、富有谋略感的古风氛围。",
+              "cover": "assets/projects/sound-design/divine-stratagem-artwork.webp",
+              "coverAlt": "Divine Stratagem event artwork with illustrated creatures in a Chinese landscape",
+              "coverAltZh": "神机妙算活动插画：传统山水中的幻想生物",
+              "tracks": [
+                {
+                  "title": "Courtyard Blossoms — Main Menu BGM",
+                  "titleZh": "庭院繁花 — 主菜单配乐",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2325615497&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                },
+                {
+                  "title": "Approaching Bells — In-Game Theme",
+                  "titleZh": "钟声渐近 — 局内配乐",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2325615494&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                }
+              ],
+              "index": "03"
+            },
+            {
               "projectId": "water-babies",
-              "index": "03",
+              "index": "04",
               "title": "Water Babies",
               "subtitle": "Voice, Presence and Fluid Intelligence",
               "subtitleZh": "声音、在场与流体智能",
@@ -121,7 +156,7 @@
             },
             {
               "projectId": "swrd",
-              "index": "04",
+              "index": "05",
               "title": "Still Waters Run Deep",
               "subtitle": "Sound for an Immersive VR Experience",
               "subtitleZh": "沉浸式 VR 体验的声音设计",
@@ -151,7 +186,7 @@
             },
             {
               "projectId": "utopia-2419",
-              "index": "05",
+              "index": "06",
               "title": "UTOPIA 2419",
               "subtitle": "An Original Score for Interactive Fiction",
               "subtitleZh": "互动叙事原创配乐",
@@ -175,16 +210,93 @@
                 }
               ],
               "tracks": [
-                { "title": "2419.I — Undertow", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392485462&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
-                { "title": "Elsewhere", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474620&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
-                { "title": "Reverse Space", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474629&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
-                { "title": "2419.II — A Century Passes", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392485465&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
-                { "title": "Utopia", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474617&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
-                { "title": "Underneath", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474632&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
-                { "title": "Exile", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474626&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
-                { "title": "2419.III — Nothing Weighs", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392485459&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
-                { "title": "Reverse Ocean", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474623&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" },
-                { "title": "Still Here", "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474635&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" }
+                {
+                  "title": "2419.I — Undertow",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392485462&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+                },
+                {
+                  "title": "Elsewhere",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474620&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+                },
+                {
+                  "title": "Reverse Space",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474629&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+                },
+                {
+                  "title": "2419.II — A Century Passes",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392485465&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+                },
+                {
+                  "title": "Utopia",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474617&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+                },
+                {
+                  "title": "Underneath",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474632&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+                },
+                {
+                  "title": "Exile",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474626&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+                },
+                {
+                  "title": "2419.III — Nothing Weighs",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392485459&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+                },
+                {
+                  "title": "Reverse Ocean",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474623&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+                },
+                {
+                  "title": "Still Here",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474635&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+                }
+              ]
+            },
+            {
+              "projectId": "bridget",
+              "title": "Bridget",
+              "titleZh": "Bridget",
+              "subtitle": "Music for an Illustrated Story",
+              "subtitleZh": "插画叙事配乐",
+              "description": "Fifty years after her death, Bridget is brought back through an experiment that promises a life without illness or trauma. Her memories of domestic abuse have been erased, yet a ghost-like remnant of herself survives in reflections. Water, dreams and a shattered plate gradually return what the experiment tried to remove.\n\nThe story asks whether a person can be made whole by deleting painful memories. Its blue and red illustrated scenes were brought together as a textile, carrying a fragmented inner world into a physical object. The original track “Bridget” accompanies the story.",
+              "descriptionZh": "去世五十年后，Bridget 在一项承诺消除疾病与创伤的实验中重获生命。遭受家庭暴力的记忆被抹去，但另一个幽灵般的自我仍存在于倒影之中。水、梦境与一只破碎的瓷盘，让被删除的过去逐渐返回。\n\n故事追问：删除痛苦的记忆，是否就能让一个人重新完整？蓝色与红色的插画场景被组合成纺织品，让碎片化的内心世界成为可触摸的实物。原创音乐《Bridget》伴随这段叙事。",
+              "presentation": "story-textile",
+              "storyboard": {
+                "src": "assets/projects/sound-design/bridget-storyboard.webp",
+                "width": 1238,
+                "height": 700,
+                "alt": "Ten blue and red illustrated scenes from Bridget’s story, with reflections, water and a broken plate",
+                "altZh": "Bridget故事的十幅蓝红插画：倒影、水与破碎的瓷盘",
+                "caption": "Illustrated story — fragments of memory",
+                "captionZh": "插画叙事 — 记忆的碎片"
+              },
+              "textile": {
+                "src": "assets/projects/sound-design/bridget-textile.webp",
+                "width": 527,
+                "height": 700,
+                "alt": "The blue and red story illustrations combined into a patchwork textile on a bed",
+                "altZh": "蓝红故事插画组成的拼接纺织品，铺放在床上",
+                "caption": "From illustrated scenes to a textile",
+                "captionZh": "从插画场景到纺织品"
+              },
+              "tracks": [
+                {
+                  "title": "Bridget",
+                  "titleZh": "Bridget — 叙事配乐",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1756618035&color=%23116ca6&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                }
+              ],
+              "index": "07",
+              "year": "2023",
+              "roles": [
+                "Music Composition",
+                "Story Writing",
+                "Textile Fabrication"
+              ],
+              "rolesZh": [
+                "配乐",
+                "故事创作",
+                "纺织制作"
               ]
             }
           ]

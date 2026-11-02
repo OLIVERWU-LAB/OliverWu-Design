@@ -18,13 +18,39 @@ function updateSoundDesignLanguage(language = soundDesignLanguage()) {
       ? element.dataset.soundCopyZh || element.dataset.soundCopyEn
       : element.dataset.soundCopyEn;
   });
+  document.querySelectorAll("[data-sound-alt-en]").forEach((image) => {
+    image.alt = language === "zh" ? image.dataset.soundAltZh : image.dataset.soundAltEn;
+  });
+}
+
+function soundDesignFigure(item, className) {
+  const source = safeProjectAsset(item?.src);
+  if (!source) return null;
+  const figure = document.createElement("figure");
+  figure.className = className;
+  const image = document.createElement("img");
+  image.src = versionProjectImageAsset(source);
+  image.width = item.width;
+  image.height = item.height;
+  image.dataset.soundAltEn = item.alt || "";
+  image.dataset.soundAltZh = item.altZh || item.alt || "";
+  image.alt = soundDesignLanguage() === "zh" ? image.dataset.soundAltZh : image.dataset.soundAltEn;
+  image.loading = "lazy";
+  image.decoding = "async";
+  figure.append(image);
+  if (item.caption) {
+    const caption = document.createElement("figcaption");
+    setSoundDesignCopy(caption, item.caption, item.captionZh);
+    figure.append(caption);
+  }
+  return figure;
 }
 
 function renderSoundDesignBlock(block) {
   if (block.type !== "sound-showcase") return [];
   const root = document.createElement("section");
   root.className = "sound-showcase";
-  const order = ["external-blood-vessel", "water-babies", "swrd", "spirited-expedition", "utopia-2419"];
+  const order = ["external-blood-vessel", "water-babies", "swrd", "spirited-expedition", "divine-stratagem", "utopia-2419", "bridget"];
   const items = [...(block.items || [])].sort((a, b) => order.indexOf(a.projectId) - order.indexOf(b.projectId));
   items.forEach((item, index) => {
     const article = document.createElement("article");
@@ -35,26 +61,29 @@ function renderSoundDesignBlock(block) {
     meta.className = "sound-project-meta";
     setSoundDesignCopy(
       meta,
-      "PROJECT " + String(index + 1).padStart(2, "0") + " / " + item.year,
-      "项目 " + String(index + 1).padStart(2, "0") + " / " + item.year,
+      "PROJECT " + String(index + 1).padStart(2, "0") + (item.year ? " / " + item.year : ""),
+      "项目 " + String(index + 1).padStart(2, "0") + (item.year ? " / " + item.year : ""),
     );
     const title = document.createElement("h3");
     setSoundDesignCopy(title, item.title, item.titleZh || item.title);
-    const jump = document.createElement("button");
-    jump.type = "button";
-    jump.className = "sound-project-jump";
-    const jumpLabel = document.createElement("span");
-    setSoundDesignCopy(jumpLabel, "View full project", "查看完整项目");
-    const jumpIcon = document.createElement("span");
-    jumpIcon.className = "sound-project-jump-icon";
-    jumpIcon.setAttribute("aria-hidden", "true");
-    jumpIcon.textContent = "↗";
-    jump.append(jumpLabel, jumpIcon);
-    jump.addEventListener("click", () => {
-      const target = detailProjectCards.find((card) => card.dataset.projectId === item.projectId);
-      if (target) openProject(target, { scrollY: projectReturnScrollY });
-    });
-    header.append(meta, title, jump);
+    header.append(meta, title);
+    if (detailProjectCards.some((card) => card.dataset.projectId === item.projectId)) {
+      const jump = document.createElement("button");
+      jump.type = "button";
+      jump.className = "sound-project-jump";
+      const jumpLabel = document.createElement("span");
+      setSoundDesignCopy(jumpLabel, "View full project", "查看完整项目");
+      const jumpIcon = document.createElement("span");
+      jumpIcon.className = "sound-project-jump-icon";
+      jumpIcon.setAttribute("aria-hidden", "true");
+      jumpIcon.textContent = "↗";
+      jump.append(jumpLabel, jumpIcon);
+      jump.addEventListener("click", () => {
+        const target = detailProjectCards.find((card) => card.dataset.projectId === item.projectId);
+        if (target) openProject(target, { scrollY: projectReturnScrollY });
+      });
+      header.append(jump);
+    }
     const layout = document.createElement("div");
     layout.className = "sound-project-layout";
     const context = document.createElement("aside");
@@ -63,7 +92,9 @@ function renderSoundDesignBlock(block) {
     if (coverSource) {
       const cover = document.createElement("img");
       cover.src = versionProjectImageAsset(coverSource);
-      cover.alt = soundDesignLanguage() === "zh" ? `${item.titleZh || item.title} 项目图像` : `${item.title} artwork`;
+      cover.dataset.soundAltEn = item.coverAlt || `${item.title} artwork`;
+      cover.dataset.soundAltZh = item.coverAltZh || `${item.titleZh || item.title} 项目图像`;
+      cover.alt = soundDesignLanguage() === "zh" ? cover.dataset.soundAltZh : cover.dataset.soundAltEn;
       cover.width = 264;
       cover.height = 264;
       cover.loading = index === 0 ? "eager" : "lazy";
@@ -75,6 +106,14 @@ function renderSoundDesignBlock(block) {
     const description = document.createElement("p");
     setSoundDesignCopy(description, item.description, item.descriptionZh || item.description);
     context.append(subtitle, description);
+    if (item.roles?.length) {
+      const credits = document.createElement("p");
+      credits.className = "sound-project-credits";
+      setSoundDesignCopy(credits,
+        "My role\n" + item.roles.join(" · "),
+        "我的分工\n" + (item.rolesZh || item.roles).join(" · "));
+      context.append(credits);
+    }
     const media = document.createElement("div");
     media.className = "sound-project-embeds";
     const blocks = [];
@@ -100,7 +139,21 @@ function renderSoundDesignBlock(block) {
         title: soundDesignLanguage() === "zh" ? track.titleZh || track.title : track.title,
       })),
     });
-    renderProjectBlocks(media, blocks);
+    if (item.presentation === "story-textile") {
+      article.classList.add("sound-project--story-textile");
+      const storyboard = soundDesignFigure(item.storyboard, "sound-storyboard");
+      const textile = soundDesignFigure(item.textile, "sound-textile");
+      const pair = document.createElement("div");
+      pair.className = "sound-story-textile-pair";
+      if (storyboard) pair.append(storyboard);
+      if (textile) pair.append(textile);
+      media.append(pair);
+    }
+    // Shared renderer replaces its container's children. Render separately so
+    // the authored image composition remains intact.
+    const nativeMedia = document.createElement("div");
+    renderProjectBlocks(nativeMedia, blocks);
+    media.append(...nativeMedia.children);
     const videoCopies = [];
     if (item.video) videoCopies.push([
       item.video.title,
