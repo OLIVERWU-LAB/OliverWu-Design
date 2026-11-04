@@ -139,21 +139,23 @@ function renderSoundDesignBlock(block) {
         title: soundDesignLanguage() === "zh" ? track.titleZh || track.title : track.title,
       })),
     });
-    if (item.presentation === "story-textile") {
-      article.classList.add("sound-project--story-textile");
-      const storyboard = soundDesignFigure(item.storyboard, "sound-storyboard");
-      const textile = soundDesignFigure(item.textile, "sound-textile");
-      const pair = document.createElement("div");
-      pair.className = "sound-story-textile-pair";
-      if (storyboard) pair.append(storyboard);
-      if (textile) pair.append(textile);
-      media.append(pair);
-    }
     // Shared renderer replaces its container's children. Render separately so
     // the authored image composition remains intact.
     const nativeMedia = document.createElement("div");
     renderProjectBlocks(nativeMedia, blocks);
-    media.append(...nativeMedia.children);
+    if (item.presentation === "story-textile") {
+      article.classList.add("sound-project--story-textile");
+      const storyboard = soundDesignFigure(item.storyboard, "sound-storyboard");
+      const textile = soundDesignFigure(item.textile, "sound-textile");
+      const row = document.createElement("div");
+      row.className = "sound-textile-audio-row";
+      if (storyboard) media.append(storyboard);
+      if (textile) row.append(textile);
+      row.append(...nativeMedia.children);
+      media.append(row);
+    } else {
+      media.append(...nativeMedia.children);
+    }
     const videoCopies = [];
     if (item.video) videoCopies.push([
       item.video.title,
