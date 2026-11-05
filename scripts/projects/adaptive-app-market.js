@@ -281,9 +281,9 @@
     const appsLayout = el("div", "am-apps-composition");
     const related = el("div", "am-apps-related");
     related.append(
-      makeMiniScreen({screen:"phone-category-2026-jpg-web.webp", label:"Category", body:"Browse by task and genre."}),
-      makeMiniScreen({screen:"phone-category-video-2026-jpg-web.webp", label:"Video", body:"A focused category list."}),
-      makeMiniScreen({screen:"phone-new-releases-2026-jpg-web.webp", label:"New Releases", body:"Editorial entry from the category layer."})
+      makeMiniScreen({screen:"phone-category-2026-v2-jpg-web.webp", label:"Category", body:"Browse by task and genre."}),
+      makeMiniScreen({screen:"phone-popular-2026-jpg-web.webp", label:"Popular", body:"A focused category list."}),
+      makeMiniScreen({screen:"phone-charts-2026-jpg-web.webp", label:"Charts", body:"Ranked discovery"})
     );
     const appsPhone = makePhone({screen:"phone-apps-2026-jpg-web.webp", title:"Apps", eyebrow:"CONTINUOUS FEED", scroll:true, status:"light", tabbar:true, tabbarFile:"phone-tabbar-apps-2026-jpg-web.webp"});
     appsPhone.classList.add("am-apps-primary");

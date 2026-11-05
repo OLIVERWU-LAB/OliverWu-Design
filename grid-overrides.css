@@ -4176,6 +4176,7 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-partner-list {
+  --project-context-divider-color: var(--se-rule);
   position: relative;
   display: flex;
   align-items: center;
@@ -4198,11 +4199,9 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
   filter: brightness(0) saturate(100%) invert(23%) sepia(28%) saturate(2098%) hue-rotate(350deg) brightness(91%) contrast(96%);
 }
 
-.project-sheet[data-project-id="spirited-expedition"] .project-partner-list :is(img, .brand-mark) + img {
-  box-sizing: content-box;
+.project-sheet[data-project-id="spirited-expedition"] .project-partner-list .project-partner-separator {
+  margin-right: 7.04px;
   margin-left: 7.04px;
-  border-left: 2px solid var(--se-rule);
-  padding-left: 7.04px;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-partner-list::before {
@@ -9835,10 +9834,11 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
 }
 
 .project-sheet[data-project-id="poka-project-p"] .project-facts .project-partner-list {
+  --project-context-divider-color: rgba(6, 21, 38, .6);
   display: grid;
-  grid-template-columns: 150px 124px minmax(0, 1fr);
+  grid-template-columns: 120.6667px 2px 124px minmax(0, 1fr);
   align-items: center;
-  gap: 10px 18px;
+  gap: 10px 22.66665px;
 }
 
 .project-sheet[data-project-id="poka-project-p"] .project-partner-list :is(img, .brand-mark) {
@@ -9848,14 +9848,14 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
 }
 
 .project-sheet[data-project-id="poka-project-p"] .project-partner-list :is(img, .brand-mark):first-child {
-  width: 150px;
+  width: 120.6667px;
   height: 23px;
   object-fit: contain;
   object-position: left center;
   filter: brightness(0) saturate(100%) invert(22%) sepia(99%) saturate(4738%) hue-rotate(214deg) brightness(89%) contrast(109%);
 }
 
-.project-sheet[data-project-id="poka-project-p"] .project-partner-list :is(img, .brand-mark):nth-child(2) {
+.project-sheet[data-project-id="poka-project-p"] .project-partner-list img[src*="lightspeed-logo"] {
   width: 124px;
   height: 38px;
   object-fit: contain;
@@ -9883,6 +9883,7 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
   color: #5f656a;
   font-size: 12px;
   line-height: 1.35;
+  white-space: pre-line;
 }
 
 @media (hover: hover) {

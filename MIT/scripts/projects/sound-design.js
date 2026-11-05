@@ -50,9 +50,7 @@ function renderSoundDesignBlock(block) {
   if (block.type !== "sound-showcase") return [];
   const root = document.createElement("section");
   root.className = "sound-showcase";
-  const order = ["external-blood-vessel", "water-babies", "swrd", "spirited-expedition", "divine-stratagem", "utopia-2419", "bridget"];
-  const items = [...(block.items || [])].sort((a, b) => order.indexOf(a.projectId) - order.indexOf(b.projectId));
-  items.forEach((item, index) => {
+  (block.items || []).forEach((item, index) => {
     const article = document.createElement("article");
     article.className = `sound-project sound-project--${item.projectId}`;
     const header = document.createElement("header");

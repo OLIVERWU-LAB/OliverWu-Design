@@ -1,6 +1,6 @@
 {
   "id": "the-red-dawn",
-  "title": "THE RED DAWN",
+  "title": "The Red Dawn",
   "subtitle": "A Speculative Installation About Belief and Manufactured Reality",
   "backgroundColor": "#000000",
   "summary": "A future religion built from the visual and psychological machinery of online conspiracy.",
@@ -19,8 +19,8 @@
   "cover": {
     "ratio": "2 / 1",
     "designWidth": 2000,
-    "background": "assets/projects/the-red-dawn/cover-one-god-jpg-web.webp",
-    "layers": [{ "src": "assets/projects/the-red-dawn/cover-one-god-jpg-web.webp", "kind": "base", "parallax": 0.5, "parallaxLimit": 0.8 }]
+    "background": "assets/projects/the-red-dawn/cover-one-god-20261105-126-jpg-web.webp",
+    "layers": [{ "src": "assets/projects/the-red-dawn/cover-one-god-20261105-126-jpg-web.webp", "kind": "base", "parallax": 0.5, "parallaxLimit": 0.8 }]
   },
   "gallery": [],
   "sectionCount": 4,
@@ -51,11 +51,11 @@
           "caption": "PROPAGANDA FILM",
           "prophecies": [
             {
-              "title": "THE ONE GOD",
+              "title": "The One God",
               "body": "Nibiru shall replace the sun and rise from the horizon, burning away all sins."
             },
             {
-              "title": "THE ONE END",
+              "title": "The One End",
               "body": "Anunnaki shall shatter the human regime. In the Red Dawn, a new order shall arise."
             }
           ]

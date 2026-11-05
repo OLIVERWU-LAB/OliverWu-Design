@@ -68,8 +68,63 @@
               }
             },
             {
-              "projectId": "spirited-expedition",
+              "projectId": "water-babies",
               "index": "02",
+              "title": "Water Babies",
+              "subtitle": "Voice, Presence and Fluid Intelligence",
+              "subtitleZh": "声音、在场与流体智能",
+              "year": "2023",
+              "accent": "#42e5df",
+              "description": "A sensing and translation system maps audience presence and voice into a real-time field of fluid imagery, light and sound, turning frequency and movement into a non-verbal dialogue.",
+              "descriptionZh": "系统感知观众的在场与声音，并将其映射为实时流体影像、光线与声场，让频率和动作形成一场非语言的对话。",
+              "cover": "assets/projects/water-babies/cover-jpg-web.webp",
+              "video": {
+                "provider": "vimeo",
+                "id": "1222596918",
+                "title": "Water Babies — Live Installation",
+                "titleZh": "Water Babies — 现场装置"
+              },
+              "tracks": [
+                {
+                  "title": "Water Babies — Interactive Soundscape",
+                  "titleZh": "Water Babies — 交互声景",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2391424677&color=%232affff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                }
+              ]
+            },
+            {
+              "projectId": "swrd",
+              "index": "03",
+              "title": "Still Waters Run Deep",
+              "subtitle": "Sound for an Immersive VR Experience",
+              "subtitleZh": "沉浸式 VR 体验的声音设计",
+              "year": "2024",
+              "accent": "#588ce4",
+              "description": "A dual-frequency soundscape centred on 30 Hz and 432 Hz synchronises with an underwater VR environment. Resonance, texture and spatial movement guide attention toward a slower, meditative state.",
+              "descriptionZh": "以 30 Hz 与 432 Hz 为核心的双频声场与水下 VR 环境同步，通过共振、质感与空间运动，引导注意力进入更缓慢、冥想式的状态。",
+              "cover": "assets/projects/swrd/cover-jpg-web.webp",
+              "video": {
+                "provider": "youtube",
+                "id": "MtmEv7KFHcY",
+                "title": "Still Waters Run Deep — Project Demonstration",
+                "titleZh": "Still Waters Run Deep — 项目演示"
+              },
+              "tracks": [
+                {
+                  "title": "432 Hz — Surface Within",
+                  "titleZh": "432 Hz — 水面之内",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2391778497&color=%23588ce4&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                },
+                {
+                  "title": "30 Hz — Beneath the Current",
+                  "titleZh": "30 Hz — 潜流之下",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2391778494&color=%23588ce4&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                }
+              ]
+            },
+            {
+              "projectId": "spirited-expedition",
+              "index": "04",
               "title": "Spirited Expedition",
               "subtitle": "Original Music for Wild Rift CN",
               "subtitleZh": "为《英雄联盟手游》中国版创作的原创音乐",
@@ -127,66 +182,59 @@
                   "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2325615494&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
                 }
               ],
-              "index": "03"
+              "index": "05"
             },
             {
-              "projectId": "water-babies",
-              "index": "04",
-              "title": "Water Babies",
-              "subtitle": "Voice, Presence and Fluid Intelligence",
-              "subtitleZh": "声音、在场与流体智能",
+              "projectId": "bridget",
+              "title": "Bridget",
+              "titleZh": "Bridget",
+              "subtitle": "Music for an Illustrated Story",
+              "subtitleZh": "插画叙事配乐",
+              "description": "Fifty years after her death, Bridget is brought back through an experiment that promises a life without illness or trauma. Her memories of domestic abuse have been erased, yet a ghost-like remnant of herself survives in reflections. Water, dreams and a shattered plate gradually return what the experiment tried to remove.\n\nThe story asks whether a person can be made whole by deleting painful memories. Its blue and red illustrated scenes were brought together as a textile, carrying a fragmented inner world into a physical object. The original track “Bridget” accompanies the story.",
+              "descriptionZh": "去世五十年后，Bridget 在一项承诺消除疾病与创伤的实验中重获生命。遭受家庭暴力的记忆被抹去，但另一个幽灵般的自我仍存在于倒影之中。水、梦境与一只破碎的瓷盘，让被删除的过去逐渐返回。\n\n故事追问：删除痛苦的记忆，是否就能让一个人重新完整？蓝色与红色的插画场景被组合成纺织品，让碎片化的内心世界成为可触摸的实物。原创音乐《Bridget》伴随这段叙事。",
+              "presentation": "story-textile",
+              "storyboard": {
+                "src": "assets/projects/sound-design/bridget-storyboard.webp",
+                "width": 1238,
+                "height": 700,
+                "alt": "Ten blue and red illustrated scenes from Bridget’s story, with reflections, water and a broken plate",
+                "altZh": "Bridget故事的十幅蓝红插画：倒影、水与破碎的瓷盘",
+                "caption": "Illustrated story — fragments of memory",
+                "captionZh": "插画叙事 — 记忆的碎片"
+              },
+              "textile": {
+                "src": "assets/projects/sound-design/bridget-textile.webp",
+                "width": 527,
+                "height": 700,
+                "alt": "The blue and red story illustrations combined into a patchwork textile on a bed",
+                "altZh": "蓝红故事插画组成的拼接纺织品，铺放在床上",
+                "caption": "From illustrated scenes to a textile",
+                "captionZh": "从插画场景到纺织品"
+              },
+              "tracks": [
+                {
+                  "title": "Original Soundtrack",
+                  "titleZh": "原创配乐",
+                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1756618035&color=%23116ca6&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+                  "height": 600
+                }
+              ],
+              "index": "06",
               "year": "2023",
-              "accent": "#42e5df",
-              "description": "A sensing and translation system maps audience presence and voice into a real-time field of fluid imagery, light and sound, turning frequency and movement into a non-verbal dialogue.",
-              "descriptionZh": "系统感知观众的在场与声音，并将其映射为实时流体影像、光线与声场，让频率和动作形成一场非语言的对话。",
-              "cover": "assets/projects/water-babies/cover-jpg-web.webp",
-              "video": {
-                "provider": "vimeo",
-                "id": "1222596918",
-                "title": "Water Babies — Live Installation",
-                "titleZh": "Water Babies — 现场装置"
-              },
-              "tracks": [
-                {
-                  "title": "Water Babies — Interactive Soundscape",
-                  "titleZh": "Water Babies — 交互声景",
-                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2391424677&color=%232affff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-                }
-              ]
-            },
-            {
-              "projectId": "swrd",
-              "index": "05",
-              "title": "Still Waters Run Deep",
-              "subtitle": "Sound for an Immersive VR Experience",
-              "subtitleZh": "沉浸式 VR 体验的声音设计",
-              "year": "2024",
-              "accent": "#588ce4",
-              "description": "A dual-frequency soundscape centred on 30 Hz and 432 Hz synchronises with an underwater VR environment. Resonance, texture and spatial movement guide attention toward a slower, meditative state.",
-              "descriptionZh": "以 30 Hz 与 432 Hz 为核心的双频声场与水下 VR 环境同步，通过共振、质感与空间运动，引导注意力进入更缓慢、冥想式的状态。",
-              "cover": "assets/projects/swrd/cover-jpg-web.webp",
-              "video": {
-                "provider": "youtube",
-                "id": "MtmEv7KFHcY",
-                "title": "Still Waters Run Deep — Project Demonstration",
-                "titleZh": "Still Waters Run Deep — 项目演示"
-              },
-              "tracks": [
-                {
-                  "title": "432 Hz — Surface Within",
-                  "titleZh": "432 Hz — 水面之内",
-                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2391778497&color=%23588ce4&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-                },
-                {
-                  "title": "30 Hz — Beneath the Current",
-                  "titleZh": "30 Hz — 潜流之下",
-                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2391778494&color=%23588ce4&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-                }
+              "roles": [
+                "Music Composition",
+                "Story Writing",
+                "Textile Fabrication"
+              ],
+              "rolesZh": [
+                "配乐",
+                "故事创作",
+                "纺织制作"
               ]
             },
             {
               "projectId": "utopia-2419",
-              "index": "06",
+              "index": "07",
               "title": "UTOPIA 2419",
               "subtitle": "An Original Score for Interactive Fiction",
               "subtitleZh": "互动叙事原创配乐",
@@ -250,54 +298,6 @@
                   "title": "Still Here",
                   "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2392474635&color=%23741912&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
                 }
-              ]
-            },
-            {
-              "projectId": "bridget",
-              "title": "Bridget",
-              "titleZh": "Bridget",
-              "subtitle": "Music for an Illustrated Story",
-              "subtitleZh": "插画叙事配乐",
-              "description": "Fifty years after her death, Bridget is brought back through an experiment that promises a life without illness or trauma. Her memories of domestic abuse have been erased, yet a ghost-like remnant of herself survives in reflections. Water, dreams and a shattered plate gradually return what the experiment tried to remove.\n\nThe story asks whether a person can be made whole by deleting painful memories. Its blue and red illustrated scenes were brought together as a textile, carrying a fragmented inner world into a physical object. The original track “Bridget” accompanies the story.",
-              "descriptionZh": "去世五十年后，Bridget 在一项承诺消除疾病与创伤的实验中重获生命。遭受家庭暴力的记忆被抹去，但另一个幽灵般的自我仍存在于倒影之中。水、梦境与一只破碎的瓷盘，让被删除的过去逐渐返回。\n\n故事追问：删除痛苦的记忆，是否就能让一个人重新完整？蓝色与红色的插画场景被组合成纺织品，让碎片化的内心世界成为可触摸的实物。原创音乐《Bridget》伴随这段叙事。",
-              "presentation": "story-textile",
-              "storyboard": {
-                "src": "assets/projects/sound-design/bridget-storyboard.webp",
-                "width": 1238,
-                "height": 700,
-                "alt": "Ten blue and red illustrated scenes from Bridget’s story, with reflections, water and a broken plate",
-                "altZh": "Bridget故事的十幅蓝红插画：倒影、水与破碎的瓷盘",
-                "caption": "Illustrated story — fragments of memory",
-                "captionZh": "插画叙事 — 记忆的碎片"
-              },
-              "textile": {
-                "src": "assets/projects/sound-design/bridget-textile.webp",
-                "width": 527,
-                "height": 700,
-                "alt": "The blue and red story illustrations combined into a patchwork textile on a bed",
-                "altZh": "蓝红故事插画组成的拼接纺织品，铺放在床上",
-                "caption": "From illustrated scenes to a textile",
-                "captionZh": "从插画场景到纺织品"
-              },
-              "tracks": [
-                {
-                  "title": "Bridget",
-                  "titleZh": "Bridget — 叙事配乐",
-                  "embed": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1756618035&color=%23116ca6&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-                  "height": 600
-                }
-              ],
-              "index": "07",
-              "year": "2023",
-              "roles": [
-                "Music Composition",
-                "Story Writing",
-                "Textile Fabrication"
-              ],
-              "rolesZh": [
-                "配乐",
-                "故事创作",
-                "纺织制作"
               ]
             }
           ]

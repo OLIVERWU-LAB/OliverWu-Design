@@ -140,6 +140,14 @@ window.portfolioImageDimensions = {
     411,
     891
   ],
+  "assets/projects/adaptive-app-market/phone-category-2026-v2-jpg-web.webp": [
+    411,
+    891
+  ],
+  "assets/projects/adaptive-app-market/phone-charts-2026-jpg-web.webp": [
+    411,
+    891
+  ],
   "assets/projects/adaptive-app-market/phone-category-video-2026-jpg-web.webp": [
     411,
     891
@@ -185,6 +193,10 @@ window.portfolioImageDimensions = {
     2417
   ],
   "assets/projects/adaptive-app-market/phone-new-releases-2026-jpg-web.webp": [
+    411,
+    891
+  ],
+  "assets/projects/adaptive-app-market/phone-popular-2026-jpg-web.webp": [
     411,
     891
   ],

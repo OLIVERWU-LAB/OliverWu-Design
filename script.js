@@ -754,6 +754,20 @@ function projectBrandMark(source, name, color = "") {
 
 function renderProjectPartners(partners, fallbackContext, partnerLabel = "", projectId = "") {
   if (!projectDetailPartners) return;
+  // Independent rules keep the same geometry for raster, SVG and wrapped
+  // brand marks. Text, supplier notes and collaborator avatars are not logos.
+  const separateBrands = (nodes) => {
+    const isBrand = (node) => node?.tagName === "IMG"
+      || node?.classList.contains("brand-mark")
+      || node?.classList.contains("project-cooperation-brand");
+    return nodes.flatMap((node, index) => {
+      if (!index || !isBrand(node) || !isBrand(nodes[index - 1])) return [node];
+      const separator = document.createElement("span");
+      separator.className = "project-partner-separator";
+      separator.setAttribute("aria-hidden", "true");
+      return [separator, node];
+    });
+  };
   const partnerItems = Array.isArray(partners) ? partners : [];
   const renderedPartners = partnerItems.slice(0, 5).flatMap((partner) => {
     if (!partner || typeof partner !== "object") return [];
@@ -825,16 +839,16 @@ function renderProjectPartners(partners, fallbackContext, partnerLabel = "", pro
     label.className = "project-cooperation-label";
     label.textContent = partnerLabel;
     const brands = renderedPartners.splice(1);
-    row.append(label, ...brands.map(brand => {
+    row.append(label, ...separateBrands(brands.map(brand => {
       if (projectId !== 'adaptive-app-market') return brand;
       const item = document.createElement('span');
       item.className = 'project-cooperation-brand';
       item.append(brand);
       return item;
-    }));
+    })));
     renderedPartners.push(row);
   }
-  projectDetailPartners.replaceChildren(...renderedPartners);
+  projectDetailPartners.replaceChildren(...separateBrands(renderedPartners));
 }
 
 function projectBlockImage(source, alt = "") {

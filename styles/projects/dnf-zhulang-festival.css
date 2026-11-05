@@ -3,7 +3,7 @@
 .project-cover-dnf::after { position:absolute; top:7%; left:50%; width:11%; aspect-ratio:1; background:url("../../assets/projects/dnf-zhulang-festival/dnf-logo-clean-png-web.webp") center / contain no-repeat; content:""; filter:drop-shadow(0 4px 0 #0b3e67) drop-shadow(0 10px 18px rgba(4,28,46,.3)); transform:translateX(-50%); }
 
 .project-sheet[data-project-id="dnf-zhulang-festival"] {
-  --dnf-sand:#d8ccb6; --dnf-sky:#54c7e9; --dnf-ink:#102b38; --dnf-brand-brown:#6b3007;
+  --dnf-sand:#d4c8b2; --dnf-sky:#54c7e9; --dnf-ink:#102b38; --dnf-brand-brown:#6b3007;
   --dnf-muted:rgba(16,43,56,.72); --dnf-line:rgba(16,43,56,.2);
   color:var(--dnf-ink);
   background-color:var(--dnf-sand);
@@ -25,13 +25,12 @@
   gap:8px; padding:16px 32px; border-color:var(--dnf-line) !important;
 }
 .project-sheet[data-project-id="dnf-zhulang-festival"] .project-fact > span { color:var(--dnf-muted); }
-.project-sheet[data-project-id="dnf-zhulang-festival"] .project-partner-list { position:relative; display:flex; align-self:end; align-items:flex-end; flex-wrap:nowrap; gap:0; min-height:0; }
+.project-sheet[data-project-id="dnf-zhulang-festival"] .project-partner-list { --project-context-divider-color:rgba(107,48,7,.6); position:relative; display:flex; align-self:end; align-items:flex-end; flex-wrap:nowrap; gap:0; min-height:0; }
 .project-sheet[data-project-id="dnf-zhulang-festival"] .project-partner-list :is(img, .brand-mark) { display:block; width:auto; height:26px; max-width:none; max-height:none; object-fit:contain; background:transparent; filter:none; }
 .project-sheet[data-project-id="dnf-zhulang-festival"] .project-partner-list :is(img, .brand-mark):first-child { width:84px; height:84px; }
 .project-sheet[data-project-id="dnf-zhulang-festival"] .project-partner-list :is(img, .brand-mark):first-child { opacity:0; transform:translateY(22px); }
-.project-sheet[data-project-id="dnf-zhulang-festival"] .project-partner-list :is(img, .brand-mark) + :is(img, .brand-mark) { box-sizing:content-box; margin-left:41px; border:0; padding:0; filter:none; }
+.project-sheet[data-project-id="dnf-zhulang-festival"] .project-partner-list .project-partner-separator { align-self:flex-end; margin:0 19.5px 2.44px; }
 .project-sheet[data-project-id="dnf-zhulang-festival"] .project-partner-list::before { position:absolute; bottom:-22px; left:0; width:84px; height:84px; background:var(--dnf-brand-brown); content:""; -webkit-mask:url("../../assets/projects/dnf-zhulang-festival/dnf-logo-clean-png-web.webp") center / contain no-repeat; mask:url("../../assets/projects/dnf-zhulang-festival/dnf-logo-clean-png-web.webp") center / contain no-repeat; }
-.project-sheet[data-project-id="dnf-zhulang-festival"] .project-partner-list::after { position:absolute; bottom:0; left:104px; width:1px; height:26px; background:var(--dnf-brand-brown); content:""; }
 .project-sheet[data-project-id="dnf-zhulang-festival"] .project-facts > .project-fact-year.has-game-lockup { grid-template-rows:max-content 1fr max-content; gap:8px; }
 .project-sheet[data-project-id="dnf-zhulang-festival"] .project-game-lockup { display:flex; align-self:end; align-items:center; gap:12px; min-height:0; padding:0; border:0; background:transparent; }
 .project-sheet[data-project-id="dnf-zhulang-festival"] .project-game-lockup img { width:42px; height:42px; object-fit:contain; }

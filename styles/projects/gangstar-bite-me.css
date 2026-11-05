@@ -49,8 +49,14 @@
 
 /* Partner marks in the fact table: all three flattened to white at one height. */
 .project-sheet[data-project-id="gangstar-bite-me"] .project-partner-list {
+  --project-context-divider-color: rgba(244,241,241,.6);
   align-items: center;
-  gap: 18px;
+  gap: 0;
+}
+
+.project-sheet[data-project-id="gangstar-bite-me"] .project-partner-list .project-partner-separator {
+  margin-right: 11px;
+  margin-left: 11px;
 }
 
 .project-sheet[data-project-id="gangstar-bite-me"] .project-partner-list :is(img, .brand-mark) {

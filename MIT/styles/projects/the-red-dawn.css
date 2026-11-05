@@ -11,7 +11,7 @@
 .project-cover-15 {
   background-image:
     linear-gradient(0deg, rgba(0, 0, 0, 0.46), transparent 58%),
-    url("../../assets/projects/the-red-dawn/home-card-cover-one-god-jpg-web.webp");
+    url("../../assets/projects/the-red-dawn/home-card-cover-one-god-20261105-126-jpg-web.webp");
   background-position: center;
   background-size: cover;
   filter: none;
@@ -21,6 +21,7 @@
   --nibiru-title: #ff1515;
   --nibiru-glow: #f14343;
   --nibiru-copy: #ff3838;
+  --nibiru-body: #e15f5f;
   --nibiru-muted: #ff3838;
   --nibiru-black: #000;
   --nibiru-red-top: #3a0001;
@@ -1309,6 +1310,7 @@
 }
 
 .project-sheet[data-project-id="the-red-dawn"] .project-nibiru-prophecy strong {
+  text-transform: none;
   color: var(--nibiru-title);
   font-family: var(--nibiru-gothic);
   font-size: 34px;
@@ -1352,7 +1354,7 @@
 }
 
 .project-sheet[data-project-id="the-red-dawn"] .project-nibiru-prophecy {
-  margin-top: 48px;
+  margin-top: 60px;
 }
 
 /* Preserve the authored column positions while allowing the diagram to cover
@@ -1376,4 +1378,38 @@
   width: 100%;
   max-width: none;
   margin-inline: 0;
+}
+
+/* Narrative paragraphs retain the readable opening-copy colour; short labels,
+   numbered sequences, the research framework and closing line keep their red. */
+.project-sheet[data-project-id="the-red-dawn"] .project-chapter > header p,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-block:not([data-variant="nibiru-thanks"]) .project-content-copy > p,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-field-note,
+.project-sheet[data-project-id="the-red-dawn"] .project-nibiru-prophecy p,
+.project-sheet[data-project-id="the-red-dawn"] .project-content-video-caption {
+  color: var(--nibiru-body);
+}
+
+/* These three short labels accompany the narrative; standalone image notes
+   retain the original red. The opening facts try the same original red rule. */
+.project-sheet[data-project-id="the-red-dawn"] :is([data-variant="recruitment-film"], [data-variant="audience-testing"], .project-content-nibiru-artist-statement) .project-content-copy > span {
+  color: var(--nibiru-body) !important;
+}
+.project-sheet[data-project-id="the-red-dawn"] #projectDetailFacts,
+.project-sheet[data-project-id="the-red-dawn"] #projectDetailFacts > .project-fact {
+  border-color: var(--nibiru-rule) !important;
+}
+
+/* Keep the opening paragraph on the same adjusted pale red as the body. */
+.project-sheet[data-project-id="the-red-dawn"] #projectDetailIntroduction {
+  color: var(--nibiru-body) !important;
+}
+
+/* Opening labels use the original red alongside the established body colour. */
+.project-sheet[data-project-id="the-red-dawn"] #projectDetailFacts > .project-fact > span {
+  color: var(--nibiru-copy) !important;
+}
+.project-sheet[data-project-id="the-red-dawn"] #projectDetailTags li {
+  color: var(--nibiru-copy) !important;
+  border-color: var(--nibiru-copy) !important;
 }

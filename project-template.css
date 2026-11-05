@@ -261,6 +261,22 @@
   text-transform: uppercase;
 }
 
+/* All Context brand groups use Spirited Expedition's authored rule size.
+   Separate elements let every line stay centred and equally tall regardless
+   of the surrounding logo heights or image/SVG implementation. */
+.project-sheet .project-partner-list .project-partner-separator {
+  display: block;
+  flex: 0 0 2px;
+  align-self: center;
+  width: 2px;
+  height: 21.12px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--project-context-divider-color, currentColor);
+  pointer-events: none;
+}
+
 @keyframes nibiru-signal-noise {
   0% { background-position: 0 0; }
   25% { background-position: -13px 9px; }

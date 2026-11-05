@@ -322,6 +322,11 @@ APPS / CATEGORY ENTRY	应用 / 分类入口
 Apps Has Its Own Discovery Rhythm	应用发现，也有自己的节奏
 Category shortcuts narrow intent first; the Apps feed then carries editorial and ranked modules in a continuous surface.	分类快捷入口先聚焦需求，应用信息流再以连续页面承载精选与排行内容。
 Category	分类
+Popular	热门
+Charts	排行榜
+Category interface	分类界面
+Popular interface	热门二级页面
+Charts interface	排行榜界面
 Browse by task and genre.	按任务与类型浏览。
 Video	视频
 A focused category list.	聚焦单一类别的列表。
@@ -540,7 +545,6 @@ Capsule rooms layered above circulation and landscape.	胶囊居住单元叠置�
 The community opens from the viaduct toward the city.	社区从高架桥向城市展开。
 A second-floor corridor connects the private capsules.	二层走廊连接各个独立胶囊居所。
 Tencent Newcomer Competition · FANTA	腾讯新人赛 · FANTA
-Seven-person team: Game Designer · Character Artist · Environment Artist · 3D Artist · Technical Artist · Animator · VFX Artist	七人团队：游戏策划、角色原画、场景原画、三维美术、技术美术、动画与特效设计
 PLANET PRACIA · 2,500 M ABOVE THE SIGNAL	普拉西亚星球 · 信号上方 2,500 米
 A bright future is	明亮的未来，
 something we build together.	由我们共同建造。
@@ -746,8 +750,10 @@ Recruitment Film	招募影片
 A portrait recruitment film designed to circulate from inside the imagined organisation. It introduces the prophecy before the installation reveals the machinery that sustains it.	一部设定为在虚构组织内部传播的竖屏招募影片，先介绍预言，再由装置揭示维系它的运作机制。
 PROPAGANDA FILM	宣传影片
 THE ONE GOD	唯一之神
+The One God	唯一之神
 Nibiru shall replace the sun and rise from the horizon, burning away all sins.	尼比鲁将取代太阳，自地平线升起，焚尽一切罪恶。
 THE ONE END	唯一终局
+The One End	唯一终局
 Anunnaki shall shatter the human regime. In the Red Dawn, a new order shall arise.	阿努纳奇将粉碎人类政权，新的秩序将在赤色黎明中诞生。
 The network made physical	网络的实体化
 Phones orbit the central body as witnesses. Their posts continue downward as printed evidence, while exposed cables and the prophecy screen make the infrastructure of belief visible.	手机如见证者般环绕中心，帖子向下延伸为打印证据；裸露线缆与预言屏幕让信仰背后的基础设施显形。
@@ -826,3 +832,5 @@ Oliver Wu（me）	Oliver Wu（我）
  const tab = line.indexOf('\t');
  if (tab > 0) window.zhCNTranslations.set(line.slice(0, tab), line.slice(tab + 1));
 }
+
+window.zhCNTranslations.set("Seven-person team: Game Designer · Character Artist · 3D Artist\nEnvironment Artist · Technical Artist · Animator · VFX Artist", "七人团队：游戏策划 · 角色原画 · 三维美术\n场景原画 · 技术美术 · 动画 · 特效设计");

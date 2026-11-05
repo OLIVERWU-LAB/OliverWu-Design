@@ -180,6 +180,7 @@
 }
 
 .project-sheet[data-project-id="tencent-cloud-gaming"] .project-partner-list {
+  --project-context-divider-color: rgba(255,255,255,.6);
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -215,10 +216,13 @@
   height: 12px;
 }
 
-.project-sheet[data-project-id="tencent-cloud-gaming"] .project-cooperation-row > img + img {
-  box-sizing: content-box;
-  border-left: var(--project-hairline,1px) solid rgba(255,255,255,.28);
-  padding-left: 8px;
+.project-sheet[data-project-id="tencent-cloud-gaming"] .project-cooperation-row > .project-partner-separator {
+  width: 1px;
+  flex-basis: 1px;
+  margin-inline: calc((var(--project-hairline,1px) - 1px) / 2);
+  /* Keep the original 18px brand-row height while the rule extends equally. */
+  margin-top: -1.56px;
+  margin-bottom: -1.56px;
 }
 
 .project-sheet[data-project-id="tencent-cloud-gaming"] .project-partner-copy {

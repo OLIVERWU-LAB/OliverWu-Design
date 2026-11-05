@@ -1028,9 +1028,13 @@
   flex:0 0 auto;
   height:27px;
 }
-.project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-brand + .project-cooperation-brand {
-  border-left:var(--project-hairline,1px) solid rgba(36,43,58,.24);
-  padding-left:10px;
+.project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-row {
+  --project-context-divider-color: rgba(36,43,58,.6);
+}
+.project-sheet[data-project-id="adaptive-app-market"] .project-cooperation-row > .project-partner-separator {
+  width:1px;
+  flex-basis:1px;
+  margin-inline:calc((var(--project-hairline,1px) - 1px) / 2);
 }
 /* Tight asset bounds keep visible logo-to-divider gaps symmetric. Brand art
    stays at its previous visible size; other overview logos retain their sources. */
