@@ -59,18 +59,18 @@ body:is(.project-open, .project-preparing):has(.project-sheet[data-project-id="s
 }
 
 .project-sheet[data-project-id="start-cloud-gaming-3"] .project-chapter-title-surface {
-  width: max-content;
-  min-width: 248px;
+  width: 672px;
   max-width: 100%;
   height: auto;
   min-height: 0;
+  aspect-ratio: 672 / 113;
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 16px 36px 18px;
+  padding: 5.5px 0 0;
   justify-content: center;
   align-items: center;
   border: 0;
-  background: url('../../assets/projects/start-cloud-gaming-3/page-2/chapter-heading.webp') center / 100% 100% no-repeat;
+  background: url('../../assets/projects/start-cloud-gaming-3/page-2/chapter-launch-plate.webp') center / contain no-repeat;
   color: var(--start-ink);
   text-align: center;
   text-shadow: 0 1px 3px #03142f, 0 1px 8px rgb(3 20 47 / .6);
@@ -320,4 +320,8 @@ html[lang="zh-CN"] .project-sheet[data-project-id="start-cloud-gaming-3"] :is(
   font-family: var(--display);
   font-weight: 400;
   letter-spacing: .025em;
+}
+
+html[lang="zh-CN"] .project-sheet[data-project-id="start-cloud-gaming-3"] .project-chapter-title-surface {
+  padding-block-start: 1px;
 }

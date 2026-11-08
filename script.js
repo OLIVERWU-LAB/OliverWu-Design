@@ -23,7 +23,6 @@ const preferredWorkOrder = [
   "florahaven",
   "dnf-zhulang-festival",
   "poka-project-p",
-  "teemo-roguelike",
   "water-babies",
   "utopia-2419",
   "cloud-island-device",
@@ -44,7 +43,6 @@ const filterWorkOrders = {
     "florahaven",
     "dnf-zhulang-festival",
     "poka-project-p",
-    "teemo-roguelike",
     "water-babies",
     "utopia-2419",
     "cloud-island-device",
@@ -68,7 +66,6 @@ const filterWorkOrders = {
   ],
   "game": [
     "animula-nook-ugc",
-    "teemo-roguelike",
     "spirited-expedition",
     "gangstar-bite-me",
     "dnf-zhulang-festival",
@@ -439,7 +436,6 @@ const languageCopy = {
 const projectCardChineseCopy = {
   "start-cloud-gaming-3": { descriptor: "产品设计", context: "腾讯项目", title: "START 3.0" },
   "animula-nook-ugc": { descriptor: "游戏 UX 与 UI", context: "腾讯项目", title: "粒粒的小人国 — UGC 大厅 1.0" },
-  "teemo-roguelike": { descriptor: "游戏体验", context: "保密项目", title: "提莫 — Rogue 独立游戏" },
   "utopia-2419": { descriptor: "互动叙事", context: "个人项目", title: "乌托邦 2419" },
   "spirited-expedition": { descriptor: "游戏体验", context: "腾讯项目", title: "灵动探险队" },
   florahaven: { descriptor: "空间计算", context: "个人项目", title: "花境" },

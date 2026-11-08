@@ -412,10 +412,6 @@ window.portfolioImageDimensions = {
     1440,
     810
   ],
-  "assets/projects/unreleased-work/home-card-confidential-game-experience-jpg-web.webp": [
-    1440,
-    810
-  ],
   "assets/projects/utopia-2419/home-card-cover-background-png-web.webp": [
     1440,
     810
