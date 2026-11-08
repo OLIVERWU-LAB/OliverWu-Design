@@ -14,6 +14,7 @@ const preferredWorkOrder = [
   "tencent-cloud-gaming",
   "adaptive-app-market",
   "animula-nook-ugc",
+  "start-cloud-gaming-3",
   "spirited-expedition",
   "gangstar-bite-me",
   "visual-editor",
@@ -34,6 +35,7 @@ const filterWorkOrders = {
     "tencent-cloud-gaming",
     "adaptive-app-market",
     "animula-nook-ugc",
+    "start-cloud-gaming-3",
     "spirited-expedition",
     "gangstar-bite-me",
     "visual-editor",
@@ -51,6 +53,7 @@ const filterWorkOrders = {
   "product": [
     "tencent-cloud-gaming",
     "adaptive-app-market",
+    "start-cloud-gaming-3",
     "olive-town",
     "visual-editor",
     "florahaven",
@@ -434,6 +437,7 @@ const languageCopy = {
 };
 
 const projectCardChineseCopy = {
+  "start-cloud-gaming-3": { descriptor: "产品设计", context: "腾讯项目", title: "START 3.0" },
   "animula-nook-ugc": { descriptor: "游戏 UX 与 UI", context: "腾讯项目", title: "粒粒的小人国 — UGC 大厅 1.0" },
   "teemo-roguelike": { descriptor: "游戏体验", context: "保密项目", title: "提莫 — Rogue 独立游戏" },
   "utopia-2419": { descriptor: "互动叙事", context: "个人项目", title: "乌托邦 2419" },

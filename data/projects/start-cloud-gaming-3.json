@@ -1,0 +1,584 @@
+{
+  "id": "start-cloud-gaming-3",
+  "title": "START 3.0",
+  "subtitle": "Cloud gaming across PC, handheld, TV, mobile and web",
+  "backgroundColor": "#050b19",
+  "summary": "UI updates and iteration for START 3.0.",
+  "body": "START is Tencent’s cloud gaming platform. The 3.0 update covers PC, handheld, TV, mobile and web, with a shared visual language and consistent interactions across devices.",
+  "company": "Tencent START",
+  "companyLabel": "PROJECT CONTEXT",
+  "year": "3.0",
+  "yearLabel": "PROJECT VERSION",
+  "roles": [
+    "START 3.0 UI Updates & Iteration"
+  ],
+  "partners": [
+    {
+      "name": "Tencent",
+      "logo": "assets/media/logo-tencent.svg",
+      "color": "#eef2f8"
+    }
+  ],
+  "tags": [
+    "Product Design",
+    "Cloud Gaming",
+    "Cross-Device Experience",
+    "Version Update"
+  ],
+  "cover": {
+    "ratio": "2 / 1",
+    "designWidth": 1920,
+    "background": "assets/projects/start-cloud-gaming-3/page-2/pc/cover-brand.webp",
+    "layers": [
+      {
+        "src": "assets/projects/start-cloud-gaming-3/page-2/pc/cover-brand.webp",
+        "kind": "base",
+        "parallax": 0,
+        "parallaxLimit": 0
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 3,
+  "sections": [
+    {
+      "title": "PC",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "text",
+          "variant": "start-pc-home",
+          "title": "Home",
+          "body": "The home page brings together featured recommendations, new releases, play rankings, banner campaigns, popular events and community picks.",
+          "presentation": {
+            "kind": "feature",
+            "screens": [
+              {
+                "title": "Recommendations",
+                "scroll": {
+                  "width": 1440,
+                  "height": 810,
+                  "base": "assets/projects/start-cloud-gaming-3/page-2/pc/home-shell.webp",
+                  "panes": [
+                    {
+                      "x": 298,
+                      "y": 80,
+                      "width": 1142,
+                      "height": 730,
+                      "layers": [
+                        {
+                          "file": "assets/projects/start-cloud-gaming-3/page-2/pc/home-feed.webp",
+                          "x": 0,
+                          "y": 47,
+                          "width": 1081,
+                          "height": 4573
+                        }
+                      ],
+                      "contentHeight": 4644,
+                      "scrollbar": true
+                    }
+                  ],
+                  "overlays": [
+                    {
+                      "file": "assets/projects/start-cloud-gaming-3/page-2/pc/home-fixed-tabs.webp",
+                      "x": 298,
+                      "y": 80,
+                      "width": 1132,
+                      "height": 46
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "variant": "start-pc-library",
+          "title": "Find and return to games",
+          "body": "The library supports filtering. My Games gives players a direct route back to their own titles.",
+          "presentation": {
+            "kind": "pair",
+            "screens": [
+              {
+                "title": "Game Library",
+                "file": "assets/projects/start-cloud-gaming-3/page-2/pc/library-fps.webp"
+              },
+              {
+                "title": "My Games",
+                "file": "assets/projects/start-cloud-gaming-3/page-2/pc/my-games-first-screen.webp"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "variant": "start-pc-benefits",
+          "title": "Benefits Center",
+          "body": "Game events and rewards have a dedicated entry in the sidebar.",
+          "presentation": {
+            "kind": "feature",
+            "screens": [
+              {
+                "title": "Events and rewards",
+                "file": "assets/projects/start-cloud-gaming-3/page-2/pc/benefits.webp"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "variant": "start-pc-detail",
+          "title": "Game details",
+          "body": "The left column presents the game overview, media and news. The right column shows available versions and supported platforms. It stays in view once its content ends, while the left column keeps scrolling.",
+          "presentation": {
+            "kind": "feature",
+            "screens": [
+              {
+                "title": "Multi-version game details",
+                "scroll": {
+                  "width": 1440,
+                  "height": 810,
+                  "base": "assets/projects/start-cloud-gaming-3/page-2/pc/detail-shell.webp",
+                  "panes": [
+                    {
+                      "x": 298,
+                      "y": 80,
+                      "width": 1142,
+                      "height": 730,
+                      "layers": [
+                        {
+                          "file": "assets/projects/start-cloud-gaming-3/page-2/pc/detail-main.webp",
+                          "x": 0,
+                          "y": 46,
+                          "width": 720,
+                          "height": 1337
+                        },
+                        {
+                          "file": "assets/projects/start-cloud-gaming-3/page-2/pc/detail-info.webp",
+                          "x": 743,
+                          "y": 46,
+                          "width": 338,
+                          "height": 789,
+                          "pinBottom": 636
+                        }
+                      ],
+                      "contentHeight": 1415,
+                      "scrollbar": true
+                    }
+                  ],
+                  "overlays": [
+                    {
+                      "file": "assets/projects/start-cloud-gaming-3/page-2/pc/detail-fixed-title.webp",
+                      "x": 298,
+                      "y": 80,
+                      "width": 1132,
+                      "height": 45
+                    },
+                    {
+                      "file": "assets/projects/start-cloud-gaming-3/page-2/pc/detail-launch.webp",
+                      "x": 1042,
+                      "y": 670,
+                      "width": 336,
+                      "height": 140
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "variant": "start-pc-launch",
+          "title": "Launch options",
+          "body": "The expanded state shows the available ways to start the selected game.",
+          "presentation": {
+            "kind": "feature",
+            "screens": [
+              {
+                "title": "Quick launch",
+                "file": "assets/projects/start-cloud-gaming-3/page-2/pc/detail-launch-options.webp"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "variant": "start-pc-membership",
+          "title": "Membership",
+          "body": "Tiers, included benefits and available offers sit in one scrollable view.",
+          "presentation": {
+            "kind": "feature",
+            "screens": [
+              {
+                "title": "Membership overview",
+                "scroll": {
+                  "width": 1440,
+                  "height": 810,
+                  "base": "assets/projects/start-cloud-gaming-3/page-2/pc/member-shell.webp",
+                  "panes": [
+                    {
+                      "x": 298,
+                      "y": 72,
+                      "width": 1142,
+                      "height": 738,
+                      "layers": [
+                        {
+                          "file": "assets/projects/start-cloud-gaming-3/page-2/pc/member-content.webp",
+                          "x": 0,
+                          "y": 6,
+                          "width": 1090,
+                          "height": 1035
+                        }
+                      ],
+                      "contentHeight": 1066,
+                      "scrollbar": true
+                    }
+                  ],
+                  "overlays": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "variant": "start-pc-member-actions",
+          "title": "Benefits and purchase",
+          "body": "Players can check what their plan includes and review a purchase before paying.",
+          "presentation": {
+            "kind": "pair",
+            "screens": [
+              {
+                "title": "Member benefits",
+                "file": "assets/projects/start-cloud-gaming-3/page-2/pc/member-rights.webp"
+              },
+              {
+                "title": "Purchase dialog",
+                "file": "assets/projects/start-cloud-gaming-3/page-2/pc/member-purchase.webp"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Handheld & TV",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "nibiru-portrait-film",
+          "variant": "start-handheld-video-home-scroll",
+          "title": "Browse with the controller",
+          "body": "Move between recently played games, then scroll down to browse the store.",
+          "src": "assets/projects/start-cloud-gaming-3/handheld-home-scroll-720.mp4",
+          "poster": "assets/projects/start-cloud-gaming-3/handheld-home-scroll-poster.webp"
+        },
+        {
+          "type": "nibiru-portrait-film",
+          "variant": "start-handheld-video-detail-entry",
+          "title": "From home to game details",
+          "body": "Open the selected game and scroll to see supported devices and versions.",
+          "src": "assets/projects/start-cloud-gaming-3/handheld-detail-entry-720.mp4",
+          "poster": "assets/projects/start-cloud-gaming-3/handheld-detail-entry-poster.webp"
+        },
+        {
+          "type": "text",
+          "variant": "start-handheld-states",
+          "title": "Before and during play",
+          "body": "The detail page brings launch and versions together. The in-game menu keeps display and session controls accessible.",
+          "presentation": {
+            "kind": "pair",
+            "screens": [
+              {
+                "title": "Game details",
+                "file": "assets/projects/start-cloud-gaming-3/page-2/immersive/game-detail.webp"
+              },
+              {
+                "title": "In-game menu",
+                "file": "assets/projects/start-cloud-gaming-3/page-2/immersive/in-game-menu.webp"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Mobile",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "text",
+          "variant": "start-mobile",
+          "presentation": {
+            "kind": "phone",
+            "screens": [
+              {
+                "title": "Mobile home",
+                "scroll": {
+                  "width": 375,
+                  "height": 812,
+                  "base": "assets/projects/start-cloud-gaming-3/page-2/mobile/home-shell.webp",
+                  "panes": [
+                    {
+                      "x": 0,
+                      "y": 126,
+                      "width": 375,
+                      "height": 596,
+                      "layers": [
+                        {
+                          "file": "assets/projects/start-cloud-gaming-3/page-2/mobile/home-feed.webp",
+                          "x": 16,
+                          "y": 14,
+                          "width": 359,
+                          "height": 4806
+                        }
+                      ],
+                      "contentHeight": 4866
+                    }
+                  ],
+                  "overlays": [
+                    {
+                      "file": "assets/projects/start-cloud-gaming-3/page-2/mobile/home-tab-bar.webp",
+                      "x": 0,
+                      "y": 673,
+                      "width": 375,
+                      "height": 139
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "Mobile game details",
+                "scroll": {
+                  "width": 375,
+                  "height": 812,
+                  "base": "assets/projects/start-cloud-gaming-3/page-2/mobile/detail-shell.webp",
+                  "panes": [
+                    {
+                      "x": 0,
+                      "y": 42,
+                      "width": 375,
+                      "height": 690,
+                      "layers": [
+                        {
+                          "file": "assets/projects/start-cloud-gaming-3/page-2/mobile/detail-content.webp",
+                          "x": 0,
+                          "y": 0,
+                          "width": 375,
+                          "height": 1503
+                        }
+                      ],
+                      "contentHeight": 1571,
+                      "topFade": 54
+                    }
+                  ],
+                  "overlays": [
+                    {
+                      "file": "assets/projects/start-cloud-gaming-3/page-2/mobile/detail-bottom-mask.webp",
+                      "x": 0,
+                      "y": 676,
+                      "width": 375,
+                      "height": 136
+                    },
+                    {
+                      "file": "assets/projects/start-cloud-gaming-3/page-2/mobile/detail-launch.webp",
+                      "x": 0,
+                      "y": 684,
+                      "width": 375,
+                      "height": 110
+                    },
+                    {
+                      "file": "assets/projects/start-cloud-gaming-3/page-2/mobile/detail-header.webp",
+                      "x": 17,
+                      "y": 16,
+                      "width": 346,
+                      "height": 60
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "Mobile membership",
+                "scroll": {
+                  "width": 375,
+                  "height": 812,
+                  "base": "assets/projects/start-cloud-gaming-3/page-2/mobile/member-shell.webp",
+                  "panes": [
+                    {
+                      "x": 0,
+                      "y": 89,
+                      "width": 375,
+                      "height": 633,
+                      "layers": [
+                        {
+                          "file": "assets/projects/start-cloud-gaming-3/page-2/mobile/member-content.webp",
+                          "x": 6,
+                          "y": 0,
+                          "width": 364,
+                          "height": 1329
+                        }
+                      ],
+                      "contentHeight": 1389
+                    }
+                  ],
+                  "overlays": [
+                    {
+                      "file": "assets/projects/start-cloud-gaming-3/page-2/mobile/member-fixed-actions.webp",
+                      "x": 0,
+                      "y": 672,
+                      "width": 375,
+                      "height": 140
+                    },
+                    {
+                      "file": "assets/projects/start-cloud-gaming-3/page-2/mobile/member-header.webp",
+                      "x": 17,
+                      "y": 17,
+                      "width": 344,
+                      "height": 64
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "imageSizes": {
+    "assets/projects/start-cloud-gaming-3/page-2/pc/home-shell.webp": [
+      1440,
+      810
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/home-feed.webp": [
+      1081,
+      4573
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/home-fixed-tabs.webp": [
+      1132,
+      46
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/library-fps.webp": [
+      1440,
+      810
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/my-games-first-screen.webp": [
+      1440,
+      810
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/benefits.webp": [
+      1442,
+      812
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/detail-shell.webp": [
+      1440,
+      810
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/detail-main.webp": [
+      720,
+      1337
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/detail-info.webp": [
+      338,
+      789
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/detail-fixed-title.webp": [
+      1132,
+      45
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/detail-launch.webp": [
+      336,
+      140
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/detail-launch-options.webp": [
+      1440,
+      810
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/member-shell.webp": [
+      1440,
+      810
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/member-content.webp": [
+      1090,
+      1035
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/member-rights.webp": [
+      1442,
+      810
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/member-purchase.webp": [
+      1440,
+      810
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/immersive/game-detail.webp": [
+      1280,
+      720
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/immersive/in-game-menu.webp": [
+      1280,
+      720
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/mobile/home-shell.webp": [
+      375,
+      812
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/mobile/home-feed.webp": [
+      359,
+      4806
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/mobile/home-tab-bar.webp": [
+      375,
+      139
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/mobile/detail-shell.webp": [
+      375,
+      812
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/mobile/detail-content.webp": [
+      375,
+      1503
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/mobile/detail-bottom-mask.webp": [
+      375,
+      136
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/mobile/detail-launch.webp": [
+      375,
+      110
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/mobile/detail-header.webp": [
+      346,
+      60
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/mobile/member-shell.webp": [
+      375,
+      812
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/mobile/member-content.webp": [
+      364,
+      1329
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/mobile/member-header.webp": [
+      344,
+      64
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/pc/cover-brand.webp": [
+      1920,
+      1080
+    ],
+    "assets/projects/start-cloud-gaming-3/handheld-home-scroll-poster.webp": [
+      1440,
+      810
+    ],
+    "assets/projects/start-cloud-gaming-3/handheld-detail-entry-poster.webp": [
+      1440,
+      810
+    ],
+    "assets/projects/start-cloud-gaming-3/page-2/mobile/member-fixed-actions.webp": [
+      375,
+      140
+    ]
+  }
+}

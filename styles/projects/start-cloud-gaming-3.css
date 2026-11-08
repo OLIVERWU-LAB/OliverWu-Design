@@ -1,0 +1,323 @@
+/* START 3.0 uses the shared 1280px detail canvas and a 1000px reading track. */
+body:is(.project-open, .project-preparing):has(.project-sheet[data-project-id="start-cloud-gaming-3"]) #dotField {
+  visibility: hidden;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] {
+  --start-bg: #050b19;
+  --start-ink: #f0f3f8;
+  --start-copy: #a9b2c0;
+  --start-muted: #8995a7;
+  --start-accent: #65b8ff;
+  --start-line: rgb(255 255 255 / .12);
+  --start-surface: #0a1326;
+  --start-track: 1000px;
+  --start-inset: 140px;
+  color: var(--start-ink);
+  /* The shared renderer supplies an inline preview background. */
+  background: var(--start-bg) !important;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] :is(
+  .project-intro, .project-tag-register, .project-introduction, .project-facts,
+  .project-chapters, .project-chapter, .project-content-blocks, .project-sheet-footer
+) {
+  background: transparent;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-cover-layer-base {
+  object-position: center 32%;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] :is(#projectDetailIntroduction, .project-content-copy p) {
+  color: var(--start-copy);
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] :is(.project-tags li, .project-facts, .project-fact) {
+  border-color: var(--start-line) !important;
+  color: var(--start-ink);
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-tags li {
+  color: var(--start-copy);
+  background: transparent;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-fact > span {
+  color: var(--start-muted);
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-facts strong {
+  color: var(--start-ink);
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-chapters > .project-chapter-titlebar {
+  position: relative;
+  top: auto;
+  padding: 48px var(--start-inset) 44px;
+  background: transparent;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-chapter-title-surface {
+  width: max-content;
+  min-width: 248px;
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 16px 36px 18px;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  background: url('../../assets/projects/start-cloud-gaming-3/page-2/chapter-heading.webp') center / 100% 100% no-repeat;
+  color: var(--start-ink);
+  text-align: center;
+  text-shadow: 0 1px 3px #03142f, 0 1px 8px rgb(3 20 47 / .6);
+  font-size: var(--project-template-title-size);
+  line-height: 1.12;
+  letter-spacing: .012em;
+  will-change: auto;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-chapter .project-content-block {
+  display: block;
+  width: var(--start-track);
+  max-width: none;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 0 68px;
+  background: transparent;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-chapter .project-content-copy {
+  gap: 9px;
+  margin: 0 0 22px;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-content-copy:empty {
+  display: none;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-content-copy h4 {
+  color: var(--start-ink);
+  font: 700 25px/1.28 var(--display);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-content-copy p {
+  max-width: 760px;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-content-copy > span {
+  order: -1;
+  margin: 0;
+  color: var(--start-accent);
+  font: 600 10px/1.4 Arial, Helvetica, sans-serif;
+  letter-spacing: .08em;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-screen-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 28px;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-pair .start-screen-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-phone .start-screen-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-screen {
+  min-width: 0;
+  margin: 0;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-screen-viewport {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--start-surface);
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-phone .start-screen-viewport {
+  border-radius: 14px;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-screen-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] :is(.start-screen-base, .start-screen-layer) {
+  position: absolute;
+  display: block;
+  max-width: none;
+  object-fit: fill;
+  pointer-events: none;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-screen-base {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-scroll-region {
+  position: absolute;
+  container-type: inline-size;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-scroll-region.is-scrolled::after {
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--start-scroll-fade-size);
+  background: linear-gradient(#101214 58%, transparent);
+  pointer-events: none;
+  content: "";
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-scroll-pane {
+  width: 100%;
+  height: 100%;
+  overflow: hidden auto;
+  scrollbar-width: none;
+  scroll-behavior: auto;
+  overscroll-behavior: auto;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-scroll-pane:focus-visible {
+  outline: 2px solid var(--start-accent);
+  outline-offset: -2px;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-scroll-content {
+  position: relative;
+  display: flow-root;
+  width: 100%;
+  /* Keep layer coordinates independent of space reserved by a scrollbar. */
+  width: 100cqw;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-scroll-pin {
+  position: sticky;
+  pointer-events: none;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-scroll-pane[data-scrollbar="visible"] {
+  scrollbar-width: auto;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-scroll-pane[data-scrollbar="visible"]::-webkit-scrollbar {
+  width: 7px;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-scroll-pane[data-scrollbar="visible"]::-webkit-scrollbar-track {
+  border-radius: 7px 7px 0 0;
+  background: rgb(255 255 255 / .05);
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-scroll-pane[data-scrollbar="visible"]::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  background: rgb(255 255 255 / .10);
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .project-sheet[data-project-id="start-cloud-gaming-3"] .start-scroll-pane[data-scrollbar="visible"] {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255 255 255 / .10) rgb(255 255 255 / .05);
+  }
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-screen-caption {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 13px 0 0;
+  background: transparent;
+  color: var(--start-copy);
+  font: 400 13px/1.55 Arial, Helvetica, sans-serif;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-screen-caption strong {
+  color: var(--start-ink);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-screen-caption p {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .start-screen-label {
+  color: var(--start-muted);
+  font-size: 10px;
+  letter-spacing: .05em;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-nibiru-portrait-film {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-nibiru-portrait-film .project-content-copy {
+  order: -1;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-nibiru-portrait-frame {
+  position: relative;
+  display: block;
+  min-height: 0;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 8px;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-nibiru-portrait-frame::before,
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-nibiru-portrait-frame::after {
+  content: none;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-nibiru-portrait-frame video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-sheet-footer {
+  border-color: var(--start-line);
+  color: var(--start-copy);
+}
+
+.project-sheet[data-project-id="start-cloud-gaming-3"] .project-sheet-footer button {
+  color: var(--start-ink);
+}
+
+html[lang="zh-CN"] .project-sheet[data-project-id="start-cloud-gaming-3"] :is(
+  .project-chapter-title-surface, .project-content-copy h4
+) {
+  font-family: var(--display);
+  font-weight: 400;
+  letter-spacing: .025em;
+}
