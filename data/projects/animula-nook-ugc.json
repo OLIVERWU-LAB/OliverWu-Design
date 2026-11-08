@@ -1,0 +1,1131 @@
+{
+  "id": "animula-nook-ugc",
+  "title": "Animula Nook — UGC Hub 1.0",
+  "subtitle": "Cross-device journeys for discovery, creation and connection",
+  "backgroundColor": "#f5ebd4",
+  "summary": "Cross-device game UX and a working Web prototype for discovering, joining and creating player-made spaces.",
+  "body": "Animula Nook is a life simulation game in a miniature world, where everyday objects become a home for building, decorating, exploring and spending time together. This case study focuses on UGC Hub 1.0, connecting player-created Home Design spaces, social spaces and streams through discovery, participation and interaction. My role covered cross-device UX for mobile touch, PC mouse and keyboard, and console controller input, alongside developing a Web prototype to explore task flows, focus paths, input feedback and interface behavior.",
+  "company": "Tencent",
+  "companyLabel": "PROJECT CONTEXT",
+  "year": "2026",
+  "yearLabel": "PROJECT YEAR",
+  "roles": [
+    "Cross-device UX · Mobile / PC / Console",
+    "Web Prototype Development"
+  ],
+  "partners": [
+    {
+      "name": "Tencent",
+      "logo": "assets/media/logo-tencent.svg",
+      "color": "#72573d"
+    }
+  ],
+  "tags": [
+    "UGC Experience",
+    "Cross-Device Interaction",
+    "Front-End Prototyping"
+  ],
+  "cover": {
+    "ratio": "2 / 1",
+    "designWidth": 1920,
+    "background": "assets/projects/animula-nook-ugc/cover-16.webp",
+    "layers": [
+      {
+        "src": "assets/projects/animula-nook-ugc/cover-16.webp",
+        "kind": "base",
+        "parallax": 0.5,
+        "parallaxLimit": 0.8
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 5,
+  "sections": [
+    {
+      "title": "Project definition",
+      "body": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "animula-ugc",
+          "variant": "ugc-definition",
+          "title": "Inside the UGC Hub",
+          "body": "Two connected content branches let players move between exploring a space and spending time with its creator or community. Shared discovery and social tools support both.",
+          "caption": "CONTENT",
+          "presentation": {
+            "kind": "definition",
+            "branches": [
+              {
+                "title": "Home Design & Social Spaces",
+                "body": "Player-created places to discover, visit and build on.",
+                "items": [
+                  "Create a Home Design",
+                  "Visit a space",
+                  "Like & comment"
+                ]
+              },
+              {
+                "title": "Stream",
+                "body": "Rooms where players can watch, join and plan to meet again.",
+                "items": [
+                  "Create a stream",
+                  "Watch & join",
+                  "Book & follow"
+                ]
+              }
+            ],
+            "support": [
+              "Search & recommendations",
+              "Social connections",
+              "Reports & system notices"
+            ]
+          }
+        },
+        {
+          "type": "animula-ugc",
+          "variant": "ugc-requirements",
+          "title": "Inputs & languages",
+          "body": "Mobile touch, PC mouse and keyboard, and console controllers share the same core tasks. Localization adapts the type stack and text height across eight languages.",
+          "caption": "REQUIREMENTS",
+          "presentation": {
+            "kind": "requirements",
+            "deviceTitle": "Input models",
+            "devices": [
+              {
+                "icon": "touch",
+                "title": "Mobile / touch",
+                "body": "Direct taps and an on-screen keyboard."
+              },
+              {
+                "icon": "desktop",
+                "title": "PC / mouse & keyboard",
+                "body": "Pointer selection, text input and scrolling."
+              },
+              {
+                "icon": "controller",
+                "title": "Console / PS5 controller",
+                "body": "Focus navigation and button confirmation."
+              }
+            ],
+            "languageTitle": "Type system",
+            "languages": [
+              {
+                "locale": "zh-Hans",
+                "code": "SC",
+                "name": "简体中文",
+                "display": "粒粒的小人国",
+                "secondary": "UGC 大厅",
+                "body": "创建、拜访与相聚。",
+                "fontNames": {
+                  "display": "造字工房乐真体",
+                  "secondary": "汉仪正圆 85S",
+                  "body": "汉仪正圆 75S"
+                },
+                "extension": false,
+                "sampleImage": "assets/projects/animula-nook-ugc/type-samples/sample-zh-hans.webp"
+              },
+              {
+                "locale": "zh-Hant",
+                "code": "TC",
+                "name": "繁體中文",
+                "display": "粒粒的小人國",
+                "secondary": "UGC 大廳",
+                "body": "創作、拜訪與相聚。",
+                "fontNames": {
+                  "display": "造字工房乐真体",
+                  "secondary": "汉仪正圆 85S",
+                  "body": "汉仪正圆 75S"
+                },
+                "extension": false,
+                "sampleImage": "assets/projects/animula-nook-ugc/type-samples/sample-zh-hant.webp"
+              },
+              {
+                "locale": "ja",
+                "code": "JA",
+                "name": "日本語",
+                "display": "リリのワールド",
+                "secondary": "UGC ハブ",
+                "body": "つくる、訪れる、つながる。",
+                "fontNames": {
+                  "display": "Potta One",
+                  "secondary": "汉仪正圆 85S",
+                  "body": "汉仪正圆 75S"
+                },
+                "extension": false,
+                "sampleImage": "assets/projects/animula-nook-ugc/type-samples/sample-ja.webp"
+              },
+              {
+                "locale": "ko",
+                "code": "KO",
+                "name": "한국어",
+                "display": "리리의 세계",
+                "secondary": "UGC 라운지",
+                "body": "만들고, 방문하고, 함께해요.",
+                "fontNames": {
+                  "display": "拾陆字濑户 Bold",
+                  "secondary": "Swei Gothic CJK TC Bold",
+                  "body": "Swei Gothic CJK TC Regular"
+                },
+                "extension": false,
+                "sampleImage": "assets/projects/animula-nook-ugc/type-samples/sample-ko.webp"
+              },
+              {
+                "locale": "en",
+                "code": "EN",
+                "name": "English",
+                "display": "Animula Nook",
+                "secondary": "UGC Hub",
+                "body": "Create, visit and connect.",
+                "fontNames": {
+                  "display": "Dymon-ShouXieTi",
+                  "secondary": "汉仪正圆 85S",
+                  "body": "汉仪正圆 75S"
+                },
+                "extension": false,
+                "sampleImage": "assets/projects/animula-nook-ugc/type-samples/sample-en.webp"
+              }
+            ],
+            "typeNote": "More languages",
+            "extensionLabel": "",
+            "extensionBody": "Shared Latin typography, with room for accented letters and longer labels.",
+            "deviceKicker": "",
+            "languageKicker": ""
+          }
+        }
+      ]
+    },
+    {
+      "title": "Interaction design",
+      "body": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "animula-ugc",
+          "variant": "ugc-discover",
+          "title": "Find a place to begin",
+          "body": "Persistent navigation supports browsing; filters and search narrow an open-ended choice into a specific destination.",
+          "caption": "DISCOVERY",
+          "presentation": {
+            "kind": "discovery",
+            "items": [
+              {
+                "title": "Move between content areas",
+                "body": "Recommended, Weekly Featured, Home Design and Stream share the same navigation layout.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/01-sidebar-tabs.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/01-sidebar-tabs-poster.webp",
+                "dimensions": [
+                  1440,
+                  810
+                ]
+              },
+              {
+                "title": "Narrow the list",
+                "body": "Filtering and sorting stay close to the content they change.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/04-filter-sort.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/04-filter-sort-poster.webp",
+                "dimensions": [
+                  1280,
+                  720
+                ]
+              },
+              {
+                "title": "Switch tabs within a page",
+                "body": "Switch tabs without leaving the page.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/02-mine-messages-tabs-960.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/02-mine-messages-tabs-960-poster.webp",
+                "dimensions": [
+                  960,
+                  540
+                ]
+              }
+            ],
+            "layout": "lead",
+            "journey": "01",
+            "search": {
+              "item": {
+                "title": "From history to results",
+                "body": "History, a fresh query, clear and results each have a visible state.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/05-search-flow.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/05-search-flow-poster.webp",
+                "dimensions": [
+                  1440,
+                  810
+                ]
+              },
+              "reverse": true,
+              "badge": "",
+              "title": "Search",
+              "body": "Search turns a known intent into a specific destination.",
+              "notes": [
+                {
+                  "title": "Start from history",
+                  "body": "Reuse a previous search, or enter a new query without leaving the discovery context."
+                },
+                {
+                  "title": "Keep the next step visible",
+                  "body": "Input, clear and results each have an explicit state."
+                }
+              ]
+            },
+            "features": [
+              {
+                "title": "Recommended",
+                "body": "Curated entry points",
+                "iconFile": "assets/projects/animula-nook-ugc/collage/icon-participate.webp"
+              },
+              {
+                "title": "Weekly Featured",
+                "body": "Fresh discoveries",
+                "iconFile": "assets/projects/animula-nook-ugc/collage/icon-discover.webp"
+              },
+              {
+                "title": "Home Design",
+                "body": "Player-made spaces",
+                "iconFile": "assets/projects/animula-nook-ugc/collage/icon-visual.webp"
+              },
+              {
+                "title": "Stream",
+                "body": "Watch and join",
+                "iconFile": "assets/projects/animula-nook-ugc/collage/icon-create.webp"
+              },
+              {
+                "title": "Me",
+                "body": "Creations and activity",
+                "iconFile": "assets/projects/animula-nook-ugc/collage/icon-social.webp"
+              },
+              {
+                "title": "Messages",
+                "body": "Conversations and notices",
+                "iconFile": "assets/projects/animula-nook-ugc/collage/icon-message.webp"
+              }
+            ]
+          }
+        },
+        {
+          "type": "animula-ugc",
+          "variant": "ugc-participation",
+          "title": "Explore, reply & join",
+          "body": "",
+          "caption": "PARTICIPATION",
+          "presentation": {
+            "kind": "participation",
+            "items": [
+              {
+                "title": "Explain the character limit",
+                "body": "Show up to four complete lines, then scroll inside the field. Show the count from 60 characters; over 70, turn it red and prevent sending without truncating the text.",
+                "tabTitle": "Character limit",
+                "characterLimit": {
+                  "max": 70,
+                  "countFrom": 60,
+                  "lines": 4
+                },
+                "tabDescription": "See when a comment gets too long.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/07-comment-limit.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/07-comment-limit-poster.webp",
+                "dimensions": [
+                  1440,
+                  810
+                ]
+              },
+              {
+                "title": "Keep the conversation in context",
+                "body": "Open a reply thread around its original comment, then return to the comment list.",
+                "tabTitle": "Reply context",
+                "tabDescription": "Read replies around the original comment.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/08-reply-thread.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/08-reply-thread-poster.webp",
+                "dimensions": [
+                  1440,
+                  810
+                ]
+              }
+            ],
+            "layout": "lead",
+            "journey": "02",
+            "noteLabel": "DESIGN FOCUS",
+            "leadNotes": [
+              {
+                "title": "Understand before joining",
+                "body": "Content, creator details and conversation stay together in the detail layer."
+              },
+              {
+                "title": "Act in the same context",
+                "body": "Share or join from the same place; comment feedback stays close to the input."
+              }
+            ],
+            "detailDemos": [
+              {
+                "title": "Home Design",
+                "body": "Preview a Home Design and read comments, then share, create or enter.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/06-home-design-1152.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/06-home-design-1152-poster.webp",
+                "dimensions": [
+                  1152,
+                  648
+                ]
+              },
+              {
+                "title": "Stream",
+                "body": "Check stream activity and room rules, then switch streams or join.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/06-live-room-1152.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/06-live-room-1152-poster.webp",
+                "dimensions": [
+                  1152,
+                  648
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "animula-ugc",
+          "variant": "ugc-create",
+          "title": "Create & schedule",
+          "body": "The creation forms show what players need to set up a Home Design or a stream. Scheduling adds a separate time decision and keeps booking changes understandable.",
+          "caption": "CREATION",
+          "presentation": {
+            "kind": "creation",
+            "items": [
+              {
+                "title": "Create a Home Design",
+                "body": "Cover, title, description and room settings form one focused creation task.",
+                "tabTitle": "Create a Home Design",
+                "tabDescription": "Set the cover, title and room settings.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/09-create-form.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/09-create-form-poster.webp",
+                "dimensions": [
+                  1440,
+                  810
+                ]
+              },
+              {
+                "title": "Set up a stream",
+                "body": "The stream setup form adds an announcement, rules and joining conditions.",
+                "tabTitle": "Go live",
+                "tabDescription": "Prepare the announcement and joining rules.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/10-go-live-form.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/10-go-live-form-poster.webp",
+                "dimensions": [
+                  1440,
+                  810
+                ]
+              },
+              {
+                "title": "Choose a time",
+                "body": "A dedicated time picker makes the scheduled session explicit.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/11-schedule-wheel-1152.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/11-schedule-wheel-1152-poster.webp",
+                "dimensions": [
+                  1152,
+                  648
+                ]
+              },
+              {
+                "title": "Cancel and book again",
+                "body": "Booking state changes alongside the action, so the next step remains visible.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/12-cancel-rebook-live-1152.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/12-cancel-rebook-live-1152-poster.webp",
+                "dimensions": [
+                  1152,
+                  648
+                ]
+              }
+            ],
+            "layout": "pairs",
+            "journey": "03",
+            "groups": [
+              {
+                "start": 0,
+                "number": "01",
+                "title": "Create & go live",
+                "body": "Two creation tasks, with different information to prepare."
+              },
+              {
+                "start": 2,
+                "number": "02",
+                "title": "Booking controls",
+                "body": "Keep the time decision and booking state easy to follow."
+              }
+            ],
+            "visibility": {
+              "item": {
+                "title": "Reveal the active field",
+                "body": "The stream setup form scrolls to keep the active input and its surrounding context visible.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/18-live-form-autoscroll.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/18-live-form-autoscroll-poster.webp",
+                "dimensions": [
+                  1440,
+                  810
+                ]
+              },
+              "title": "Reveal field",
+              "examples": [
+                {
+                  "file": "assets/projects/animula-nook-ugc/form-visibility-21/field-top.webp",
+                  "alt": "Active title field",
+                  "dimensions": [
+                    432,
+                    248
+                  ]
+                },
+                {
+                  "file": "assets/projects/animula-nook-ugc/form-visibility-21/description.webp",
+                  "alt": "Active description field",
+                  "dimensions": [
+                    432,
+                    248
+                  ]
+                },
+                {
+                  "file": "assets/projects/animula-nook-ugc/form-visibility-21/field-clipped.webp",
+                  "alt": "A field partly clipped by the viewport",
+                  "dimensions": [
+                    432,
+                    248
+                  ]
+                },
+                {
+                  "file": "assets/projects/animula-nook-ugc/form-visibility-21/dropdown-revealed.webp",
+                  "alt": "The dropdown revealed before selection",
+                  "dimensions": [
+                    432,
+                    248
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "animula-ugc",
+          "variant": "ugc-return",
+          "title": "People & messages",
+          "body": "Social lists and visitor profiles answer who the player is connected to. Messages return them to a conversation or a system task.",
+          "caption": "CONNECTIONS",
+          "presentation": {
+            "kind": "social",
+            "items": [
+              {
+                "title": "Browse social connections",
+                "body": "Following, mutual connections and followers each remain easy to distinguish.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/17-following-friends-followers-1152.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/17-following-friends-followers-1152-poster.webp",
+                "dimensions": [
+                  1152,
+                  648
+                ]
+              },
+              {
+                "title": "Visit the person behind the notification",
+                "body": "Open a visitor profile and follow back without losing the social context.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/15-message-profile-followback-1152.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/15-message-profile-followback-1152-poster.webp",
+                "dimensions": [
+                  1152,
+                  648
+                ]
+              },
+              {
+                "title": "From notification to conversation",
+                "body": "Reply directly, then return to the original comment in context.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/messages-conversation.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/messages-conversation-poster.webp",
+                "dimensions": [
+                  1280,
+                  720
+                ]
+              }
+            ],
+            "layout": "pairs",
+            "journey": "04",
+            "groups": [
+              {
+                "start": 0,
+                "number": "01",
+                "title": "People & profiles",
+                "body": "Browse relationships, then open the person behind a notification."
+              },
+              {
+                "start": 2,
+                "number": "02",
+                "title": "Message actions",
+                "body": "Reply, find the original comment, or manage system notices in the same message journey.",
+                "icon": "message"
+              }
+            ],
+            "system": {
+              "item": {
+                "title": "Read and manage system notices",
+                "body": "View system messages, enter edit mode and manage the notice list.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/16-system-message-view-edit-960.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/16-system-message-view-edit-960-poster.webp",
+                "dimensions": [
+                  960,
+                  540
+                ]
+              },
+              "title": "System notices",
+              "body": "Keep reading and list management in the same area, with an explicit edit state.",
+              "notes": [
+                {
+                  "title": "Read the notice",
+                  "body": "Open a system notice without switching to an unrelated social task."
+                },
+                {
+                  "title": "Enter an edit state",
+                  "body": "Review and manage the notice list with visible selection and editing states."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Prototyping workflow",
+      "body": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "animula-ugc",
+          "variant": "ugc-workflow",
+          "title": "Build & refine",
+          "body": "Agents build the structure quickly; I finish the fine adjustments in VS Code.",
+          "caption": "PROCESS",
+          "presentation": {
+            "kind": "workflow",
+            "screens": [
+              {
+                "file": "assets/projects/animula-nook-ugc/workflow-vscode.webp",
+                "title": "VS Code · Manual refinement",
+                "body": "I tuned spacing, line height and font sizes directly in HTML and CSS.",
+                "alt": "Visual Studio Code screenshot from the project workflow",
+                "dimensions": [
+                  1000,
+                  1016
+                ]
+              }
+            ],
+            "boardTitle": "Scaffold to detail",
+            "toolStages": [
+              {
+                "range": "0–~70%",
+                "title": "Build scaffold",
+                "body": "Core flows",
+                "tools": [
+                  {
+                    "name": "Cursor",
+                    "iconFile": "assets/projects/animula-nook-ugc/tools/cursor.svg"
+                  },
+                  {
+                    "name": "ChatGPT",
+                    "iconFile": "assets/projects/animula-nook-ugc/tools/chatgpt.svg"
+                  },
+                  {
+                    "name": "Claude",
+                    "iconFile": "assets/projects/animula-nook-ugc/tools/claude.svg"
+                  }
+                ]
+              },
+              {
+                "range": "~70–80%",
+                "title": "Tune details",
+                "body": "Repeated prompts for spacing and type"
+              },
+              {
+                "range": "~80–100%",
+                "title": "Refine by hand",
+                "body": "Edit HTML and CSS",
+                "tools": [
+                  {
+                    "name": "VS Code",
+                    "iconFile": "assets/projects/animula-nook-ugc/tools/vscode.svg"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "animula-ugc",
+          "variant": "ugc-motion",
+          "title": "Show loading feedback",
+          "body": "Loading feedback is one example of bringing interaction decisions into code. The recording, original CSS parameters and live preview show the same staggered three-dot state.",
+          "caption": "FEEDBACK",
+          "presentation": {
+            "kind": "motion",
+            "items": [
+              {
+                "title": "Scroll, wait, continue",
+                "body": "Near the bottom, loading feedback appears before the next batch is appended.",
+                "src": "assets/projects/animula-nook-ugc/media-14x/03-scroll-load-more-960.mp4",
+                "poster": "assets/projects/animula-nook-ugc/posters/03-scroll-load-more-960-poster.webp",
+                "dimensions": [
+                  960,
+                  540
+                ]
+              }
+            ],
+            "notes": [
+              {
+                "title": "800 ms cycle",
+                "body": "Ease-in-out timing, with the second and third dots delayed by 120 ms and 240 ms."
+              },
+              {
+                "title": "8 px bounce",
+                "body": "At 35% of the cycle, each dot rises and reaches full opacity, then returns to its resting state."
+              },
+              {
+                "title": "Feedback before the next batch",
+                "body": "Bottom 180 px · Next batch +600 ms"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Device Adaptation",
+      "body": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "animula-ugc",
+          "variant": "ugc-device-inputs",
+          "title": "Input across devices",
+          "body": "",
+          "caption": "INPUT",
+          "presentation": {
+            "kind": "device-inputs",
+            "items": [
+              {
+                "title": "Mobile · touch",
+                "device": "mobile",
+                "inputs": [
+                  {
+                    "screen": {
+                      "file": "assets/projects/animula-nook-ugc/adaptation-20/comment-mobile-900.webp",
+                      "alt": "Mobile comment input with the touch keyboard",
+                      "dimensions": [
+                        900,
+                        415
+                      ]
+                    },
+                    "body": "Keep the composer visible above the touch keyboard."
+                  },
+                  {
+                    "screen": {
+                      "file": "assets/projects/animula-nook-ugc/adaptation-20/create-mobile-900.webp",
+                      "alt": "Mobile creation input with the touch keyboard",
+                      "dimensions": [
+                        900,
+                        415
+                      ]
+                    },
+                    "body": "The active creation field stays above the touch keyboard."
+                  }
+                ]
+              },
+              {
+                "title": "PC · mouse/keys",
+                "device": "pc",
+                "inputs": [
+                  {
+                    "screen": {
+                      "file": "assets/projects/animula-nook-ugc/adaptation-19/comment-pc-1440.webp",
+                      "alt": "PC comment input inside the detail card",
+                      "dimensions": [
+                        1440,
+                        810
+                      ]
+                    },
+                    "body": "Type directly inside the detail layer."
+                  },
+                  {
+                    "screen": {
+                      "file": "assets/projects/animula-nook-ugc/adaptation-19/create-pc-864.webp",
+                      "alt": "PC creation form with direct text entry",
+                      "dimensions": [
+                        864,
+                        486
+                      ]
+                    },
+                    "body": "Edit fields directly in the creation form."
+                  }
+                ]
+              },
+              {
+                "title": "Console · pad",
+                "device": "console",
+                "inputs": [
+                  {
+                    "screen": {
+                      "file": "assets/projects/animula-nook-ugc/adaptation-19/comment-console-864.webp",
+                      "alt": "Console comment composer and system keyboard",
+                      "dimensions": [
+                        864,
+                        486
+                      ]
+                    },
+                    "body": "Move to a dedicated input layer and system keyboard."
+                  },
+                  {
+                    "screen": {
+                      "file": "assets/projects/animula-nook-ugc/adaptation-19/create-console-864.webp",
+                      "alt": "Console creation input and system keyboard",
+                      "dimensions": [
+                        864,
+                        486
+                      ]
+                    },
+                    "body": "Select a field, then enter text in the system input layer."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "animula-ugc",
+          "variant": "ugc-device-actions",
+          "title": "Comment actions",
+          "body": "",
+          "caption": "ACTIONS",
+          "presentation": {
+            "title": "Direct vs. focused",
+            "body": "Touch and pointer target individual actions. Controller focus selects the whole comment, then exposes its actions in one menu.",
+            "pc": {
+              "title": "Touch & pointer",
+              "body": "Reply and Like are direct targets. The ellipsis keeps the remaining management actions.",
+              "screens": [
+                {
+                  "file": "assets/projects/animula-nook-ugc/adaptation-19/actions-tap-rest-1456.webp",
+                  "alt": "Touch and pointer comment actions in the default state",
+                  "dimensions": [
+                    1456,
+                    842
+                  ]
+                },
+                {
+                  "file": "assets/projects/animula-nook-ugc/adaptation-19/actions-tap-menu-1456.webp",
+                  "alt": "Touch and pointer ellipsis menu with Delete and Report Comment",
+                  "dimensions": [
+                    1456,
+                    842
+                  ]
+                }
+              ],
+              "access": [
+                {
+                  "label": "Direct",
+                  "actions": [
+                    "Reply",
+                    "Like"
+                  ]
+                },
+                {
+                  "label": "More menu",
+                  "actions": [
+                    "Delete",
+                    "Report Comment"
+                  ]
+                }
+              ]
+            },
+            "console": {
+              "title": "Controller",
+              "body": "Focus the whole comment, then choose an action from the ellipsis menu.",
+              "screens": [
+                {
+                  "file": "assets/projects/animula-nook-ugc/adaptation-19/actions-console-rest-web.webp",
+                  "alt": "Console focus selects an entire comment",
+                  "dimensions": [
+                    1330,
+                    770
+                  ]
+                },
+                {
+                  "file": "assets/projects/animula-nook-ugc/adaptation-19/actions-console-menu-web.webp",
+                  "alt": "Console comment menu with all seven actions",
+                  "dimensions": [
+                    1330,
+                    770
+                  ]
+                }
+              ],
+              "access": [
+                {
+                  "label": "Focus → menu",
+                  "actions": [
+                    "Like",
+                    "Reply",
+                    "View Replies",
+                    "See More",
+                    "Profile",
+                    "Delete",
+                    "Report Comment"
+                  ]
+                }
+              ]
+            },
+            "kind": "device-actions"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Visual presentation",
+      "body": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "animula-ugc",
+          "variant": "ugc-visuals",
+          "title": "One visual language",
+          "body": "",
+          "caption": "INTERFACE",
+          "presentation": {
+            "kind": "visuals",
+            "hero": {
+              "title": "Console / Recommended",
+              "device": "console",
+              "screen": {
+                "file": "assets/projects/animula-nook-ugc/visuals-21/tv-recommended.webp",
+                "alt": "Console recommended interface",
+                "dimensions": [
+                  1920,
+                  1080
+                ]
+              }
+            },
+            "phones": [
+              {
+                "title": "Weekly Featured",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/weekly.webp",
+                  "alt": "Mobile / Weekly Featured",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              },
+              {
+                "title": "Home Design",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/home-designs.webp",
+                  "alt": "Mobile / Home Design",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              },
+              {
+                "title": "Filter recommendations",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/filter.webp",
+                  "alt": "Mobile / Filter recommendations",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              },
+              {
+                "title": "Weekly Featured",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/weekly-alt.webp",
+                  "alt": "Mobile / Weekly Featured",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              },
+              {
+                "title": "No results",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/empty-search.webp",
+                  "alt": "Mobile / No results",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              },
+              {
+                "title": "Loading skeleton",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/skeleton.webp",
+                  "alt": "Mobile / Loading skeleton",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              },
+              {
+                "title": "Edit a Home Design",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/edit-design.webp",
+                  "alt": "Mobile / Edit a Home Design",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              },
+              {
+                "title": "Social room details",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/rp-room.webp",
+                  "alt": "Mobile / Social room details",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              },
+              {
+                "title": "My stream",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/my-live-detail.webp",
+                  "alt": "Mobile / My stream",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              },
+              {
+                "title": "Upcoming stream",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/live-upcoming.webp",
+                  "alt": "Mobile / Upcoming stream",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              },
+              {
+                "title": "Change a scheduled session",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/schedule.webp",
+                  "alt": "Mobile / Change a scheduled session",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              },
+              {
+                "title": "Sharing",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/share.webp",
+                  "alt": "Mobile / Sharing",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              },
+              {
+                "title": "Followers",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/followers.webp",
+                  "alt": "Mobile / Followers",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              },
+              {
+                "title": "Report content",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/report-content.webp",
+                  "alt": "Mobile / Report content",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              },
+              {
+                "title": "Moderation history",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/violations.webp",
+                  "alt": "Mobile / Moderation history",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              },
+              {
+                "title": "My Home Design options",
+                "device": "mobile",
+                "screen": {
+                  "file": "assets/projects/animula-nook-ugc/visuals-21/my-design-menu.webp",
+                  "alt": "Mobile / My Home Design options",
+                  "dimensions": [
+                    1152,
+                    532
+                  ]
+                }
+              }
+            ],
+            "overview": {
+              "file": "assets/projects/animula-nook-ugc/ui-overview-16.webp",
+              "title": "Three-device design coverage",
+              "body": "An overview of the mobile, PC and console interface designs.",
+              "alt": "Source overview of mobile PC and console UI designs",
+              "dimensions": [
+                1133,
+                915
+              ]
+            },
+            "credits": "UI visual credits in the source design: 梦娇 / 宇辰 / miko.",
+            "pc": {
+              "device": "pc",
+              "screen": {
+                "file": "assets/projects/animula-nook-ugc/adaptation-19/comment-pc-1440.webp",
+                "alt": "PC comment input inside the detail card",
+                "dimensions": [
+                  1440,
+                  810
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "productSources": [
+    {
+      "title": "Official website ↗",
+      "url": "https://life.qq.com/"
+    }
+  ],
+  "licenses": [
+    "assets/projects/animula-nook-ugc/device-icons-LICENSE.txt"
+  ]
+}

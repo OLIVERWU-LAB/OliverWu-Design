@@ -11,9 +11,9 @@ const sectionNavigationLinks = [
 const workFilterButtons = [...document.querySelectorAll(".work-filter")];
 const projectCards = [...document.querySelectorAll(".case-card[data-category]")];
 const preferredWorkOrder = [
-  "animula-nook-ugc",
   "tencent-cloud-gaming",
   "adaptive-app-market",
+  "animula-nook-ugc",
   "spirited-expedition",
   "gangstar-bite-me",
   "visual-editor",
@@ -31,9 +31,9 @@ const preferredWorkOrder = [
 ];
 const filterWorkOrders = {
   "all": [
-    "animula-nook-ugc",
     "tencent-cloud-gaming",
     "adaptive-app-market",
+    "animula-nook-ugc",
     "spirited-expedition",
     "gangstar-bite-me",
     "visual-editor",
@@ -229,7 +229,9 @@ function clamp(value, minimum, maximum) {
 function translatePortfolioTree(root, language = currentLanguage) {
   if (!root || !window.zhCNTranslations) return;
   const normalize = (value) => value.replace(/\s+/g, " ").trim().toLowerCase();
-  const normalizedCopy = new Map([...window.zhCNTranslations].map(([en, zh]) => [normalize(en), zh]));
+  const projectCopy = root.closest?.(".project-sheet")?.dataset.projectId === "animula-nook-ugc"
+    ? window.zhCNAnimulaTranslations : null;
+  const normalizedCopy = new Map([...window.zhCNTranslations, ...(projectCopy || [])].map(([en, zh]) => [normalize(en), zh]));
 
   const translateValue = (value) => {
     const leading = value.match(/^\s*/)?.[0] || "";
@@ -432,7 +434,7 @@ const languageCopy = {
 };
 
 const projectCardChineseCopy = {
-  "animula-nook-ugc": { descriptor: "游戏 UX 与 UI", context: "保密项目", title: "粒粒小人国 — 游戏大厅 1.0" },
+  "animula-nook-ugc": { descriptor: "游戏 UX 与 UI", context: "腾讯项目", title: "粒粒的小人国 — UGC 大厅 1.0" },
   "teemo-roguelike": { descriptor: "游戏体验", context: "保密项目", title: "提莫 — Rogue 独立游戏" },
   "utopia-2419": { descriptor: "互动叙事", context: "个人项目", title: "乌托邦 2419" },
   "spirited-expedition": { descriptor: "游戏体验", context: "腾讯项目", title: "灵动探险队" },
@@ -1497,6 +1499,9 @@ function renderProjectBlocks(container, blocks) {
     }
     if (block.type === "sound-showcase" && typeof renderSoundDesignBlock === "function") {
       return renderSoundDesignBlock(block);
+    }
+    if (block.type === "animula-ugc" && typeof renderAnimulaNookBlock === "function") {
+      return renderAnimulaNookBlock(block);
     }
     const type = ["split", "duo", "inset", "stage", "text", "video", "video-pair", "project-link", "soundcloud-stack", "motion-grid", "media-rail", "hongshan-intro", "hongshan-footer", "technical-spec", "ui-element-library", "ui-responsive-system", "ui-phone-demo", "ui-phone-fan", "ui-phone-pair", "ui-finale", "audio-player-grid", "audio-footer", "flora-market", "flora-concept-pair", "flora-ui-showcase", "flora-interaction-gallery", "flora-gallery", "flora-feedback", "olive-inspiration", "olive-process-stack", "olive-metabolism-grid", "olive-render-gallery", "cloud-board-stack", "midi-board-stack", "midi-outcome-pair", "water-board-stack", "utopia-epigraph", "utopia-guide", "utopia-section-heading", "utopia-story-sphere", "utopia-story-scroll", "utopia-video-trio", "utopia-synopsis", "utopia-playtime", "utopia-closing", "poka-manifesto", "poka-collage", "poka-loop-video", "poka-process-pair", "poka-ui-showcase", "nibiru-belief-loop", "nibiru-metric", "nibiru-field-study", "nibiru-portrait-film", "nibiru-ritual-sequence", "nibiru-installation-triptych", "nibiru-system-grid", "nibiru-artist-statement", "show-emotions-gallery", "show-emotions-triptych", "show-emotions-system"].includes(block.type) ? block.type : "inset";
     const figure = document.createElement("figure");
@@ -3714,6 +3719,20 @@ function applyProjectData(card, projectCopy = projectFallbackCopy) {
   projectDetailIntroduction.textContent = localizedProjectValue(projectCopy, "body", "", "en")
     || localizedProjectValue(projectCopy, "summary", "", "en")
     || projectFallbackCopy.body;
+  if (Array.isArray(projectCopy.productSources)) {
+    const sources = document.createElement("span");
+    sources.className = "ugc-product-source";
+    for (const item of projectCopy.productSources) {
+      if (typeof item?.title !== "string" || typeof item.url !== "string" || !item.url.startsWith("https://")) continue;
+      const link = document.createElement("a");
+      link.textContent = item.title;
+      link.href = item.url;
+      link.target = "_blank";
+      link.rel = "noopener";
+      sources.append(link);
+    }
+    if (sources.childElementCount) projectDetailIntroduction.append(sources);
+  }
   const coverReady = renderProjectCover(projectCopy.cover, activeProjectFallbackCover);
   queueProjectParallax();
   const projectYear = projectCopy.year || card.querySelector(".case-details time")?.textContent?.trim() || projectFallbackCopy.year;

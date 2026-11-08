@@ -9,6 +9,7 @@
   const media = new Set();
   let visible = new WeakSet();
   const animations = new Map();
+  const activity = new Map();
   const chapters = new Set();
   const frameActivity = new WeakMap();
   const placeholders = new Map();
@@ -24,9 +25,19 @@
       else visible.delete(entry.target);
       if (chapters.has(entry.target)) entry.target.toggleAttribute('data-runtime-visible', entry.isIntersecting);
       syncMedia(entry.target);
+      syncActivity(entry.target);
     }
     schedule();
   }, { root: scroller, rootMargin: '180px 0px', threshold: .01 });
+
+  function syncActivity(node) {
+    const entry = activity.get(node);
+    if (!entry) return;
+    const active = node.isConnected && eligible() && visible.has(node) && !reduced.matches;
+    if (entry.active === active) return;
+    entry.active = active;
+    entry.callback(active);
+  }
 
   function syncMedia(node) {
     if (!node.isConnected || !media.has(node)) return;
@@ -80,6 +91,7 @@
   function refresh() {
     layer.dataset.runtimeVisibility = document.hidden ? 'hidden' : 'visible';
     media.forEach(syncMedia);
+    activity.forEach((entry, node) => syncActivity(node));
     if (eligible() && reduced.matches) {
       animations.forEach((entry, node) => { if (node.isConnected && visible.has(node)) entry.callback(performance.now(), 0); });
     }
@@ -112,6 +124,8 @@
     mediaRecovery.forEach(entry => entry.controls?.remove()); mediaRecovery.clear();
     chapters.forEach(node => node.removeAttribute('data-runtime-visible')); chapters.clear();
     animations.forEach(entry => entry.dispose?.()); animations.clear();
+    for (const entry of activity.values()) if (entry.active) entry.callback(false);
+    activity.clear();
     cancelAnimationFrame(raf); raf = 0; previousTime = 0;
   }
   function source(node, url) {
@@ -385,6 +399,11 @@
   window.projectRuntime = {
     begin, reset, source, bind, enter, refresh, observeContent, waitIcon,
     get phase() { return phase; },
+    watchActivity(node, callback) {
+      activity.set(node, { callback, active: false });
+      observer.observe(node);
+      syncActivity(node);
+    },
     animate(node, callback, dispose) {
       animations.set(node, { callback, dispose }); observer.observe(node); schedule();
     },
