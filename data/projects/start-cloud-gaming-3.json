@@ -10,7 +10,8 @@
   "year": "3.0",
   "yearLabel": "PROJECT VERSION",
   "roles": [
-    "START 3.0 UI Updates & Iteration"
+    "Product Design",
+    "UI Updates & Iteration"
   ],
   "partners": [
     {
@@ -28,10 +29,10 @@
   "cover": {
     "ratio": "2 / 1",
     "designWidth": 1920,
-    "background": "assets/projects/start-cloud-gaming-3/page-2/pc/cover-brand.webp",
+    "background": "assets/projects/start-cloud-gaming-3/page-2/pc/cover-brand-detail-144.webp",
     "layers": [
       {
-        "src": "assets/projects/start-cloud-gaming-3/page-2/pc/cover-brand.webp",
+        "src": "assets/projects/start-cloud-gaming-3/page-2/pc/cover-brand-detail-144.webp",
         "kind": "base",
         "parallax": 0,
         "parallaxLimit": 0
@@ -564,7 +565,7 @@
       344,
       64
     ],
-    "assets/projects/start-cloud-gaming-3/page-2/pc/cover-brand.webp": [
+    "assets/projects/start-cloud-gaming-3/page-2/pc/cover-brand-detail-144.webp": [
       1920,
       1080
     ],

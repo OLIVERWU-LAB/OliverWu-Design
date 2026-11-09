@@ -153,8 +153,8 @@ for (const [en, zh] of [
     "手机"
   ],
   [
-    "START 3.0 UI Updates & Iteration",
-    "START 3.0 界面更新与迭代"
+    "UI Updates & Iteration",
+    "UI 更新与迭代"
   ],
   [
     "Cloud gaming across PC, handheld, TV, mobile and web",

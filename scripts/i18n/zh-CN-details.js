@@ -5,7 +5,7 @@ Some project details are temporarily unavailable. You can return and open this p
 This media is temporarily unavailable.	此媒体暂时无法加载。
 GAME CONTENT · CLOUD GAMING SERVICES	游戏内容 · 云游戏技术服务
 In-Car Gaming	车载游戏
-Tencent In-Car Gaming	腾讯车载游戏
+Tencent In-Car Gaming	腾讯车载云游戏
 In-Vehicle HMI	车载人机交互
 Cloud Gaming	云游戏
 Cloud Gaming · Pioneer × START	云游戏 · 先锋 × START
@@ -413,7 +413,7 @@ Audio communicates change, priority and atmosphere as an integrated part of the 
 AUDIO DESIGN / FEEDBACK, MATERIAL AND EXPERIENCE	声音设计 / 反馈、材质与体验
 Dungeon & Fighter	地下城与勇士
 DNF activity entry · in-game capture	DNF 活动入口 · 游戏内实录
-Live from August to September 2026, Summer Wave Festival brought two mini-games into DNF in sequence: Island Expedition, an idle-management experience, followed by Island Card, a route-based card adventure.	逐浪夏日祭于 2026 年 8 至 9 月在 DNF 内上线，依次推出两款小游戏：放置经营类“海岛远征”，以及路线式卡牌冒险“海岛卡牌”。
+Live from August to September 2026, Summer Wave Festival brought two mini-games into DNF in sequence: Island Expedition, an idle-management experience, followed by Island Card, a route-based card adventure.	夏日逐浪节于 2026 年 8 至 9 月在 DNF 内上线，依次推出两款小游戏：放置经营类“海岛远征”，以及路线式卡牌冒险“海岛卡牌”。
 The home screen had to feel like a place, not a menu. Core destinations remain visible inside one island scene, so players can read what needs attention before deciding where to go.	首页应像一处真实场所，而非功能菜单。核心入口融入同一海岛场景，让玩家先看清待处理事项，再决定前往何处。
 Island home · final interface	海岛首页 · 最终界面
 UX planning · Entrance zones	交互规划 · 入口分区

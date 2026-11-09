@@ -59,7 +59,7 @@ body:is(.project-open, .project-preparing):has(.project-sheet[data-project-id="s
 }
 
 .project-sheet[data-project-id="start-cloud-gaming-3"] .project-chapter-title-surface {
-  width: 672px;
+  width: 392px;
   max-width: 100%;
   height: auto;
   min-height: 0;
@@ -78,6 +78,11 @@ body:is(.project-open, .project-preparing):has(.project-sheet[data-project-id="s
   line-height: 1.12;
   letter-spacing: .012em;
   will-change: auto;
+}
+
+html:lang(en) .project-sheet[data-project-id="start-cloud-gaming-3"] .start-chapter-label {
+  flex: none;
+  transform: scaleX(.72);
 }
 
 .project-sheet[data-project-id="start-cloud-gaming-3"] .project-chapter .project-content-block {

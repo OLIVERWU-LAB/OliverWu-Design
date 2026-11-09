@@ -192,6 +192,12 @@
       const data = await loadProjectData(projectId);
       if (sheet.dataset.projectId !== projectId) return;
       observer.disconnect();
+      const handheldTitle = sheet.querySelector('[data-project-section-title="1"] .project-chapter-title-surface');
+      if (handheldTitle && !handheldTitle.firstElementChild) {
+        const label = make('span', 'start-chapter-label');
+        label.append(...handheldTitle.childNodes);
+        handheldTitle.append(label);
+      }
       const scrollers = [];
       for (const section of data.sections) for (const config of section.blocks) {
         const block = sheet.querySelector(`[data-variant="${config.variant}"]:not([data-start-built])`);
