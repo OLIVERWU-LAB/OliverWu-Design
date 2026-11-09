@@ -283,8 +283,17 @@
       if (current()) mediaStatus(entry, 'error');
     }, {signal:controller.signal});
     if (node.tagName === 'VIDEO') {
+      if (node.hasAttribute('data-project-demo-video')) {
+        node.controls = false;
+        node.tabIndex = 0;
+        const revealControls = () => { node.controls = true; };
+        for (const event of ['pointerenter','pointerdown','focus']) {
+          node.addEventListener(event, revealControls, {signal:controller.signal});
+        }
+      } else {
+        node.addEventListener('loadedmetadata', done, {signal:controller.signal});
+      }
       node.addEventListener('loadeddata', done, {signal:controller.signal});
-      node.addEventListener('loadedmetadata', done, {signal:controller.signal});
     }
     else node.addEventListener('load', () => {
       if (!current() || !node.hasAttribute('src') || node.src !== new URL(url,location.href).href) return;

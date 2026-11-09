@@ -1716,8 +1716,10 @@ function renderProjectBlocks(container, blocks) {
       const mediaFrame = document.createElement("div");
       mediaFrame.className = "project-nibiru-portrait-frame";
       const video = document.createElement("video");
+      const isStartDemo = block.variant?.startsWith("start-handheld-video-");
+      if (isStartDemo) video.setAttribute("data-project-demo-video", "");
       setProjectMediaSource(video, versionProjectImageAsset(source));
-      video.controls = true;
+      video.controls = !isStartDemo;
       video.playsInline = true;
       video.preload = "metadata";
       video.setAttribute("playsinline", "");

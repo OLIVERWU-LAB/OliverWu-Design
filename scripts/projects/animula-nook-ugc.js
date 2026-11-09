@@ -59,7 +59,8 @@
     const player = make('video', 'ugc-player');
     [player.width, player.height] = item.dimensions;
     player.muted = true; player.defaultMuted = true; player.loop = true;
-    player.playsInline = true; player.controls = true; player.preload = 'none';
+    player.playsInline = true; player.preload = 'none';
+    player.setAttribute('data-project-demo-video', '');
     player.defaultPlaybackRate = 1; player.playbackRate = 1;
     player.poster = versionProjectImageAsset(item.poster);
     player.setAttribute('aria-label', item.title);
