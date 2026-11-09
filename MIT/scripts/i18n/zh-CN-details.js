@@ -821,7 +821,7 @@ Eleven original compositions move between memory, revolt, exile and the silence 
 I made this project during one of the lowest periods of my life. To anyone living through the pain of a shattered dream: you are not alone.	我在人生低谷时创作了这个项目。献给所有正在经历梦想破碎之痛的人：你并不孤单。
 UX / UI Design	用户体验 / 界面设计
 UX / UI	用户体验 / 界面
-GANGSTAR MIRAGE CITY	孤胆车神：幻影都市
+GANGSTAR MIRAGE CITY	孤胆车神：幻影之都
 PROJECT YEAR	项目年份
 PROJECT YEARS	项目时间
 PROJECT START	项目开始

@@ -3600,6 +3600,7 @@ body.project-open .dot-field {
   --se-title-mid: #f6dfb3;
   --se-copy: #d58d50;
   --se-ink: #603719;
+  --se-secondary-ink: #945022;
   --se-fact: #c13c0f;
   --se-fact-muted: rgba(193, 60, 15, 0.56);
   --se-rights: #a56e37;
@@ -4144,35 +4145,36 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
 .project-sheet[data-project-id="spirited-expedition"] .project-fact strong,
 .project-sheet[data-project-id="spirited-expedition"] .project-fact li,
 .project-sheet[data-project-id="spirited-expedition"] .project-partner-list strong {
-  color: #713c0f;
+  color: var(--se-fact-ink);
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-fact > span {
-  color: rgba(113, 60, 15, 0.6);
+  color: var(--se-rule);
   opacity: 1;
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-facts,
 .project-sheet[data-project-id="spirited-expedition"] .project-fact {
-  --se-rule: rgba(113, 60, 15, 0.6);
   border-color: var(--se-rule);
 }
 
 /* A restrained double-ink edge softens the otherwise perfect CSS rule and
    gives the information grid the slightly hand-drawn character of the art. */
 .project-sheet[data-project-id="spirited-expedition"] .project-facts {
+  --se-fact-ink: var(--se-secondary-ink);
+  --se-rule: color-mix(in srgb, var(--se-fact-ink) 60%, transparent);
   grid-template-columns: repeat(4, minmax(0, 1fr));
   position: relative;
   box-shadow:
-    inset 0 0.35px 0 rgba(113, 60, 15, 0.2),
-    inset 0 -0.35px 0 rgba(113, 60, 15, 0.16);
+    inset 0 0.35px 0 color-mix(in srgb, var(--se-fact-ink) 20%, transparent),
+    inset 0 -0.35px 0 color-mix(in srgb, var(--se-fact-ink) 16%, transparent);
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-fact {
   min-height: 112px;
   gap: 14px;
   padding: 16px 21.12px;
-  box-shadow: inset -0.35px 0 0 rgba(113, 60, 15, 0.12);
+  box-shadow: inset -0.35px 0 0 color-mix(in srgb, var(--se-fact-ink) 12%, transparent);
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-partner-list {
@@ -4196,7 +4198,14 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
   flex: 0 1 auto;
   object-fit: contain;
   object-position: left center;
-  filter: brightness(0) saturate(100%) invert(23%) sepia(28%) saturate(2098%) hue-rotate(350deg) brightness(91%) contrast(96%);
+}
+
+.project-sheet[data-project-id="spirited-expedition"] .project-partner-list img {
+  filter: url("#spirited-fact-ink");
+}
+
+.project-sheet[data-project-id="spirited-expedition"] #spirited-fact-ink feFlood {
+  flood-color: var(--se-secondary-ink);
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-partner-list .project-partner-separator {
@@ -4601,7 +4610,7 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-content-copy h4 {
-  color: #945022;
+  color: var(--se-secondary-ink);
   font-family: "DM UI CN", Arial, Helvetica, sans-serif;
   font-size: var(--se-secondary-title-size);
   font-weight: 400;
@@ -4851,7 +4860,7 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
 
 .project-sheet[data-project-id="spirited-expedition"] .project-game-lockup strong {
   min-width: 0;
-  color: #713c0f;
+  color: var(--se-fact-ink);
   font-family: "DM UI CN", Arial, Helvetica, sans-serif;
   font-size: 10px;
   font-weight: 400;
@@ -5825,11 +5834,6 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
   align-content: space-between;
 }
 
-.project-sheet[data-project-id="spirited-expedition"] .project-fact-year.has-game-lockup > strong {
-  font-size: 11px;
-  line-height: 1.2;
-}
-
 .project-sheet[data-project-id="spirited-expedition"] .project-fact-year.has-game-lockup .project-game-lockup {
   gap: 8.96px;
 }
@@ -5840,20 +5844,14 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-fact-year.has-game-lockup .project-game-lockup strong {
-  font-size: 12.8px;
+  font-size: var(--project-template-fact-value-size);
   white-space: nowrap;
 }
 
-/* Information-table labels keep their existing scale; only the values below
-   them follow the requested 32px content size from the 3200px design. */
 .project-sheet[data-project-id="spirited-expedition"] .project-role-list li,
 .project-sheet[data-project-id="spirited-expedition"] .project-fact > strong,
 .project-sheet[data-project-id="spirited-expedition"] .project-partner-list strong {
-  font-size: 12.8px;
-}
-
-.project-sheet[data-project-id="spirited-expedition"] .project-fact-year.has-game-lockup > strong {
-  font-size: 12.8px;
+  font-size: var(--project-template-fact-value-size);
 }
 
 .project-sheet[data-project-id="spirited-expedition"] .project-partner-list :is(img, .brand-mark)[alt*="Hongshan"] {
@@ -7887,6 +7885,11 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
   grid-template-columns: auto minmax(0, 1fr);
 }
 
+.project-sheet[data-project-id="external-blood-vessel"] .project-partner-copy.has-avatars > strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .project-sheet[data-project-id="external-blood-vessel"] .project-partner-avatars {
   display: flex;
   height: 38px;
@@ -9836,23 +9839,16 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
 .project-sheet[data-project-id="poka-project-p"] .project-facts .project-partner-list {
   --project-context-divider-color: rgba(6, 21, 38, .6);
   display: grid;
-  grid-template-columns: 120.6667px 2px 124px minmax(0, 1fr);
+  grid-template-columns: var(--project-context-tencent-width) 2px 124px minmax(0, 1fr);
   align-items: center;
-  gap: 10px 22.66665px;
+  gap: 10px 33px;
+  min-width: 0;
 }
 
 .project-sheet[data-project-id="poka-project-p"] .project-partner-list :is(img, .brand-mark) {
   max-width: none;
   max-height: none;
   filter: none;
-}
-
-.project-sheet[data-project-id="poka-project-p"] .project-partner-list :is(img, .brand-mark):first-child {
-  width: 120.6667px;
-  height: 23px;
-  object-fit: contain;
-  object-position: left center;
-  filter: brightness(0) saturate(100%) invert(22%) sepia(99%) saturate(4738%) hue-rotate(214deg) brightness(89%) contrast(109%);
 }
 
 .project-sheet[data-project-id="poka-project-p"] .project-partner-list img[src*="lightspeed-logo"] {
@@ -9864,6 +9860,7 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
 
 .project-sheet[data-project-id="poka-project-p"] .project-partner-copy {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   min-width: 0;
   min-height: 0;
   grid-column: 1 / -1;
@@ -9876,7 +9873,7 @@ html[lang="zh-CN"] .project-sheet[data-project-id="spirited-expedition"] .projec
 .project-sheet[data-project-id="poka-project-p"] .project-partner-list strong {
   font-size: 12px;
   letter-spacing: 0.015em;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 .project-sheet[data-project-id="poka-project-p"] .project-partner-copy > span {

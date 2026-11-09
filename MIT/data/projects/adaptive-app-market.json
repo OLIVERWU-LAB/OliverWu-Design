@@ -8,7 +8,13 @@
   "company": "Tencent × Partner Device Brands",
   "companyLabel": "PROJECT CONTEXT", "partnerLabel": "Partners:",
   "year": "2026",
-  "yearLabel": "PROJECT YEAR",
+  "yearLabel": "PRODUCT & TIMELINE",
+  "mergeGameIntoYear": true,
+  "game": {
+    "name": "App Market 2.0",
+    "logo": "assets/projects/adaptive-app-market/product-icon.webp",
+    "logoShape": "circle"
+  },
   "roles": [
     "Experience Design",
     "Cross-Device UI/UX",

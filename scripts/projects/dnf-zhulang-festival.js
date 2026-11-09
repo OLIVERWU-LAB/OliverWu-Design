@@ -111,12 +111,13 @@
         entryFigure.append(entryCaption);
       }
       const introCopy = intro.querySelector(".project-content-copy");
-      if (introCopy && !introCopy.querySelector(".dnf-event-meta")) {
+      const productIcon = sheet.querySelector("#projectDetailGameLogo")?.getAttribute("src");
+      if (introCopy && productIcon && !introCopy.querySelector(".dnf-event-meta")) {
         const meta = document.createElement("div");
         meta.className = "dnf-event-meta";
         const icon = document.createElement("img");
         icon.className = "dnf-event-icon";
-        icon.src = "assets/projects/dnf-zhulang-festival/dnf-game-icon-png-web.webp";
+        icon.src = productIcon;
         icon.alt = "Dungeon & Fighter icon";
         const label = introCopy.querySelector(":scope > span");
         meta.append(icon);

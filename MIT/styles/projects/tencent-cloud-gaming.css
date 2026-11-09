@@ -99,6 +99,7 @@
   width: 100%;
   max-width: none;
   margin: 0;
+  color: var(--hmi-accent);
   font-family: var(--project-template-display-font);
   font-size: var(--project-template-subtitle-size);
   letter-spacing: .04em;
@@ -137,20 +138,6 @@
   max-width: none;
   color: #d8e1de;
   text-align: left;
-}
-
-.project-sheet[data-project-id="tencent-cloud-gaming"] .project-rights {
-  padding: 0 140px 54px;
-  background: transparent;
-}
-
-.project-sheet[data-project-id="tencent-cloud-gaming"] .project-rights img {
-  width: 216.5px;
-  height: auto;
-}
-
-.project-sheet[data-project-id="tencent-cloud-gaming"] .project-rights p[hidden] {
-  display: none;
 }
 
 .project-sheet[data-project-id="tencent-cloud-gaming"] .project-facts {

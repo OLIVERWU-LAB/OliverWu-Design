@@ -5,27 +5,29 @@
   "backgroundColor": "#D8CCB6",
   "summary": "A seasonal DNF experience built as two connected island mini-games: an idle-management expedition and a route-based card adventure.",
   "body": "Interaction design for two sequential mini-games within DNF’s summer live event. Island Expedition turns an illustrated inn into a readable idle-management space for navigation, upgrading, crafting and crew progression; Island Card reshapes a grid-based card adventure into a scenic route of battles, events, camps and shops. Together, they translate one island theme into two distinct interaction systems released across the season.",
-  "company": "DNF × Tencent",
+  "company": "Nexon × Tencent",
   "companyLabel": "PROJECT CONTEXT",
   "year": "2026.08—2026.09",
-  "yearLabel": "LIVE OPERATION",
+  "yearLabel": "PRODUCT & TIMELINE",
   "roles": [
     "Interaction Design"
   ],
   "partners": [
     {
-      "name": "DNF",
-      "logo": "assets/projects/dnf-zhulang-festival/dnf-logo-clean-png-web.webp"
+      "name": "Nexon",
+      "logo": "assets/projects/dnf-zhulang-festival/logo-nexon.svg",
+      "logoViewBox": [107, 32]
     },
     {
       "name": "Tencent",
-      "logo": "assets/media/logo-tencent.svg", "color": "#6b3007"
+      "logo": "assets/media/logo-tencent.svg"
     }
   ],
   "game": {
     "label": "BASE GAME",
     "name": "Dungeon & Fighter",
-    "logo": "assets/projects/dnf-zhulang-festival/dnf-game-icon-png-web.webp"
+    "logo": "assets/projects/dnf-zhulang-festival/dnf-base-game.webp",
+    "logoShape": "wide"
   },
   "mergeGameIntoYear": true,
   "tags": [

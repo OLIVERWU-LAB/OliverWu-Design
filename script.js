@@ -413,7 +413,7 @@ const languageCopy = {
     roleCurrentNote: "（部分项目负责游戏体验与声音设计）",
     roleCurrentDescription: "负责第二代<strong>腾讯车载云游戏</strong>的 HMI 体验升级，优化游戏发现、启动与设备连接，支持华为乾崑等合作项目的适配和交付。在<strong>应用商城 2.0</strong> 项目中，为联想 C700 掌机与华硕 ROG 手机等合作设备设计品牌定制的系统级商城，接入腾讯应用宝资源，并分别适配手柄焦点与手机触控的发现、搜索和下载安装流程。负责 <strong>START 云游戏 3.0</strong> TV 端的设备连接、匹配与检测交互，并验证 TV、掌机、移动端、Web 和 PC 的适配。",
     roleCurrentGameProjects: "在<strong>《英雄联盟手游》</strong>国服运营玩法中，为结合弹幕战斗与守护灵养成的<strong>「灵动探险队」</strong>设计交互和高保真原型，并为<strong>「灵动探险队」</strong>和 2026 年春节活动<strong>「神机妙算」</strong>创作原创配乐。与拳头游戏（Riot Games）合作探索以<strong>提莫</strong>为核心的未公开独立 Roguelike 玩法。为 <strong>DNF「夏日逐浪节」</strong>先后上线的<strong>「海岛远征」</strong>和<strong>「海岛卡牌」</strong>设计交互，分别对应放置经营和路线式卡牌冒险。",
-    roleCurrentOutcomes: "从 0 到 1 参与<strong>《粒粒小人国》</strong>UGC 大厅设计，用 AI 辅助编程开发并部署可运行的 Web 原型，供团队验证创作、发现与分享，并交付可复用的 CSS 动效参数。独立负责 Gameloft 与 Level Infinite 合作项目<strong>《Gangstar Mirage City》</strong>常驻社交小游戏<strong>《鳄鱼咬一口！》（Bite Me!）</strong>的交互、UI 和动效，该玩法随游戏在东南亚、中东与东欧上线。也参与<strong>腾讯公益小红花</strong>疗愈游戏、<strong>QQ 经典农场</strong>新手引导、<strong>《王者荣耀》</strong>小红书运营 H5 和<strong>《失控进化》</strong>中秋活动等轻量项目。",
+    roleCurrentOutcomes: "从 0 到 1 参与<strong>《粒粒小人国》</strong>UGC 大厅设计，用 AI 辅助编程开发并部署可运行的 Web 原型，供团队验证创作、发现与分享，并交付可复用的 CSS 动效参数。独立负责 Gameloft 与 Level Infinite 合作项目<strong>《孤胆车神：幻影之都》</strong>常驻社交小游戏<strong>《鳄鱼咬一口！》（Bite Me!）</strong>的交互、UI 和动效，该玩法随游戏在东南亚、中东与东欧上线。也参与<strong>腾讯公益小红花</strong>疗愈游戏、<strong>QQ 经典农场</strong>新手引导、<strong>《王者荣耀》</strong>小红书运营 H5 和<strong>《失控进化》</strong>中秋活动等轻量项目。",
     roleCurrentAwards: "在腾讯 FANTA 游戏 Demo 竞赛中，我参与的 <strong>POKA / Project P</strong> 斩获项目金奖与最受欢迎奖，我也荣获杰出个人奖。",
     roleInternDates: "2024 年 5—8 月",
     roleIntern: "交互设计实习生",
@@ -440,23 +440,23 @@ const languageCopy = {
 };
 
 const projectCardChineseCopy = {
-  "start-cloud-gaming-3": { descriptor: "产品设计", context: "腾讯项目", title: "START 3.0" },
-  "animula-nook-ugc": { descriptor: "游戏 UX 与 UI", context: "腾讯项目", title: "粒粒的小人国 — UGC 大厅 1.0" },
-  "utopia-2419": { descriptor: "互动叙事", context: "个人项目", title: "乌托邦 2419" },
-  "spirited-expedition": { descriptor: "游戏体验", context: "腾讯项目", title: "灵动探险队" },
-  florahaven: { descriptor: "空间计算", context: "个人项目", title: "花境" },
-  "olive-town": { descriptor: "城市系统", context: "个人项目", title: "橄榄小镇" },
-  "cloud-island-device": { descriptor: "环境系统", context: "个人项目", title: "云岛装置" },
-  "external-blood-vessel": { descriptor: "可穿戴音乐技术", context: "合作项目", title: "体外血管" },
-  "water-babies": { descriptor: "交互装置", context: "合作项目", title: "水之婴" },
-  swrd: { descriptor: "沉浸式 VR 体验", context: "合作项目", title: "静水流深" },
-  "poka-project-p": { descriptor: "游戏 UX 与世界观构建", context: "腾讯项目", title: "POKA / P 计划" },
-  "tencent-cloud-gaming": { descriptor: "车载 HMI", context: "腾讯 · 座舱体验", title: "腾讯车载云游戏" },
-  "dnf-zhulang-festival": { descriptor: "季节性游戏体验", context: "腾讯 · 交互设计", title: "DNF：夏日逐浪节" },
-  "adaptive-app-market": { descriptor: "跨设备应用市场", context: "腾讯 · 体验设计", title: "应用商店 2.0" },
-  "visual-editor": { descriptor: "AI 设计工具", context: "个人项目", title: "Skill 可视化编辑器" },
-  "gangstar-bite-me": { descriptor: "游戏活动 UI", context: "Gangstar Mirage City", title: "鳄鱼咬一口！" },
-  "sound-design": { descriptor: "声音设计作品集", context: "音乐 · 交互 · 沉浸式音频", title: "声音设计作品选" },
+  "start-cloud-gaming-3": { descriptor: "产品设计", context: "腾讯 · 产品设计与 UI 迭代", title: "START 3.0" },
+  "animula-nook-ugc": { descriptor: "游戏 UX 与 UI", context: "腾讯 · 跨端体验与网页原型开发", title: "粒粒的小人国：UGC 大厅 1.0" },
+  "utopia-2419": { descriptor: "互动叙事", context: "个人项目 · 互动叙事与 AI 艺术", title: "乌托邦 2419" },
+  "spirited-expedition": { descriptor: "游戏体验", context: "腾讯 × 拳头游戏 · 体验与声音设计", title: "英雄联盟手游：灵动探险队" },
+  florahaven: { descriptor: "空间计算", context: "个人项目 · 体验与界面设计", title: "花境" },
+  "olive-town": { descriptor: "城市系统", context: "个人项目 · 建筑与体验设计", title: "橄榄小镇" },
+  "cloud-island-device": { descriptor: "环境系统", context: "个人项目 · 工业与服务设计", title: "云岛装置" },
+  "external-blood-vessel": { descriptor: "可穿戴音乐技术", context: "合作项目 · 产品设计与编程", title: "体外血管" },
+  "water-babies": { descriptor: "交互装置", context: "合作项目 · 声音设计与交互开发", title: "水之婴" },
+  swrd: { descriptor: "沉浸式 VR 体验", context: "合作项目 · 音乐制作与用户研究", title: "静水流深" },
+  "poka-project-p": { descriptor: "游戏 UX 与世界观构建", context: "腾讯 · 游戏策划与体验设计", title: "POKA / P 计划" },
+  "tencent-cloud-gaming": { descriptor: "车载 HMI", context: "腾讯 · 座舱体验设计", title: "腾讯车载云游戏" },
+  "dnf-zhulang-festival": { descriptor: "季节性游戏体验", context: "腾讯 · 体验设计", title: "DNF：夏日逐浪节" },
+  "adaptive-app-market": { descriptor: "跨设备应用市场", context: "腾讯 · 跨端体验与设计系统", title: "应用商店 2.0" },
+  "visual-editor": { descriptor: "AI 设计工具", context: "个人项目 · 产品设计与 Vibe Coding", title: "Skill 可视化编辑器" },
+  "gangstar-bite-me": { descriptor: "游戏活动 UI", context: "Gameloft × Level Infinite · 体验与界面设计", title: "《孤胆车神：幻影之都》：鳄鱼咬一口！" },
+  "sound-design": { descriptor: "声音设计作品集", context: "精选实践 · 声音设计与音乐制作", title: "声音设计作品选" },
 };
 
 const projectFallbackCopy = {
@@ -733,9 +733,12 @@ function localizedProjectValue(projectCopy, key, fallback = "", language = curre
   return typeof projectCopy?.[key] === "string" ? projectCopy[key].trim() : fallback;
 }
 
-function projectBrandMark(source, name, color = "") {
+function projectBrandMark(source, name, color = "", logoViewBox) {
+  const filename = source.split("/").at(-1);
   const dimensions = source === "assets/media/logo-tencent.svg" ? [1086, 207]
-    : source === "assets/media/logo-rca.svg" ? [579, 288] : null;
+    : source === "assets/media/logo-rca.svg" ? [579, 288]
+    : Array.isArray(logoViewBox) && logoViewBox.length === 2
+      && logoViewBox.every(value => Number.isFinite(value) && value > 0) ? logoViewBox : null;
   if (!dimensions) {
     const image = document.createElement("img");
     image.src = versionProjectImageAsset(source);
@@ -751,7 +754,7 @@ function projectBrandMark(source, name, color = "") {
   mark.setAttribute("preserveAspectRatio", "xMinYMid meet");
   mark.setAttribute("role", "img");
   mark.setAttribute("aria-label", name);
-  mark.setAttribute("data-brand", source.includes("tencent") ? "tencent" : "rca");
+  mark.setAttribute("data-brand", filename.slice(5, -4));
   mark.style.filter = "none"; // Raster recolouring filters are not needed.
   if (/^#[a-f\d]{3,8}$/i.test(color)) mark.style.color = color;
   const use = document.createElementNS(NS, "use");
@@ -783,7 +786,7 @@ function renderProjectPartners(partners, fallbackContext, partnerLabel = "", pro
     const detail = typeof partner.detail === "string" ? partner.detail.trim() : "";
     const logo = typeof partner.logo === "string" ? partner.logo.trim() : "";
     if (/^assets\/[a-zA-Z0-9_./-]+$/.test(logo)) {
-      const image = projectBrandMark(logo, name, partner.color);
+      const image = projectBrandMark(logo, name, partner.color, partner.logoViewBox);
       if (detail) {
         const copy = document.createElement("div");
         copy.className = "project-partner-copy has-logo";
@@ -3756,6 +3759,8 @@ function applyProjectData(card, projectCopy = projectFallbackCopy) {
   const gameName = typeof game?.name === "string" ? game.name.trim() : "";
   const mergeGameIntoYear = Boolean(projectCopy.mergeGameIntoYear && game);
   if (projectDetailGameLockup && projectDetailGameFact) {
+    if (game?.logoShape) projectDetailGameLockup.dataset.logoShape = game.logoShape;
+    else delete projectDetailGameLockup.dataset.logoShape;
     projectDetailGameFact.append(projectDetailGameLockup);
   }
   if (projectDetailGameLockup && projectDetailYearFact && mergeGameIntoYear) {
@@ -3766,7 +3771,7 @@ function applyProjectData(card, projectCopy = projectFallbackCopy) {
   if (projectDetailGameLabel) projectDetailGameLabel.textContent = game?.label || "MAIN GAME";
   if (projectDetailGameLogo) {
     projectDetailGameLogo.src = gameLogo ? versionProjectImageAsset(gameLogo) : "";
-    projectDetailGameLogo.alt = gameName;
+    projectDetailGameLogo.alt = game?.logoAlt || gameName;
     projectDetailGameLogo.hidden = !gameLogo;
   }
   if (projectDetailGameName) {

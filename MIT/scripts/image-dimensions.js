@@ -134,7 +134,6 @@ window.portfolioImageDimensions = {
   "assets/projects/dnf-zhulang-festival/activity-1-island-expedition-jpg-web.webp": [1746,324],
   "assets/projects/dnf-zhulang-festival/activity-2-island-card-jpg-web.webp": [1746,324],
   "assets/projects/dnf-zhulang-festival/cover-island-card-jpg-web.webp": [788,443],
-  "assets/projects/dnf-zhulang-festival/dnf-game-icon-png-web.webp": [48,48],
   "assets/projects/dnf-zhulang-festival/dnf-logo-clean-png-web.webp": [206,206],
   "assets/projects/dnf-zhulang-festival/entry-area-plan-jpg-web.webp": [796,562],
   "assets/projects/dnf-zhulang-festival/event-entry-jpg-web.webp": [1408,791],

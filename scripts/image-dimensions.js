@@ -512,10 +512,6 @@ window.portfolioImageDimensions = {
     788,
     443
   ],
-  "assets/projects/dnf-zhulang-festival/dnf-game-icon-png-web.webp": [
-    48,
-    48
-  ],
   "assets/projects/dnf-zhulang-festival/dnf-logo-clean-png-web.webp": [
     206,
     206

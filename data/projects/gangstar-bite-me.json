@@ -8,7 +8,13 @@
  "company": "Gameloft × Level Infinite",
  "companyLabel": "PROJECT CONTEXT",
  "year": "2026.10.20",
- "yearLabel": "RELEASE DATE",
+ "yearLabel": "PRODUCT & TIMELINE",
+ "mergeGameIntoYear": true,
+ "game": {
+  "name": "Gangstar Mirage City",
+  "logo": "assets/projects/gangstar-bite-me/product-icon.webp",
+  "logoShape": "rounded"
+ },
  "roles": [
   "Interaction Design",
   "UI Visual Design",

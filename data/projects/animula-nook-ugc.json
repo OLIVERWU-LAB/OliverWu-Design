@@ -8,7 +8,13 @@
   "company": "Tencent",
   "companyLabel": "PROJECT CONTEXT",
   "year": "2026",
-  "yearLabel": "PROJECT YEAR",
+  "yearLabel": "PRODUCT & TIMELINE",
+  "mergeGameIntoYear": true,
+  "game": {
+    "name": "Animula Nook",
+    "logo": "assets/projects/animula-nook-ugc/product-icon.webp",
+    "logoShape": "rounded"
+  },
   "roles": [
     "Cross-device UX · Mobile / PC / Console",
     "Web Prototype Development"
@@ -16,8 +22,7 @@
   "partners": [
     {
       "name": "Tencent",
-      "logo": "assets/media/logo-tencent.svg",
-      "color": "#72573d"
+      "logo": "assets/media/logo-tencent.svg"
     }
   ],
   "tags": [

@@ -14,7 +14,7 @@
   "partners": [
     {
       "name": "Tencent",
-      "logo": "assets/media/logo-tencent.svg", "color": "#6d340d"
+      "logo": "assets/media/logo-tencent.svg"
     },
     {
       "name": "Riot Games",

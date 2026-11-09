@@ -1,6 +1,5 @@
 /* Shared case-study opening contract.
-   Project styles may change colour and typeface, but spacing, scale and the
-   three-column information grid stay consistent. */
+   Project styles may change colour and typeface while sharing the layout scale. */
 
 .project-sheet {
   /* Preserve the authored canvas, including on mobile text-inflation engines.
@@ -15,6 +14,7 @@
   --project-template-description-size: 15.5px;
   --project-template-fact-label-size: 10.24px;
   --project-template-fact-value-size: 11.52px;
+  --project-context-tencent-width: 100px;
   --project-context-note-font: 600 7px/1 var(--project-template-copy-font);
   --project-context-note-tracking: .055em;
 }
@@ -195,6 +195,70 @@
    whether the cell contains one line, a role list, or a partner lock-up. */
 .project-sheet:not([data-project-id="spirited-expedition"]) .project-facts > .project-fact > :last-child {
   align-self: end;
+}
+
+.project-sheet .project-facts > .project-fact-year:has(> .project-game-lockup[data-logo-shape]) {
+  grid-template-rows: max-content minmax(36px, 1fr) max-content;
+  gap: 8px;
+}
+
+.project-sheet .project-fact-year > strong {
+  justify-self: start;
+}
+
+.project-sheet .project-fact-company .brand-mark {
+  color: inherit;
+}
+
+.project-sheet .project-facts .project-fact-company .project-partner-list .brand-mark[data-brand="tencent"] {
+  flex: none;
+  width: var(--project-context-tencent-width);
+  height: 19.06px;
+  max-width: none;
+  max-height: none;
+}
+
+.project-game-lockup[data-logo-shape] {
+  display: flex;
+  align-items: center;
+  align-self: end;
+  gap: 10px;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+}
+
+.project-game-lockup[data-logo-shape] img {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.project-game-lockup[data-logo-shape="circle"] img {
+  border-radius: 50%;
+}
+
+.project-game-lockup[data-logo-shape="wordmark"] img {
+  width: 140px;
+  height: 36px;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+.project-sheet .project-fact-year .project-game-lockup img {
+  order: 1;
+}
+
+.project-sheet .project-fact-year .project-game-lockup strong {
+  min-width: 0;
+  font: 800 var(--project-template-fact-value-size)/1.3 var(--project-template-display-font);
+}
+
+html[lang="zh-CN"] .project-sheet .project-fact-year .project-game-lockup strong {
+  font-weight: 400;
 }
 
 .project-sheet:not([data-project-id="spirited-expedition"])

@@ -7,8 +7,14 @@
   "body": "START is Tencent’s cloud gaming platform. The 3.0 update covers PC, handheld, TV, mobile and web, with a shared visual language and consistent interactions across devices.",
   "company": "Tencent START",
   "companyLabel": "PROJECT CONTEXT",
-  "year": "3.0",
-  "yearLabel": "PROJECT VERSION",
+  "year": "2026",
+  "yearLabel": "PRODUCT & TIMELINE",
+  "mergeGameIntoYear": true,
+  "game": {
+    "name": "START 3.0",
+    "logo": "assets/projects/start-cloud-gaming-3/product-icon.webp",
+    "logoShape": "rounded"
+  },
   "roles": [
     "Product Design",
     "UI Updates & Iteration"
@@ -16,8 +22,7 @@
   "partners": [
     {
       "name": "Tencent",
-      "logo": "assets/media/logo-tencent.svg",
-      "color": "#eef2f8"
+      "logo": "assets/media/logo-tencent.svg"
     }
   ],
   "tags": [
