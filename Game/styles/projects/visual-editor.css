@@ -1,0 +1,550 @@
+/* Visual Editor — project-only styles.
+   Carries the source site's language: warm paper, ink hairlines, square
+   corners and three hard accents (red / lime / blue). No soft gradients, no
+   purple. Everything is drawn on the shared 1280px canvas; the shared cover,
+   tags, description, fact table and footer are untouched. */
+
+.case-card[data-project-id="visual-editor"] .project-cover-18,
+.project-cover-18 {
+  background: url("../../assets/projects/visual-editor/home-card-cover-background-jpg-web.webp") center / cover no-repeat;
+  filter: none;
+}
+
+.project-sheet[data-project-id="visual-editor"] {
+  --ve-paper: #f5f4f1;
+  --ve-ink: #0b0b0b;
+  --ve-dim: #5f5f5f;
+  --ve-faint: #9a9a9a;
+  --ve-line: #dddbd5;
+  --ve-red: #ff3b14;
+  --ve-lime: #ddf14a;
+  --ve-blue: #1b4dff;
+  --ve-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* Heading face = the source page's own stack: system sans, bold, sentence
+     case, tight tracking. System fonts only — nothing new is loaded. */
+  --ve-sans: -apple-system, "Helvetica Neue", "Inter", Arial, sans-serif;
+}
+
+/* ---------- chapter rhythm ----------
+   Each chapter opens like the source-page masthead: the round Visual Editor
+   mark sits above a black rule, and the rule, title, description and content
+   all share the same 140px content rail. */
+.project-sheet[data-project-id="visual-editor"] .project-chapter-titlebar {
+  --ve-title-lead: 111px;
+  position: relative;
+  padding: var(--ve-title-lead) 140px 0;
+}
+
+.project-sheet[data-project-id="visual-editor"] .project-chapter-titlebar::before {
+  position: absolute;
+  top: calc(var(--ve-title-lead) - 40px);
+  right: 140px;
+  left: 140px;
+  height: 1px;
+  background: var(--ve-faint);
+  content: "";
+}
+
+.project-sheet[data-project-id="visual-editor"] .project-chapter-titlebar::after {
+  position: absolute;
+  top: calc(var(--ve-title-lead) - 62px);
+  left: 140px;
+  display: flex;
+  box-sizing: border-box;
+  width: auto;
+  height: 10px;
+  padding-left: 0;
+  align-items: center;
+  background: none;
+  color: var(--ve-faint);
+  content: var(--copy-visual-editor, "VISUAL EDITOR");
+  font: 600 10px/1 var(--ve-mono);
+  letter-spacing: .2em;
+  white-space: nowrap;
+}
+
+.project-sheet[data-project-id="visual-editor"] .project-chapter-title-surface {
+  position: relative;
+  justify-content: flex-start;
+  gap: 18px;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  overflow: visible;
+  border-top: 0;
+  border-bottom: 0;
+  align-items: flex-start;
+  font-family: var(--display);
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  line-height: 1;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: pre-line;
+}
+
+.project-sheet[data-project-id="visual-editor"] .project-chapter-title-surface::before {
+  position: absolute;
+  top: -62px;
+  right: 0;
+  display: block;
+  color: var(--ve-faint);
+  content: var(--copy-ai-skill, "A SKILL FOR AI CODING AGENTS");
+  font: 500 10px/1 var(--ve-mono);
+  letter-spacing: .2em;
+  white-space: nowrap;
+}
+
+.project-sheet[data-project-id="visual-editor"] .project-chapter-title-surface::after {
+  position: absolute;
+  top: 4px;
+  left: -58px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: url("../../assets/projects/visual-editor/mark.svg") center / contain no-repeat;
+  content: "";
+}
+
+.project-sheet[data-project-id="visual-editor"] .project-chapters > .project-chapter-titlebar:first-child {
+  --ve-title-lead: 190px;
+}
+
+.project-sheet[data-project-id="visual-editor"] .project-chapter > header {
+  padding: 20px 140px 56px;
+}
+
+.project-sheet[data-project-id="visual-editor"] .project-chapter > header p {
+  max-width: none;
+  margin: 0;
+  color: var(--ve-dim);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.project-sheet[data-project-id="visual-editor"] .project-chapter {
+  padding-bottom: 127px;
+}
+
+.project-sheet[data-project-id="visual-editor"] .project-content-blocks {
+  display: grid;
+  gap: 72px;
+  padding: 0 140px;
+}
+
+.project-sheet[data-project-id="visual-editor"] .project-content-block {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.project-sheet[data-project-id="visual-editor"] .project-content-block::before,
+.project-sheet[data-project-id="visual-editor"] .project-content-block::after {
+  display: none;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-kicker {
+  font: 500 10px/1.4 var(--ve-mono);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="visual-editor"] .is-faint {
+  color: var(--ve-faint);
+}
+
+.project-sheet[data-project-id="visual-editor"] code {
+  padding: .1em .35em;
+  background: #eceae6;
+  font-family: var(--ve-mono);
+  font-size: .9em;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-block-title {
+  margin: 0 0 24px;
+  color: var(--ve-ink);
+  font: 800 18px/1.25 var(--display);
+  letter-spacing: .025em;
+  letter-spacing: .025em;
+}
+
+/* ---------- media frame ---------- */
+.project-sheet[data-project-id="visual-editor"] .ve-media {
+  overflow: hidden;
+  border: 1px solid var(--ve-line);
+  background: #fff;
+  /* Light two-layer lift: a crisp contact shadow plus a short ambient one
+     with negative spread so it never halos out sideways. */
+  box-shadow:
+    0 1px 2px rgba(11, 11, 11, .04),
+    0 8px 20px -6px rgba(11, 11, 11, .10);
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-media video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Try it live ---------- */
+.project-sheet[data-project-id="visual-editor"] .project-content-ve-cta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 24px;
+  border: 1px solid var(--ve-ink);
+  background: var(--ve-ink);
+  color: var(--ve-paper);
+  font: 600 12px/1 var(--ve-mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-cta:hover,
+.project-sheet[data-project-id="visual-editor"] .ve-cta:focus-visible {
+  border-color: var(--ve-red);
+  background: var(--ve-red);
+  color: #fff;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-cta.is-ghost:hover,
+.project-sheet[data-project-id="visual-editor"] .ve-cta.is-ghost:focus-visible {
+  border-color: var(--ve-ink);
+  background: var(--ve-lime);
+  color: var(--ve-ink);
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-cta.is-ghost {
+  background: transparent;
+  color: var(--ve-ink);
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-cta-arrow {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-cta-note {
+  margin: 0;
+  color: var(--ve-dim);
+  font: 500 10px/1.4 var(--ve-mono);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+/* ---------- 0 → 80% bar ---------- */
+.project-sheet[data-project-id="visual-editor"] .ve-bar-track {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  height: 48px;
+  border: 1px solid var(--ve-ink);
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-bar-track > div {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font: 700 13px/1 var(--ve-mono);
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-bar-fast {
+  background: var(--ve-lime);
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-bar-slow {
+  border-left: 1px solid var(--ve-ink);
+  background: var(--ve-red);
+  color: #fff;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-bar-labels {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  margin-top: 10px;
+  font: 500 10px/1.4 var(--ve-mono);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-bar-labels span:last-child {
+  padding-left: 16px;
+}
+
+/* ---------- two loops ---------- */
+.project-sheet[data-project-id="visual-editor"] .ve-loops {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-loop {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 18px;
+  padding: 28px 30px;
+  background: #fff;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-loop.is-good {
+  background: var(--ve-ink);
+  color: var(--ve-paper);
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-loop-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-loop-cost {
+  font: 700 13px/1 var(--ve-mono);
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-loop.is-bad .ve-loop-cost { color: var(--ve-red); }
+.project-sheet[data-project-id="visual-editor"] .ve-loop.is-good .ve-loop-cost { color: var(--ve-lime); }
+
+.project-sheet[data-project-id="visual-editor"] .ve-loop-steps {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 20px;
+  font: 15.5px/1.5 Arial, Helvetica, sans-serif;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-loop-foot {
+  margin: 0;
+  padding-top: 0;
+  font: 13px/1.5 Arial, Helvetica, sans-serif;
+  opacity: .72;
+}
+
+/* ---------- three cells ---------- */
+.project-sheet[data-project-id="visual-editor"] .project-content-ve-cells {
+  margin-top: -28px;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-cells {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 32px;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-cell {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 4px 0 8px;
+}
+
+
+
+.project-sheet[data-project-id="visual-editor"] .ve-cell-num {
+  color: var(--ve-red);
+  font: 500 11px/1 var(--ve-mono);
+  letter-spacing: .14em;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-cell h4 {
+  margin: 0;
+  white-space: nowrap;
+  font: 800 14px/1.3 var(--display);
+  letter-spacing: .02em;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-cell p,
+.project-sheet[data-project-id="visual-editor"] .ve-feature-copy p,
+.project-sheet[data-project-id="visual-editor"] .ve-save-item p,
+.project-sheet[data-project-id="visual-editor"] .ve-code-sub {
+  margin: 0;
+  color: var(--ve-dim);
+  font: 15.5px/1.6 Arial, Helvetica, sans-serif;
+}
+
+/* ---------- comparison table ---------- */
+.project-sheet[data-project-id="visual-editor"] .ve-compare {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid var(--ve-ink);
+  border-bottom: 1px solid var(--ve-ink);
+  font: 14px/1.4 Arial, Helvetica, sans-serif;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-compare th,
+.project-sheet[data-project-id="visual-editor"] .ve-compare td {
+  padding: 14px 16px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-compare thead th {
+  border-bottom: 1px solid var(--ve-ink);
+  font: 600 12px/1.3 var(--ve-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-compare tbody tr + tr > * {
+  border-top: 1px solid var(--ve-line);
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-compare tbody th {
+  color: var(--ve-dim);
+  font-weight: 400;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-compare .is-mine {
+  background: var(--ve-lime);
+  font-weight: 700;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 10px;
+  vertical-align: 1px;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-dot.is-good { background: var(--ve-ink); }
+.project-sheet[data-project-id="visual-editor"] .ve-dot.is-ok { border: 1px solid var(--ve-ink); }
+.project-sheet[data-project-id="visual-editor"] .ve-dot.is-bad { background: var(--ve-red); }
+
+.project-sheet[data-project-id="visual-editor"] .ve-compare-note {
+  max-width: 820px;
+  margin: 18px 0 0;
+  color: var(--ve-dim);
+  font: 14px/1.6 Arial, Helvetica, sans-serif;
+}
+
+/* ---------- features: copy + clip, alternating ---------- */
+.project-sheet[data-project-id="visual-editor"] .project-content-ve-feature {
+  display: grid;
+  grid-template-columns: 400px minmax(0, 1fr);
+  align-items: center;
+  gap: 56px;
+}
+
+.project-sheet[data-project-id="visual-editor"] .project-content-ve-feature.is-flip {
+  grid-template-columns: minmax(0, 1fr) 400px;
+}
+
+.project-sheet[data-project-id="visual-editor"] .project-content-ve-feature.is-flip .ve-feature-copy {
+  order: 2;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-feature-copy {
+  display: grid;
+  gap: 12px;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-feature-num {
+  color: var(--ve-red);
+  font: 500 11px/1 var(--ve-mono);
+  letter-spacing: .14em;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-feature-copy h4 {
+  margin: 0;
+  font: 800 20px/1.2 var(--display);
+  white-space: nowrap;
+  letter-spacing: .01em;
+}
+
+/* ---------- save ---------- */
+.project-sheet[data-project-id="visual-editor"] .project-content-ve-save {
+  display: grid;
+  grid-template-columns: 400px minmax(0, 1fr);
+  align-items: center;
+  gap: 56px;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-save-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+  border-top: 1px solid var(--ve-ink);
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-save-item {
+  display: grid;
+  gap: 8px;
+  padding: 20px 0 0;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-save-item h4 {
+  margin: 0;
+  font: 800 16px/1.3 var(--display);
+}
+
+.project-sheet[data-project-id="visual-editor"] kbd {
+  padding: 2px 6px;
+  border: 1px solid var(--ve-ink);
+  font: 500 11px/1 var(--ve-mono);
+  vertical-align: 2px;
+}
+
+/* ---------- rules ---------- */
+.project-sheet[data-project-id="visual-editor"] .ve-rules {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ve-ink);
+  list-style: none;
+  counter-reset: ve-rule;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-rules li {
+  display: grid;
+  grid-template-columns: 56px 300px minmax(0, 1fr);
+  align-items: baseline;
+  padding: 16px 0;
+  color: var(--ve-dim);
+  font: 15.5px/1.6 Arial, Helvetica, sans-serif;
+  counter-increment: ve-rule;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-rules li::before {
+  color: var(--ve-red);
+  font: 500 11px/1 var(--ve-mono);
+  letter-spacing: .14em;
+  content: "0" counter(ve-rule);
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-rules b {
+  color: var(--ve-ink);
+  font: 800 16px/1.3 var(--display);
+}
+
+/* ---------- install code ---------- */
+.project-sheet[data-project-id="visual-editor"] .ve-code-sub {
+  margin-bottom: 16px;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-code {
+  overflow: auto;
+  margin: 0;
+  padding: 24px 28px;
+  background: var(--ve-ink);
+  color: var(--ve-lime);
+  font: 13px/1.65 var(--ve-mono);
+  white-space: pre;
+}
+
+.project-sheet[data-project-id="visual-editor"] .ve-code code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}

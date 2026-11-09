@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visual Editor — Screens</title>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/grid-overrides.css">
+</head>
+<body>
+
+<!-- ============ 00 · COVER ============ -->
+<section class="screen dark" id="s00">
+  <div class="stage">
+    <div class="cover">
+      <img class="cover-mark" src="assets/art/mark.svg" alt="">
+      <h1 class="cover-t">Visual<br>Editor <em>in the<br>browser.</em></h1>
+      <p class="cover-meta">
+        <span><b>16</b> capabilities</span>
+        <span><b>1</b> screen each</span>
+        <span><b>?edit=1</b> to arm</span>
+      </p>
+    </div>
+  </div>
+  <p class="count">00</p>
+</section>
+
+<!-- ============ 01 · SELECT & DRILL IN ============ -->
+<section class="screen" id="s01">
+  <div class="tag-tl"><span class="tag-num">01</span><span class="tag-name">Select &amp; drill in</span></div>
+  <div class="stage">
+    <article class="card-nest">
+      <div class="nest-inner">
+        <p class="nest-eyebrow">Nested — four levels</p>
+        <h2 class="nest-title">Double&#8209;click <em>me</em> twice</h2>
+        <p class="nest-body">Card, group, heading, emphasis. Each double-click drops one layer deeper.</p>
+        <span class="nest-chip">leaf node</span>
+      </div>
+    </article>
+  </div>
+  <p class="hint">Click selects · <kbd>dbl</kbd> drills in · <kbd>Enter</kbd> applies text</p>
+  <p class="count">01 / 16</p>
+</section>
+
+<!-- ============ 02 · DRAG TO MOVE ============ -->
+<section class="screen grid-bg" id="s02">
+  <div class="tag-tl"><span class="tag-num">02</span><span class="tag-name">Drag to move</span></div>
+  <div class="stage free">
+    <div class="chip chip-a"><i></i>absolute</div>
+    <div class="chip chip-b"><i></i>drag me</div>
+    <div class="chip chip-c"><i></i>shift locks axis</div>
+    <div class="chip chip-d"><i></i>arrows nudge</div>
+  </div>
+  <p class="hint">Drag the element · <kbd>Shift</kbd> axis lock · <kbd>↑↓←→</kbd> nudge</p>
+  <p class="count">02 / 16</p>
+</section>
+
+<!-- ============ 03 · RESIZE HANDLES ============ -->
+<section class="screen grid-bg" id="s03">
+  <div class="tag-tl"><span class="tag-num">03</span><span class="tag-name">Resize handles</span></div>
+  <div class="stage">
+    <div class="block-resize">
+      <span class="br-k">width × height</span>
+      <span class="br-v">560×330</span>
+    </div>
+  </div>
+  <p class="hint">Pull any of 8 handles · <kbd>Alt</kbd> breaks image ratio</p>
+  <p class="count">03 / 16</p>
+</section>
+
+<!-- ============ 04 · FILL — SOLID ============ -->
+<section class="screen white" id="s04">
+  <div class="tag-tl"><span class="tag-num">04</span><span class="tag-name">Fill — solid</span></div>
+  <div class="stage">
+    <div class="swatches">
+      <div class="sw sw-1">FF3B14</div>
+      <div class="sw sw-2">DDF14A</div>
+      <div class="sw sw-3">1B4DFF</div>
+      <div class="sw sw-4">0B0B0B</div>
+    </div>
+  </div>
+  <p class="hint">Fill group · colour picker · always present</p>
+  <p class="count">04 / 16</p>
+</section>
+
+<!-- ============ 05 · FILL — GRADIENT ============ -->
+<section class="screen white" id="s05">
+  <div class="tag-tl"><span class="tag-num">05</span><span class="tag-name">Fill — gradient</span></div>
+  <div class="stage">
+    <div class="grads">
+      <div class="grad grad-l">linear · 90deg · 2 stops</div>
+      <div class="grad grad-r">radial · circle at 20%</div>
+    </div>
+  </div>
+  <p class="hint">Angle + per-stop editor · colour · alpha · position %</p>
+  <p class="count">05 / 16</p>
+</section>
+
+<!-- ============ 06 · CORNER RADIUS ============ -->
+<section class="screen" id="s06">
+  <div class="tag-tl"><span class="tag-num">06</span><span class="tag-name">Corner radius</span></div>
+  <div class="stage">
+    <div class="radii">
+      <div class="rad rad-1"></div>
+      <div class="rad rad-2"></div>
+      <div class="rad rad-3"></div>
+      <div class="rad rad-4"></div>
+    </div>
+  </div>
+  <p class="hint">Radius field · unset groups fold behind <kbd>+</kbd></p>
+  <p class="count">06 / 16</p>
+</section>
+
+<!-- ============ 07 · SPACING & OPACITY ============ -->
+<section class="screen" id="s07">
+  <div class="tag-tl"><span class="tag-num">07</span><span class="tag-name">Spacing &amp; opacity</span></div>
+  <div class="stage">
+    <div class="bars">
+      <div class="bar-o o1">opacity 1.00</div>
+      <div class="bar-o o2">opacity 0.62</div>
+      <div class="bar-o o3">opacity 0.30</div>
+    </div>
+  </div>
+  <p class="hint">Padding · margin · opacity slider</p>
+  <p class="count">07 / 16</p>
+</section>
+
+<!-- ============ 08 · SHADOW ============ -->
+<section class="screen" id="s08">
+  <div class="tag-tl"><span class="tag-num">08</span><span class="tag-name">Shadow</span></div>
+  <div class="stage">
+    <div class="card-shadow">
+      <h3>Hard shadow</h3>
+      <p>Offset X, offset Y, blur, colour — structured rows, not a raw CSS string.</p>
+    </div>
+  </div>
+  <p class="hint">Offset X / Y / Blur / Colour · <kbd>×</kbd> strips the group</p>
+  <p class="count">08 / 16</p>
+</section>
+
+<!-- ============ 09 · TYPOGRAPHY ============ -->
+<section class="screen white" id="s09">
+  <div class="tag-tl"><span class="tag-num">09</span><span class="tag-name">Typography</span></div>
+  <div class="stage">
+    <div class="type-set">
+      <h2 class="type-big">Type is a <em>control surface</em>.</h2>
+      <p class="type-sub">Size, weight, line-height, letter-spacing, transform, colour.</p>
+      <p class="type-caps">tracking 0.26em · uppercase</p>
+    </div>
+  </div>
+  <p class="hint">Multi-line headings hit-test per line box</p>
+  <p class="count">09 / 16</p>
+</section>
+
+<!-- ============ 10 · REPLACE IMAGE ============ -->
+<section class="screen" id="s10">
+  <div class="tag-tl"><span class="tag-num">10</span><span class="tag-name">Replace image</span></div>
+  <div class="stage">
+    <div class="pair">
+      <figure>
+        <img src="assets/art/cover-01.svg" alt="">
+        <figcaption>&lt;img&gt; element</figcaption>
+      </figure>
+      <figure>
+        <div class="css-bg"></div>
+        <figcaption>css background-image</figcaption>
+      </figure>
+    </div>
+  </div>
+  <p class="hint">Green button · works on <kbd>&lt;img&gt;</kbd> and <kbd>url()</kbd> alike</p>
+  <p class="count">10 / 16</p>
+</section>
+
+<!-- ============ 11 · UNGROUP ============ -->
+<section class="screen" id="s11">
+  <div class="tag-tl"><span class="tag-num">11</span><span class="tag-name">Ungroup</span></div>
+  <div class="stage">
+    <div class="wrap-group">
+      <div class="kid">child 01</div>
+      <div class="kid">child 02</div>
+      <div class="kid">child 03</div>
+    </div>
+  </div>
+  <p class="hint">Select the dashed wrapper · gold button · fully reversible</p>
+  <p class="count">11 / 16</p>
+</section>
+
+<!-- ============ 12 · SVG PAINT ============ -->
+<section class="screen" id="s12">
+  <div class="tag-tl"><span class="tag-num">12</span><span class="tag-name">SVG paint</span></div>
+  <div class="stage">
+    <div class="svgs">
+      <svg class="svg-i" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="42" fill="#1b4dff"></circle>
+        <path d="M50 16 L84 50 L50 84 L16 50 Z" fill="#ddf14a"></path>
+      </svg>
+      <svg class="svg-i" viewBox="0 0 100 100">
+        <rect x="14" y="14" width="72" height="72" fill="none" stroke="#0b0b0b" stroke-width="7"></rect>
+        <path d="M14 86 L86 14" stroke="#ff3b14" stroke-width="7"></path>
+      </svg>
+      <img class="svg-i" src="assets/art/mark.svg" alt="">
+    </div>
+  </div>
+  <p class="hint">Fill · stroke · stroke-width — linked files inline on demand</p>
+  <p class="count">12 / 16</p>
+</section>
+
+<!-- ============ 13 · ALT+CLICK THE STACK ============ -->
+<section class="screen dark" id="s13">
+  <div class="tag-tl"><span class="tag-num">13</span><span class="tag-name">Alt+click the stack</span></div>
+  <div class="stage">
+    <div class="stack">
+      <div class="s-l1"><span class="s-note">layer 1 — base</span></div>
+      <div class="s-l2"></div>
+      <div class="s-l3"></div>
+      <div class="s-l4"></div>
+    </div>
+  </div>
+  <p class="hint"><kbd>Alt</kbd> + click repeatedly · top → deepest → wrap</p>
+  <p class="count">13 / 16</p>
+</section>
+
+<!-- ============ 14 · ALL 7 vs ONLY THIS ============ -->
+<section class="screen" id="s14">
+  <div class="tag-tl"><span class="tag-num">14</span><span class="tag-name">All 7, or only this</span></div>
+  <div class="stage">
+    <div class="seven">
+      <article class="inst"><span class="inst-n">01</span><h3 class="inst-t">Instance</h3><p class="inst-d">shared class</p></article>
+      <article class="inst"><span class="inst-n">02</span><h3 class="inst-t">Instance</h3><p class="inst-d">shared class</p></article>
+      <article class="inst"><span class="inst-n">03</span><h3 class="inst-t">Instance</h3><p class="inst-d">shared class</p></article>
+      <article class="inst"><span class="inst-n">04</span><h3 class="inst-t">Instance</h3><p class="inst-d">shared class</p></article>
+      <article class="inst"><span class="inst-n">05</span><h3 class="inst-t">Instance</h3><p class="inst-d">shared class</p></article>
+      <article class="inst"><span class="inst-n">06</span><h3 class="inst-t">Instance</h3><p class="inst-d">shared class</p></article>
+      <article class="inst"><span class="inst-n">07</span><h3 class="inst-t">Instance</h3><p class="inst-d">shared class</p></article>
+    </div>
+  </div>
+  <p class="hint">Hover the warning to outline the blast radius</p>
+  <p class="count">14 / 16</p>
+</section>
+
+<!-- ============ 15 · UNITS SURVIVE ============ -->
+<section class="screen tint-lime" id="s15">
+  <div class="tag-tl"><span class="tag-num">15</span><span class="tag-name">Units survive</span></div>
+  <div class="stage">
+    <div class="cq-panel">
+      <h2 class="cq-t">13 cqw</h2>
+      <p class="cq-m">the field opens on cqw, not px</p>
+    </div>
+  </div>
+  <p class="hint">Resize the window · authored unit is what gets written back</p>
+  <p class="count">15 / 16</p>
+</section>
+
+<!-- ============ 16 · DELETE, MUTE, UNDO ============ -->
+<section class="screen" id="s16">
+  <div class="tag-tl"><span class="tag-num">16</span><span class="tag-name">Delete, mute, undo</span></div>
+  <div class="stage">
+    <div class="cloud">
+      <span class="pill hot">delete me</span>
+      <span class="pill">⌘Z restores</span>
+      <span class="pill">operation log</span>
+      <span class="pill">mute ≠ delete</span>
+      <span class="pill">100 steps</span>
+      <span class="pill">reset element</span>
+      <span class="pill">reset all</span>
+    </div>
+  </div>
+  <p class="hint">Red trash or <kbd>Delete</kbd> · history eye mutes · <kbd>⌘Z</kbd> undoes</p>
+  <p class="count">16 / 16</p>
+</section>
+
+<!-- ============ 17 · REAL SURFACE ============ -->
+<section class="screen app" id="s17">
+  <div class="stage">
+    <div class="console">
+
+      <aside class="rail">
+        <div class="rail-brand">
+          <img src="assets/art/mark.svg" alt="">
+          <span>SIGNAL FM</span>
+        </div>
+        <div class="rail-sec">
+          <p class="rail-sec-t">Browse</p>
+          <div class="rail-item on">
+            <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>
+            <span>Home</span>
+          </div>
+          <div class="rail-item">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg>
+            <span>Discover</span>
+          </div>
+          <div class="rail-item">
+            <svg viewBox="0 0 24 24"><path d="M4 19V5m5 14V9m5 10V3m5 16v-8"/></svg>
+            <span>Charts</span>
+          </div>
+          <div class="rail-item">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
+            <span>Library</span>
+          </div>
+        </div>
+        <div class="rail-sec">
+          <p class="rail-sec-t">Your sets</p>
+          <div class="rail-pl"><i></i><span>Late Transmission</span></div>
+          <div class="rail-pl"><i></i><span>Concrete Loops</span></div>
+          <div class="rail-pl"><i></i><span>Grid &amp; Grain</span></div>
+          <div class="rail-pl"><i></i><span>Night Bus</span></div>
+        </div>
+        <div class="rail-foot">
+          <div class="rail-av">OW</div>
+          <div class="rail-foot-t"><b>Oliver W.</b><span>Studio plan</span></div>
+        </div>
+      </aside>
+
+      <div class="main">
+        <div class="topbar">
+          <div class="search">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg>
+            <span>Search artists, sets, labels…</span>
+          </div>
+          <div class="seg">
+            <button class="on">All</button>
+            <button>Sets</button>
+            <button>Live</button>
+          </div>
+          <div class="icon-btn">
+            <svg viewBox="0 0 24 24"><path d="M18 15V10a6 6 0 1 0-12 0v5l-2 3h16z"/><path d="M10 21h4"/></svg>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-copy">
+            <span class="badge">New this week</span>
+            <h2 class="feature-t">Concrete<br><em>Loops</em> vol. 4</h2>
+            <p class="feature-s">Fourteen tracks recorded in one room over three nights. Tape saturation, no quantise, one take each.</p>
+            <div class="cta">
+              <div class="btn-solid">
+                <svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z"/></svg>
+                <span>Play set</span>
+              </div>
+              <div class="btn-ghost">Add to library</div>
+            </div>
+          </div>
+          <div class="feature-art">
+            <div class="f-stat"><b>48.2k</b><span>plays / 7d</span></div>
+            <img class="f-disc" src="assets/art/cover-06.svg" alt="">
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-head">
+            <h3 class="block-t">Fresh releases</h3>
+            <span class="block-c">10 items</span>
+            <span class="block-more">See all</span>
+          </div>
+          <div class="rels">
+            <article class="rel">
+              <div class="rel-art">
+                <img src="assets/art/cover-01.svg" alt="">
+                <span class="rel-rank">01</span>
+                <div class="rel-play"><svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z"/></svg></div>
+              </div>
+              <div class="rel-meta">
+                <h4 class="rel-t">Null Island</h4>
+                <p class="rel-a">Herrmann &amp; Kox</p>
+                <div class="rel-tags"><span class="rel-tag">ambient</span><span class="rel-tag">2026</span></div>
+              </div>
+            </article>
+            <article class="rel">
+              <div class="rel-art">
+                <img src="assets/art/cover-02.svg" alt="">
+                <span class="rel-rank">02</span>
+                <div class="rel-play"><svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z"/></svg></div>
+              </div>
+              <div class="rel-meta">
+                <h4 class="rel-t">Mountain Signal</h4>
+                <p class="rel-a">Ada Vane</p>
+                <div class="rel-tags"><span class="rel-tag">techno</span><span class="rel-tag">ep</span></div>
+              </div>
+            </article>
+            <article class="rel">
+              <div class="rel-art">
+                <img src="assets/art/cover-03.svg" alt="">
+                <span class="rel-rank">03</span>
+                <div class="rel-play"><svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z"/></svg></div>
+              </div>
+              <div class="rel-meta">
+                <h4 class="rel-t">Four Squares</h4>
+                <p class="rel-a">Studio Mesa</p>
+                <div class="rel-tags"><span class="rel-tag">minimal</span><span class="rel-tag">lp</span></div>
+              </div>
+            </article>
+            <article class="rel">
+              <div class="rel-art">
+                <img src="assets/art/cover-04.svg" alt="">
+                <span class="rel-rank">04</span>
+                <div class="rel-play"><svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z"/></svg></div>
+              </div>
+              <div class="rel-meta">
+                <h4 class="rel-t">Long Wave</h4>
+                <p class="rel-a">Bo Ferrier</p>
+                <div class="rel-tags"><span class="rel-tag">dub</span><span class="rel-tag">single</span></div>
+              </div>
+            </article>
+            <article class="rel">
+              <div class="rel-art">
+                <img src="assets/art/cover-05.svg" alt="">
+                <span class="rel-rank">05</span>
+                <div class="rel-play"><svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z"/></svg></div>
+              </div>
+              <div class="rel-meta">
+                <h4 class="rel-t">Six Bars</h4>
+                <p class="rel-a">Nour Alto</p>
+                <div class="rel-tags"><span class="rel-tag">breaks</span><span class="rel-tag">2026</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="player">
+          <div class="p-now">
+            <img src="assets/art/cover-06.svg" alt="">
+            <div class="p-now-t"><b>Concrete Loops IV</b><span>Herrmann &amp; Kox</span></div>
+          </div>
+          <div class="p-mid">
+            <div class="p-ctrl">
+              <button><svg viewBox="0 0 14 14"><path d="M1 3h3l6 8h3M10 3h3v3M1 11h3l2-2.6"/></svg></button>
+              <button><svg viewBox="0 0 14 14"><path d="M2 2v10M12 2L5 7l7 5z"/></svg></button>
+              <div class="p-main"><svg viewBox="0 0 12 12"><path d="M2 1h3v10H2zM7 1h3v10H7z"/></svg></div>
+              <button><svg viewBox="0 0 14 14"><path d="M12 2v10M2 2l7 5-7 5z"/></svg></button>
+              <button><svg viewBox="0 0 14 14"><path d="M3 5h8v4M11 9l-2-2M11 9H3V5M3 5l2 2"/></svg></button>
+            </div>
+            <div class="p-seek">
+              <span class="p-t">1:36</span>
+              <div class="p-track"><div class="p-fill"></div></div>
+              <span class="p-t">4:12</span>
+            </div>
+          </div>
+          <div class="p-right">
+            <svg viewBox="0 0 24 24"><path d="M11 5L6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg>
+            <div class="p-vol"><i></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="count">17</p>
+</section>
+
+<!-- ============ 18 · DETAIL SURFACE ============ -->
+<section class="screen app" id="s18">
+  <div class="stage">
+    <div class="data">
+      <section>
+        <div class="data-h">
+          <h2 class="data-t">Listening, last 12 weeks</h2>
+          <span class="data-c">hours</span>
+        </div>
+        <div class="chart">
+          <div class="bar" style="height:38%"><span>W1</span></div>
+          <div class="bar" style="height:52%"><span>W2</span></div>
+          <div class="bar" style="height:44%"><span>W3</span></div>
+          <div class="bar" style="height:66%"><span>W4</span></div>
+          <div class="bar" style="height:58%"><span>W5</span></div>
+          <div class="bar" style="height:72%"><span>W6</span></div>
+          <div class="bar" style="height:61%"><span>W7</span></div>
+          <div class="bar" style="height:84%"><span>W8</span></div>
+          <div class="bar" style="height:70%"><span>W9</span></div>
+          <div class="bar hi" style="height:100%"><span>W10</span></div>
+          <div class="bar" style="height:76%"><span>W11</span></div>
+          <div class="bar" style="height:64%"><span>W12</span></div>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><b>127.4</b><span>hours total</span></div>
+          <div class="kpi"><b>+18% <em>▲</em></b><span>vs last quarter</span></div>
+          <div class="kpi"><b>34</b><span>new artists</span></div>
+        </div>
+      </section>
+      <section>
+        <div class="data-h">
+          <h2 class="data-t">Up next</h2>
+          <span class="data-c">05</span>
+        </div>
+        <div class="queue">
+          <div class="q-row now">
+            <span class="q-n">01</span>
+            <div><div class="q-t">Concrete Loops IV</div><div class="q-a">Herrmann &amp; Kox</div></div>
+            <span class="q-d">4:12</span>
+          </div>
+          <div class="q-row">
+            <span class="q-n">02</span>
+            <div><div class="q-t">Tin Roof</div><div class="q-a">Ada Vane</div></div>
+            <span class="q-d">3:48</span>
+          </div>
+          <div class="q-row">
+            <span class="q-n">03</span>
+            <div><div class="q-t">Half Light</div><div class="q-a">Studio Mesa</div></div>
+            <span class="q-d">5:31</span>
+          </div>
+          <div class="q-row">
+            <span class="q-n">04</span>
+            <div><div class="q-t">Grain Field</div><div class="q-a">Bo Ferrier</div></div>
+            <span class="q-d">2:56</span>
+          </div>
+          <div class="q-row">
+            <span class="q-n">05</span>
+            <div><div class="q-t">Night Bus</div><div class="q-a">Nour Alto</div></div>
+            <span class="q-d">6:04</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <p class="count">18</p>
+</section>
+
+<!-- VE-LOADER:BEGIN — Visual editor loader (development only).
+     REMOVAL: delete everything between VE-LOADER:BEGIN and VE-LOADER:END,
+     then delete the tools/ directory. See tools/README.md. -->
+<script>
+  (function () {
+    var qs = new URLSearchParams(location.search);
+    var on = qs.get("edit") === "1" || location.hash === "#edit";
+    if (qs.get("edit") === "0") {
+      try { localStorage.removeItem("ve:enabled"); } catch (e) {}
+      on = false;
+    } else if (!on) {
+      try { on = localStorage.getItem("ve:enabled") === "1"; } catch (e) {}
+    }
+    if (!on) return;
+    var css = document.createElement("link");
+    css.rel = "stylesheet";
+    css.href = "tools/visual-editor.css?v=18";
+    document.head.appendChild(css);
+    var js = document.createElement("script");
+    js.src = "tools/visual-editor.js?v=18";
+    js.defer = true;
+    document.body.appendChild(js);
+  })();
+</script>
+<!-- VE-LOADER:END -->
+
+</body>
+</html>

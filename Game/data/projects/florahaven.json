@@ -1,0 +1,140 @@
+{
+  "id": "florahaven",
+  "title": "FloraHaven",
+  "subtitle": "A Spatial Plant-Care Companion for Apple Vision Pro",
+  "backgroundColor": "#D7DBC8",
+  "summary": "A gentle spatial-computing experience that turns everyday plant care into an expressive relationship between people, plants and place.",
+  "body": "FloraHaven is an independent Apple Vision Pro experience for plant lovers and home gardeners. It combines spatial computing with plant-care data to turn the plants in a home into expressive, responsive companions. Each plant communicates its needs through facial expressions, dialogue, sound and spatial status labels, while watering reminders and colour-coded countdowns make everyday care easy to understand. Users can browse an extensive plant library, save species for future cultivation or purchasing, and move naturally between discovery, plant details, current status, conversation and scanning. Customisable voice packs give each plant a distinct personality, haptic reminders signal when attention is needed, and scene-based white noise creates a calmer, more immersive atmosphere. Rather than placing another flat utility screen in front of the user, FloraHaven keeps information anchored to the living environment—supporting practical care while building a more emotional relationship between people, plants and place.",
+  "company": "Individual Project",
+  "companyLabel": "PROJECT CONTEXT",
+  "year": "2024",
+  "yearLabel": "PROJECT YEAR",
+  "roles": ["UX Design", "UI Design"],
+  "partners": [{ "name": "Individual Project" }],
+  "tags": ["Vision Pro", "Spatial UX", "AR / XR", "Interaction Design"],
+  "cover": {
+    "ratio": "2 / 1",
+    "designWidth": 3200,
+    "background": "assets/projects/florahaven/cover-jpg-web.webp",
+    "layers": [
+      {
+        "src": "assets/projects/florahaven/cover-jpg-web.webp",
+        "kind": "base",
+        "parallax": 0.5,
+        "parallaxLimit": 0.8
+      }
+    ]
+  },
+  "gallery": [],
+  "sectionCount": 5,
+  "sections": [
+    {
+      "title": "Market Analysis",
+      "body": "Plant-identification products already offer deep reference libraries, while care trackers make reminders and progress easy to understand. FloraHaven brings those strengths into Vision Pro, adding spatial presence, sound and expressive feedback so plant care feels functional, immersive and emotionally reciprocal.",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "flora-market",
+          "layout": "rail",
+          "insights": [
+            { "label": "Identity", "text": "Retain the confidence and breadth of a strong plant database." },
+            { "label": "Remember", "text": "Turn watering schedules into legible, reassuring progress." },
+            { "label": "Relate", "text": "Use personality and dialogue to make care feel reciprocal." },
+            { "label": "Immerse", "text": "Use sound and spatial feedback where Vision Pro adds real value." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "UX Design",
+      "body": "Wireframes establish the spatial hierarchy, then connect discovery, plant detail, status, conversation and scanning into one continuous care loop.",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "flora-concept-pair",
+          "layout": "full",
+          "brainstormImage": "assets/projects/florahaven/brainstorm-group-webp-web.webp",
+          "uxImage": "assets/projects/florahaven/ux-group-jpg-web.webp"
+        }
+      ]
+    },
+    {
+      "title": "Spatial Interface",
+      "body": "The spatial workspace combines a large plant browser with white-noise playback, daily weather, plant status and anthropomorphic dialogue—keeping care information visible without closing off the surrounding room.",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "flora-ui-showcase",
+          "layout": "full",
+          "overviewImage": "assets/projects/florahaven/spatial-overview-jpg-web.webp",
+          "overviewCaption": "",
+          "statusImage": "assets/projects/florahaven/plant-status-webp-web.webp",
+          "statusCaption": "After bringing home a new plant, users can scan it to identify the species automatically. Selecting the recognised plant card opens its detail page, where it can be added to My Plants. Once saved, it becomes part of the user’s personal collection and supports the same ongoing status tracking and emotional interactions as their existing plants.",
+          "flowImage": "assets/projects/florahaven/watering-flow-jpg-web.webp",
+          "flowCaption": "When users select a plant from My Plants, the main screen switches to that plant’s current status. Users can tap Water Now to log a watering. The plant’s status will then update, and the watering countdown above it will reset.",
+          "sceneImage": "assets/projects/florahaven/scene-wide-jpg-web.webp",
+          "sceneCaption": ""
+        }
+      ]
+    },
+    {
+      "title": "Emotional Plant Interaction",
+      "body": "The experience moves beyond interface control into an emotional, sensory relationship with real plants. Expressions, dialogue and spatial cues allow each plant to communicate its condition while remaining physically present in the room.",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "flora-interaction-gallery",
+          "layout": "full",
+          "leftImage": "assets/projects/florahaven/vision-photo-jpg-web.webp",
+          "rightImage": "assets/projects/florahaven/detail-portrait-jpg-web.webp",
+          "bottomImage": "assets/projects/florahaven/detail-landscape-jpg-web.webp",
+          "rightCaption": "Plants express needs and emotions directly in the shared physical space, turning care into a reciprocal interaction.",
+          "bottomCaption": "Spatial information stays anchored to the real plant, helping people understand its condition without separating data from place."
+        }
+      ]
+    },
+    {
+      "title": "Non-visual Feedback",
+      "body": "",
+      "caption": "",
+      "hideDefaultMedia": true,
+      "blocks": [
+        {
+          "type": "flora-feedback",
+          "layout": "full",
+          "categoryLabel": "Feedback type",
+          "beforeLabel": "Plant needs water",
+          "afterLabel": "After watering",
+          "rows": [
+            {
+              "category": "Haptic",
+              "entries": [
+                { "before": "A reminder vibration every 10 minutes", "after": "The vibration reminder stops" }
+              ]
+            },
+            {
+              "category": "Audio",
+              "note": "Customizable voice packs and music library",
+              "entries": [
+                { "before": "Help call", "after": "Thank-you response" },
+                { "shared": "Scene-based white noise" }
+              ]
+            },
+            {
+              "category": "Spatial",
+              "entries": [
+                { "before": "The plant’s expression changes to crying", "after": "The plant’s expression changes to smiling" },
+                { "before": "The countdown label turns red", "after": "The countdown label returns to green" },
+                { "before": "Dialogue becomes quieter and negative", "after": "Dialogue becomes warm and positive" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

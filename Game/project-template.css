@@ -1,0 +1,481 @@
+/* Shared case-study opening contract.
+   Project styles may change colour and typeface while sharing the layout scale. */
+
+.project-sheet {
+  /* Preserve the authored canvas, including on mobile text-inflation engines.
+     Browser zoom remains available; do not disable user pinch zoom. */
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  --project-template-display-font: var(--display);
+  --project-template-copy-font: Arial, Helvetica, sans-serif;
+  --project-template-title-size: 44.8px;
+  --project-template-subtitle-size: 14.08px;
+  --project-template-tag-size: 11.52px;
+  --project-template-description-size: 15.5px;
+  --project-template-fact-label-size: 10.24px;
+  --project-template-fact-value-size: 11.52px;
+  --project-context-tencent-width: 100px;
+  --project-context-note-font: 600 7px/1 var(--project-template-copy-font);
+  --project-context-note-tracking: .055em;
+}
+
+/* Information tables are open at the page edges in every visual language.
+   Project-specific colour and column proportions remain untouched. */
+.project-sheet .project-facts {
+  border-right: 0 !important;
+  border-left: 0 !important;
+  border-top-width: var(--project-hairline, 1px) !important;
+  border-bottom-width: var(--project-hairline, 1px) !important;
+}
+
+.project-sheet .project-facts > .project-fact {
+  border-right-width: var(--project-hairline, 1px);
+}
+
+.project-sheet
+  .project-facts > .project-fact:not([hidden]):not(:has(~ .project-fact:not([hidden]))) {
+  border-right: 0 !important;
+}
+
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="tencent-cloud-gaming"]
+)) .project-sheet-hero {
+  overflow: clip;
+}
+
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="tencent-cloud-gaming"]
+)) .project-sheet-hero::after {
+  position: absolute;
+  z-index: 3;
+  inset: 44% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.64));
+  content: "";
+  pointer-events: none;
+}
+
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="tencent-cloud-gaming"]
+)) .project-cover-title-overlay {
+  --project-cover-title-gap: 12px;
+  --project-cover-title-bottom-gap: calc(var(--project-cover-title-gap) * 2);
+  position: sticky;
+  z-index: 4;
+  top: calc(var(--project-canvas-height, 100dvh) - var(--project-cover-title-height, 96px));
+  right: 64px;
+  bottom: auto;
+  left: 64px;
+  display: grid;
+  justify-items: center;
+  gap: var(--project-cover-title-gap);
+  color: #f7f4ed;
+  text-align: center;
+  transform: translateY(calc(-1 * var(--project-cover-title-bottom-gap)));
+  pointer-events: none;
+}
+
+.project-sheet.is-cover-fully-visible:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="tencent-cloud-gaming"]
+)) .project-cover-title-overlay {
+  position: absolute;
+  top: auto;
+  bottom: var(--project-cover-title-bottom-gap);
+  transform: none;
+}
+
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="tencent-cloud-gaming"]
+)) .project-cover-title-overlay h2 {
+  width: auto;
+  max-width: 22ch;
+  margin: 0;
+  padding: 0;
+  background: none;
+  font-size: var(--project-template-title-size);
+  letter-spacing: 0.012em;
+  line-height: 0.96;
+  text-align: center;
+  text-wrap: nowrap;
+  white-space: nowrap;
+}
+
+/* Standard and future projects always inherit the portfolio display face.
+   Authored title treatments keep their own project-level typography. */
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="tencent-cloud-gaming"]
+)) .project-cover-title-overlay h2 {
+  font-family: var(--project-template-display-font);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="tencent-cloud-gaming"]
+)) .project-cover-title-overlay p {
+  width: min(72ch, 84%);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--project-template-display-font);
+  font-size: var(--project-template-subtitle-size);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"])) .project-sheet-heading {
+  display: none;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-tag-register {
+  min-height: 0;
+  padding: 28px 64px 8px;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-tag-register .project-tags {
+  justify-content: center;
+  gap: 8px;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-tag-register .project-tags li {
+  margin: 0;
+  border-radius: 999px;
+  padding: 9px 14px 8px;
+  font-family: var(--project-template-display-font);
+  font-size: var(--project-template-tag-size);
+  letter-spacing: 0.015em;
+  line-height: 1;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-introduction {
+  display: block;
+  padding: 20px 64px 64px;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-introduction > p {
+  width: min(100%, 1000px);
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: var(--project-template-copy-font);
+  font-size: var(--project-template-description-size);
+  line-height: 1.65;
+  text-align: left;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-facts[data-fact-count="3"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-facts {
+  border-right: 0;
+  border-left: 0;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-facts > .project-fact {
+  min-height: 142px;
+  grid-template-rows: max-content minmax(0, 1fr);
+  border-top: 0;
+  border-bottom: 0;
+  border-right-width: 1px;
+  padding: 22px 32px;
+}
+
+/* Every information value resolves to the same lower baseline, regardless of
+   whether the cell contains one line, a role list, or a partner lock-up. */
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-facts > .project-fact > :last-child {
+  align-self: end;
+}
+
+.project-sheet .project-facts > .project-fact-year:has(> .project-game-lockup[data-logo-shape]) {
+  grid-template-rows: max-content minmax(36px, 1fr) max-content;
+  gap: 8px;
+}
+
+.project-sheet .project-fact-year > strong {
+  justify-self: start;
+}
+
+.project-sheet .project-fact-company .brand-mark {
+  color: inherit;
+}
+
+.project-sheet .project-facts .project-fact-company .project-partner-list .brand-mark[data-brand="tencent"] {
+  flex: none;
+  width: var(--project-context-tencent-width);
+  height: 19.06px;
+  max-width: none;
+  max-height: none;
+}
+
+.project-game-lockup[data-logo-shape] {
+  display: flex;
+  align-items: center;
+  align-self: end;
+  gap: 10px;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+}
+
+.project-game-lockup[data-logo-shape] img {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.project-game-lockup[data-logo-shape="circle"] img {
+  border-radius: 50%;
+}
+
+.project-game-lockup[data-logo-shape="wordmark"] img {
+  width: 140px;
+  height: 36px;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+.project-sheet .project-fact-year .project-game-lockup img {
+  order: 1;
+}
+
+.project-sheet .project-fact-year .project-game-lockup strong {
+  min-width: 0;
+  font: 800 var(--project-template-fact-value-size)/1.3 var(--project-template-display-font);
+}
+
+html[lang="zh-CN"] .project-sheet .project-fact-year .project-game-lockup strong {
+  font-weight: 400;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"])
+  .project-facts > .project-fact:not([hidden]):not(:has(~ .project-fact:not([hidden]))) {
+  border-right: 0 !important;
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-fact > span {
+  font-family: var(--project-template-display-font);
+  font-size: var(--project-template-fact-label-size);
+}
+
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-role-list li,
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-fact > strong,
+.project-sheet:not([data-project-id="spirited-expedition"]) .project-partner-list strong {
+  font-family: var(--project-template-display-font);
+  font-size: var(--project-template-fact-value-size);
+  line-height: 1.3;
+}
+
+.project-sheet.is-desktop-canvas:not([data-project-id="spirited-expedition"]) .project-facts {
+  border-top-width: var(--project-hairline, 1px);
+  border-bottom-width: var(--project-hairline, 1px);
+}
+
+.project-sheet.is-desktop-canvas:not([data-project-id="spirited-expedition"])
+  .project-facts > .project-fact {
+  border-right-width: var(--project-hairline, 1px);
+}
+
+/* The facts table owns the boundary below the project information. Remove the
+   adjacent section's coincident top rule so that boundary stays one hairline. */
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="utopia-2419"],
+  [data-project-id="poka-project-p"]
+)) .project-intro + .project-video {
+  border-top: 0;
+}
+
+.project-sheet:not(:is(
+  [data-project-id="spirited-expedition"],
+  [data-project-id="utopia-2419"],
+  [data-project-id="poka-project-p"]
+)) .project-intro + .project-video[hidden] + .project-chapters
+  > .project-chapter-titlebar:first-child .project-chapter-title-surface {
+  border-top: 0;
+}
+
+.project-facts .project-partner-list > .project-cooperation-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+}
+.project-facts .project-cooperation-label {
+  flex: 0 0 auto;
+  opacity: .7;
+  font: var(--project-context-note-font);
+  letter-spacing: var(--project-context-note-tracking);
+  text-transform: uppercase;
+}
+
+/* All Context brand groups use Spirited Expedition's authored rule size.
+   Separate elements let every line stay centred and equally tall regardless
+   of the surrounding logo heights or image/SVG implementation. */
+.project-sheet .project-partner-list .project-partner-separator {
+  display: block;
+  flex: 0 0 2px;
+  align-self: center;
+  width: 2px;
+  height: 21.12px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--project-context-divider-color, currentColor);
+  pointer-events: none;
+}
+
+@keyframes nibiru-signal-noise {
+  0% { background-position: 0 0; }
+  25% { background-position: -13px 9px; }
+  50% { background-position: 8px -11px; }
+  75% { background-position: 15px 7px; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes nibiru-signal-noise-layered {
+  0% { background-position: 0 0, 0 0; }
+  25% { background-position: -13px 9px, 0 0; }
+  50% { background-position: 8px -11px, 0 0; }
+  75% { background-position: 15px 7px, 0 0; }
+  100% { background-position: 0 0, 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+}
+
+/* The final JSON layout exists before entrance; only artwork is pending. */
+.project-sheet-cover.is-cover-pending { background:#969696 !important; }
+.project-sheet-cover.is-cover-pending > .project-cover-layer { visibility:hidden; }
+.project-cover-placeholder {
+  display:none;
+  position:absolute;
+  inset:0;
+  z-index:4;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:12px;
+  font:400 16px/1.4 Arial, sans-serif;
+  color:#f5f5f5;
+  pointer-events:none;
+}
+.project-sheet-hero:has(.is-cover-pending) .project-cover-placeholder { display:flex; }
+.project-preparation[hidden] { display:none; }
+.project-preparation {
+  position:fixed;
+  inset:0;
+  z-index:150;
+  display:grid;
+  place-items:center;
+  padding:16px;
+  background:rgba(17,17,17,.52);
+}
+.project-preparation-paper {
+  width:min(400px,100%);
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:12px;
+  padding:26px;
+  outline:0;
+  color:#111;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(255,191,157,.88),rgba(255,200,183,.35) 58%,transparent),#fafaf8;
+  box-shadow:0 12px 28px #13131324;
+}
+.project-preparation-paper p { margin:0; font:400 13px/1.4 Arial, sans-serif; }
+.project-preparation-paper [data-preparation-title] { font:800 14px/1.3 var(--display); }
+:lang(zh-CN) .project-preparation-paper [data-preparation-title] { font-weight:400; }
+.project-preparation-track { height:2px; overflow:hidden; margin:4px 0 0; background:#1112; }
+.project-preparation-track span { display:block; width:35%; height:100%; background:#111; animation:preparation-scan 1.2s ease-in-out infinite alternate; }
+.project-preparation.is-paused .project-preparation-track span { animation-play-state:paused; }
+@keyframes preparation-scan { from {transform:translateX(0)} to {transform:translateX(185%)} }
+@media (prefers-reduced-motion:reduce) { .project-preparation-track span { animation:none; } }
+
+/* Neutral pending images retain intrinsic geometry; clear on load so alpha
+   artwork keeps its authored transparency. No shimmer or blur loop. */
+.project-sheet img:is([data-image-pending],[data-image-error]) { background:#96969626; }
+.project-media-host { position:relative; }
+.project-media-slot { min-width:0; }
+.project-video-pair-grid video { height:auto; }
+/* Only the foreign viewport is counter-zoomed; the 1280px composition stays
+   intact. Clip local overflow without promoting the full sheet to a layer. */
+.project-embed-viewport { display:block; overflow:hidden; padding:0; border:0; }
+.project-sheet iframe[data-media-pending] { visibility:hidden; }
+.project-sheet video[data-media-pending] { background:#969696; }
+.project-media-placeholder { position:absolute; inset:0; z-index:3; display:grid; place-content:center; gap:12px; padding:20px; background:#969696; color:#252525; text-align:center; font:14px/1.4 Arial,sans-serif; pointer-events:none; }
+.project-placeholder-wait { position:relative; display:block; flex:none; width:40px; height:40px; justify-self:center; }
+.project-placeholder-ring { position:absolute; inset:0; transform-origin:50% 50%; animation:project-placeholder-turn 1.4s linear infinite; animation-play-state:paused; }
+.project-placeholder-ring svg { display:block; width:100%; height:100%; overflow:visible; }
+.project-media-placeholder[data-runtime-active]:not([data-media-error]) .project-placeholder-ring { animation-play-state:running; }
+.project-layer[data-runtime="idle"]:not([data-runtime-visibility="hidden"]) .project-sheet-hero[data-runtime-visible]:has(.is-cover-pending) .project-placeholder-ring { animation-play-state:running; }
+@keyframes project-placeholder-turn { to { transform:rotate(360deg); } }
+@media(prefers-reduced-motion:reduce) { .project-placeholder-ring { animation:none; } }
+.project-media-placeholder small { font-size:11px; color:#404040; }
+.project-media-placeholder[hidden] { display:none; }
+
+/* Recovery stays inside the authored media box: no extra footer or height. */
+.project-sheet iframe[data-project-media-src^="https://w.soundcloud.com/player/"] { background:#969696; color:#252525; }
+.project-media-recovery { position:absolute; inset:0; z-index:4; display:none; box-sizing:border-box; pointer-events:none; color:#242424; font:14px/1.4 var(--project-game-font, var(--project-template-copy-font, Arial, sans-serif)); }
+.project-media-recovery-copy { display:none; }
+.project-sheet .project-media-reconnect { display:grid; place-items:center; flex:none; width:28px; height:28px; padding:4px; border:0; border-radius:50%; background:#f5f0e7e6; color:#242424; cursor:inherit; pointer-events:auto; }
+.project-media-reconnect svg { display:block; width:18px; height:18px; }
+.project-sheet .project-media-reconnect:hover { background:#ffdfcd; }
+.project-media-reconnect:focus-visible { outline:2px solid #242424; outline-offset:2px; }
+.project-media-recovery[data-media-state="error"] { display:flex; flex-direction:column; justify-content:center; align-items:center; gap:12px; padding:20px; background:#969696; color:#252525; text-align:center; }
+.project-media-recovery[data-media-state="error"] .project-media-recovery-copy { display:block; }
+.project-media-recovery[data-media-state="error"] .project-media-reconnect { width:40px; height:40px; background:transparent; color:inherit; }
+.project-media-recovery[data-media-state="error"] .project-media-reconnect svg { width:28px; height:28px; }
+
+/* Actual request errors degrade only the unavailable content. No error modal,
+   retry loop, fabricated facts or additional animation layer. */
+.project-sheet[data-font-fallback] * { font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif !important; }
+.project-sheet[data-data-unavailable] :is(.project-detail-facts,.project-facts,.project-sheet-facts,.project-tags,.project-chapters,#projectDetailFacts,#projectDetailTags) { display:none !important; }
+.project-sheet[data-data-unavailable] .project-intro { display:block !important; padding:40px 140px !important; background:var(--project-page-bg) !important; }
+.project-sheet[data-data-unavailable] .project-sheet-heading { display:block !important; padding:0 !important; }
+.project-sheet[data-data-unavailable] .project-sheet-heading h2 { font:800 48px/1.1 var(--display) !important; }
+.project-sheet[data-data-unavailable] .project-intro p { color:inherit !important; }
+
+/* Motion is opt-in at element level. Text, embeds, audio, video and authored
+   backgrounds remain stable unless a project explicitly selects a wrapper. */
+.project-media-reveal {
+  opacity: 0;
+  translate: 0 24px;
+  transition:
+    opacity 720ms cubic-bezier(0.22, 1, 0.36, 1),
+    translate 820ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--project-reveal-delay, 0ms);
+  will-change: opacity, translate;
+}
+
+.project-media-reveal.is-revealed {
+  opacity: 1;
+  translate: 0 0;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-media-reveal {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+}

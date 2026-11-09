@@ -1,0 +1,421 @@
+/* One lifecycle for every case study: move first, then activate visible media.
+   No iframe player or video decoder is created during the sheet transition. */
+(() => {
+  const layer = document.getElementById('projectDetail');
+  const scroller = document.getElementById('projectScroller');
+  const sheet = scroller?.querySelector('.project-sheet');
+  if (!sheet) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const media = new Set();
+  let visible = new WeakSet();
+  const animations = new Map();
+  const activity = new Map();
+  const chapters = new Set();
+  const frameActivity = new WeakMap();
+  const placeholders = new Map();
+  const placeholderListeners = new Map();
+  const mediaRecovery = new Map();
+  let phase = 'closed', timer = 0, raf = 0, generation = 0, previousTime = 0;
+  let onArrival = null;
+  let onCancelArrival = null;
+  const eligible = () => phase === 'idle' && !document.hidden;
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) visible.add(entry.target);
+      else visible.delete(entry.target);
+      if (chapters.has(entry.target)) entry.target.toggleAttribute('data-runtime-visible', entry.isIntersecting);
+      syncMedia(entry.target);
+      syncActivity(entry.target);
+    }
+    schedule();
+  }, { root: scroller, rootMargin: '180px 0px', threshold: .01 });
+
+  function syncActivity(node) {
+    const entry = activity.get(node);
+    if (!entry) return;
+    const active = node.isConnected && eligible() && visible.has(node) && !reduced.matches;
+    if (entry.active === active) return;
+    entry.active = active;
+    entry.callback(active);
+  }
+
+  function syncMedia(node) {
+    if (!node.isConnected || !media.has(node)) return;
+    const active = eligible() && visible.has(node);
+    placeholders.get(node)?.toggleAttribute('data-runtime-active', active && !reduced.matches);
+    if (active && node.dataset.projectMediaSrc && !node.hasAttribute('src')) {
+      // Our observer already gates activation. A second native lazy gate can
+      // stall a counter-zoomed iframe in mobile WebKit after it becomes visible.
+      if (node.tagName === 'IFRAME') node.loading = 'eager';
+      node.src = node.dataset.projectMediaSrc;
+    }
+    if (node.tagName === 'VIDEO') {
+      if (active && reduced.matches) node.preload = 'metadata';
+      if (active && !reduced.matches && node.dataset.visibilityManaged === 'true') node.play().catch(() => {});
+      else node.pause();
+    }
+    if (node.tagName === 'AUDIO' && !eligible()) node.pause();
+    if (node.tagName === 'IFRAME' && node.hasAttribute('src')) {
+      if (!active && frameActivity.get(node) !== false) pauseFrame(node);
+      frameActivity.set(node, active);
+    }
+  }
+
+  function pauseFrame(frame) {
+    try {
+      const url = new URL(frame.src);
+      // Use the providers' message bridge, without adding another player SDK.
+      if (url.hostname === 'player.vimeo.com') frame.contentWindow?.postMessage({ method: 'pause' }, url.origin);
+      else if (url.hostname === 'w.soundcloud.com') frame.contentWindow?.postMessage(JSON.stringify({ method: 'pause', value: null }), url.origin);
+      else if (['www.youtube.com','www.youtube-nocookie.com'].includes(url.hostname)) {
+        frame.contentWindow?.postMessage(JSON.stringify({ event: 'command', func: 'pauseVideo', args: [] }), url.origin);
+      }
+    } catch { /* A not-yet-loaded or blocked embed is released on reset. */ }
+  }
+
+  function schedule() {
+    if (raf || !eligible() || reduced.matches) return;
+    if ([...animations.keys()].some(node => node.isConnected && visible.has(node))) raf = requestAnimationFrame(tick);
+  }
+  function tick(time) {
+    raf = 0;
+    if (!eligible() || reduced.matches) return;
+    const delta = previousTime ? Math.min(40, time - previousTime) : 0;
+    previousTime = time;
+    for (const [node, entry] of animations) {
+      if (!node.isConnected) { entry.dispose?.(); animations.delete(node); observer.unobserve(node); continue; }
+      if (visible.has(node)) entry.callback(time, delta);
+    }
+    schedule();
+  }
+  function refresh() {
+    layer.dataset.runtimeVisibility = document.hidden ? 'hidden' : 'visible';
+    media.forEach(syncMedia);
+    activity.forEach((entry, node) => syncActivity(node));
+    if (eligible() && reduced.matches) {
+      animations.forEach((entry, node) => { if (node.isConnected && visible.has(node)) entry.callback(performance.now(), 0); });
+    }
+    if (!eligible() || reduced.matches) {
+      cancelAnimationFrame(raf); raf = 0; previousTime = 0;
+    } else schedule();
+  }
+  function begin(next) {
+    generation += 1;
+    onCancelArrival?.(); onCancelArrival = null;
+    clearTimeout(timer); timer = 0; onArrival = null;
+    phase = next;
+    layer.dataset.runtime = next;
+    refresh();
+  }
+  function reset() {
+    observer.disconnect();
+    for (const node of media) {
+      if (node.tagName === 'VIDEO' || node.tagName === 'AUDIO') node.pause();
+      node.removeAttribute('src');
+      node.removeAttribute('data-project-media-src');
+      node.removeAttribute('data-media-pending');
+      delete node.dataset.placeholderBound;
+      if (node.tagName === 'VIDEO' || node.tagName === 'AUDIO') node.load();
+    }
+    media.clear();
+    visible = new WeakSet();
+    placeholderListeners.forEach(controller => controller.abort()); placeholderListeners.clear();
+    placeholders.forEach(placeholder => placeholder.remove()); placeholders.clear();
+    mediaRecovery.forEach(entry => entry.controls?.remove()); mediaRecovery.clear();
+    chapters.forEach(node => node.removeAttribute('data-runtime-visible')); chapters.clear();
+    animations.forEach(entry => entry.dispose?.()); animations.clear();
+    for (const entry of activity.values()) if (entry.active) entry.callback(false);
+    activity.clear();
+    cancelAnimationFrame(raf); raf = 0; previousTime = 0;
+  }
+  function source(node, url) {
+    // Rebinding a single media node releases its old UI/listeners. It never
+    // resets the detail sheet, another track or the homepage.
+    if (mediaRecovery.has(node)) {
+      mediaRecovery.get(node).controls?.remove(); mediaRecovery.delete(node);
+      placeholderListeners.get(node)?.abort(); placeholderListeners.delete(node);
+      placeholders.get(node)?.remove(); placeholders.delete(node);
+      delete node.dataset.placeholderBound;
+      node.removeAttribute('src');
+    }
+    if (!url) {
+      node.removeAttribute('src'); delete node.dataset.projectMediaSrc;
+      node.removeAttribute('data-media-pending'); delete node.dataset.placeholderBound;
+      placeholderListeners.get(node)?.abort(); placeholderListeners.delete(node);
+      placeholders.get(node)?.remove(); placeholders.delete(node); return;
+    }
+    if (node.tagName === 'IFRAME' && /^https:\/\/www\.youtube(?:-nocookie)?\.com\/embed\//.test(url)) {
+      const playerUrl = new URL(url);
+      playerUrl.searchParams.set('enablejsapi', '1');
+      playerUrl.searchParams.set('origin', location.origin);
+      url = playerUrl.href;
+    }
+    if (node.tagName === 'IFRAME' && /^https:\/\/player\.vimeo\.com\/video\//.test(url)
+      && !['spirited-expedition', 'sound-design'].includes(sheet.dataset.projectId)) {
+      const playerUrl = new URL(url);
+      playerUrl.searchParams.set('title', '1');
+      playerUrl.searchParams.set('byline', '0');
+      playerUrl.searchParams.set('portrait', '0');
+      url = playerUrl.href;
+    }
+    node.dataset.projectMediaSrc = url;
+    prepareMediaPlaceholder(node, url);
+    if (node.tagName === 'VIDEO') {
+      node.autoplay = false; node.removeAttribute('autoplay'); node.preload = 'none';
+    }
+    media.add(node); observer.observe(node);
+    syncMedia(node);
+  }
+  function bind(video) {
+    video.dataset.visibilityManaged = 'true';
+    video.autoplay = false; video.removeAttribute('autoplay');
+    video.preload = 'none';
+    media.add(video); observer.observe(video);
+    syncMedia(video);
+  }
+  function arrive() {
+    if (phase !== 'entering') return;
+    clearTimeout(timer); timer = 0;
+    phase = 'idle'; layer.dataset.runtime = 'idle';
+    const callback = onArrival; onArrival = null;
+    onCancelArrival = null;
+    callback?.();
+    // Allow the final compositor frame to finish before starting decoders.
+    const token = generation;
+    requestAnimationFrame(() => { if (token === generation) refresh(); });
+  }
+  function enter(immediate, callback, cancelCallback) {
+    begin('entering'); onArrival = callback; onCancelArrival = cancelCallback;
+    observeContent();
+    if (immediate || reduced.matches) { arrive(); return; }
+    // transitionend is authoritative; the fallback covers browser interruption.
+    timer = setTimeout(arrive, 840);
+  }
+  function observeContent() {
+    layoutMediaRecovery();
+    sheet.querySelectorAll('img').forEach(image => {
+      if (window.prepareProjectImagePlaceholder) { window.prepareProjectImagePlaceholder(image); return; }
+      if (image.complete && image.naturalWidth || image.hasAttribute('data-image-pending')) return;
+      image.dataset.imagePending = 'true';
+      const done = () => image.removeAttribute('data-image-pending');
+      image.addEventListener('load', done, {once:true});
+      image.addEventListener('error', done, {once:true});
+    });
+    sheet.querySelectorAll('.project-chapter,.sound-project,.project-chapter-titlebar,.project-sheet-hero').forEach(node => {
+      if (!chapters.has(node)) { chapters.add(node); observer.observe(node); }
+    });
+    refresh();
+  }
+  // Rotate an HTML border box, not an SVG group with absolute user-space
+  // origins. WebKit's inherited CSS zoom otherwise shifts the rotation axis.
+  function waitIcon() {
+    const icon = document.createElement('div');
+    icon.className = 'project-placeholder-wait';
+    icon.setAttribute('aria-hidden', 'true');
+    const ring = document.createElement('span');
+    ring.className = 'project-placeholder-ring';
+    // Both strokes use radius14. Positive CSS rotation is clockwise, so the
+    // dot leads at the arc's end (20,34), not its trailing start (20,6).
+    // Rotate the HTML box, never a zoom-sensitive SVG group.
+    ring.innerHTML = '<svg viewBox="0 0 40 40" width="40" height="40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1" opacity=".28"/><path d="M20 6 A14 14 0 0 1 20 34" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="20" cy="34" r="2.5" fill="#ffede3" stroke="currentColor" stroke-width="1"/></svg>';
+    icon.append(ring);
+    return icon;
+  }
+  function mediaCopy(element, english, chinese) {
+    // Runtime status can change after localization. Explicit pairs avoid a
+    // translated text node becoming the English source of the next status.
+    element.dataset.projectCopyEn = english;
+    element.dataset.projectCopyZh = chinese;
+    element.textContent = document.documentElement.lang.startsWith('zh') ? chinese : english;
+  }
+  function mediaStatus(entry, state) {
+    entry.state = state;
+    if (entry.status) {
+      const audio = entry.url.startsWith('https://w.soundcloud.com/');
+      mediaCopy(entry.status, audio ? 'Audio connection failed.' : 'Video connection failed.',
+        audio ? '音频连接失败' : '视频连接失败');
+    }
+    if (entry.controls) entry.controls.dataset.mediaState = state;
+    if (state === 'error') {
+      placeholders.get(entry.node)?.remove(); placeholders.delete(entry.node);
+      entry.node.dataset.mediaPending = 'true';
+    } else if (state === 'ready' || state === 'unconfirmed') {
+      entry.node.removeAttribute('data-media-pending');
+      placeholders.get(entry.node)?.remove(); placeholders.delete(entry.node);
+    }
+  }
+  function layoutMediaRecovery() {
+    for (const [node, entry] of mediaRecovery) {
+      if (!entry.controls || !node.isConnected) continue;
+      const viewport = node.closest('.project-embed-viewport');
+      const host = viewport || node.parentElement;
+      if (!host) continue;
+      host.classList.add('project-media-host');
+      if (entry.controls.parentElement !== host) host.append(entry.controls);
+      if (viewport) Object.assign(entry.controls.style, {inset:'0',width:'auto',height:'auto'});
+      else if (host.querySelectorAll('iframe,video').length === 1 && host.children.length > 1) {
+        Object.assign(entry.controls.style, {inset:node.offsetTop+'px auto auto '+node.offsetLeft+'px',width:node.offsetWidth+'px',height:node.offsetHeight+'px'});
+      }
+      const placeholder = placeholders.get(node);
+      if (viewport && placeholder && placeholder.parentElement !== viewport) {
+        viewport.append(placeholder);
+        Object.assign(placeholder.style, {inset:'0', width:'auto', height:'auto'});
+      }
+    }
+  }
+  function prepareMediaPlaceholder(node, url) {
+    if (!['VIDEO','IFRAME'].includes(node.tagName) || node.dataset.placeholderBound) return;
+    node.dataset.placeholderBound = 'true';
+    node.dataset.mediaPending = 'true';
+    const controller = new AbortController();
+    placeholderListeners.set(node, controller);
+    const entry = {node, url, state:'waiting'};
+    mediaRecovery.set(node, entry);
+    const current = () => mediaRecovery.get(node) === entry && node.dataset.projectMediaSrc === url;
+    const done = () => {
+      if (!current()) return;
+      node.removeAttribute('data-media-pending');
+      placeholders.get(node)?.remove(); placeholders.delete(node);
+      mediaStatus(entry, 'ready');
+    };
+    node.addEventListener('error', () => {
+      if (node.tagName === 'VIDEO' && (!node.error || node.error.code === 1)) return;
+      if (current()) mediaStatus(entry, 'error');
+    }, {signal:controller.signal});
+    if (node.tagName === 'VIDEO') {
+      if (node.hasAttribute('data-project-demo-video')) {
+        node.controls = false;
+        node.tabIndex = 0;
+        const revealControls = () => { node.controls = true; };
+        for (const event of ['pointerenter','pointerdown','focus']) {
+          node.addEventListener(event, revealControls, {signal:controller.signal});
+        }
+      } else {
+        node.addEventListener('loadedmetadata', done, {signal:controller.signal});
+      }
+      node.addEventListener('loadeddata', done, {signal:controller.signal});
+    }
+    else node.addEventListener('load', () => {
+      if (!current() || !node.hasAttribute('src') || node.src !== new URL(url,location.href).href) return;
+      const origin = new URL(url,location.href).origin;
+      // Show the loaded document even if its message bridge stays silent.
+      // Cross-origin silence cannot prove that a player has failed.
+      if (!['error','ready'].includes(entry.state)) mediaStatus(entry, 'unconfirmed');
+      if (origin === 'https://w.soundcloud.com') {
+        node.contentWindow?.postMessage(JSON.stringify({method:'addEventListener',value:'ready'}),origin);
+        node.contentWindow?.postMessage(JSON.stringify({method:'addEventListener',value:'error'}),origin);
+        node.contentWindow?.postMessage(JSON.stringify({method:'getCurrentSound',value:null}),origin);
+      } else if (origin === 'https://player.vimeo.com') {
+        node.contentWindow?.postMessage({method:'addEventListener',value:'error'},origin);
+        node.contentWindow?.postMessage({method:'addEventListener',value:'loaded'},origin);
+      } else if (/^https:\/\/www\.youtube(?:-nocookie)?\.com$/.test(origin)) {
+        node.contentWindow?.postMessage(JSON.stringify({event:'listening',id:node.id || 'portfolio-player'}),origin);
+        node.contentWindow?.postMessage(JSON.stringify({event:'command',func:'addEventListener',args:['onError']}),origin);
+      }
+    }, {signal:controller.signal});
+    // Renderers set sources before appending. One microtask, no polling.
+    Promise.resolve().then(() => {
+      if (!node.isConnected || !node.parentElement || !current() || controller.signal.aborted) return;
+      const host = node.closest('.project-embed-viewport') || node.parentElement;
+      host.classList.add('project-media-host');
+      if (entry.state === 'waiting') {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'project-media-placeholder';
+        placeholder.setAttribute('aria-hidden','true');
+        const radius = [node,host,host.parentElement].filter(Boolean)
+          .map(element=>getComputedStyle(element).borderRadius).find(value=>value && value !== '0px');
+        if (radius) placeholder.style.borderRadius = radius;
+        const label = document.createElement('span');
+        label.className = 'project-loading-label';
+        label.textContent = /soundcloud/.test(url) ? 'Loading audio…' : 'Loading video…';
+        placeholder.append(waitIcon(),label);
+        if (host.querySelectorAll('iframe,video').length === 1 && host.children.length > 1) {
+          Object.assign(placeholder.style, {inset:node.offsetTop+'px auto auto '+node.offsetLeft+'px',width:node.offsetWidth+'px',height:node.offsetHeight+'px'});
+        }
+        host.append(placeholder); placeholders.set(node,placeholder);
+        placeholder.toggleAttribute('data-runtime-active',eligible() && visible.has(node) && !reduced.matches);
+        window.translatePortfolioTree?.(placeholder,document.documentElement.lang.startsWith('zh')?'zh':'en');
+        if (node.tagName === 'VIDEO' && node.poster) {
+          const poster = new Image();
+          poster.onload = () => { if (entry.state === 'waiting') done(); };
+          poster.src = node.poster;
+        }
+      }
+      const controls = document.createElement('div');
+      controls.className = 'project-media-recovery';
+      entry.controls = controls;
+      const status = document.createElement('span');
+      entry.status = status;
+      status.className = 'project-media-recovery-copy';
+      status.setAttribute('role','status');
+      const audio = node.tagName === 'IFRAME' && /^https:\/\/w\.soundcloud\.com\/player\//.test(url);
+      mediaCopy(status,audio ? 'Audio connection failed.' : 'Video connection failed.',audio ? '音频连接失败' : '视频连接失败');
+      const retry = document.createElement('button');
+      entry.retry = retry;
+      retry.type = 'button'; retry.className = 'project-media-reconnect';
+      retry.setAttribute('aria-label','Reconnect'); retry.setAttribute('title','Reconnect');
+      retry.innerHTML = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18.4 17.2 A8.2 8.2 0 1 1 18.4 6.8" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><path d="M21 3v8h-8Z" fill="currentColor"/></svg>';
+      retry.addEventListener('click', () => {
+        if (!eligible() || !node.isConnected || !current()) return;
+        const target = new URL(url,location.href);
+        target.searchParams.set('_portfolio_retry',String((Number(target.searchParams.get('_portfolio_retry'))||0)+1));
+        // Recreate only this browsing context (not its element/listeners).
+        // Old queued postMessages then cannot impersonate the new attempt.
+        if (node.tagName === 'IFRAME') {
+          const parent = node.parentElement, next = node.nextSibling;
+          node.remove(); node.removeAttribute('src'); parent.insertBefore(node,next);
+        }
+        source(node,target.href);
+      }, {signal:controller.signal});
+      controls.append(retry,status); host.append(controls);
+      window.translatePortfolioTree?.(controls,document.documentElement.lang.startsWith('zh')?'zh':'en');
+      mediaStatus(entry,entry.state);
+      layoutMediaRecovery();
+    });
+  }
+  window.addEventListener('message', event => {
+    if (!['https://player.vimeo.com','https://w.soundcloud.com','https://www.youtube.com','https://www.youtube-nocookie.com'].includes(event.origin)) return;
+    let data;
+    try { data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data; } catch { return; }
+    const method = data?.method || data?.event;
+    if (!['error','onError','ready','onReady','loaded','getCurrentSound','ping'].includes(method)) return;
+    for (const [node,entry] of mediaRecovery) {
+      if (!node.isConnected || node.tagName !== 'IFRAME' || node.contentWindow !== event.source
+        || node.dataset.projectMediaSrc !== entry.url || node.src !== new URL(entry.url,location.href).href
+        || new URL(entry.url,location.href).origin !== event.origin) continue;
+      if (method === 'error' || method === 'onError') {
+        // Once the widget has confirmed itself, a later playback/control
+        // message must not cover an already usable player.
+        if (entry.state === 'ready') continue;
+        // Vimeo reports rejected API operations through the same error event.
+        // A failed pause/subscription is not a failed video connection.
+        if (event.origin === 'https://player.vimeo.com' && data.data?.method && !['loadVideo','embed'].includes(data.data.method)) continue;
+        if (method === 'onError' && ![2,5,100,101,150,153].includes(Number(data.info))) continue;
+        mediaStatus(entry,'error');
+      }
+      else if (event.origin === 'https://w.soundcloud.com') {
+        // READY can arrive before the outer iframe's load event.
+        if (method === 'ready' || method === 'getCurrentSound' && (data.value?.id || data.value?.urn)) mediaStatus(entry,'ready');
+      } else mediaStatus(entry,'ready');
+      break;
+    }
+  });
+  scroller.addEventListener('transitionend', event => {
+    if (event.target === scroller && event.propertyName === 'transform') arrive();
+  });
+  document.addEventListener('visibilitychange', refresh);
+  reduced.addEventListener('change', refresh);
+  window.projectRuntime = {
+    begin, reset, source, bind, enter, refresh, observeContent, waitIcon,
+    get phase() { return phase; },
+    watchActivity(node, callback) {
+      activity.set(node, { callback, active: false });
+      observer.observe(node);
+      syncActivity(node);
+    },
+    animate(node, callback, dispose) {
+      animations.set(node, { callback, dispose }); observer.observe(node); schedule();
+    },
+  };
+  layer.dataset.runtime = phase;
+})();

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 122" fill="none">
+  <!-- Medium: wider relative to length; thinner rendered wire than the large. -->
+  <path d="M32 34V96a8 8 0 0 1-16 0V22a14 14 0 0 1 28 0v74a20 20 0 0 1-40 0V30"
+        stroke="#000000" stroke-width="5.04" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
