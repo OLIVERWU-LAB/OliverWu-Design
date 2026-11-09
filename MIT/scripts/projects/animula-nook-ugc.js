@@ -383,7 +383,7 @@
       timer = setTimeout(() => {
         select(1 - state);
         schedule();
-      }, 2000);
+      }, 1700);
     };
     for (const [kind, item] of [['pc', config.pc], ['console', config.console]]) {
       const column = make('section', 'ugc-action-model is-' + kind);
