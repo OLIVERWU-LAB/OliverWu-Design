@@ -114,6 +114,9 @@
         region.style.setProperty('--start-scroll-fade-size', `${pane.topFade / pane.height * 100}%`);
       }
       const content = make('div', 'start-scroll-content');
+      // Use the grid's design width so browser zoom scales the artwork only once.
+      // The scrollbar occupies the pane without changing the artwork coordinates.
+      content.style.width = `calc(var(--start-screen-width) * ${pane.width / width})`;
       content.style.height = `${pane.contentHeight / pane.height * 100}%`;
       for (const layer of pane.layers) {
         if (!Number.isFinite(layer.pinBottom)) {
@@ -122,7 +125,7 @@
         }
         // Native sticky positioning stays on the same scroll timeline as the left column.
         const column = make('div', 'start-scroll-pin');
-        column.style.top = `${(layer.pinBottom - layer.height) / pane.width * 100}cqw`;
+        column.style.top = `calc(var(--start-screen-width) * ${(layer.pinBottom - layer.height) / width})`;
         column.style.marginTop = `${layer.y / pane.width * 100}%`;
         column.style.marginLeft = `${layer.x / pane.width * 100}%`;
         column.style.width = `${layer.width / pane.width * 100}%`;

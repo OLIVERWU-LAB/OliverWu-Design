@@ -126,19 +126,22 @@ html:lang(en) .project-sheet[data-project-id="start-cloud-gaming-3"] .start-chap
 }
 
 .project-sheet[data-project-id="start-cloud-gaming-3"] .start-screen-grid {
+  --start-screen-count: 1;
+  --start-screen-gap: 28px;
+  --start-screen-width: calc((var(--start-track) - (var(--start-screen-count) - 1) * var(--start-screen-gap)) / var(--start-screen-count));
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: repeat(var(--start-screen-count), minmax(0, 1fr));
   align-items: start;
-  gap: 28px;
+  gap: var(--start-screen-gap);
 }
 
 .project-sheet[data-project-id="start-cloud-gaming-3"] .start-pair .start-screen-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  --start-screen-count: 2;
 }
 
 .project-sheet[data-project-id="start-cloud-gaming-3"] .start-phone .start-screen-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px;
+  --start-screen-count: 3;
+  --start-screen-gap: 32px;
 }
 
 .project-sheet[data-project-id="start-cloud-gaming-3"] .start-screen {
@@ -181,7 +184,6 @@ html:lang(en) .project-sheet[data-project-id="start-cloud-gaming-3"] .start-chap
 
 .project-sheet[data-project-id="start-cloud-gaming-3"] .start-scroll-region {
   position: absolute;
-  container-type: inline-size;
 }
 
 .project-sheet[data-project-id="start-cloud-gaming-3"] .start-scroll-region.is-scrolled::after {
@@ -211,8 +213,6 @@ html:lang(en) .project-sheet[data-project-id="start-cloud-gaming-3"] .start-chap
   position: relative;
   display: flow-root;
   width: 100%;
-  /* Keep layer coordinates independent of space reserved by a scrollbar. */
-  width: 100cqw;
 }
 
 .project-sheet[data-project-id="start-cloud-gaming-3"] .start-scroll-pin {
