@@ -1,0 +1,12 @@
+/* Reversible presentation blur. The underlying media remains unchanged. */
+.project-sheet[data-project-id="animula-nook-ugc"] :is(
+  .ugc-image:not([src*="/workflow-vscode.webp"]),
+  .ugc-device-interface,
+  .ugc-player
+) {
+  filter: blur(5px);
+}
+
+.project-sheet[data-project-id="animula-nook-ugc"] .ugc-screen-link {
+  overflow: hidden;
+}
